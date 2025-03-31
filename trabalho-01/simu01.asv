@@ -1,9 +1,9 @@
 %---------------------------------------------------------------------
-%  COE-835  Controle adaptativo
+%  COE-603  Controle adaptativo
 %
 %  Script para simular o exemplo 1
-%                                                       Ramon R. Costa
-%                                                       01/out/09, Rio
+%                                             Leonardo S. da C. Tanaka 
+%                                                       30/mar/25, Rio
 %---------------------------------------------------------------------
 clear all;
 clc;
@@ -14,9 +14,9 @@ disp('Script para simular o exemplo 1')
 disp(' ')
 disp('Caso: Planta ............. n = 1')
 disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 1')
+disp('      Parâmetros ........ np = 2')
 disp(' ')
-disp('Algoritmo: Standard MRAC')
+disp('Algoritmo: MRAC Direto')
 disp(' ')
 disp('-------------------------------')
 
@@ -59,11 +59,11 @@ thetas = [-(ap+am)/kp; km/kp];   %theta*
 %----------------------------------------- Adaptation parameters -----
 gamma1 = 2;       %Adaptation gains
 gamma2 = 100;
-theta0 = [0;0;       %Adaptation inicial condition
+theta0 = [0;0];       %Adaptation inicial condition
 
 %---------------------------------------------------- Simulation -----
 gamma = gamma1
-sim('MRAC_111',tfinal);
+sim('MRAC_direto',tfinal);
 
 yp1 = yp;   %Save results
 e01 = e0;
@@ -72,7 +72,7 @@ u1 = u;
 
 %---------------------------------------------------- Simulation -----
 gamma = gamma2
-sim('MRAC_111',tfinal);
+sim('MRAC_direto',tfinal);
 
 yp2 = yp;   %Save results
 e02 = e0;
@@ -93,17 +93,20 @@ legend({par1,par2},...
 sublaby("   ");
 print -depsc2 fig01a.eps
 
-Thetas = thetas*ones(size(t));
+Theta1 = thetas(1)*ones(size(t));
+Theta2 = thetas(2)*ones(size(t));
 
 figure(2)
 clf
 subplot(211)
-plot(t,theta1,t,theta2,t,Thetas,'Linew',0.5);
+plot(t,theta1,t,theta2,t,Theta1,t,Theta2,'Linew',0.5);
 grid on
 title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\theta\;(\gamma=',num2str(gamma1),')$');
-par2 = strcat('$\theta\;(\gamma=',num2str(gamma2),')$');
-legend({par1,par2,'$\theta^*$'},...
+par1 = strcat('$\theta_{1}\;(\gamma=',num2str(gamma1),')$');
+par2 = strcat('$\theta_2\;(\gamma=',num2str(gamma1),')$');
+par3 = strcat('$\theta\;(\gamma=',num2str(gamma2),')$');
+par4 = strcat('$\theta\;(\gamma=',num2str(gamma2),')$');
+legend({par1,par2,par3,par4,'$\theta^*$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
 print -depsc2 fig01b.eps
@@ -125,8 +128,8 @@ V = axis;
 axis([V(1) V(2) 0 2.5 ]);
 print -depsc2 fig01c.eps
 
-ttheta1 = theta1 - thetas(1);
-ttheta2 = theta2 - thetas(2);
+ttheta1 = theta1 - thetas;
+ttheta2 = theta2 - thetas;
 
 figure(4)
 clf
@@ -142,7 +145,7 @@ par1 = strcat('$e_0 \times \tilde\theta\;(\gamma=',num2str(gamma1),')$');
 par2 = strcat('$e_0 \times \tilde\theta\;(\gamma=',num2str(gamma2),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
-%sublaby("   ");
+sublaby("   ");
 print -depsc2 fig01d.eps
 
 figure(5)
@@ -177,8 +180,8 @@ legend({par1,par2},...
 
 subplot(222)
 hold on
-plot(t,theta1)
-plot(t,theta2,t,Thetas,'r','Linew',0.5);
+plot(t,theta1,t,Theta1)
+plot(t,theta2,t,Theta2,'r','Linew',0.5);
 grid on; 
 title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
 legend({par1,par2,'$\theta^*$'},...
