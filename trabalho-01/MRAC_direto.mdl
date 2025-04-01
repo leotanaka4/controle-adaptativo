@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.3"
+    ComputedModelVersion    "7.5"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -88,23 +88,23 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1681.0, 744.0]
-	  ZoomFactor		  [1.3447988904299584]
-	  Offset		  [-53.294966996699657, 34.0]
-	  SceneRectInView	  [-53.294966996699657, 34.0, 1000.0008250825083, 442.59405940594064]
-	}
-	Object {
-	  $ObjectID		  6
-	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
 	  Extents		  [1681.0, 744.0]
 	  ZoomFactor		  [1.5]
-	  Offset		  [-76.6, -86.466666666666669]
-	  SceneRectInView	  [-76.6, -86.466666666666669, 896.5333333333333, 396.8]
+	  Offset		  [-76.600000000000023, -86.466666666666669]
+	  SceneRectInView	  [-76.600000000000023, -86.466666666666669, 896.5333333333333, 396.8]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1681.0, 744.0]
+	  ZoomFactor		  [1.3447988904299584]
+	  Offset		  [-53.2949669966996, 34.0]
+	  SceneRectInView	  [-53.2949669966996, 34.0, 1000.0008250825083, 442.59405940594064]
 	}
 	PropName		"EditorsInfo"
       }
@@ -163,9 +163,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Mar 30 20:14:34 2025"
-  RTWModifiedTimeStamp	  665266308
-  ModelVersionFormat	  "%<AutoIncrement:7.3>"
+  LastModifiedDate	  "Tue Apr 01 20:29:23 2025"
+  RTWModifiedTimeStamp	  665440162
+  ModelVersionFormat	  "%<AutoIncrement:7.5>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1347,7 +1347,7 @@ Model {
 	Name			"Adaptation"
 	Location		[-7, -7, 1543, 823]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1385,10 +1385,11 @@ Model {
 	  BlockType		  Gain
 	  Name			  "-gamma"
 	  SID			  "4"
-	  Position		  [100, 89, 155, 131]
+	  Position		  [200, 99, 255, 141]
 	  ZOrder		  -3
 	  BackgroundColor	  "lightBlue"
 	  Gain			  "-gamma"
+	  Multiplication	  "Matrix(K*u) (u vector)"
 	  ParamDataTypeStr	  "Inherit: Same as input"
 	  OutDataTypeStr	  "Inherit: Same as input"
 	  SaturateOnIntegerOverflow on
@@ -1397,7 +1398,7 @@ Model {
 	  BlockType		  Gain
 	  Name			  "Gain"
 	  SID			  "49"
-	  Position		  [170, 95, 200, 125]
+	  Position		  [275, 102, 330, 138]
 	  ZOrder		  2
 	  Gain			  "sign(kp)"
 	}
@@ -1406,7 +1407,7 @@ Model {
 	  Name			  "Integrator"
 	  SID			  "5"
 	  Ports			  [1, 1]
-	  Position		  [305, 101, 345, 139]
+	  Position		  [365, 101, 405, 139]
 	  ZOrder		  -4
 	  InitialCondition	  "theta0"
 	}
@@ -1415,7 +1416,7 @@ Model {
 	  Name			  "Product"
 	  SID			  "6"
 	  Ports			  [2, 1]
-	  Position		  [225, 101, 265, 139]
+	  Position		  [140, 101, 180, 139]
 	  ZOrder		  -5
 	  ShowName		  off
 	  InputSameDT		  on
@@ -1428,7 +1429,7 @@ Model {
 	  Name			  "To Workspace 2"
 	  SID			  "7"
 	  Ports			  [1]
-	  Position		  [410, 67, 450, 93]
+	  Position		  [470, 67, 510, 93]
 	  ZOrder		  -6
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
@@ -1453,7 +1454,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "theta"
 	  SID			  "9"
-	  Position		  [415, 110, 435, 130]
+	  Position		  [475, 110, 495, 130]
 	  ZOrder		  -8
 	  BackgroundColor	  "green"
 	  InitialOutput		  "0"
@@ -1477,17 +1478,18 @@ Model {
 	  }
 	}
 	Line {
-	  ZOrder		  13
+	  ZOrder		  36
 	  SrcBlock		  "Gain"
 	  SrcPort		  1
-	  DstBlock		  "Product"
+	  Points		  [30, 0]
+	  DstBlock		  "Integrator"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  5
+	  ZOrder		  39
 	  SrcBlock		  "w"
 	  SrcPort		  1
-	  Points		  [125, 0; 0, -55]
+	  Points		  [30, 0; 0, -55]
 	  DstBlock		  "Product"
 	  DstPort		  2
 	}
@@ -1497,42 +1499,42 @@ Model {
 	  SrcPort		  1
 	  Points		  [7, 0]
 	  Branch {
-	    ZOrder		    12
-	    DstBlock		    "-gamma"
+	    ZOrder		    38
+	    DstBlock		    "Product"
 	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    7
+	    ZOrder		    20
 	    Points		    [0, -50]
 	    DstBlock		    "To Workspace 3"
 	    DstPort		    1
 	  }
 	}
 	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Product"
-	  SrcPort		  1
-	  DstBlock		  "Integrator"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  11
+	  ZOrder		  35
 	  SrcBlock		  "-gamma"
 	  SrcPort		  1
 	  DstBlock		  "Gain"
 	  DstPort		  1
 	}
+	Line {
+	  ZOrder		  32
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  DstBlock		  "-gamma"
+	  DstPort		  1
+	}
 	Annotation {
 	  SID			  "10"
 	  Name			  "theta"
-	  Position		  [350, 101, 374, 115]
+	  Position		  [410, 101, 434, 115]
 	  InternalMargins	  [0, 0, 0, 0]
 	  ZOrder		  -1
 	}
 	Annotation {
 	  SID			  "11"
 	  Name			  "dtheta"
-	  Position		  [269, 98, 298, 112]
+	  Position		  [329, 98, 358, 112]
 	  InternalMargins	  [0, 0, 0, 0]
 	  ZOrder		  -2
 	}

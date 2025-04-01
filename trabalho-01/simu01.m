@@ -21,8 +21,8 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 10;    %Simulation interval
-st = 0.05;      %Sample time to workspace
+tfinal = 20;    %Simulation interval
+st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
 
@@ -51,14 +51,14 @@ xm0  = ym0;
 DC = 1   %Constant
 
 As = 1   %Sine wave amplitude
-ws = 1  %Frequency
+ws = 5  %Frequency
 
 %------------------------------------------------- Matching gain -----
 thetas = [-(ap+am)/kp; km/kp];   %theta*
 
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 2;       %Adaptation gains
-gamma2 = 100;
+gamma1 = 2*[1 0;0 1];       %Adaptation gains
+gamma2 = 100*[1 0;0 1];
 theta0 = [0;0];       %Adaptation inicial condition
 
 %---------------------------------------------------- Simulation -----
@@ -86,8 +86,8 @@ subplot(211)
 plot(t,e01,t,e02,'Linew',0.5);
 grid on
 title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0\;(\gamma=',num2str(gamma1),')$');
-par2 = strcat('$e_0\;(\gamma=',num2str(gamma2),')$');
+par1 = strcat('$e_0\;(\gamma=',mat2str(gamma1),')$');
+par2 = strcat('$e_0\;(\gamma=',mat2str(gamma2),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
@@ -102,10 +102,10 @@ subplot(211)
 plot(t,theta1,t,theta2,t,Theta1,t,Theta2,'Linew',0.5);
 grid on
 title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\theta_{1}\;(\gamma=',num2str(gamma1),')$');
-par2 = strcat('$\theta_{2}\;(\gamma=',num2str(gamma1),')$');
-par3 = strcat('$\theta_{1}\;(\gamma=',num2str(gamma2),')$');
-par4 = strcat('$\theta_{2}\;(\gamma=',num2str(gamma2),')$');
+par1 = strcat('$\theta_{1}\;(\gamma=',mat2str(gamma1),')$');
+par2 = strcat('$\theta_{2}\;(\gamma=',mat2str(gamma1),')$');
+par3 = strcat('$\theta_{1}\;(\gamma=',mat2str(gamma2),')$');
+par4 = strcat('$\theta_{2}\;(\gamma=',mat2str(gamma2),')$');
 legend({par1,par2,par3,par4,'$\theta_1^*$','$\theta_2^*$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
@@ -119,8 +119,8 @@ plot(t,yp1)
 plot(t,yp2,t,r,t,ym,'Linew',0.5)
 grid on
 title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$y\;(\gamma=',num2str(gamma1),')$');
-par2 = strcat('$y\;(\gamma=',num2str(gamma2),')$');
+par1 = strcat('$y\;(\gamma=',mat2str(gamma1),')$');
+par2 = strcat('$y\;(\gamma=',mat2str(gamma2),')$');
 legend({par1,par2,'$r$','$y_m$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
@@ -144,10 +144,10 @@ grid on
 title({'$e_0 \times \tilde\theta$'},'FontSize',10,'Interpreter','latex')
 xlabel({'$e_0$'},'FontSize',10,'Interpreter','latex')
 ylabel({'$\tilde\theta$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',num2str(gamma1),')$');
-par2 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',num2str(gamma1),')$');
-par3 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',num2str(gamma2),')$');
-par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',num2str(gamma2),')$');
+par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',mat2str(gamma1),')$');
+par2 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',mat2str(gamma1),')$');
+par3 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',mat2str(gamma2),')$');
+par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',mat2str(gamma2),')$');
 legend({par1,par2,par3,par4},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
@@ -161,8 +161,8 @@ plot(t,u1)
 plot(t,u2,'Linew',0.5)
 grid on
 title({'$u$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$u\;(\gamma=',num2str(gamma1),')$');
-par2 = strcat('$u\;(\gamma=',num2str(gamma2),')$');
+par1 = strcat('$u\;(\gamma=',mat2str(gamma1),')$');
+par2 = strcat('$u\;(\gamma=',mat2str(gamma2),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
@@ -178,8 +178,8 @@ plot(t,e01)
 plot(t,e02,'Linew',0.5);
 grid on
 title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\gamma=',num2str(gamma1),'$');
-par2 = strcat('$\gamma=',num2str(gamma2),'$');
+par1 = strcat('$\gamma=',mat2str(gamma1),'$');
+par2 = strcat('$\gamma=',mat2str(gamma2),'$');
 legend({par1,par2},...
     'FontSize',10,'Interpreter','latex','Location','SouthEast')
 
@@ -189,10 +189,10 @@ plot(t,theta1,t,Theta1)
 plot(t,theta2,t,Theta2,'r','Linew',0.5);
 grid on; 
 title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1c = strcat('$\theta_{1}\;(\gamma=',num2str(gamma1),')$');
-par2c = strcat('$\theta_{2}\;(\gamma=',num2str(gamma1),')$');
-par3c = strcat('$\theta_{1}\;(\gamma=',num2str(gamma2),')$');
-par4c = strcat('$\theta_{2}\;(\gamma=',num2str(gamma2),')$');
+par1c = strcat('$\theta_{1}\;(\gamma=',mat2str(gamma1),')$');
+par2c = strcat('$\theta_{2}\;(\gamma=',mat2str(gamma1),')$');
+par3c = strcat('$\theta_{1}\;(\gamma=',mat2str(gamma2),')$');
+par4c = strcat('$\theta_{2}\;(\gamma=',mat2str(gamma2),')$');
 legend({par1c,par2c,'$\theta_1^*$',par3c,par4c,'$\theta_1^*$'},...
     'FontSize',10,'Interpreter','latex','Location','NorthEast')
 
