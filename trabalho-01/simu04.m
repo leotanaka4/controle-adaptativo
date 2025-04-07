@@ -1,7 +1,7 @@
 %---------------------------------------------------------------------
 %  COE-603  Controle adaptativo
 %
-%  Script para simular o exemplo 1
+%  Script para simular o exemplo 4
 %                                             Leonardo S. da C. Tanaka 
 %                                                       30/mar/25, Rio
 %---------------------------------------------------------------------
@@ -41,14 +41,14 @@ M = 1/(s+am)
 M = ss(M);
 
 %--------------------------------------------- Initial condition -----
-yp0  = 0
+yp0  = 3
 x0   = yp0;
 
 ym0  = 0;
 xm0  = ym0;
 
 %----------------------------------- Reference signal parameters -----
-DC = 1   %Constant
+DC = 2   %Constant
 
 As = 1   %Sine wave amplitude
 ws = 5  %Frequency
@@ -86,12 +86,12 @@ subplot(211)
 plot(t,e01,t,e02,'Linew',0.5);
 grid on
 title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0\;(\gamma=',mat2str(gamma1),')$');
-par2 = strcat('$e_0\;(\gamma=',mat2str(gamma2),')$');
+par1 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -depsc2 fig01a.eps
+print -dpng images\fig04a.png
 
 Theta1 = thetas(1)*ones(size(t));
 Theta2 = thetas(2)*ones(size(t));
@@ -102,14 +102,14 @@ subplot(211)
 plot(t,theta1,t,theta2,t,Theta1,t,Theta2,'Linew',0.5);
 grid on
 title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\theta_{1}\;(\gamma=',mat2str(gamma1),')$');
-par2 = strcat('$\theta_{2}\;(\gamma=',mat2str(gamma1),')$');
-par3 = strcat('$\theta_{1}\;(\gamma=',mat2str(gamma2),')$');
-par4 = strcat('$\theta_{2}\;(\gamma=',mat2str(gamma2),')$');
+par1 = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par3 = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+par4 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2,par3,par4,'$\theta_1^*$','$\theta_2^*$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -depsc2 fig01b.eps
+print -dpng images\fig04b.png
 
 figure(3)
 clf
@@ -119,14 +119,14 @@ plot(t,yp1)
 plot(t,yp2,t,r,t,ym,'Linew',0.5)
 grid on
 title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$y\;(\gamma=',mat2str(gamma1),')$');
-par2 = strcat('$y\;(\gamma=',mat2str(gamma2),')$');
+par1 = strcat('$y\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2 = strcat('$y\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2,'$r$','$y_m$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
 V = axis;
 axis([V(1) V(2) 0 2.5 ]);
-print -depsc2 fig01c.eps
+print -dpng images\fig03c.png
 
 dims = size(t);
 thetas_matrix = ones([dims(1),2])*[thetas(1) 0;0 thetas(2)];
@@ -144,14 +144,14 @@ grid on
 title({'$e_0 \times \tilde\theta$'},'FontSize',10,'Interpreter','latex')
 xlabel({'$e_0$'},'FontSize',10,'Interpreter','latex')
 ylabel({'$\tilde\theta$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',mat2str(gamma1),')$');
-par2 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',mat2str(gamma1),')$');
-par3 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',mat2str(gamma2),')$');
-par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',mat2str(gamma2),')$');
+par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par3 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2,par3,par4},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
-print -depsc2 fig01d.eps
+print -dpng images\fig04d.png
 
 figure(5)
 clf
@@ -161,12 +161,12 @@ plot(t,u1)
 plot(t,u2,'Linew',0.5)
 grid on
 title({'$u$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$u\;(\gamma=',mat2str(gamma1),')$');
-par2 = strcat('$u\;(\gamma=',mat2str(gamma2),')$');
+par1 = strcat('$u\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2 = strcat('$u\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
-print -depsc2 fig01e.eps
+print -dpng images\fig04e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)
@@ -178,8 +178,8 @@ plot(t,e01)
 plot(t,e02,'Linew',0.5);
 grid on
 title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\gamma=',ma2str(gamma1),'$');
-par2 = strcat('$\gamma=',num2str(gamma2),'$');
+par1 = strcat('$\gamma=',strrep(mat2str(gamma1), ' ', '\ '),'$');
+par2 = strcat('$\gamma=',strrep(mat2str(gamma2), ' ', '\ '),'$');
 legend({par1,par2},...
     'FontSize',10,'Interpreter','latex','Location','SouthEast')
 
@@ -189,10 +189,10 @@ plot(t,theta1,t,Theta1)
 plot(t,theta2,t,Theta2,'r','Linew',0.5);
 grid on; 
 title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1c = strcat('$\theta_{1}\;(\gamma=',num2str(gamma1),')$');
-par2c = strcat('$\theta_{2}\;(\gamma=',num2str(gamma1),')$');
-par3c = strcat('$\theta_{1}\;(\gamma=',num2str(gamma2),')$');
-par4c = strcat('$\theta_{2}\;(\gamma=',num2str(gamma2),')$');
+par1c = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2c = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par3c = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+par4c = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1c,par2c,'$\theta_1^*$',par3c,par4c,'$\theta_1^*$'},...
     'FontSize',10,'Interpreter','latex','Location','NorthEast')
 

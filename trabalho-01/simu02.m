@@ -1,7 +1,7 @@
 %---------------------------------------------------------------------
 %  COE-603  Controle adaptativo
 %
-%  Script para simular o exemplo 1
+%  Script para simular o exemplo 2
 %                                             Leonardo S. da C. Tanaka 
 %                                                       30/mar/25, Rio
 %---------------------------------------------------------------------
@@ -48,9 +48,9 @@ ym0  = 0;
 xm0  = ym0;
 
 %----------------------------------- Reference signal parameters -----
-DC = 1   %Constant
+DC = 2   %Constant
 
-As = 0   %Sine wave amplitude
+As = 1   %Sine wave amplitude
 ws = 5  %Frequency
 
 %------------------------------------------------- Matching gain -----
@@ -91,7 +91,7 @@ par2 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -dpng images\fig01a.png
+print -dpng images\fig02a.png
 
 Theta1 = thetas(1)*ones(size(t));
 Theta2 = thetas(2)*ones(size(t));
@@ -109,7 +109,7 @@ par4 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2,par3,par4,'$\theta_1^*$','$\theta_2^*$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -dpng images\fig01b.png
+print -dpng images\fig02b.png
 
 figure(3)
 clf
@@ -126,7 +126,7 @@ legend({par1,par2,'$r$','$y_m$'},...
 sublaby("   ");
 V = axis;
 axis([V(1) V(2) 0 2.5 ]);
-print -dpng images\fig01c.png
+print -dpng images\fig02c.png
 
 dims = size(t);
 thetas_matrix = ones([dims(1),2])*[thetas(1) 0;0 thetas(2)];
@@ -151,7 +151,7 @@ par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma2), ' '
 legend({par1,par2,par3,par4},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
-print -dpng images\fig01d.png
+print -dpng images\fig02d.png
 
 figure(5)
 clf
@@ -166,7 +166,7 @@ par2 = strcat('$u\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
-print -dpng images\fig01e.png
+print -dpng images\fig02e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)

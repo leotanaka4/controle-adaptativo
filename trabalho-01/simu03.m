@@ -1,7 +1,7 @@
 %---------------------------------------------------------------------
 %  COE-603  Controle adaptativo
 %
-%  Script para simular o exemplo 1
+%  Script para simular o exemplo 3
 %                                             Leonardo S. da C. Tanaka 
 %                                                       30/mar/25, Rio
 %---------------------------------------------------------------------
@@ -41,7 +41,7 @@ M = 1/(s+am)
 M = ss(M);
 
 %--------------------------------------------- Initial condition -----
-yp0  = 0
+yp0  = 3
 x0   = yp0;
 
 ym0  = 0;
@@ -91,7 +91,7 @@ par2 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -dpng images\fig01a.png
+print -dpng images\fig03a.png
 
 Theta1 = thetas(1)*ones(size(t));
 Theta2 = thetas(2)*ones(size(t));
@@ -109,7 +109,7 @@ par4 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2,par3,par4,'$\theta_1^*$','$\theta_2^*$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -dpng images\fig01b.png
+print -dpng images\fig03b.png
 
 figure(3)
 clf
@@ -126,7 +126,7 @@ legend({par1,par2,'$r$','$y_m$'},...
 sublaby("   ");
 V = axis;
 axis([V(1) V(2) 0 2.5 ]);
-print -dpng images\fig01c.png
+print -dpng images\fig03c.png
 
 dims = size(t);
 thetas_matrix = ones([dims(1),2])*[thetas(1) 0;0 thetas(2)];
@@ -151,7 +151,7 @@ par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma2), ' '
 legend({par1,par2,par3,par4},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
-print -dpng images\fig01d.png
+print -dpng images\fig03d.png
 
 figure(5)
 clf
@@ -166,7 +166,7 @@ par2 = strcat('$u\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
-print -dpng images\fig01e.png
+print -dpng images\fig03e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)
