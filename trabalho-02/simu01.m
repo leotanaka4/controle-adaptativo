@@ -12,11 +12,11 @@ clc;
 disp('-------------------------------')
 disp('Script para simular o exemplo 1')
 disp(' ')
-disp('Caso: Planta ............. n = 1')
-disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 2')
+disp('Caso: Planta ............. n = 2')
+disp('      Grau relativo ..... n* = 2')
+disp('      Parâmetros ........ np = 4')
 disp(' ')
-disp('Algoritmo: MRAC Direto')
+disp('Algoritmo: Gradiente Normalizado')
 disp(' ')
 disp('-------------------------------')
 
@@ -70,72 +70,72 @@ u1 = u;
 figure(1)
 clf
 subplot(211)
-plot(t,e01,t,e02,'Linew',0.5);
+plot(t,e01,'Linew',0.5);
 grid on
 title({'$e_0$'},'FontSize',10,'Interpreter','latex')
 par1 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2},...
+legend({par1},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
-print -dpng images\fig03a.png
+print -dpng images\fig01a.png
 
+% Supondo que thetas = [theta1_star, theta2_star, theta3_star, theta4_star];
 Theta1 = thetas(1)*ones(size(t));
 Theta2 = thetas(2)*ones(size(t));
+Theta3 = thetas(3)*ones(size(t));
+Theta4 = thetas(4)*ones(size(t));
 
 figure(2)
 clf
 subplot(211)
-plot(t,theta1,t,theta2,t,Theta1,t,Theta2,'Linew',0.5);
+plot(t, theta1, t, Theta1, t, Theta2, t, Theta3, t, Theta4, 'LineWidth', 0.5);
 grid on
-title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par3 = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-par4 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2,par3,par4,'$\theta_1^*$','$\theta_2^*$'},...
-    'FontSize',8,'Interpreter','latex','Location','NorthEast')
-sublaby("   ");
-print -dpng images\fig03b.png
+title({'$\theta, \theta^*$'}, 'FontSize', 10, 'Interpreter', 'latex')
+
+par1 = strcat('$\theta_{1}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+par2 = strcat('$\theta_{2}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+par3 = strcat('$\theta_{3}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+par4 = strcat('$\theta_{4}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+
+legend({'$\theta$', par1, par2, par3, par4}, ...
+    'FontSize', 8, 'Interpreter', 'latex', 'Location', 'NorthEast')
+
+sublaby("   ");  % Verifique se sublaby está corretamente definido
+
+print -dpng images/fig01b.png
 
 figure(3)
 clf
 subplot(211)
 hold on
-plot(t,yp1)
-plot(t,yp2,t,r,t,ym,'Linew',0.5)
+plot(t,yp1,t,r,t,ym,'Linew',0.5)
 grid on
 title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
 par1 = strcat('$y\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$y\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
 legend({par1,par2,'$r$','$y_m$'},...
     'FontSize',8,'Interpreter','latex','Location','NorthEast')
 sublaby("   ");
 V = axis;
 axis([V(1) V(2) 0 2.5 ]);
-print -dpng images\fig03c.png
+print -dpng images\fig01c.png
 
 dims = size(t);
-thetas_matrix = ones([dims(1),2])*[thetas(1) 0;0 thetas(2)];
+thetas_matrix = ones([dims(1),4])*[thetas(1) 0 0 0;0 thetas(2) 0 0;0 0 thetas(3) 0;0 0 0 thetas(4)];
 
 ttheta1 = theta1 - thetas_matrix;
-ttheta2 = theta2 - thetas_matrix;
 
 figure(4)
 clf
 hold on
 plot(e01,ttheta1)
-plot(e02,ttheta2)
 grid on
 %axis equal
 title({'$e_0 \times \tilde\theta$'},'FontSize',10,'Interpreter','latex')
 xlabel({'$e_0$'},'FontSize',10,'Interpreter','latex')
 ylabel({'$\tilde\theta$'},'FontSize',10,'Interpreter','latex')
 par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par3 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2,par3,par4},...
+par2 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+legend({par1,par2},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
 print -dpng images\fig03d.png
@@ -144,13 +144,11 @@ figure(5)
 clf
 subplot(211)
 hold on
-plot(t,u1)
-plot(t,u2,'Linew',0.5)
+plot(t,u1,'Linew',0.5)
 grid on
 title({'$u$'},'FontSize',10,'Interpreter','latex')
 par1 = strcat('$u\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$u\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2},...
+legend({par1},...
     'FontSize',8,'Interpreter','latex','Location','SouthEast')
 sublaby("   ");
 print -dpng images\fig03e.png

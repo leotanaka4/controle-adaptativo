@@ -12,11 +12,11 @@ clc;
 disp('-------------------------------')
 disp('Script para simular o exemplo 1')
 disp(' ')
-disp('Caso: Planta ............. n = 1')
-disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 2')
+disp('Caso: Planta ............. n = 2')
+disp('      Grau relativo ..... n* = 2')
+disp('      Parâmetros ........ np = 4')
 disp(' ')
-disp('Algoritmo: MRAC Direto')
+disp('Algoritmo: Gradiente Normalizado')
 disp(' ')
 disp('-------------------------------')
 
@@ -50,36 +50,27 @@ As = 2   %Sine wave amplitude
 ws = 0.1*pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
-thetas = [-(ap+am)/kp; km/kp];   %theta*
+thetas = [b0; b1; a0; a1]   %theta*
 
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 2*[1 0;0 1];       %Adaptation gains
-gamma2 = 100*[1 0;0 1];
-theta0 = [0;0;0];       %Adaptation inicial condition
+gamma1 = 1*[1 0 0 0;0 1 0 0; 0 0 1 0;0 0 0 1;];       %Adaptation gains
+theta0 = [0;0;0;0];       %Adaptation inicial condition
+kappa = 0;
 
 %---------------------------------------------------- Simulation -----
 gamma = gamma1
-sim('MRAC_direto',tfinal);
+sim('gradiente_normalizado',tfinal);
 
 yp1 = yp;   %Save results
 e01 = e0;
 theta1 = theta;
 u1 = u;
 
-%---------------------------------------------------- Simulation -----
-gamma = gamma2
-sim('MRAC_direto',tfinal);
-
-yp2 = yp;   %Save results
-e02 = e0;
-theta2 = theta;
-u2 = u;
-
 %----------------------------------------------- Print eps plots -----
 figure(1)
 clf
 subplot(211)
-plot(t,e01,t,e02,'Linew',0.5);
+plot(t,e01,t,'Linew',0.5);
 grid on
 title({'$e_0$'},'FontSize',10,'Interpreter','latex')
 par1 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
