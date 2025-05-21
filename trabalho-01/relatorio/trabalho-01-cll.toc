@@ -1,0 +1,21 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {section}{\numberline {1}Resumo das equações do sistema}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Equações do Algoritmo MRAC Direto}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Estabilidade do Algoritmo MRAC Direto}{3}{}%
+\contentsline {paragraph}{1. Forma vetorial e definições}{3}{}%
+\contentsline {paragraph}{2. Dinâmica do erro}{3}{}%
+\contentsline {paragraph}{3. Erro paramétrico}{3}{}%
+\contentsline {paragraph}{4. Função de Lyapunov}{3}{}%
+\contentsline {paragraph}{5. Conclusões de estabilidade}{4}{}%
+\contentsline {section}{\numberline {2}Diagramas de blocos}{4}{}%
+\contentsline {section}{\numberline {3}Resultados das simulações}{4}{}%
+\contentsline {subsection}{\numberline {3.1}Simulação \#1}{4}{}%
+\contentsline {subsection}{\numberline {3.2}Simulação \#2}{4}{}%
+\contentsline {subsection}{\numberline {3.3}Simulação \#3}{4}{}%
+\contentsline {subsection}{\numberline {3.4}Simulação \#4}{4}{}%
+\contentsline {subsection}{\numberline {3.5}Simulação \#5}{4}{}%
+\contentsline {subsection}{\numberline {3.6}Simulação \#6}{4}{}%
+\contentsline {subsection}{\numberline {3.7}Simulação \#7}{4}{}%
+\contentsline {subsection}{\numberline {3.8}Simulação \#8}{4}{}%
+\contentsline {subsection}{\numberline {3.9}Simulação \#9}{4}{}%
+\contentsline {subsection}{\numberline {3.10}Simulação \#10}{4}{}%

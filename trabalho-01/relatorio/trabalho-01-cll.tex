@@ -1,0 +1,269 @@
+\documentclass[10pt]{article}
+
+% Pacotes extras necessários
+\usepackage{amsmath}
+\usepackage[lmargin=0.5in, rmargin=0.5in, tmargin=0.5in, bmargin=0.5in, includehead, includefoot]{geometry}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{appendix}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% Define estilo para listagens de código
+\lstdefinestyle{mystyle}{
+    language=Matlab,
+    inputencoding=latin1,
+    extendedchars=true,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt,
+    tabsize=2,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{orange},
+    frame=single,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0pt}
+\setstretch{1.5}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\sinc}{sinc}
+\newcommand{\Lap}[1]{\mathcal{L}\left\{#1\right\}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+% Cabeçalho e rodapé em todas as páginas
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Relatório das simulações}
+\fancyfoot[C]{\thepage}
+
+% Dados do Grupo
+\title{
+    Trabalho Nº1 - MRAC Direto \\
+    \large COE603 - Controle Adaptativo
+}
+\author{
+    Caio Cesar Leal Verissimo - 119046624 \\
+    Leonardo Soares da Costa Tanaka - 121067652 \\
+    Lincoln Rodrigues Proença - 121076407 \\
+    Engenharia de Controle e Automação - UFRJ \\
+    Rio de Janeiro, Rio de Janeiro, Brasil \\
+    Maio de 2025
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Geração automática do sumário
+\tableofcontents
+\newpage
+
+\section{Resumo das equações do sistema}
+
+Neste experimento, simulamos o algoritmo \textbf{MRAC Direto} para o caso:
+\begin{itemize}
+    \item $n = 1$ \hfill (ordem da planta)
+    \item $n^* = 1$ \hfill (grau relativo)
+    \item $n_p = 2$ \hfill (número de parâmetros)
+\end{itemize}
+
+\subsection{Equações do Algoritmo MRAC Direto}
+
+A Tabela \ref{tab:equacoes_mrac} resume as equações fundamentais do algoritmo MRAC (Model Reference Adaptive Control) na forma direta, considerando uma planta de primeira ordem ($n = 1$), grau relativo igual a 1 ($n^* = 1$) e número de parâmetros $n_p = 2$.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Descrição}      & \textbf{Equação}                                  & \textbf{Ordem} \\ \hline
+Planta                  & $\dot{y} = a_p y + k_p u$                         & 1              \\ \hline
+Modelo                  & $\dot{y}_m = -a_m y_m + k_m r$                    & 1              \\ \hline
+Erro da saída           & $e_0 = y - y_m$                                   &                \\ \hline
+Lei de controle         & $u = \theta^T \omega$                  &                \\ \hline
+Regressor               & $\omega^T = \begin{bmatrix} y & r \end{bmatrix}$ &                \\ \hline
+Lei de adaptação        & $\dot{\theta} = -\text{sign}(k_p)\Gamma \omega e_0$ & 2 \\ \hline
+\end{tabular}
+\caption{Resumo do Algoritmo MRAC Direto}
+\label{tab:equacoes_mrac}
+\end{table}
+
+A Figura \ref{fig:bloco_verificacao} ilustra o diagrama de blocos do sistema em malha fechada, juntamente com a verificação da equivalência com o modelo de referência. Este diagrama mostra como a combinação dos ganhos adaptativos $\theta_1^*$ e $\theta_2^*$ pode transformar o comportamento da planta para que ela imite o modelo de referência.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/diagrama.png}
+    \caption{Diagrama de blocos e verificação da equivalência com o modelo de referência}
+    \label{fig:bloco_verificacao}
+\end{figure}
+
+As expressões ideais para os parâmetros $\theta_1^*$ e $\theta_2^*$ que garantem essa equivalência são apresentadas a seguir. Esses parâmetros são obtidos por identificação direta, com base nas constantes do modelo e da planta.
+
+\begin{center}
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\fbox{
+    $\theta_1^* = -\dfrac{a_p + a_m}{k_p}$
+}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\fbox{
+    $\theta_2^* = \dfrac{k_m}{k_p}$
+}
+\end{center}
+\end{minipage}
+\end{center}
+
+Essas equações representam os valores ideais dos parâmetros adaptativos para que a planta controlada siga o comportamento especificado pelo modelo de referência. Na prática, o algoritmo de adaptação busca aproximar esses valores ao longo do tempo.
+
+\subsection{Estabilidade do Algoritmo MRAC Direto}
+
+\paragraph{1. Forma vetorial e definições}
+Escrevendo em forma vetorial:
+\begin{equation}
+  \bm{\theta}^* = 
+  \begin{bmatrix}
+    \theta_1^* \\ \theta_2^*
+  \end{bmatrix},
+  \quad
+  \bm{\omega} = 
+  \begin{bmatrix}
+    y \\ r
+  \end{bmatrix}
+  \quad\Longrightarrow\quad
+  u^* = \bm{\theta}^{*T}\,\bm{\omega}.
+\end{equation}
+Analogamente, a lei de controle é
+\begin{equation}
+  \bm{\theta} = 
+  \begin{bmatrix}
+    \theta_1 \\ \theta_2
+  \end{bmatrix}
+  \quad\Longrightarrow\quad
+  u = \bm{\theta}^T\,\bm{\omega}.
+\end{equation}
+
+\paragraph{2. Dinâmica do erro}
+Definimos o erro de saída:
+\begin{equation}
+  e = y - y_m.
+\end{equation}
+Subtraindo as dinâmicas da planta e do modelo:
+\begin{equation}
+  \begin{aligned}
+  \dot e 
+  &= \dot y - \dot y_m
+   = (a_p y + k_p u) - (-a_m y_m + k_m r) \\
+  &= -a_m (y - y_m) + (a_p + a_m) y + k_p u - k_m r
+    + \underbrace{(a_m y) - (a_m y)}_{=0} \\
+  &= -a_m e
+    + k_p\Bigl[\tfrac{a_p + a_m}{k_p}\,y + u - \tfrac{k_m}{k_p}\,r\Bigr] \\
+  &= -a_m e + k_p \bigl[u - \theta_1^* y - \theta_2^* r\bigr] \\
+  &= -a_m e + k_p \bigl[u - u^*\bigr].
+  \end{aligned}
+\end{equation}
+
+\paragraph{3. Erro paramétrico}
+Definimos o vetor de erro de parâmetro:
+\begin{equation}
+  \tilde{\bm{\theta}}
+  = \bm{\theta} - \bm{\theta}^*
+  \quad\Longrightarrow\quad
+  \dot e = -a_m e + k_p\,\tilde{\bm{\theta}}^T\,\bm{\omega}.
+\end{equation}
+
+\paragraph{4. Função de Lyapunov}
+Escolhemos
+\begin{equation}
+  V(e,\tilde{\bm{\theta}})
+  = \tfrac12 e^2 + \tfrac12\,|k_p|\,\tilde{\bm{\theta}}^T\,\Gamma^{-1}\,\tilde{\bm{\theta}}.
+\end{equation}
+Calculando sua derivada:
+\begin{equation}
+  \begin{aligned}
+  \dot V
+  &= e\,\dot e
+   + |k_p|\,\tilde{\bm{\theta}}^T\,\Gamma^{-1}\,\dot{\tilde{\bm{\theta}}} \\
+  &= -a_m e^2
+     + k_p\,\tilde{\bm{\theta}}^T\,\bm{\omega}\,e
+     + |k_p|\,\tilde{\bm{\theta}}^T\,\Gamma^{-1}\,\dot{\tilde{\bm{\theta}}}.
+  \end{aligned}
+\end{equation}
+Para garantir $\dot V\le0$, adotamos a lei de adaptação
+\begin{equation}
+  \dot{\bm{\theta}}
+  = -\Gamma\,\mathrm{sign}(k_p)\,\bm{\omega}\,e.
+\end{equation}
+
+\paragraph{5. Conclusões de estabilidade}
+Com essa escolha,
+\begin{equation}
+  \dot V = -a_m e^2 \le 0,
+  \quad\Longrightarrow\quad
+  e(t),\;\tilde{\bm{\theta}}(t)\;\in\mathcal L_\infty.
+\end{equation}
+Como $r(t)\in\mathcal L_\infty\Rightarrow y_m(t)\in\mathcal L_\infty$ e
+\begin{equation}
+  \dot V \le0 \;\Longrightarrow\; V(t)\le V(0),
+\end{equation}
+segue que
+\begin{equation}
+  \int_0^t e^2(\tau)\,d\tau < \infty
+  \quad\Longrightarrow\quad
+  e \in \mathcal L_2.
+\end{equation}
+Finalmente, aplicando o lema de Barbalat,
+\begin{equation}
+  e\in\mathcal L_2,\quad \dot e\in\mathcal L_\infty
+  \quad\Longrightarrow\quad
+  \lim_{t\to\infty} e(t) = 0.
+\end{equation}
+
+\section{Diagramas de blocos}
+
+\section{Resultados das simulações}
+
+\subsection{Simulação \#1}
+
+\subsection{Simulação \#2}
+
+\subsection{Simulação \#3}
+
+\subsection{Simulação \#4}
+
+\subsection{Simulação \#5}
+
+\subsection{Simulação \#6}
+
+\subsection{Simulação \#7}
+
+\subsection{Simulação \#8}
+
+\subsection{Simulação \#9}
+
+\subsection{Simulação \#10}
+
+\end{document}
