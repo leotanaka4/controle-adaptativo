@@ -21,7 +21,7 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 20;    %Simulation interval
+tfinal = 100;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
@@ -45,12 +45,11 @@ x0   = yp0;
 
 %----------------------------------- Reference signal parameters -----
 DC = 1   %Constant
-
 As = 2   %Sine wave amplitude
 ws = 0.1*pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
-thetas = [b0; b1; a0; a1]   %theta*
+theta_star = [b0; b1; a0; a1]   %theta*
 
 %----------------------------------------- Adaptation parameters -----
 gamma1 = 1*[1 0 0 0;0 1 0 0; 0 0 1 0;0 0 0 1;];       %Adaptation gains
@@ -67,6 +66,7 @@ theta1 = theta;
 u1 = u;
 
 %----------------------------------------------- Print eps plots -----
+%{
 figure(1)
 clf
 subplot(211)
@@ -217,3 +217,4 @@ legend({par1,par2},...
 % 
 % close_system('MRAC_111');
 %---------------------------------------------------------------------
+%}

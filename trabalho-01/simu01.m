@@ -2,7 +2,8 @@
 %  COE-603  Controle adaptativo
 %
 %  Script para simular o exemplo 1
-%                                             Leonardo S. da C. Tanaka 
+%                                             Leonardo S. da C. Tanaka
+%                                             Lincoln R. Proença                                           
 %                                                       30/mar/25, Rio
 %---------------------------------------------------------------------
 clear all;
@@ -27,58 +28,34 @@ st = 0.01;      %Sample time to workspace
 s = tf('s');    %trick!
 
 %--------------------------------------------------------- Plant -----
-ap = 2;
-kp = 1;
+a0 = 1.5;
+a1 = 2.5;
+b0 = 0.8;
+b1 = 2;
 
-P = kp/(s-ap)
+P = (b1*s+b0)/(s^2 + a1*s + a0)
 P = ss(P);
-
-%----------------------------------------------- Reference model -----
-am = 1;
-km = 1;
-
-M = 1/(s+am)
-M = ss(M);
-
+%-------------------------------------------------------- Filter -----
+lambda0 = 1;
+lambda1 = 2;
+filter = 1/(s^2 + lambda1*s + lambda0)
 %--------------------------------------------- Initial condition -----
-yp0  = 0
-x0   = yp0;
-
-ym0  = 0;
-xm0  = ym0;
-
+x0   = [0;0]
 %----------------------------------- Reference signal parameters -----
 DC = 1   %Constant
+As = 2   %Sine wave amplitude
+ws = 0.1*pi  %Frequency
 
-As = 0   %Sine wave amplitude
-ws = 5  %Frequency
-
-%------------------------------------------------- Matching gain -----
-thetas = [-(ap+am)/kp; km/kp];   %theta*
+%---------------------------------------------- Parametrização 2 -----
+theta_star = [b0; b1; a0; a1];   %theta*
+kappa = 1; % ganho da normalização
 
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 2*[1 0;0 1];       %Adaptation gains
-gamma2 = 100*[1 0;0 1];
-theta0 = [0;0];       %Adaptation inicial condition
+gamma = 1*eye(4);       %Adaptation gains
+theta0 = [0;0;0;0];       %Adaptation inicial condition
 
 %---------------------------------------------------- Simulation -----
-gamma = gamma1
-sim('MRAC_direto',tfinal);
-
-yp1 = yp;   %Save results
-e01 = e0;
-theta1 = theta;
-u1 = u;
-
-%---------------------------------------------------- Simulation -----
-gamma = gamma2
-sim('MRAC_direto',tfinal);
-
-yp2 = yp;   %Save results
-e02 = e0;
-theta2 = theta;
-u2 = u;
-
+sim('gradiente_normalizado',tfinal);
 %----------------------------------------------- Print eps plots -----
 figure(1)
 clf
