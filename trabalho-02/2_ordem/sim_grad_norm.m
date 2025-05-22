@@ -49,42 +49,140 @@ As = 2   %Sine wave amplitude
 ws = 0.1*pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
-theta_star = [b0; b1; a0; a1]   %theta*
-
+theta_star1 = [b0; b1; a0 - lambda0; a1 - lambda1]   %theta* parametrização 1
+theta_star2 = [b0; b1; a0; a1]                       %theta* parametrização 2
+theta_star3 = [1/b0; b1/b0; a0/b0; a1/b0]            %theta* parametrização 3
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 1*[1 0 0 0;0 1 0 0; 0 0 1 0;0 0 0 1;];       %Adaptation gains
+gamma = 1*[1 0 0 0;0 1 0 0; 0 0 1 0;0 0 0 1;];       %Adaptation gains
 theta0 = [0;0;0;0];       %Adaptation inicial condition
 kappa = 0;
 
 %---------------------------------------------------- Simulation -----
-gamma = gamma1
+theta_star = theta_star1;
 sim('gradiente_normalizado',tfinal);
 
 yp1 = yp;   %Save results
 e01 = e0;
 theta1 = theta;
 u1 = u;
+%---------------------------------------------------- Simulation 2 ---
+theta_star = theta_star2;
+sim('gradiente_normalizado',tfinal);
 
+yp2 = yp;   %Save results
+e02 = e0;
+theta2 = theta;
+u2 = u;
+%---------------------------------------------------- Simulation 3 ---
+theta_star = theta_star3;
+sim('gradiente_normalizado_p3',tfinal);
+
+yp3 = yp;   %Save results
+e03 = e0;
+theta3 = theta;
+u3 = u;
 %----------------------------------------------- Print eps plots -----
-%{
 figure(1)
 clf
-subplot(211)
-plot(t,e01,'Linew',0.5);
+
+% 1º gráfico: saída yp e referência r
+subplot(3,2,1)
+hold on
+plot(t, yp1, 'LineWidth', 1.2, 'DisplayName', '$y$')
+plot(t, r, 'LineWidth', 1.2, 'DisplayName', '$r$')
 grid on
-title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-legend({par1},...
-    'FontSize',8,'Interpreter','latex','Location','NorthEast')
-sublaby("   ");
-print -dpng images\fig01a.png
+title('$y$ e $r$', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
 
-% Supondo que thetas = [theta1_star, theta2_star, theta3_star, theta4_star];
-Theta1 = thetas(1)*ones(size(t));
-Theta2 = thetas(2)*ones(size(t));
-Theta3 = thetas(3)*ones(size(t));
-Theta4 = thetas(4)*ones(size(t));
+% 2º gráfico: erros das 3 simulações
+subplot(3,2,3)
+hold on
+plot(t, e01, 'LineWidth', 1.2, 'DisplayName', '$\varepsilon_1$')
+plot(t, e02, 'LineWidth', 1.2, 'DisplayName', '$\varepsilon_2$')
+plot(t, e03, 'LineWidth', 1.2, 'DisplayName', '$\varepsilon_3$')
+grid on
+title('Erros $\varepsilon_i$', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
 
+% 3º gráfico: theta1 (4 curvas), com theta_star1 como linha pontilhada
+subplot(3,2,5)
+hold on
+colors = lines(4);
+for i = 1:4
+    plot(t, theta1(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', strcat('$\theta_', num2str(i), '$'))
+    h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
+    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+end
+grid on
+title('Parametrização 1', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+% 4º gráfico: theta2 (4 curvas), com theta_star2 como linha pontilhada
+subplot(3,2,2)
+hold on
+for i = 1:4
+    plot(t, theta2(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', strcat('$\theta_', num2str(i), '$'))
+    h = plot(t, theta_star2(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
+    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+end
+grid on
+title('Parametrização 2', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+% 5º gráfico: theta3 (4 curvas), com theta_star3 como linha pontilhada
+subplot(3,2,4)
+hold on
+for i = 1:4
+    plot(t, theta3(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', strcat('$\theta_', num2str(i), '$'))
+    h = plot(t, theta_star3(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
+    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+end
+grid on
+title('Parametrização 3', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+% 6º gráfico: controle u1
+subplot(3,2,6)
+hold on
+
+% Normas dos thetas
+norm_theta1 = vecnorm(theta1')';  % ||theta_1(t)||
+norm_theta2 = vecnorm(theta2')';  % ||theta_2(t)||
+norm_theta3 = vecnorm(theta3')';  % ||theta_3(t)||
+
+% Normas dos theta_star (constantes)
+norm_theta_star1 = norm(theta_star1);
+norm_theta_star2 = norm(theta_star2);
+norm_theta_star3 = norm(theta_star3);
+
+% Usar cores padrão do MATLAB
+h1 = plot(t, norm_theta1, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_1\|$');
+h2 = plot(t, norm_theta2, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_2\|$');
+h3 = plot(t, norm_theta3, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_3\|$');
+
+% Obter as cores automaticamente usadas
+c1 = h1.Color;
+c2 = h2.Color;
+c3 = h3.Color;
+
+% Plot theta*_i normas (pontilhado, mesma cor, sem legenda)
+h1s = plot(t, norm_theta_star1 * ones(size(t)), '--', 'Color', c1, 'LineWidth', 1.2);
+h1s.Annotation.LegendInformation.IconDisplayStyle = 'off';
+
+h2s = plot(t, norm_theta_star2 * ones(size(t)), '--', 'Color', c2, 'LineWidth', 1.2);
+h2s.Annotation.LegendInformation.IconDisplayStyle = 'off';
+
+h3s = plot(t, norm_theta_star3 * ones(size(t)), '--', 'Color', c3, 'LineWidth', 1.2);
+h3s.Annotation.LegendInformation.IconDisplayStyle = 'off';
+
+grid on
+title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+%{
 figure(2)
 clf
 subplot(211)

@@ -1,5 +1,5 @@
 Model {
-  Name			  "gradiente_normalizado"
+  Name			  "gradiente_normalizado_p3"
   Version		  10.3
   SavedCharacterEncoding  "windows-1252"
   ModelUUID		  "00b3364d-869f-4cef-9153-dfb5e36ca6ce"
@@ -7,9 +7,94 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.12"
+    ComputedModelVersion    "7.17"
     NumModelReferences	    0
-    NumTestPointedSignals   0
+    NumTestPointedSignals   12
+    TestPointedSignal {
+      SignalName	      ""
+      FullBlockPath	      "gradiente_normalizado_p3/Adaptation"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      ""
+      FullBlockPath	      "gradiente_normalizado_p3/Constant1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "uf"
+      FullBlockPath	      "gradiente_normalizado_p3/Demux"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "uf_dot"
+      FullBlockPath	      "gradiente_normalizado_p3/Demux"
+      PortIndex		      2
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "u"
+      FullBlockPath	      "gradiente_normalizado_p3/Dot Product"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "yp"
+      FullBlockPath	      "gradiente_normalizado_p3/Plant"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "r"
+      FullBlockPath	      "gradiente_normalizado_p3/Reference signal"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "uf,ufdot"
+      FullBlockPath	      "gradiente_normalizado_p3/State-Space"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "yf,yfdot"
+      FullBlockPath	      "gradiente_normalizado_p3/State-Space1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      ""
+      FullBlockPath	      "gradiente_normalizado_p3/Sum"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phi"
+      FullBlockPath	      "gradiente_normalizado_p3/Vector Concatenate"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "phi_2"
+      FullBlockPath	      "gradiente_normalizado_p3/Vector Concatenate1"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
     NumProvidedFunctions    0
     NumRequiredFunctions    0
     NumResetEvents	    0
@@ -22,7 +107,7 @@ Model {
     NumExternalFileReferences 1
     ExternalFileReference {
       Reference		      "cstblocks/LTI System"
-      Path		      "gradiente_normalizado/Plant/Planta"
+      Path		      "gradiente_normalizado_p3/Plant/Planta"
       SID		      "14"
       Type		      "LIBRARY_BLOCK"
     }
@@ -33,6 +118,11 @@ Model {
   slcheck_filter_plugin	  "on"
   NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
+  LogicAnalyzerSignalOrdering "8ac8c1ed-c494-4ba7-8434-eb514d36c55c,8258eca2-b7f7-4033-b4fa-a2add9ac8c21,b253bb89-5678"
+  "-4823-b30a-6c3c0fb938a2,919e012d-1cd0-4a05-ae56-aa165e610728,b400014a-40bf-49f6-9e38-b7c144e10992,70793da9-eb15-4f57"
+  "-99ee-5707dcc79d9b,2ef5c575-fcfa-49cc-b545-e8a8b41c0ea7,8f7b36af-7405-431b-9f2e-81f8b2f0f1ee,b36eb74d-075a-4d98-9294"
+  "-7dfb3352d926,ecb04e6a-5311-44bb-8cca-a64d00b9a007,dcac79b1-6751-46bb-a2ac-9aa8706b63ad,b4ebb49f-9535-4aef-b3ca-d801"
+  "90239e26,45c579ab-43a6-4089-89be-9c2965a9551f"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
   SimscapeDaeAutoSolver	  "ode23t"
@@ -57,7 +147,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-7.0, -7.0, 1550.0, 830.0]
+      Location		      [-8.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -84,13 +174,35 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1840.0, 712.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [-170.62575673405473, -21.455237435198171]
-	  SceneRectInView	  [-170.62575673405473, -21.455237435198171, 1177.6, 455.68]
+	  Extents		  [1850.0, 814.0]
+	  ZoomFactor		  [1.2432065217391306]
+	  Offset		  [-484.41110021570893, -148.83127958976507]
+	  SceneRectInView	  [-484.41110021570893, -148.83127958976507, 1488.0874316939889, 654.75846994535516]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "1"
+	  Extents		  [1850.0, 814.0]
+	  ZoomFactor		  [1.8090225894348246]
+	  Offset		  [-96.468164794007521, -113.05003745318351]
+	  SceneRectInView	  [-96.468164794007521, -113.05003745318351, 1022.6516853932584, 449.96674157303369]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "29"
+	  Extents		  [1850.0, 814.0]
+	  ZoomFactor		  [1.8851902173913042]
+	  Offset		  [-262.14505208333338, -96.060000000000016]
+	  SceneRectInView	  [-262.14505208333338, -96.060000000000016, 981.33333333333337, 431.78666666666669]
+	}
+	Object {
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -99,28 +211,6 @@ Model {
 	  ZoomFactor		  [1.2986413043478262]
 	  Offset		  [-168.69999999999993, -124.8061309897468]
 	  SceneRectInView	  [-168.69999999999993, -124.8061309897468, 1133.4923624189159, 438.61226197949361]
-	}
-	Object {
-	  $ObjectID		  7
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "29"
-	  Extents		  [1840.0, 712.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [-262.14505208333338, -70.033333333333346]
-	  SceneRectInView	  [-262.14505208333338, -70.033333333333346, 981.33333333333337, 379.73333333333335]
-	}
-	Object {
-	  $ObjectID		  8
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1"
-	  Extents		  [1835.0, 712.0]
-	  ZoomFactor		  [1.435483870967742]
-	  Offset		  [-96.468164794007521, -86.466666666666669]
-	  SceneRectInView	  [-96.468164794007521, -86.466666666666669, 1022.6516853932584, 396.8]
 	}
 	PropName		"EditorsInfo"
       }
@@ -136,8 +226,8 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [512]
-	  Height		  [384]
+	  Width			  [640]
+	  Height		  [480]
 	  Minimized		  "Unset"
 	}
 	Object {
@@ -149,22 +239,22 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [0]
-	  Height		  [599]
+	  Width			  [640]
+	  Height		  [480]
 	  Minimized		  "On"
 	}
 	PropName		"DockComponentsInfo"
       }
-      WindowState	      "AAAA/wAAAAD9AAAAAwAAAAAAAAC9AAADD/wCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
+      WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADD/wCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAAB5AP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAABjAP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAACXAAADDwAAAKkAB///AAAAAwAAAAAAAAAA/AEAAAAB+/////8AA"
-      "AAAAP////8AAAC4AP///wAAB10AAAMPAAAAAQAAAAIAAAABAAAAAvwAAAAEAAAAAAAAAAEAAAA2AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAb"
-      "gBlAGwAVABvAG8AbABCAGEAcgBMAGUAZgB0AgAAAAD/////AAAAAAAAAAAAAAABAAAAAQAAADgAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuA"
-      "GUAbABUAG8AbwBsAEIAYQByAFIAaQBnAGgAdAMAAAAA/////wAAAAAAAAAAAAAAAgAAAAAAAAADAAAAAQAAADoAYwBvAGwAbABhAHAAcwBpAGIAb"
-      "ABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAEIAbwB0AHQAbwBtAQAAAAD/////AAAAAAAAAAA="
+      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAHYAAAA2sAAAABAAAAAgAAAAEAAAAC/"
+      "AAAAAQAAAAAAAAAAQAAADYAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAEwAZQBmAHQCAAAAAP////8AAAAAA"
+      "AAAAAAAAAEAAAABAAAAOABjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAUgBpAGcAaAB0AwAAAAD/////AAAAA"
+      "AAAAAAAAAACAAAAAAAAAAMAAAABAAAAOgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAQgBvAHQAdABvAG0AA"
+      "AAAAP////8AAAAAAAAAAA=="
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -180,11 +270,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Lucas"
+  LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 24 22:23:23 2025"
-  RTWModifiedTimeStamp	  667434158
-  ModelVersionFormat	  "%<AutoIncrement:7.12>"
+  LastModifiedDate	  "Wed May 21 21:19:34 2025"
+  RTWModifiedTimeStamp	  669763164
+  ModelVersionFormat	  "%<AutoIncrement:7.17>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -244,11 +334,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    11
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "gradiente_normalizado"
+    model_		    "gradiente_normalizado_p3"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "gradiente_normalizado"
+      Cell		      "gradiente_normalizado_p3"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -256,6 +346,304 @@ Model {
       Dimension		      1
       Cell		      ""
       PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  Object {
+    $PropName		    "InstrumentedSignals"
+    $ObjectID		    12
+    $ClassName		    "Simulink.HMI.InstrumentedSignals"
+    Array {
+      Type		      "Struct"
+      Dimension		      12
+      MATStruct {
+	UUID			"2ef5c575-fcfa-49cc-b545-e8a8b41c0ea7"
+	BlockPath_		"Plant"
+	SID_			"12"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"yp"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"70793da9-eb15-4f57-99ee-5707dcc79d9b"
+	BlockPath_		"Reference signal"
+	SID_			"29"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"r"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"8f7b36af-7405-431b-9f2e-81f8b2f0f1ee"
+	BlockPath_		"Adaptation"
+	SID_			"1"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		""
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"b400014a-40bf-49f6-9e38-b7c144e10992"
+	BlockPath_		"Sum"
+	SID_			"71"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		""
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"8ac8c1ed-c494-4ba7-8434-eb514d36c55c"
+	BlockPath_		"Constant1"
+	SID_			"79"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		""
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[0.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"8258eca2-b7f7-4033-b4fa-a2add9ac8c21"
+	BlockPath_		"State-Space"
+	SID_			"55"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"uf"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"b253bb89-5678-4823-b30a-6c3c0fb938a2"
+	BlockPath_		"Demux"
+	SID_			"81"
+	SubPath_		""
+	OutputPortIndex_	[2.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"uf_dot"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"b36eb74d-075a-4d98-9294-7dfb3352d926"
+	BlockPath_		"Dot Product"
+	SID_			"47"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"u"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"ecb04e6a-5311-44bb-8cca-a64d00b9a007"
+	BlockPath_		"Demux"
+	SID_			"81"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		""
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"dcac79b1-6751-46bb-a2ac-9aa8706b63ad"
+	BlockPath_		"Vector Concatenate"
+	SID_			"46"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"phi"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"b4ebb49f-9535-4aef-b3ca-d80190239e26"
+	BlockPath_		"State-Space1"
+	SID_			"57"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"yf,yfdot"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"45c579ab-43a6-4089-89be-9c2965a9551f"
+	BlockPath_		"Vector Concatenate1"
+	SID_			"76"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"phi_2"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      PropName		      "Persistence"
     }
   }
   ExtModeBatchMode	  off
@@ -288,7 +676,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      12
+      $ObjectID		      13
       Version		      "21.0.0"
       DisabledProps	      []
       Description	      ""
@@ -296,7 +684,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -339,7 +727,7 @@ Model {
 	  ODENIntegrationMethod	  "ode3"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -381,7 +769,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -456,7 +844,7 @@ Model {
 	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -578,7 +966,7 @@ Model {
 	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  17
+	  $ObjectID		  18
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -628,7 +1016,7 @@ Model {
 	  HardwareBoardFeatureSet "EmbeddedCoderHSP"
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -648,7 +1036,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -697,7 +1085,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  20
+	  $ObjectID		  21
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -804,7 +1192,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      21
+	      $ObjectID		      22
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -894,7 +1282,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      22
+	      $ObjectID		      23
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1000,7 +1388,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  23
+	  $ObjectID		  24
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1049,11 +1437,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    12
+    $ObjectID		    13
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    24
+    $ObjectID		    25
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1063,7 +1451,7 @@ Model {
   ExplicitPartitioning	  off
   Object {
     $PropName		    "ModelMappings"
-    $ObjectID		    25
+    $ObjectID		    26
     $ClassName		    "Simulink.CoderDictionary.ModelMappingSLC"
     DummyName		    ""
     Inports		    []
@@ -1075,24 +1463,14 @@ Model {
     States		    []
     Object {
       $PropName		      "DefaultsMapping"
-      $ObjectID		      26
+      $ObjectID		      27
       $ClassName	      "Simulink.CoderDictionary.DefaultsMapping"
       Object {
 	$PropName		"ParentMapping"
-	$ObjectID		25
+	$ObjectID		26
       }
       Object {
 	$PropName		"Inports"
-	$ObjectID		27
-	$ClassName		"Simulink.DataReferenceClass"
-	MappedTo		"StorageClass"
-	StorageClass		[]
-	CSCAttributes		""
-	MemorySection		[]
-	Identifier		""
-      }
-      Object {
-	$PropName		"Outports"
 	$ObjectID		28
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1102,7 +1480,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"GlobalParameters"
+	$PropName		"Outports"
 	$ObjectID		29
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1112,7 +1490,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"SharedParameters"
+	$PropName		"GlobalParameters"
 	$ObjectID		30
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1122,7 +1500,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"PerInstanceParameters"
+	$PropName		"SharedParameters"
 	$ObjectID		31
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1132,7 +1510,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"SharedLocalDataStores"
+	$PropName		"PerInstanceParameters"
 	$ObjectID		32
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1142,7 +1520,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"GlobalDataStores"
+	$PropName		"SharedLocalDataStores"
 	$ObjectID		33
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1152,7 +1530,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"InternalData"
+	$PropName		"GlobalDataStores"
 	$ObjectID		34
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1162,7 +1540,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"Constants"
+	$PropName		"InternalData"
 	$ObjectID		35
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1172,22 +1550,32 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"InitTermFunctions"
+	$PropName		"Constants"
 	$ObjectID		36
-	$ClassName		"Simulink.FunctionReferenceClass"
-	FunctionClass		[]
+	$ClassName		"Simulink.DataReferenceClass"
+	MappedTo		"StorageClass"
+	StorageClass		[]
+	CSCAttributes		""
 	MemorySection		[]
+	Identifier		""
       }
       Object {
-	$PropName		"ExecutionFunctions"
+	$PropName		"InitTermFunctions"
 	$ObjectID		37
 	$ClassName		"Simulink.FunctionReferenceClass"
 	FunctionClass		[]
 	MemorySection		[]
       }
       Object {
-	$PropName		"SharedUtilityFunctions"
+	$PropName		"ExecutionFunctions"
 	$ObjectID		38
+	$ClassName		"Simulink.FunctionReferenceClass"
+	FunctionClass		[]
+	MemorySection		[]
+      }
+      Object {
+	$PropName		"SharedUtilityFunctions"
+	$ObjectID		39
 	$ClassName		"Simulink.FunctionReferenceClass"
 	FunctionClass		[]
 	MemorySection		[]
@@ -1276,6 +1664,12 @@ Model {
       SampleTime	      "inf"
       FramePeriod	      "inf"
       PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "bar"
+      BusSelectionMode	      off
     }
     Block {
       BlockType		      DotProduct
@@ -1494,8 +1888,8 @@ Model {
     }
   }
   System {
-    Name		    "gradiente_normalizado"
-    Location		    [-7, -7, 1543, 823]
+    Name		    "gradiente_normalizado_p3"
+    Location		    [-8, -8, 1928, 1048]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1511,9 +1905,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "124"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "73"
+    SIDHighWatermark	    "82"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1524,9 +1918,12 @@ Model {
       ZOrder		      -1
       BackgroundColor	      "[1.000000, 1.000000, 0.501961]"
       RequestExecContextInheritance off
+      Port {
+	PortNumber		1
+      }
       System {
 	Name			"Adaptation"
-	Location		[-7, -7, 1543, 823]
+	Location		[-8, -8, 1928, 1048]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -1542,7 +1939,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"144"
+	ZoomFactor		"181"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -1814,12 +2211,32 @@ Model {
     }
     Block {
       BlockType		      Constant
-      Name		      "Constant"
-      SID		      "72"
-      Position		      [600, 15, 630, 45]
-      ZOrder		      317
-      BlockMirror	      on
-      Value		      "thetas"
+      Name		      "Constant1"
+      SID		      "79"
+      Position		      [60, 352, 120, 378]
+      ZOrder		      324
+      Value		      "theta_star2"
+      Port {
+	PortNumber		1
+	DataLogging		on
+      }
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux"
+      SID		      "81"
+      Ports		      [1, 2]
+      Position		      [135, 401, 140, 439]
+      ZOrder		      326
+      Outputs		      "2"
+      Port {
+	PortNumber		1
+	Name			"uf"
+      }
+      Port {
+	PortNumber		2
+	Name			"uf_dot"
+      }
     }
     Block {
       BlockType		      DotProduct
@@ -1836,24 +2253,32 @@ Model {
     }
     Block {
       BlockType		      DotProduct
-      Name		      "Dot Product1"
-      SID		      "73"
-      Position		      [525, 62, 555, 93]
-      ZOrder		      318
-      BlockMirror	      on
+      Name		      "Dot Product2"
+      SID		      "78"
+      Position		      [180, 342, 210, 373]
+      ZOrder		      323
+      NameLocation	      "top"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       Port {
 	PortNumber		1
-	Name			"u"
+	Name			"yf_dotdot"
       }
     }
     Block {
       BlockType		      Gain
       Name		      "Gain"
-      SID		      "58"
-      Position		      [335, 240, 365, 270]
-      ZOrder		      314
+      SID		      "77"
+      Position		      [215, 240, 245, 270]
+      ZOrder		      322
       BlockMirror	      on
+      Gain		      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain1"
+      SID		      "82"
+      Position		      [195, 415, 225, 445]
+      ZOrder		      327
       Gain		      "-1"
     }
     Block {
@@ -2019,7 +2444,7 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[-7, -7, 1543, 823]
+	Location		[-8, -8, 1928, 1048]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -2035,7 +2460,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"189"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
@@ -2213,6 +2638,10 @@ Model {
       C			      "[1 0;0 1]"
       D			      "[0; 0]"
       InitialCondition	      "0"
+      Port {
+	PortNumber		1
+	Name			"uf,ufdot"
+      }
     }
     Block {
       BlockType		      StateSpace
@@ -2231,7 +2660,7 @@ Model {
       InitialCondition	      "0"
       Port {
 	PortNumber		1
-	Name			"yf"
+	Name			"yf,yfdot"
       }
     }
     Block {
@@ -2242,6 +2671,9 @@ Model {
       Position		      [560, 145, 580, 165]
       ZOrder		      316
       Inputs		      "+-|"
+      Port {
+	PortNumber		1
+      }
     }
     Block {
       BlockType		      Concatenate
@@ -2250,6 +2682,37 @@ Model {
       Ports		      [2, 1]
       Position		      [395, 276, 400, 314]
       ZOrder		      1
+      Port {
+	PortNumber		1
+	Name			"phi"
+      }
+    }
+    Block {
+      BlockType		      Concatenate
+      Name		      "Vector\nConcatenate1"
+      SID		      "76"
+      Ports		      [2, 1]
+      Position		      [136, 305, 174, 310]
+      ZOrder		      321
+      BlockRotation	      270
+      BlockMirror	      on
+      NameLocation	      "left"
+      Port {
+	PortNumber		1
+	Name			"phi_2"
+      }
+    }
+    Block {
+      BlockType		      Concatenate
+      Name		      "Vector\nConcatenate2"
+      SID		      "80"
+      Ports		      [2, 1]
+      Position		      [270, 351, 275, 389]
+      ZOrder		      325
+      Port {
+	PortNumber		1
+	Name			"phi"
+      }
     }
     Line {
       ZOrder		      27
@@ -2260,29 +2723,21 @@ Model {
       DstPort		      2
     }
     Line {
+      Name		      "phi"
       ZOrder		      19
+      Labels		      [2, 1]
       SrcBlock		      "Vector\nConcatenate"
       SrcPort		      1
-      Points		      [218, 0; 0, -95]
+      Points		      [218, 0; 0, -95; 59, 0]
       Branch {
-	ZOrder			130
-	Points			[59, 0]
-	Branch {
-	  ZOrder		  103
-	  DstBlock		  "Adaptation"
-	  DstPort		  2
-	}
-	Branch {
-	  ZOrder		  102
-	  Points		  [0, -105]
-	  DstBlock		  "Dot Product"
-	  DstPort		  1
-	}
+	ZOrder			103
+	DstBlock		"Adaptation"
+	DstPort			2
       }
       Branch {
-	ZOrder			127
-	Points			[-27, 0; 0, -130]
-	DstBlock		"Dot Product1"
+	ZOrder			102
+	Points			[0, -105]
+	DstBlock		"Dot Product"
 	DstPort			1
       }
     }
@@ -2315,30 +2770,42 @@ Model {
       DstPort		      1
     }
     Line {
-      Name		      "yf"
-      ZOrder		      100
+      Name		      "yf,yfdot"
+      ZOrder		      147
       Labels		      [0, 0]
       SrcBlock		      "State-Space1"
       SrcPort		      1
-      Points		      [0, 15]
-      DstBlock		      "Gain"
-      DstPort		      1
+      Points		      [0, 15; -124, 0]
+      Branch {
+	ZOrder			152
+	Points			[0, 50]
+	DstBlock		"Vector\nConcatenate"
+	DstPort			2
+      }
+      Branch {
+	ZOrder			151
+	DstBlock		"Gain"
+	DstPort			1
+      }
     }
     Line {
-      ZOrder		      99
+      Name		      "uf,ufdot"
+      ZOrder		      154
       SrcBlock		      "State-Space"
       SrcPort		      1
-      Points		      [0, 45]
-      DstBlock		      "Vector\nConcatenate"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      101
-      SrcBlock		      "Gain"
-      SrcPort		      1
-      Points		      [-19, 0; 0, 50]
-      DstBlock		      "Vector\nConcatenate"
-      DstPort		      2
+      Points		      [0, 39]
+      Branch {
+	ZOrder			177
+	DstBlock		"Vector\nConcatenate1"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			175
+	Labels			[-1, 1]
+	Points			[-108, 0; 0, 141]
+	DstBlock		"Demux"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      112
@@ -2368,20 +2835,73 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      129
-      SrcBlock		      "Constant"
+      ZOrder		      174
+      SrcBlock		      "Gain"
       SrcPort		      1
-      Points		      [-17, 0; 0, 55]
-      DstBlock		      "Dot Product1"
+      Points		      [-45, 0]
+      DstBlock		      "Vector\nConcatenate1"
       DstPort		      2
     }
     Line {
-      Name		      "u"
-      ZOrder		      134
+      Name		      "phi_2"
+      ZOrder		      157
       Labels		      [0, 0]
-      SrcBlock		      "Dot Product1"
+      SrcBlock		      "Vector\nConcatenate1"
       SrcPort		      1
-      Points		      [-30, 0; 0, 75; 70, 0]
+      Points		      [0, 35]
+      DstBlock		      "Dot Product2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      158
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      DstBlock		      "Dot Product2"
+      DstPort		      2
+    }
+    Line {
+      Name		      "yf_dotdot"
+      ZOrder		      160
+      Labels		      [0, 0]
+      SrcBlock		      "Dot Product2"
+      SrcPort		      1
+      DstBlock		      "Vector\nConcatenate2"
+      DstPort		      1
+    }
+    Line {
+      Name		      "uf_dot"
+      ZOrder		      167
+      Labels		      [1, 1]
+      SrcBlock		      "Demux"
+      SrcPort		      2
+      DstBlock		      "Gain1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      166
+      SrcBlock		      "Gain1"
+      SrcPort		      1
+      Points		      [10, 0; 0, -50]
+      DstBlock		      "Vector\nConcatenate2"
+      DstPort		      2
+    }
+    Line {
+      Name		      "phi"
+      ZOrder		      168
+      Labels		      [0, 0]
+      SrcBlock		      "Vector\nConcatenate2"
+      SrcPort		      1
+      Points		      [63, 0; 0, -85]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      1
+    }
+    Line {
+      Name		      "uf"
+      ZOrder		      169
+      Labels		      [1, 1]
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      Points		      [373, 0; 0, -255]
       DstBlock		      "Sum"
       DstPort		      2
     }
