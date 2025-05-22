@@ -244,6 +244,54 @@ Finalmente, aplicando o lema de Barbalat,
 
 \section{Diagramas de blocos}
 
+Nesta seção, apresentamos os principais diagramas de blocos que descrevem o funcionamento do controle adaptativo modelo-referência (MRAC) na sua forma direta. Cada figura ilustra uma parte fundamental do sistema, desde a estrutura geral até os componentes individuais como a planta, o modelo de referência e a malha de adaptação.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/diagrama_mrac_direto.png}
+  \caption{Diagrama de blocos geral do controle MRAC direto.}
+  \label{fig:mrac_direto}
+\end{figure}
+
+A Figura~\ref{fig:mrac_direto} mostra a arquitetura geral do controlador MRAC direto. O objetivo do sistema é ajustar os parâmetros do controlador de modo que a saída da planta acompanhe a saída do modelo de referência para qualquer entrada $r(t)$. O sinal de erro $e = y - y_m$ é utilizado para atualizar os parâmetros adaptativos.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/diagrama_adaptacao.png}
+  \caption{Malha de adaptação dos parâmetros $\bm{\theta}$.}
+  \label{fig:adaptacao}
+\end{figure}
+
+Na Figura~\ref{fig:adaptacao}, destacamos a malha de adaptação, responsável por ajustar os parâmetros do controlador $\bm{\theta}$ com base no erro de seguimento. Essa adaptação ocorre conforme uma lei de atualização derivada da função de Lyapunov, garantindo estabilidade do sistema.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/diagrama_modelo.png}
+    \caption{Modelo de referência}
+    \label{fig:modelo_referencia}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/diagrama_planta.png}
+    \caption{Planta controlada}
+    \label{fig:planta}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/diagrama_referencia.png}
+    \caption{Sinal de referência $r(t)$}
+    \label{fig:referencia}
+  \end{subfigure}
+  \caption{Componentes individuais do sistema MRAC.}
+  \label{fig:componentes_mrac}
+\end{figure}
+
+A Figura~\ref{fig:componentes_mrac} agrupa os blocos fundamentais do sistema MRAC. À esquerda, o modelo de referência define a dinâmica desejada para o sistema. Ao centro, está a planta controlada, que deve seguir essa referência. À direita, o sinal de referência $r(t)$ atua como entrada comum para ambos os blocos, sendo a base para comparação entre o comportamento ideal e o real.
+
 \section{Resultados das simulações}
 
 \subsection{Simulação \#1}
