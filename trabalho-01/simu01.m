@@ -2,8 +2,7 @@
 %  COE-603  Controle adaptativo
 %
 %  Script para simular o exemplo 1
-%                                             Leonardo S. da C. Tanaka
-%                                             Lincoln R. Proença                                           
+%                                             Leonardo S. da C. Tanaka 
 %                                                       30/mar/25, Rio
 %---------------------------------------------------------------------
 clear all;
@@ -15,7 +14,7 @@ disp('Script para simular o exemplo 1')
 disp(' ')
 disp('Caso: Planta ............. n = 1')
 disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 2')
+disp('      ParÃ¢metros ........ np = 2')
 disp(' ')
 disp('Algoritmo: MRAC Direto')
 disp(' ')
@@ -28,34 +27,58 @@ st = 0.01;      %Sample time to workspace
 s = tf('s');    %trick!
 
 %--------------------------------------------------------- Plant -----
-a0 = 1.5;
-a1 = 2.5;
-b0 = 0.8;
-b1 = 2;
+ap = 2;
+kp = 1;
 
-P = (b1*s+b0)/(s^2 + a1*s + a0)
+P = kp/(s-ap)
 P = ss(P);
-%-------------------------------------------------------- Filter -----
-lambda0 = 1;
-lambda1 = 2;
-filter = 1/(s^2 + lambda1*s + lambda0)
+
+%----------------------------------------------- Reference model -----
+am = 1;
+km = 1;
+
+M = 1/(s+am)
+M = ss(M);
+
 %--------------------------------------------- Initial condition -----
-x0   = [0;0]
+yp0  = 0
+x0   = yp0;
+
+ym0  = 0;
+xm0  = ym0;
+
 %----------------------------------- Reference signal parameters -----
 DC = 1   %Constant
-As = 2   %Sine wave amplitude
-ws = 0.1*pi  %Frequency
 
-%---------------------------------------------- Parametrização 2 -----
-theta_star = [b0; b1; a0; a1];   %theta*
-kappa = 1; % ganho da normalização
+As = 0   %Sine wave amplitude
+ws = 5  %Frequency
+
+%------------------------------------------------- Matching gain -----
+thetas = [-(ap+am)/kp; km/kp];   %theta*
 
 %----------------------------------------- Adaptation parameters -----
-gamma = 1*eye(4);       %Adaptation gains
-theta0 = [0;0;0;0];       %Adaptation inicial condition
+gamma1 = 2*[1 0;0 1];       %Adaptation gains
+gamma2 = 100*[1 0;0 1];
+theta0 = [0;0];       %Adaptation inicial condition
 
 %---------------------------------------------------- Simulation -----
-sim('gradiente_normalizado',tfinal);
+gamma = gamma1
+sim('MRAC_direto',tfinal);
+
+yp1 = yp;   %Save results
+e01 = e0;
+theta1 = theta;
+u1 = u;
+
+%---------------------------------------------------- Simulation -----
+gamma = gamma2
+sim('MRAC_direto',tfinal);
+
+yp2 = yp;   %Save results
+e02 = e0;
+theta2 = theta;
+u2 = u;
+
 %----------------------------------------------- Print eps plots -----
 figure(1)
 clf
@@ -191,7 +214,7 @@ title({'$u$'},'FontSize',10,'Interpreter','latex')
 legend({par1,par2},...
     'FontSize',10,'Interpreter','latex','Location','SouthEast')
 
-%--------------------------------------- Impressão dos diagramas -----
+%--------------------------------------- ImpressÃ£o dos diagramas -----
 % open_system('MRAC_111');
 % print -depsc2 -sMRAC_111 MRAC-111.eps
 % 
@@ -209,5 +232,3 @@ legend({par1,par2},...
 % 
 % close_system('MRAC_111');
 %---------------------------------------------------------------------
-
-
