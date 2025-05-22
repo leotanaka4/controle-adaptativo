@@ -12,9 +12,9 @@ clc;
 disp('-------------------------------')
 disp('Script para simular o exemplo 1')
 disp(' ')
-disp('Caso: Planta ............. n = 2')
+disp('Caso: Planta ............. n = 3')
 disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 4')
+disp('      Parâmetros ........ np = 6')
 disp(' ')
 disp('Algoritmo: Gradiente Normalizado')
 disp(' ')
@@ -27,20 +27,22 @@ st = 0.01;      %Sample time to workspace
 s = tf('s');    %trick!
 
 %--------------------------------------------------------- Filter ----
+lambda2 = 3;
 lambda1 = 2;
 lambda0 = 1;
-
 %--------------------------------------------------------- Plant -----
+a2 = 2;
 a1 = 2.5;
 a0 = 1.5;
+b2 = 3;
 b1 = 2;
 b0 = 0.8;
 
-P = (b1*s+b0)/(s^2+a1*s+a0)
+P = (b2*s^2+b1*s+b0)/(s^3+a2*s^2+a1*s+a0)
 P = ss(P);
 
 %--------------------------------------------- Initial condition -----
-yp0  = [0; 0]
+yp0  = [0; 0; 0]
 x0   = yp0;
 
 %----------------------------------- Reference signal parameters -----
@@ -49,12 +51,12 @@ As = 2   %Sine wave amplitude
 ws = 0.1*pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
-theta_star1 = [b0; b1; a0 - lambda0; a1 - lambda1]   %theta* parametrização 1
-theta_star2 = [b0; b1; a0; a1]                       %theta* parametrização 2
-theta_star3 = [1/b0; b1/b0; a0/b0; a1/b0]            %theta* parametrização 3
+theta_star1 = [b0; b1; b2; a0 - lambda0; a1 - lambda1; a2 - lambda2]   %theta* parametrização 1
+theta_star2 = [b0; b1; b2; a0; a1;a2]                                  %theta* parametrização 2
+theta_star3 = [1/b0; b1/b0; b2/b0; a0/b0; a1/b0; a2/b0]                %theta* parametrização 3
 %----------------------------------------- Adaptation parameters -----
-gamma = 1*[1 0 0 0;0 1 0 0; 0 0 1 0;0 0 0 1;];       %Adaptation gains
-theta0 = [0;0;0;0];       %Adaptation inicial condition
+gamma = 1*eye(6);             %Adaptation gains
+theta0 = [0;0;0;0;0;0];       %Adaptation inicial condition
 kappa = 0;
 
 %---------------------------------------------------- Simulation -----
