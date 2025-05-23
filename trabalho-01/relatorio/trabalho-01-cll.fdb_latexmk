@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1747875044 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-01/relatorio/trabalho-01-cll.tex" "trabalho-01-cll.pdf" "trabalho-01-cll" 1747875046
+["pdflatex"] 1747960844 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-01/relatorio/trabalho-01-cll.tex" "trabalho-01-cll.pdf" "trabalho-01-cll" 1747960846
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732065002 82705 9cc9f144eacd499bc23a611703921467 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1683757891 11548 f0501c9ad67d0989464b2884f5d9d9d9 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1683389622 20624 b5ef9de7fe9a614af111cda132cc174a ""
@@ -165,16 +165,16 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1324294077 22913 a27d7908fc6f0385466454a966a316eb ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-01/relatorio/trabalho-01-cll.tex" 1747874136 10764 3190b554efb6da14787c70fb2ad9a42d ""
+  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-01/relatorio/trabalho-01-cll.tex" 1747960844 19665 12ce037346dcc9f5db75fb176d0fd7eb ""
   "img/diagrama.png" 1747788683 78137 8a2a8fb10c011756cf6bc69a03909571 ""
   "img/diagrama_adaptacao.png" 1747874979 37317 ab73e0e0510244dec341db1e317c787f ""
   "img/diagrama_modelo.png" 1747873588 13800 e55f6298557e7798856209f425e9af72 ""
   "img/diagrama_mrac_direto.png" 1747875010 36152 1fa294605cf03415024b87afda5a315e ""
   "img/diagrama_planta.png" 1747873554 12747 25ee822c1e490805fbb913ff5635379d ""
   "img/diagrama_referencia.png" 1747873615 19295 c91201ba5c263353c50e3bbeed0cb481 ""
-  "trabalho-01-cll.aux" 1747875046 3602 efeed91a84279c286b7acc6a5008a9ff "pdflatex"
-  "trabalho-01-cll.tex" 1747874136 10764 3190b554efb6da14787c70fb2ad9a42d ""
-  "trabalho-01-cll.toc" 1747875046 1395 ad34bbd244a0a42a4441454577a81447 "pdflatex"
+  "trabalho-01-cll.aux" 1747960846 6549 687de5885bf09227022b7d8c4c437cc4 "pdflatex"
+  "trabalho-01-cll.tex" 1747960844 19665 12ce037346dcc9f5db75fb176d0fd7eb ""
+  "trabalho-01-cll.toc" 1747960846 3111 16106a9367f65a94f21b93685e325014 "pdflatex"
   (generated)
   "trabalho-01-cll.aux"
   "trabalho-01-cll.log"

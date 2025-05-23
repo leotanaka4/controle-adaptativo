@@ -294,24 +294,215 @@ A Figura~\ref{fig:componentes_mrac} agrupa os blocos fundamentais do sistema MRA
 
 \section{Resultados das simulações}
 
+Cada subseção a seguir apresenta a configuração do experimento, espaço reservado para os dados obtidos em cada simulação e comentários sobre o desempenho do MRAC Direto.
+
+%---------------------------------------------------------------------
 \subsection{Simulação \#1}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{k_p}{s - a_p} = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{k_m}{s + a_m} = \dfrac{1}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$,rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = \bigl[-(a_p + a_m)/k_p;;k_m/k_p\bigr] = [-3;,1]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\end{itemize}
 
+\paragraph{Resultados da simulação:}
+% (incluir gráficos de $y_p$, $y_m$, parâmetros, erro, etc.)
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Ajuste inicial do erro de rastreamento; \newline
+% - Convergência dos parâmetros para valores próximos a $\theta^*$; \newline
+% - Comportamento em regime permanente.
+
+%---------------------------------------------------------------------
 \subsection{Simulação \#2}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 2 (constante), $A_s=1$, $\omega_s=5$,rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;,1]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\end{itemize}
 
+\paragraph{Resultados da simulação:}
+% (incluir gráficos de resposta ao degrau + senoide)
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Influência da componente senoide no rastreamento; \newline
+% - Oscilações residuais em regime permanente.
+
+%---------------------------------------------------------------------
 \subsection{Simulação \#3}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=3$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$,rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;,1]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\end{itemize}
 
+\paragraph{Resultados da simulação:}
+% (incluir levantamento inicial da planta e convergência)
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Efeito do deslocamento inicial em $y_p$; \newline
+% - Ajuste rápido do erro de rastreamento.
+
+%---------------------------------------------------------------------
 \subsection{Simulação \#4}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=3$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 2 (constante), $A_s=1$, $\omega_s=5$,rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;,1]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\end{itemize}
 
+\paragraph{Resultados da simulação:}
+% (incluir resposta ao degrau + senoide com deslocamento inicial)
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Combinação de deslocamento e referência variável; \newline
+% - Desempenho comparado à Simulação #2.
+
+%---------------------------------------------------------------------
 \subsection{Simulação \#5}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 4}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$,rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+4)/1;,1/1] = [-6;,1]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\end{itemize}
+
+\paragraph{Resultados da simulação:}
+% (incluir análise de modelo de referência mais rápido)
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Resposta comparada às simulações anteriores; \newline
+% - Impacto do pólo do modelo de referência em $a_m=4$.
 
 \subsection{Simulação \#6}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 4}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 2, $A_s=1$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+4)/1;;2/1] = [-6;;2]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\end{itemize}
+
+\paragraph{Resultados da simulação:}
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Sinal de referência composto por componente constante e senoidal
+% - Modelo de referência mais rápido ($a_m = 4$)
 
 \subsection{Simulação \#7}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{2}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 1, $A_s=0$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;2/1] = [-3;;2]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\end{itemize}
+
+\paragraph{Resultados da simulação:}
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Modelo de referência mais lento do que em simulações anteriores
+% - Sinal de referência puramente constante
 
 \subsection{Simulação \#8}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{2}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 2, $A_s=1$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;2/1] = [-3;;2]$
+\item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100I_{2\times2}$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\end{itemize}
+
+\paragraph{Resultados da simulação:}
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Sinal de referência misto (DC + senoide)
+% - Mesmo modelo de referência da simulação anterior
 
 \subsection{Simulação \#9}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 1, $A_s=0$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;1/1] = [-3;;1]$
+\item \textbf{Ganho de adaptação:} 
+\[
+\Gamma_1 = 2 \begin{bmatrix} 1 & 0.35 \\ 0.35 & 1 \end{bmatrix}, \quad
+\Gamma_2 = 100 \begin{bmatrix} 1 & 0.35 \\ 0.35 & 1 \end{bmatrix}
+\]
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\end{itemize}
+
+\paragraph{Resultados da simulação:}
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Mudança na matriz de ganho de adaptação (matriz não-diagonal)
+% - Sinal de referência puramente constante
 
 \subsection{Simulação \#10}
+\paragraph{Configuração do experimento:}
+\begin{itemize}
+\item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
+\item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
+\item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
+\item \textbf{Sinal de referência:} DC = 2, $A_s=1$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;1/1] = [-3;;1]$
+\item \textbf{Ganho de adaptação:} 
+\[
+\Gamma_1 = 2 \begin{bmatrix} 1 & 0.35 \\ 0.35 & 1 \end{bmatrix}, \quad
+\Gamma_2 = 100 \begin{bmatrix} 1 & 0.35 \\ 0.35 & 1 \end{bmatrix}
+\]
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\end{itemize}
+
+\paragraph{Resultados da simulação:}
+\vspace{2em}
+
+\paragraph{Comentários:}
+% - Mesma estrutura de adaptação da simulação anterior
+% - Presença de componente oscilatória no sinal de referência
 
 \end{document}
