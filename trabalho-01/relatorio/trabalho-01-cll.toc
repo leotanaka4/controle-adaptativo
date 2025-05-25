@@ -1,51 +1,51 @@
 \babel@toc {portuguese}{}\relax 
-\contentsline {section}{\numberline {1}Resumo das equações do sistema}{2}{}%
-\contentsline {subsection}{\numberline {1.1}Equações do Algoritmo MRAC Direto}{2}{}%
-\contentsline {subsection}{\numberline {1.2}Estabilidade do Algoritmo MRAC Direto}{3}{}%
-\contentsline {paragraph}{1. Forma vetorial e definições}{3}{}%
-\contentsline {paragraph}{2. Dinâmica do erro}{3}{}%
-\contentsline {paragraph}{3. Erro paramétrico}{3}{}%
-\contentsline {paragraph}{4. Função de Lyapunov}{3}{}%
-\contentsline {paragraph}{5. Conclusões de estabilidade}{4}{}%
-\contentsline {section}{\numberline {2}Diagramas de blocos}{4}{}%
-\contentsline {section}{\numberline {3}Resultados das simulações}{5}{}%
-\contentsline {subsection}{\numberline {3.1}Simulação \#1}{5}{}%
-\contentsline {paragraph}{Configuração do experimento:}{5}{}%
-\contentsline {paragraph}{Resultados da simulação:}{6}{}%
-\contentsline {paragraph}{Comentários:}{6}{}%
-\contentsline {subsection}{\numberline {3.2}Simulação \#2}{6}{}%
-\contentsline {paragraph}{Configuração do experimento:}{6}{}%
-\contentsline {paragraph}{Resultados da simulação:}{6}{}%
-\contentsline {paragraph}{Comentários:}{6}{}%
-\contentsline {subsection}{\numberline {3.3}Simulação \#3}{6}{}%
-\contentsline {paragraph}{Configuração do experimento:}{6}{}%
-\contentsline {paragraph}{Resultados da simulação:}{7}{}%
-\contentsline {paragraph}{Comentários:}{7}{}%
-\contentsline {subsection}{\numberline {3.4}Simulação \#4}{7}{}%
-\contentsline {paragraph}{Configuração do experimento:}{7}{}%
-\contentsline {paragraph}{Resultados da simulação:}{7}{}%
-\contentsline {paragraph}{Comentários:}{7}{}%
-\contentsline {subsection}{\numberline {3.5}Simulação \#5}{7}{}%
-\contentsline {paragraph}{Configuração do experimento:}{7}{}%
-\contentsline {paragraph}{Resultados da simulação:}{8}{}%
-\contentsline {paragraph}{Comentários:}{8}{}%
-\contentsline {subsection}{\numberline {3.6}Simulação \#6}{8}{}%
-\contentsline {paragraph}{Configuração do experimento:}{8}{}%
-\contentsline {paragraph}{Resultados da simulação:}{8}{}%
-\contentsline {paragraph}{Comentários:}{8}{}%
-\contentsline {subsection}{\numberline {3.7}Simulação \#7}{8}{}%
-\contentsline {paragraph}{Configuração do experimento:}{8}{}%
-\contentsline {paragraph}{Resultados da simulação:}{9}{}%
-\contentsline {paragraph}{Comentários:}{9}{}%
-\contentsline {subsection}{\numberline {3.8}Simulação \#8}{9}{}%
-\contentsline {paragraph}{Configuração do experimento:}{9}{}%
-\contentsline {paragraph}{Resultados da simulação:}{9}{}%
-\contentsline {paragraph}{Comentários:}{9}{}%
-\contentsline {subsection}{\numberline {3.9}Simulação \#9}{9}{}%
-\contentsline {paragraph}{Configuração do experimento:}{9}{}%
-\contentsline {paragraph}{Resultados da simulação:}{10}{}%
-\contentsline {paragraph}{Comentários:}{10}{}%
-\contentsline {subsection}{\numberline {3.10}Simulação \#10}{10}{}%
-\contentsline {paragraph}{Configuração do experimento:}{10}{}%
-\contentsline {paragraph}{Resultados da simulação:}{10}{}%
-\contentsline {paragraph}{Comentários:}{10}{}%
+\contentsline {section}{\numberline {1}Resumo das equações do sistema}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Equações do Algoritmo MRAC Direto}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Estabilidade do Algoritmo MRAC Direto}{4}{}%
+\contentsline {paragraph}{1. Forma vetorial e definições}{4}{}%
+\contentsline {paragraph}{2. Dinâmica do erro}{4}{}%
+\contentsline {paragraph}{3. Erro paramétrico}{4}{}%
+\contentsline {paragraph}{4. Função de Lyapunov}{4}{}%
+\contentsline {paragraph}{5. Conclusões de estabilidade}{5}{}%
+\contentsline {section}{\numberline {2}Diagramas de blocos}{5}{}%
+\contentsline {section}{\numberline {3}Resultados das simulações}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Simulação \#1}{6}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Configuração do experimento:}{6}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Resultados da simulação:}{7}{}%
+\contentsline {subsubsection}{\numberline {3.1.3}Comentários:}{8}{}%
+\contentsline {subsection}{\numberline {3.2}Simulação \#2}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Configuração do experimento:}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Resultados da simulação:}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Comentários:}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Simulação \#3}{8}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}Configuração do experimento:}{8}{}%
+\contentsline {subsubsection}{\numberline {3.3.2}Resultados da simulação:}{8}{}%
+\contentsline {subsubsection}{\numberline {3.3.3}Comentários:}{8}{}%
+\contentsline {subsection}{\numberline {3.4}Simulação \#4}{8}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Configuração do experimento:}{8}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Resultados da simulação:}{10}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Comentários:}{10}{}%
+\contentsline {subsection}{\numberline {3.5}Simulação \#5}{10}{}%
+\contentsline {subsubsection}{\numberline {3.5.1}Configuração do experimento:}{10}{}%
+\contentsline {subsubsection}{\numberline {3.5.2}Resultados da simulação:}{12}{}%
+\contentsline {subsubsection}{\numberline {3.5.3}Comentários:}{12}{}%
+\contentsline {subsection}{\numberline {3.6}Simulação \#6}{12}{}%
+\contentsline {subsubsection}{\numberline {3.6.1}Configuração do experimento:}{12}{}%
+\contentsline {subsubsection}{\numberline {3.6.2}Resultados da simulação:}{13}{}%
+\contentsline {subsubsection}{\numberline {3.6.3}Comentários:}{14}{}%
+\contentsline {subsection}{\numberline {3.7}Simulação \#7}{14}{}%
+\contentsline {subsubsection}{\numberline {3.7.1}Configuração do experimento:}{14}{}%
+\contentsline {subsubsection}{\numberline {3.7.2}Resultados da simulação:}{14}{}%
+\contentsline {subsubsection}{\numberline {3.7.3}Comentários:}{14}{}%
+\contentsline {subsection}{\numberline {3.8}Simulação \#8}{14}{}%
+\contentsline {subsubsection}{\numberline {3.8.1}Configuração do experimento:}{14}{}%
+\contentsline {subsubsection}{\numberline {3.8.2}Resultados da simulação:}{14}{}%
+\contentsline {subsubsection}{\numberline {3.8.3}Comentários:}{14}{}%
+\contentsline {subsection}{\numberline {3.9}Simulação \#9}{14}{}%
+\contentsline {subsubsection}{\numberline {3.9.1}Configuração do experimento:}{14}{}%
+\contentsline {subsubsection}{\numberline {3.9.2}Resultados da simulação:}{16}{}%
+\contentsline {subsubsection}{\numberline {3.9.3}Comentários:}{16}{}%
+\contentsline {subsection}{\numberline {3.10}Simulação \#10}{16}{}%
+\contentsline {subsubsection}{\numberline {3.10.1}Configuração do experimento:}{16}{}%
+\contentsline {subsubsection}{\numberline {3.10.2}Resultados da simulação:}{18}{}%
+\contentsline {subsubsection}{\numberline {3.10.3}Comentários:}{18}{}%

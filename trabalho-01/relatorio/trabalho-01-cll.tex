@@ -298,7 +298,7 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 
 %---------------------------------------------------------------------
 \subsection{Simulação \#1}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{k_p}{s - a_p} = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{k_m}{s + a_m} = \dfrac{1}{s + 1}$
@@ -309,18 +309,54 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-% (incluir gráficos de $y_p$, $y_m$, parâmetros, erro, etc.)
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig01a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig01b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig01c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig01e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig01d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu01.m})}
+    \label{fig:sim1}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Ajuste inicial do erro de rastreamento; \newline
 % - Convergência dos parâmetros para valores próximos a $\theta^*$; \newline
 % - Comportamento em regime permanente.
 
 %---------------------------------------------------------------------
 \subsection{Simulação \#2}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
@@ -331,17 +367,53 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-% (incluir gráficos de resposta ao degrau + senoide)
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig02a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig02b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig02c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig02e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig02d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu02.m})}
+    \label{fig:sim2}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Influência da componente senoide no rastreamento; \newline
 % - Oscilações residuais em regime permanente.
 
 %---------------------------------------------------------------------
 \subsection{Simulação \#3}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
@@ -352,17 +424,53 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-% (incluir levantamento inicial da planta e convergência)
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig03a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig03b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig03c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig03e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig03d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu03.m})}
+    \label{fig:sim3}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Efeito do deslocamento inicial em $y_p$; \newline
 % - Ajuste rápido do erro de rastreamento.
 
 %---------------------------------------------------------------------
 \subsection{Simulação \#4}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
@@ -373,17 +481,53 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-% (incluir resposta ao degrau + senoide com deslocamento inicial)
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig04a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig04b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig04c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig04e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig04d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu04.m})}
+    \label{fig:sim4}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Combinação de deslocamento e referência variável; \newline
 % - Desempenho comparado à Simulação #2.
 
 %---------------------------------------------------------------------
 \subsection{Simulação \#5}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 4}$
@@ -394,16 +538,52 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-% (incluir análise de modelo de referência mais rápido)
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig05a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig05b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig05c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig05e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig05d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu05.m})}
+    \label{fig:sim5}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Resposta comparada às simulações anteriores; \newline
 % - Impacto do pólo do modelo de referência em $a_m=4$.
 
 \subsection{Simulação \#6}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 4}$
@@ -414,15 +594,52 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig06a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig06b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig06c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig06e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig06d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu06.m})}
+    \label{fig:sim6}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Sinal de referência composto por componente constante e senoidal
 % - Modelo de referência mais rápido ($a_m = 4$)
 
 \subsection{Simulação \#7}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{2}{s + 1}$
@@ -433,15 +650,52 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig07a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig07b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig07c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig07e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig07d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu07.m})}
+    \label{fig:sim7}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Modelo de referência mais lento do que em simulações anteriores
 % - Sinal de referência puramente constante
 
 \subsection{Simulação \#8}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{2}{s + 1}$
@@ -452,15 +706,52 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig08a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig08b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig08c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig08e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig08d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu08.m})}
+    \label{fig:sim8}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Sinal de referência misto (DC + senoide)
 % - Mesmo modelo de referência da simulação anterior
 
 \subsection{Simulação \#9}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
@@ -475,15 +766,52 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig09a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig09b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig09c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig09e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig09d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu09.m})}
+    \label{fig:sim9}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Mudança na matriz de ganho de adaptação (matriz não-diagonal)
 % - Sinal de referência puramente constante
 
 \subsection{Simulação \#10}
-\paragraph{Configuração do experimento:}
+\subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
@@ -498,10 +826,47 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
 \end{itemize}
 
-\paragraph{Resultados da simulação:}
-\vspace{2em}
+\subsubsection{Resultados da simulação:}
 
-\paragraph{Comentários:}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig10a.png}
+        \caption{Erro}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig10b.png}
+        \caption{Ganho de Adaptação}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig10c.png}
+        \caption{Resposta do Sistema}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig10e.png}
+        \caption{Sinal de Controle}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/fig10d.png}
+        \caption{Diagrama $e_0 \times \tilde{\theta}$}
+    \end{subfigure}
+
+    \caption{Resultado da simulação (Script: \textit{simu10.m})}
+    \label{fig:sim10}
+\end{figure}
+
+\subsubsection{Comentários:}
 % - Mesma estrutura de adaptação da simulação anterior
 % - Presença de componente oscilatória no sinal de referência
 
