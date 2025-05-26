@@ -9,43 +9,43 @@
 \contentsline {paragraph}{5. Conclusões de estabilidade}{5}{}%
 \contentsline {section}{\numberline {2}Diagramas de blocos}{5}{}%
 \contentsline {section}{\numberline {3}Resultados das simulações}{6}{}%
-\contentsline {subsection}{\numberline {3.1}Simulação \#1}{6}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Configuração do experimento:}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Simulação \#1}{7}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Configuração do experimento:}{7}{}%
 \contentsline {subsubsection}{\numberline {3.1.2}Resultados da simulação:}{7}{}%
 \contentsline {subsubsection}{\numberline {3.1.3}Comentários:}{8}{}%
-\contentsline {subsection}{\numberline {3.2}Simulação \#2}{8}{}%
-\contentsline {subsubsection}{\numberline {3.2.1}Configuração do experimento:}{8}{}%
-\contentsline {subsubsection}{\numberline {3.2.2}Resultados da simulação:}{8}{}%
-\contentsline {subsubsection}{\numberline {3.2.3}Comentários:}{8}{}%
-\contentsline {subsection}{\numberline {3.3}Simulação \#3}{8}{}%
-\contentsline {subsubsection}{\numberline {3.3.1}Configuração do experimento:}{8}{}%
-\contentsline {subsubsection}{\numberline {3.3.2}Resultados da simulação:}{8}{}%
-\contentsline {subsubsection}{\numberline {3.3.3}Comentários:}{8}{}%
-\contentsline {subsection}{\numberline {3.4}Simulação \#4}{8}{}%
-\contentsline {subsubsection}{\numberline {3.4.1}Configuração do experimento:}{8}{}%
-\contentsline {subsubsection}{\numberline {3.4.2}Resultados da simulação:}{10}{}%
-\contentsline {subsubsection}{\numberline {3.4.3}Comentários:}{10}{}%
-\contentsline {subsection}{\numberline {3.5}Simulação \#5}{10}{}%
-\contentsline {subsubsection}{\numberline {3.5.1}Configuração do experimento:}{10}{}%
-\contentsline {subsubsection}{\numberline {3.5.2}Resultados da simulação:}{12}{}%
-\contentsline {subsubsection}{\numberline {3.5.3}Comentários:}{12}{}%
-\contentsline {subsection}{\numberline {3.6}Simulação \#6}{12}{}%
-\contentsline {subsubsection}{\numberline {3.6.1}Configuração do experimento:}{12}{}%
-\contentsline {subsubsection}{\numberline {3.6.2}Resultados da simulação:}{13}{}%
-\contentsline {subsubsection}{\numberline {3.6.3}Comentários:}{14}{}%
-\contentsline {subsection}{\numberline {3.7}Simulação \#7}{14}{}%
-\contentsline {subsubsection}{\numberline {3.7.1}Configuração do experimento:}{14}{}%
-\contentsline {subsubsection}{\numberline {3.7.2}Resultados da simulação:}{14}{}%
-\contentsline {subsubsection}{\numberline {3.7.3}Comentários:}{14}{}%
-\contentsline {subsection}{\numberline {3.8}Simulação \#8}{14}{}%
-\contentsline {subsubsection}{\numberline {3.8.1}Configuração do experimento:}{14}{}%
-\contentsline {subsubsection}{\numberline {3.8.2}Resultados da simulação:}{14}{}%
-\contentsline {subsubsection}{\numberline {3.8.3}Comentários:}{14}{}%
-\contentsline {subsection}{\numberline {3.9}Simulação \#9}{14}{}%
-\contentsline {subsubsection}{\numberline {3.9.1}Configuração do experimento:}{14}{}%
-\contentsline {subsubsection}{\numberline {3.9.2}Resultados da simulação:}{16}{}%
-\contentsline {subsubsection}{\numberline {3.9.3}Comentários:}{16}{}%
-\contentsline {subsection}{\numberline {3.10}Simulação \#10}{16}{}%
-\contentsline {subsubsection}{\numberline {3.10.1}Configuração do experimento:}{16}{}%
-\contentsline {subsubsection}{\numberline {3.10.2}Resultados da simulação:}{18}{}%
-\contentsline {subsubsection}{\numberline {3.10.3}Comentários:}{18}{}%
+\contentsline {subsection}{\numberline {3.2}Simulação \#2}{9}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Configuração do experimento:}{9}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Resultados da simulação:}{9}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Comentários:}{10}{}%
+\contentsline {subsection}{\numberline {3.3}Simulação \#3}{11}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}Configuração do experimento:}{11}{}%
+\contentsline {subsubsection}{\numberline {3.3.2}Resultados da simulação:}{11}{}%
+\contentsline {subsubsection}{\numberline {3.3.3}Comentários:}{12}{}%
+\contentsline {subsection}{\numberline {3.4}Simulação \#4}{13}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Configuração do experimento:}{13}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Resultados da simulação:}{13}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Comentários:}{14}{}%
+\contentsline {subsection}{\numberline {3.5}Simulação \#5}{15}{}%
+\contentsline {subsubsection}{\numberline {3.5.1}Configuração do experimento:}{15}{}%
+\contentsline {subsubsection}{\numberline {3.5.2}Resultados da simulação:}{15}{}%
+\contentsline {subsubsection}{\numberline {3.5.3}Comentários:}{16}{}%
+\contentsline {subsection}{\numberline {3.6}Simulação \#6}{17}{}%
+\contentsline {subsubsection}{\numberline {3.6.1}Configuração do experimento:}{17}{}%
+\contentsline {subsubsection}{\numberline {3.6.2}Resultados da simulação:}{17}{}%
+\contentsline {subsubsection}{\numberline {3.6.3}Comentários:}{18}{}%
+\contentsline {subsection}{\numberline {3.7}Simulação \#7}{19}{}%
+\contentsline {subsubsection}{\numberline {3.7.1}Configuração do experimento:}{19}{}%
+\contentsline {subsubsection}{\numberline {3.7.2}Resultados da simulação:}{19}{}%
+\contentsline {subsubsection}{\numberline {3.7.3}Comentários:}{20}{}%
+\contentsline {subsection}{\numberline {3.8}Simulação \#8}{21}{}%
+\contentsline {subsubsection}{\numberline {3.8.1}Configuração do experimento:}{21}{}%
+\contentsline {subsubsection}{\numberline {3.8.2}Resultados da simulação:}{21}{}%
+\contentsline {subsubsection}{\numberline {3.8.3}Comentários:}{22}{}%
+\contentsline {subsection}{\numberline {3.9}Simulação \#9}{23}{}%
+\contentsline {subsubsection}{\numberline {3.9.1}Configuração do experimento:}{23}{}%
+\contentsline {subsubsection}{\numberline {3.9.2}Resultados da simulação:}{23}{}%
+\contentsline {subsubsection}{\numberline {3.9.3}Comentários:}{24}{}%
+\contentsline {subsection}{\numberline {3.10}Simulação \#10}{25}{}%
+\contentsline {subsubsection}{\numberline {3.10.1}Configuração do experimento:}{25}{}%
+\contentsline {subsubsection}{\numberline {3.10.2}Resultados da simulação:}{25}{}%
+\contentsline {subsubsection}{\numberline {3.10.3}Comentários:}{26}{}%

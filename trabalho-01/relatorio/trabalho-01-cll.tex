@@ -121,14 +121,14 @@ A Figura \ref{fig:bloco_verificacao} ilustra o diagrama de blocos do sistema em 
 As expressões ideais para os parâmetros $\theta_1^*$ e $\theta_2^*$ que garantem essa equivalência são apresentadas a seguir. Esses parâmetros são obtidos por identificação direta, com base nas constantes do modelo e da planta.
 
 \begin{center}
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.35\textwidth}
 \begin{center}
 \fbox{
     $\theta_1^* = -\dfrac{a_p + a_m}{k_p}$
 }
 \end{center}
 \end{minipage}
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.35\textwidth}
 \begin{center}
 \fbox{
     $\theta_2^* = \dfrac{k_m}{k_p}$
@@ -296,50 +296,47 @@ A Figura~\ref{fig:componentes_mrac} agrupa os blocos fundamentais do sistema MRA
 
 Cada subseção a seguir apresenta a configuração do experimento, espaço reservado para os dados obtidos em cada simulação e comentários sobre o desempenho do MRAC Direto.
 
-%---------------------------------------------------------------------
+\newpage
+
 \subsection{Simulação \#1}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{k_p}{s - a_p} = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{k_m}{s + a_m} = \dfrac{1}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
-\item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$,rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = \bigl[-(a_p + a_m)/k_p;;k_m/k_p\bigr] = [-3;,1]$
+\item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = \bigl[-(a_p + a_m)/k_p;k_m/k_p\bigr] = [-3;1]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig01a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig01b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig01c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig01e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig01d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -350,54 +347,65 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \end{figure}
 
 \subsubsection{Comentários:}
-% - Ajuste inicial do erro de rastreamento; \newline
-% - Convergência dos parâmetros para valores próximos a $\theta^*$; \newline
-% - Comportamento em regime permanente.
 
-%---------------------------------------------------------------------
+A simulação do MRAC Direto apresentou os seguintes comportamentos, conforme a variação do ganho de adaptação $\Gamma$:
+
+\begin{itemize}
+    \item \textbf{Erro de rastreamento ($e_0$):} Para $\Gamma = 100I$, o erro converge mais rapidamente com menor overshoot. Já para $\Gamma = 2I$, a convergência é mais lenta e com maiores oscilações, só que uma menor frequência de oscilação.
+
+    \item \textbf{Ganho de adaptação ($\theta$):} Ambos os casos não convergem para o valor ótimo $\theta^* = [-3;1]$. Porque o sinal de entrada que é um sinal DC igual a 1, o que não auxilia na convergência do ganho de adaptação.
+
+    \item \textbf{Resposta do sistema ($y_p$ e $y_m$):} O rastreamento da referência é mais eficiente para $\Gamma = 100I$, apresentando menor erro e resposta mais rápida.
+
+    \item \textbf{Sinal de controle ($u$):} Ambos os casos convergem para o valor adequado em regime permanente. Com $\Gamma = 100I$, o controle atua de forma mais intensa no início, mas estabiliza mais rapidamente.
+
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Para $\Gamma = 2I$, a trajetória é mais lenta e ampla; para $\Gamma = 100I$, há convergência rápida com órbitas mais fechadas.
+
+\end{itemize}
+
+\textbf{Conclusão:} Aumentar o ganho de adaptação $\Gamma$ melhora significativamente a velocidade de convergência do sistema, tanto para o erro quanto para os parâmetros adaptativos, ao custo de maior agressividade no transiente.
+
+\newpage
+
 \subsection{Simulação \#2}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
 \item \textbf{Planta:} $P(s) = \dfrac{1}{s - 2}$
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
-\item \textbf{Sinal de referência:} DC = 2 (constante), $A_s=1$, $\omega_s=5$,rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;,1]$
+\item \textbf{Sinal de referência:} DC = 2 (constante), $A_s=1$, $\omega_s=5$ rad/s
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;1]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig02a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig02b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig02c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig02e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig02d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -408,10 +416,26 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \end{figure}
 
 \subsubsection{Comentários:}
-% - Influência da componente senoide no rastreamento; \newline
-% - Oscilações residuais em regime permanente.
 
-%---------------------------------------------------------------------
+Nesta simulação, foi utilizado um sinal de referência composto por uma componente DC e uma senoidal, o que introduz maior oscilação no sistema. Os principais resultados observados foram:
+
+\begin{itemize}
+    \item \textbf{Erro de rastreamento ($e_0$):} O erro apresenta comportamento oscilatório permanente devido à componente senoidal do sinal de referência. Com $\Gamma = 100I$, o erro é mais suavizado e acompanha melhor a referência.
+
+    \item \textbf{Ganho de adaptação ($\theta$):} Ambos os casos convergem para valores próximos de $\theta^*$, com maior rapidez e menor variação para $\Gamma = 100I$.
+
+    \item \textbf{Resposta do sistema ($y_p$, $y_m$, $r$):} A resposta com $\Gamma = 100I$ segue melhor a referência, com menor defasagem e melhor rastreamento da componente senoidal.
+
+    \item \textbf{Sinal de controle ($u$):} Oscilatório em ambos os casos, com maior intensidade e frequência no início. A escolha de $\Gamma$ mais alto permite estabilização mais rápida, porém com maior ação de controle.
+
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Com $\Gamma = 100I$, as trajetórias convergem de forma mais concentrada em torno da origem, indicando melhor desempenho adaptativo.
+
+\end{itemize}
+
+\textbf{Conclusão:} A presença da componente senoidal no sinal de referência exige maior capacidade adaptativa do sistema. O ganho de adaptação elevado ($\Gamma = 100I$) proporciona resposta mais precisa, embora com maior esforço de controle.
+
+\newpage
+
 \subsection{Simulação \#3}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -419,42 +443,38 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=3$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$,rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;,1]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;1]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig03a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig03b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig03c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig03e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig03d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -465,10 +485,26 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \end{figure}
 
 \subsubsection{Comentários:}
-% - Efeito do deslocamento inicial em $y_p$; \newline
-% - Ajuste rápido do erro de rastreamento.
 
-%---------------------------------------------------------------------
+Nesta simulação, a planta parte de uma condição inicial não nula ($y_p(0) = 3$), enquanto o modelo inicia em zero. O sinal de referência é constante (DC = 1). Os principais resultados observados foram:
+
+\begin{itemize}
+    \item \textbf{Erro de rastreamento ($e_0$):} O erro converge rapidamente para zero, sendo mais eficiente para $\Gamma = 100I$. A presença do offset inicial é corrigida com maior rapidez neste caso.
+
+    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros adaptativos se ajustam rapidamente e não estabilizam em torno de $\theta^*$, com menor oscilação e adaptação mais rápida para maior ganho de adaptação.
+
+    \item \textbf{Resposta do sistema:} O sistema com $\Gamma = 100I$ segue o modelo de referência com mais precisão, apresentando menor tempo de acomodação e sobre-elevação.
+
+    \item \textbf{Sinal de controle ($u$):} O controle é inicialmente intenso devido à diferença nas condições iniciais. Para $\Gamma = 100I$, observa-se maior esforço de controle, mas com resposta mais eficaz.
+
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} As trajetórias convergem rapidamente para a origem, especialmente para $\Gamma = 100I$, indicando uma adaptação eficiente mesmo com condições iniciais desfavoráveis.
+
+\end{itemize}
+
+\textbf{Conclusão:} A diferença nas condições iniciais evidencia a importância do ganho de adaptação. Valores maiores de $\Gamma$ resultam em respostas mais rápidas e precisas, compensando rapidamente desvios iniciais.
+
+\newpage
+
 \subsection{Simulação \#4}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -476,42 +512,38 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=3$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 2 (constante), $A_s=1$, $\omega_s=5$,rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;,1]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-3;1]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig04a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig04b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig04c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig04e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig04d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -522,10 +554,26 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \end{figure}
 
 \subsubsection{Comentários:}
-% - Combinação de deslocamento e referência variável; \newline
-% - Desempenho comparado à Simulação #2.
 
-%---------------------------------------------------------------------
+Nesta simulação, a planta inicia novamente em $y_p(0)=3$, mas o sinal de referência inclui uma componente senoidal além da parte DC ($DC=2$, $A_s=1$, $\omega_s=5$ rad/s). Isso introduz um regime permanente oscilatório. Os principais pontos observados são:
+
+\begin{itemize}
+    \item \textbf{Erro de rastreamento ($e_0$):} O erro não converge para zero devido à presença do componente harmônico no sinal de referência. No entanto, para $\Gamma = 100I$, o erro apresenta menor amplitude de oscilação, indicando melhor desempenho de rastreamento.
+
+    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros adaptativos não convergem para valores constantes, pois o sistema está em regime oscilatório. Ainda assim, os ganhos oscilam em torno de valores próximos de $\theta^*$ no caso de $\Gamma = 2I$, com maior oscilação observada para $\Gamma = 100I$.
+
+    \item \textbf{Resposta do sistema:} O sistema com maior ganho de adaptação responde mais rapidamente e com menor erro de seguimento da referência. Entretanto, a presença de altas frequências exige maior esforço adaptativo.
+
+    \item \textbf{Sinal de controle ($u$):} O controle apresenta oscilações significativas para ambas as configurações, mas mais intensas para $\Gamma = 100I$, refletindo a tentativa de acompanhar a componente senoidal do sinal de referência.
+
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} As trajetórias não convergem para a origem, como esperado em um regime não estacionário. Os ciclos fechados no plano de fase revelam a persistência da oscilação e o comportamento quase-periódico da adaptação.
+
+\end{itemize}
+
+\textbf{Conclusão:} A introdução da componente senoidal no sinal de referência impossibilita a convergência do erro para zero. Ainda assim, o aumento do ganho de adaptação melhora o desempenho de rastreamento, ao custo de maior esforço de controle e maiores oscilações nos parâmetros adaptativos.
+
+\newpage
+
 \subsection{Simulação \#5}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -533,42 +581,38 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 4}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 1 (constante), $A_s=0$, $\omega_s=5$,rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+4)/1;,1/1] = [-6;,1]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+4)/1;1/1] = [-6;1]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100 I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;,0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig05a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig05b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig05c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig05e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig05d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -582,6 +626,8 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 % - Resposta comparada às simulações anteriores; \newline
 % - Impacto do pólo do modelo de referência em $a_m=4$.
 
+\newpage
+
 \subsection{Simulação \#6}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -589,42 +635,38 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 4}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 2, $A_s=1$, $\omega_s=5$ rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+4)/1;;2/1] = [-6;;2]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+4)/1;2/1] = [-6;2]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig06a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig06b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig06c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig06e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig06d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -638,6 +680,8 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 % - Sinal de referência composto por componente constante e senoidal
 % - Modelo de referência mais rápido ($a_m = 4$)
 
+\newpage
+
 \subsection{Simulação \#7}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -645,42 +689,38 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{2}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 1, $A_s=0$, $\omega_s=5$ rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;2/1] = [-3;;2]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;2/1] = [-3;2]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig07a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig07b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig07c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig07e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig07d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -694,6 +734,8 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 % - Modelo de referência mais lento do que em simulações anteriores
 % - Sinal de referência puramente constante
 
+\newpage
+
 \subsection{Simulação \#8}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -701,42 +743,38 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{2}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 2, $A_s=1$, $\omega_s=5$ rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;2/1] = [-3;;2]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;2/1] = [-3;2]$
 \item \textbf{Ganho de adaptação:} $\Gamma_1 = 2I_{2\times2}$, $\Gamma_2 = 100I_{2\times2}$
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig08a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig08b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig08c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig08e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig08d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -750,6 +788,8 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 % - Sinal de referência misto (DC + senoide)
 % - Mesmo modelo de referência da simulação anterior
 
+\newpage
+
 \subsection{Simulação \#9}
 \subsubsection{Configuração do experimento:}
 \begin{itemize}
@@ -757,46 +797,42 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \item \textbf{Modelo de referência:} $M(s) = \dfrac{1}{s + 1}$
 \item \textbf{Condições iniciais:} $y_p(0)=0$, $y_m(0)=0$
 \item \textbf{Sinal de referência:} DC = 1, $A_s=0$, $\omega_s=5$ rad/s
-\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;;1/1] = [-3;;1]$
+\item \textbf{Ganho de matching ótimo:} $\theta^* = [-(2+1)/1;1/1] = [-3;1]$
 \item \textbf{Ganho de adaptação:} 
 \[
 \Gamma_1 = 2 \begin{bmatrix} 1 & 0.35 \\ 0.35 & 1 \end{bmatrix}, \quad
 \Gamma_2 = 100 \begin{bmatrix} 1 & 0.35 \\ 0.35 & 1 \end{bmatrix}
 \]
-\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;;0]$
+\item \textbf{Condição inicial do parâmetro:} $\theta(0) = [0;0]$
 \end{itemize}
 
 \subsubsection{Resultados da simulação:}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig09a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig09b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig09c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig09e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig09d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
@@ -809,6 +845,8 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 \subsubsection{Comentários:}
 % - Mudança na matriz de ganho de adaptação (matriz não-diagonal)
 % - Sinal de referência puramente constante
+
+\newpage
 
 \subsection{Simulação \#10}
 \subsubsection{Configuração do experimento:}
@@ -830,33 +868,29 @@ Cada subseção a seguir apresenta a configuração do experimento, espaço rese
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig10a.png}
-        \caption{Erro}
+        \caption{Erro de Rastreamento}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig10b.png}
         \caption{Ganho de Adaptação}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig10c.png}
         \caption{Resposta do Sistema}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig10e.png}
         \caption{Sinal de Controle}
     \end{subfigure}
 
-    \vspace{0.5cm}
-
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/fig10d.png}
         \caption{Diagrama $e_0 \times \tilde{\theta}$}
