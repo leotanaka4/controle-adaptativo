@@ -82,54 +82,110 @@ u2 = u;
 %----------------------------------------------- Print eps plots -----
 figure(1)
 clf
-subplot(211)
-plot(t,e01,t,e02,'Linew',0.5);
-grid on
-title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$e_0\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2},...
-    'FontSize',8,'Interpreter','latex','Location','NorthEast')
-sublaby("   ");
-print -dpng images\gamma_full_senoide\fig10a.png
 
-Theta1 = thetas(1)*ones(size(t));
-Theta2 = thetas(2)*ones(size(t));
+subplot(2,1,1)
+
+% Curvas com cores padrão (azul e laranja) e linha sólida
+plot(t, e01, 'LineWidth', 1); hold on;
+plot(t, e02, 'LineWidth', 1);
+
+grid on
+
+% Ajuste automático do eixo y com margem
+all_errors = [e01(:); e02(:)];
+ymin = min(all_errors);
+ymax = max(all_errors);
+padding = 0.1 * (ymax - ymin);
+ylim([ymin - padding, ymax + padding])
+
+title('$e_0$', 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$e_0$', 'FontSize', 10, 'Interpreter', 'latex')
+
+par1 = ['$e_0\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par2 = ['$e_0\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+
+legend(par1, par2, 'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
+
+sublaby("   "); 
+print -dpng images\fig10a.png
+
+Theta1 = thetas(1) * ones(size(t));
+Theta2 = thetas(2) * ones(size(t));
 
 figure(2)
 clf
-subplot(211)
-plot(t,theta1,t,theta2,t,Theta1,t,Theta2,'Linew',0.5);
+subplot(2,1,1)
+
+% Curvas com linhas sólidas
+plot(t, theta1, 'LineWidth', 1); hold on;
+plot(t, theta2, 'LineWidth', 1);
+plot(t, Theta1, 'k--', 'LineWidth', 1); % Referência theta1* (linha preta tracejada)
+plot(t, Theta2, 'k-.', 'LineWidth', 1); % Referência theta2* (linha preta ponto-traço)
+
 grid on
-title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par3 = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-par4 = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2,par3,par4,'$\theta_1^*$','$\theta_2^*$'},...
-    'FontSize',8,'Interpreter','latex','Location','NorthEast')
-sublaby("   ");
-print -dpng images\gamma_full_senoide\fig10b.png
+
+% Título e rótulos
+title({'$\theta, \theta^*$'}, 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$\theta$', 'FontSize', 10, 'Interpreter', 'latex')
+
+% Legenda
+par1 = ['$\theta_{1}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par2 = ['$\theta_{2}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par3 = ['$\theta_{1}\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+par4 = ['$\theta_{2}\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+
+legend({par1, par2, par3, par4, '$\theta_1^*$', '$\theta_2^*$'}, ...
+    'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
+
+% Ajuste automático dos limites do eixo y
+all_thetas = [theta1(:); theta2(:); Theta1(:); Theta2(:)];
+ymin = min(all_thetas);
+ymax = max(all_thetas);
+padding = 0.1 * (ymax - ymin);
+ylim([ymin - padding, ymax + padding])
+
+sublaby("   ");  % Mantido conforme seu código original
+print -dpng images\fig10b.png
 
 figure(3)
 clf
-subplot(211)
+subplot(2,1,1)
 hold on
-plot(t,yp1)
-plot(t,yp2,t,r,t,ym,'Linew',0.5)
+
+% Curvas com linewidth mais visível
+plot(t, yp1, 'LineWidth', 1)
+plot(t, yp2, 'LineWidth', 1.5)
+plot(t, r,   'k--', 'LineWidth', 1)    % Referência r (tracejada preta)
+plot(t, ym, 'LineWidth', 1)    % Modelo ym
+
 grid on
-title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$y\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$y\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2,'$r$','$y_m$'},...
-    'FontSize',8,'Interpreter','latex','Location','NorthEast')
-sublaby("   ");
-V = axis;
-axis([V(1) V(2) 0 2.5 ]);
-print -dpng images\gamma_full_senoide\fig10c.png
+
+% Título e eixos
+title({'$r,\ y_m,\ y_p$'}, 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$y$', 'FontSize', 10, 'Interpreter', 'latex')
+
+% Legenda melhorada
+par1 = ['$y\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par2 = ['$y\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+
+legend({par1, par2, '$r$', '$y_m$'}, ...
+    'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
+
+% Ajuste automático do eixo y com margem
+all_outputs = [yp1(:); yp2(:); r(:); ym(:)];
+ymin = min(all_outputs);
+ymax = max(all_outputs);
+padding = 0.1 * (ymax - ymin);
+ylim([ymin - padding, ymax + padding])
+
+sublaby("   ");  % Mantido conforme o original
+print -dpng images\fig10c.png
 
 dims = size(t);
-thetas_matrix = ones([dims(1),2])*[thetas(1) 0;0 thetas(2)];
+thetas_matrix = ones([dims(1), 2]) * [thetas(1), 0; 0, thetas(2)];
 
 ttheta1 = theta1 - thetas_matrix;
 ttheta2 = theta2 - thetas_matrix;
@@ -137,83 +193,176 @@ ttheta2 = theta2 - thetas_matrix;
 figure(4)
 clf
 hold on
-plot(e01,ttheta1)
-plot(e02,ttheta2)
+
+% Plot com linhas mais espessas
+plot(e01, ttheta1(:,1), 'LineWidth', 1)
+plot(e01, ttheta1(:,2), 'LineWidth', 1)
+plot(e02, ttheta2(:,1), 'LineWidth', 1)
+plot(e02, ttheta2(:,2), 'LineWidth', 1)
+
 grid on
-%axis equal
-title({'$e_0 \times \tilde\theta$'},'FontSize',10,'Interpreter','latex')
-xlabel({'$e_0$'},'FontSize',10,'Interpreter','latex')
-ylabel({'$\tilde\theta$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par3 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-par4 = strcat('$e_0 \times \tilde\theta_2\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2,par3,par4},...
-    'FontSize',8,'Interpreter','latex','Location','SouthEast')
+
+% Título e rótulos com LaTeX
+title({'$e_0 \times \tilde\theta$'}, 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('$e_0$', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$\tilde\theta$', 'FontSize', 10, 'Interpreter', 'latex')
+
+% Legenda com descrição clara de cada curva
+par1 = ['$e_0 \times \tilde\theta_1\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par2 = ['$e_0 \times \tilde\theta_2\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par3 = ['$e_0 \times \tilde\theta_1\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+par4 = ['$e_0 \times \tilde\theta_2\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+
+legend({par1, par2, par3, par4}, ...
+    'FontSize', 9, 'Interpreter', 'latex', 'Location', 'SouthEast')
+
+% Ajuste dos limites com margem
+all_etheta = [ttheta1(:); ttheta2(:)];
+ymin = min(all_etheta);
+ymax = max(all_etheta);
+padding_y = 0.1 * (ymax - ymin);
+ylim([ymin - padding_y, ymax + padding_y])
+
+xvals = [e01(:); e02(:)];
+xmin = min(xvals);
+xmax = max(xvals);
+padding_x = 0.05 * (xmax - xmin);
+xlim([xmin - padding_x, xmax + padding_x])
+
+% Ativa o sub-rótulo se necessário
 sublaby("   ");
-print -dpng images\gamma_full_senoide\fig10d.png
+print -dpng images\fig10d.png
 
 figure(5)
 clf
-subplot(211)
+subplot(2,1,1)
 hold on
-plot(t,u1)
-plot(t,u2,'Linew',0.5)
+
+% Plotagem com linhas mais visíveis
+plot(t, u1, 'LineWidth', 1)
+plot(t, u2, 'LineWidth', 1)
+
 grid on
-title({'$u$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$u\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2 = strcat('$u\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1,par2},...
-    'FontSize',8,'Interpreter','latex','Location','SouthEast')
+
+% Título e rótulos
+title({'$u$'}, 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$u$', 'FontSize', 10, 'Interpreter', 'latex')
+
+% Legenda clara e interpretável
+par1 = ['$u\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par2 = ['$u\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+
+legend({par1, par2}, ...
+    'FontSize', 9, 'Interpreter', 'latex', 'Location', 'SouthEast')
+
+% Ajuste automático do eixo y com margem
+all_u = [u1(:); u2(:)];
+umin = min(all_u);
+umax = max(all_u);
+padding = 0.1 * (umax - umin);
+ylim([umin - padding, umax + padding])
+
 sublaby("   ");
-print -dpng images\gamma_full_senoide\fig10e.png
+print -dpng images\fig10e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)
 clf
 
-subplot(221)
+% --- Subplot 1: e0 ---
+subplot(2,2,1)
 hold on
-plot(t,e01)
-plot(t,e02,'Linew',0.5);
+plot(t, e01, 'LineWidth', 1)
+plot(t, e02, 'LineWidth', 1)
 grid on
-title({'$e_0$'},'FontSize',10,'Interpreter','latex')
-par1 = strcat('$\gamma=',strrep(mat2str(gamma1), ' ', '\ '),'$');
-par2 = strcat('$\gamma=',strrep(mat2str(gamma2), ' ', '\ '),'$');
-legend({par1,par2},...
-    'FontSize',10,'Interpreter','latex','Location','SouthEast')
 
-subplot(222)
-hold on
-plot(t,theta1,t,Theta1)
-plot(t,theta2,t,Theta2,'r','Linew',0.5);
-grid on; 
-title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
-par1c = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par2c = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
-par3c = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-par4c = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
-legend({par1c,par2c,'$\theta_1^*$',par3c,par4c,'$\theta_1^*$'},...
-    'FontSize',10,'Interpreter','latex','Location','NorthEast')
+title('$e_0$', 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$e_0$', 'FontSize', 10, 'Interpreter', 'latex')
 
-subplot(223)
+par1 = ['$\gamma=', strrep(mat2str(gamma1), ' ', '\ '), '$'];
+par2 = ['$\gamma=', strrep(mat2str(gamma2), ' ', '\ '), '$'];
+legend({par1, par2}, 'FontSize', 9, 'Interpreter', 'latex', 'Location', 'SouthEast')
+
+% Ajuste automático do eixo y com margem
+y_all = [e01(:); e02(:)];
+pad = 0.1 * (max(y_all)-min(y_all));
+ylim([min(y_all)-pad, max(y_all)+pad])
+hold off
+
+
+% --- Subplot 2: theta e theta* ---
+subplot(2,2,2)
 hold on
-plot(t,yp1);
-plot(t,yp2,t,r,t,ym,'Linew',0.5);
+plot(t, theta1, 'LineWidth', 1)
+plot(t, theta2, 'LineWidth', 1)
+plot(t, Theta1, 'k--', 'LineWidth', 1)
+plot(t, Theta2, 'k-.', 'LineWidth', 1)
 grid on
-title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
-legend({par1,par2,'$r$','$y_m$'},...
-    'FontSize',10,'Interpreter','latex','Location','SouthEast')
 
-subplot(224)
+title('$\theta,\ \theta^*$', 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$\theta$', 'FontSize', 10, 'Interpreter', 'latex')
+
+par1c = ['$\theta_{1}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par2c = ['$\theta_{2}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
+par3c = ['$\theta_{1}\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+par4c = ['$\theta_{2}\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
+legend({par1c, par2c, '$\theta_1^*$', par3c, par4c, '$\theta_2^*$'}, ...
+    'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
+
+% Ajuste y-limits
+yt = [theta1(:); theta2(:); Theta1(:); Theta2(:)];
+pad = 0.1 * (max(yt)-min(yt));
+ylim([min(yt)-pad, max(yt)+pad])
+hold off
+
+
+% --- Subplot 3: r, y_m, y_p ---
+subplot(2,2,3)
 hold on
-plot(t,u1)
-plot(t,u2,'Linew',0.5);grid;
+plot(t, yp1, 'LineWidth', 1)
+plot(t, yp2, 'LineWidth', 1)
+plot(t, r,   'k--', 'LineWidth', 1)
+plot(t, ym, 'LineWidth', 1)
 grid on
-title({'$u$'},'FontSize',10,'Interpreter','latex')
-legend({par1,par2},...
-    'FontSize',10,'Interpreter','latex','Location','SouthEast')
 
+title('$r,\ y_m,\ y_p$', 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$y$', 'FontSize', 10, 'Interpreter', 'latex')
+
+legend({par1, par2, '$r$', '$y_m$'}, ...
+    'FontSize', 9, 'Interpreter', 'latex', 'Location', 'SouthEast')
+
+% Ajuste y-limits
+yo = [yp1(:); yp2(:); r(:); ym(:)];
+pad = 0.1 * (max(yo)-min(yo));
+ylim([min(yo)-pad, max(yo)+pad])
+hold off
+
+
+% --- Subplot 4: u ---
+subplot(2,2,4)
+hold on
+plot(t, u1, 'LineWidth', 1)
+plot(t, u2, 'LineWidth', 1)
+grid on
+
+title('$u$', 'FontSize', 12, 'Interpreter', 'latex')
+xlabel('Tempo (s)', 'FontSize', 10, 'Interpreter', 'latex')
+ylabel('$u$', 'FontSize', 10, 'Interpreter', 'latex')
+
+legend({par1, par2}, 'FontSize', 9, 'Interpreter', 'latex', 'Location', 'SouthEast')
+
+% Ajuste y-limits
+uu = [u1(:); u2(:)];
+pad = 0.1 * (max(uu)-min(uu));
+ylim([min(uu)-pad, max(uu)+pad])
+
+% Se você utiliza sublabels:
+sublaby("   ");
+hold off
 %--------------------------------------- Impressão dos diagramas -----
 % open_system('MRAC_111');
 % print -depsc2 -sMRAC_111 MRAC-111.eps
