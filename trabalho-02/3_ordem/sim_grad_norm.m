@@ -211,7 +211,7 @@ grid on
 title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-%grafico do LS - checar?
+%grafico do LS 
 
 figure(2)
 clf
