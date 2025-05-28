@@ -1,22 +1,15 @@
 Model {
   Name			  "least_square_p3"
   Version		  10.3
-  SavedCharacterEncoding  "windows-1252"
+  SavedCharacterEncoding  "UTF-8"
   ModelUUID		  "00b3364d-869f-4cef-9153-dfb5e36ca6ce"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.19"
+    ComputedModelVersion    "7.21"
     NumModelReferences	    0
-    NumTestPointedSignals   12
-    TestPointedSignal {
-      SignalName	      ""
-      FullBlockPath	      "least_square_p3/Adaptation"
-      LogSignal		      1
-      MaxPoints		      5000
-      Decimation	      2
-    }
+    NumTestPointedSignals   11
     TestPointedSignal {
       SignalName	      ""
       FullBlockPath	      "least_square_p3/Constant1"
@@ -118,7 +111,6 @@ Model {
   slcheck_filter_plugin	  "on"
   NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering "15cef13d-6fc3-42ec-ae6f-c4b793463bc0,fb5891c8-f3c5-4ee9-95c6-65909c7f90d9"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
   SimscapeDaeAutoSolver	  "ode23t"
@@ -143,7 +135,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [953.0, 0.0, 974.0, 1047.0]
+      Location		      [-7.0, -7.0, 1550.0, 830.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -163,20 +155,31 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		4
+	Dimension		5
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [888.0, 805.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [154.5694324721029, -192.81441148309594]
-	  SceneRectInView	  [154.5694324721029, -192.81441148309594, 1110.0, 1006.25]
+	  Extents		  [1840.0, 744.0]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-60.072743977685604, -214.18346794231405]
+	  SceneRectInView	  [-60.072743977685604, -214.18346794231405, 2453.3333333333335, 992.0]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "104"
+	  Extents		  [1840.0, 744.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 197.6]
+	  SceneRectInView	  [0.0, 197.6, 1472.0, 595.2]
+	}
+	Object {
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -187,7 +190,7 @@ Model {
 	  SceneRectInView	  [-96.468164794007521, -113.05003745318351, 1022.6516853932584, 449.96674157303369]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -198,7 +201,7 @@ Model {
 	  SceneRectInView	  [-262.14505208333338, -96.060000000000016, 981.33333333333337, 431.78666666666669]
 	}
 	Object {
-	  $ObjectID		  8
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -214,7 +217,7 @@ Model {
 	Type			"Simulink.DockComponentInfo"
 	Dimension		2
 	Object {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [1]
@@ -222,12 +225,12 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "On"
 	}
 	Object {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  Type			  "Simulink:Editor:ReferencedFiles"
 	  ID			  "Referenced Files"
 	  Visible		  [0]
@@ -235,18 +238,18 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADD/wCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAABjAP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAADngAAA2IAAAABAAAAAgAAAAEAAAAC/"
+      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHXQAAAy8AAAABAAAAAgAAAAEAAAAC/"
       "AAAAAQAAAAAAAAAAQAAADYAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAEwAZQBmAHQCAAAAAP////8AAAAAA"
       "AAAAAAAAAEAAAABAAAAOABjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAUgBpAGcAaAB0AwAAAAD/////AAAAA"
       "AAAAAAAAAACAAAAAAAAAAMAAAABAAAAOgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAQgBvAHQAdABvAG0AA"
@@ -266,11 +269,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "linco"
+  LastModifiedBy	  "caioc"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu May 22 20:11:07 2025"
-  RTWModifiedTimeStamp	  669845463
-  ModelVersionFormat	  "%<AutoIncrement:7.19>"
+  LastModifiedDate	  "Wed May 28 01:15:09 2025"
+  RTWModifiedTimeStamp	  670295704
+  ModelVersionFormat	  "%<AutoIncrement:7.21>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -328,7 +331,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    11
+    $ObjectID		    12
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "least_square_p3"
     Array {
@@ -346,11 +349,11 @@ Model {
   }
   Object {
     $PropName		    "InstrumentedSignals"
-    $ObjectID		    12
+    $ObjectID		    13
     $ClassName		    "Simulink.HMI.InstrumentedSignals"
     Array {
       Type		      "Struct"
-      Dimension		      12
+      Dimension		      11
       MATStruct {
 	UUID			"2ef5c575-fcfa-49cc-b545-e8a8b41c0ea7"
 	BlockPath_		"Plant"
@@ -615,30 +618,6 @@ Model {
 	}
 	VisualType_		""
       }
-      MATStruct {
-	UUID			"fb5891c8-f3c5-4ee9-95c6-65909c7f90d9"
-	BlockPath_		"Adaptation"
-	SID_			"104"
-	SubPath_		""
-	OutputPortIndex_	[1.0]
-	LogicalPortIndex_	[0.0]
-	SignalName_		""
-	SubSysPath_		""
-	Decimation_		[1.0]
-	MaxPoints_		[0.0]
-	TargetBufferedStreaming_ [0.0]
-	IsFrameBased_		[0.0]
-	HideInSDI_		[0.0]
-	DomainType_		""
-	Array {
-	  Type			  "Struct"
-	  Dimension		  1
-	  MATStruct {
-	  }
-	  PropName		  "DomainParams_"
-	}
-	VisualType_		""
-      }
       PropName		      "Persistence"
     }
   }
@@ -672,7 +651,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      13
+      $ObjectID		      14
       Version		      "21.0.0"
       DisabledProps	      []
       Description	      ""
@@ -680,7 +659,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -723,7 +702,7 @@ Model {
 	  ODENIntegrationMethod	  "ode3"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -765,7 +744,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -840,7 +819,7 @@ Model {
 	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  17
+	  $ObjectID		  18
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -962,7 +941,7 @@ Model {
 	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -1012,7 +991,7 @@ Model {
 	  HardwareBoardFeatureSet "EmbeddedCoderHSP"
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -1032,7 +1011,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  20
+	  $ObjectID		  21
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -1081,7 +1060,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  21
+	  $ObjectID		  22
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -1188,7 +1167,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      22
+	      $ObjectID		      23
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1278,7 +1257,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      23
+	      $ObjectID		      24
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1384,7 +1363,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  24
+	  $ObjectID		  25
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1433,11 +1412,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    13
+    $ObjectID		    14
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    25
+    $ObjectID		    26
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1447,7 +1426,7 @@ Model {
   ExplicitPartitioning	  off
   Object {
     $PropName		    "ModelMappings"
-    $ObjectID		    26
+    $ObjectID		    27
     $ClassName		    "Simulink.CoderDictionary.ModelMappingSLC"
     DummyName		    ""
     Inports		    []
@@ -1459,24 +1438,14 @@ Model {
     States		    []
     Object {
       $PropName		      "DefaultsMapping"
-      $ObjectID		      27
+      $ObjectID		      28
       $ClassName	      "Simulink.CoderDictionary.DefaultsMapping"
       Object {
 	$PropName		"ParentMapping"
-	$ObjectID		26
+	$ObjectID		27
       }
       Object {
 	$PropName		"Inports"
-	$ObjectID		28
-	$ClassName		"Simulink.DataReferenceClass"
-	MappedTo		"StorageClass"
-	StorageClass		[]
-	CSCAttributes		""
-	MemorySection		[]
-	Identifier		""
-      }
-      Object {
-	$PropName		"Outports"
 	$ObjectID		29
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1486,7 +1455,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"GlobalParameters"
+	$PropName		"Outports"
 	$ObjectID		30
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1496,7 +1465,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"SharedParameters"
+	$PropName		"GlobalParameters"
 	$ObjectID		31
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1506,7 +1475,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"PerInstanceParameters"
+	$PropName		"SharedParameters"
 	$ObjectID		32
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1516,7 +1485,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"SharedLocalDataStores"
+	$PropName		"PerInstanceParameters"
 	$ObjectID		33
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1526,7 +1495,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"GlobalDataStores"
+	$PropName		"SharedLocalDataStores"
 	$ObjectID		34
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1536,7 +1505,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"InternalData"
+	$PropName		"GlobalDataStores"
 	$ObjectID		35
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1546,7 +1515,7 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"Constants"
+	$PropName		"InternalData"
 	$ObjectID		36
 	$ClassName		"Simulink.DataReferenceClass"
 	MappedTo		"StorageClass"
@@ -1556,22 +1525,32 @@ Model {
 	Identifier		""
       }
       Object {
-	$PropName		"InitTermFunctions"
+	$PropName		"Constants"
 	$ObjectID		37
-	$ClassName		"Simulink.FunctionReferenceClass"
-	FunctionClass		[]
+	$ClassName		"Simulink.DataReferenceClass"
+	MappedTo		"StorageClass"
+	StorageClass		[]
+	CSCAttributes		""
 	MemorySection		[]
+	Identifier		""
       }
       Object {
-	$PropName		"ExecutionFunctions"
+	$PropName		"InitTermFunctions"
 	$ObjectID		38
 	$ClassName		"Simulink.FunctionReferenceClass"
 	FunctionClass		[]
 	MemorySection		[]
       }
       Object {
-	$PropName		"SharedUtilityFunctions"
+	$PropName		"ExecutionFunctions"
 	$ObjectID		39
+	$ClassName		"Simulink.FunctionReferenceClass"
+	FunctionClass		[]
+	MemorySection		[]
+      }
+      Object {
+	$PropName		"SharedUtilityFunctions"
+	$ObjectID		40
 	$ClassName		"Simulink.FunctionReferenceClass"
 	FunctionClass		[]
 	MemorySection		[]
@@ -1732,6 +1711,23 @@ Model {
       ContinuousStateAttributes	"''"
     }
     Block {
+      BlockType		      Math
+      Operator		      "exp"
+      AlgorithmMethod	      "Exact"
+      SignedPower	      off
+      OutputSignalType	      "auto"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      IntermediateResultsDataTypeStr "Inherit: Inherit via internal rule"
+      AlgorithmType	      "Newton-Raphson"
+      Iterations	      "3"
+    }
+    Block {
       BlockType		      Outport
       Port		      "1"
       IconDisplay	      "Port number"
@@ -1784,13 +1780,6 @@ Model {
       InputProcessing	      "Elements as channels (sample based)"
       ZeroCross		      on
       SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      S-Function
-      FunctionName	      "system"
-      SFunctionModules	      "''"
-      PortCounts	      "[]"
-      MultithreadedSim	      "auto"
     }
     Block {
       BlockType		      Scope
@@ -1879,9 +1868,6 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      Terminator
-    }
-    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1895,7 +1881,7 @@ Model {
   }
   System {
     Name		    "least_square_p3"
-    Location		    [953, 0, 1927, 1047]
+    Location		    [-7, -7, 1543, 823]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1911,26 +1897,22 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "124"
+    SIDHighWatermark	    "149"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
       Name		      "Adaptation"
       SID		      "104"
       Ports		      [3, 2]
-      Position		      [725, 140, 820, 230]
+      Position		      [725, 139, 820, 231]
       ZOrder		      329
       BackgroundColor	      "[1.000000, 1.000000, 0.501961]"
       RequestExecContextInheritance off
-      Port {
-	PortNumber		1
-	DataLogging		on
-      }
       System {
 	Name			"Adaptation"
-	Location		[-8, -8, 968, 1048]
+	Location		[-7, -7, 1543, 823]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -1946,364 +1928,140 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"125"
+	ZoomFactor		"100"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
 	  Name			  "e0"
-	  SID			  "105"
-	  Position		  [-70, 100, -50, 120]
-	  ZOrder		  -1
+	  SID			  "125"
+	  Position		  [250, 350, 270, 370]
+	  ZOrder		  335
 	  BackgroundColor	  "green"
 	  PortDimensions	  "1"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "phi"
-	  SID			  "106"
-	  Position		  [-70, 175, -50, 195]
-	  ZOrder		  -2
+	  SID			  "126"
+	  Position		  [250, 425, 270, 445]
+	  ZOrder		  334
 	  BackgroundColor	  "green"
 	  Port			  "2"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "P"
-	  SID			  "107"
-	  Position		  [-70, 250, -50, 270]
-	  ZOrder		  314
+	  SID			  "127"
+	  Position		  [250, 500, 270, 520]
+	  ZOrder		  341
 	  BackgroundColor	  "green"
 	  Port			  "3"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  "108"
-	  Position		  [225, 280, 255, 310]
-	  ZOrder		  5
+	  SID			  "128"
+	  Position		  [815, 495, 845, 525]
+	  ZOrder		  337
 	  BlockRotation		  270
 	  NameLocation		  "right"
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Divide"
-	  SID			  "109"
+	  SID			  "129"
 	  Ports			  [2, 1]
-	  Position		  [330, 122, 360, 153]
-	  ZOrder		  7
+	  Position		  [940, 372, 970, 403]
+	  ZOrder		  339
+	  Inputs		  "*/"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Divide1"
+	  SID			  "130"
+	  Ports			  [2, 1]
+	  Position		  [935, 577, 965, 608]
+	  ZOrder		  351
 	  Inputs		  "*/"
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  "110"
-	  Position		  [210, 115, 240, 145]
-	  ZOrder		  320
+	  SID			  "131"
+	  Position		  [820, 365, 850, 395]
+	  ZOrder		  344
+	  Gain			  "-1"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain1"
+	  SID			  "132"
+	  Position		  [865, 570, 895, 600]
+	  ZOrder		  350
 	  Gain			  "-1"
 	}
 	Block {
 	  BlockType		  Integrator
 	  Name			  "Integrator"
-	  SID			  "111"
+	  SID			  "133"
 	  Ports			  [1, 1]
-	  Position		  [400, 121, 440, 159]
-	  ZOrder		  -4
+	  Position		  [1010, 371, 1050, 409]
+	  ZOrder		  333
 	  InitialCondition	  "theta0"
 	}
 	Block {
 	  BlockType		  Integrator
 	  Name			  "Integrator1"
-	  SID			  "112"
+	  SID			  "134"
 	  Ports			  [1, 1]
-	  Position		  [400, 336, 440, 374]
-	  ZOrder		  313
+	  Position		  [995, 576, 1035, 614]
+	  ZOrder		  340
 	  InitialCondition	  "P0"
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "MATLAB Function"
-	  SID			  "113"
-	  Ports			  [2, 1]
-	  Position		  [55, 229, 120, 271]
-	  ZOrder		  316
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  ContentPreviewEnabled	  on
-	  System {
-	    Name		    "MATLAB Function"
-	    Location		    [223, 338, 826, 833]
-	    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-	    Open		    off
-	    PortBlocksUseCompactNotation off
-	    SetExecutionDomain	    off
-	    ExecutionDomainType	    "Deduce"
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "usletter"
-	    PaperUnits		    "inches"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "22"
-	    SimulinkSubDomain	    "Simulink"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "phi"
-	      SID		      "113::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "P"
-	      SID		      "113::22"
-	      Position		      [20, 136, 40, 154]
-	      ZOrder		      13
-	      Port		      "2"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "113::20"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      11
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "113::19"
-	      Tag		      "Stateflow S-Function 2"
-	      Ports		      [2, 2]
-	      Position		      [180, 100, 230, 160]
-	      ZOrder		      10
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[2 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      SFcnIsStateOwnerBlock   off
-	      Port {
-		PortNumber		2
-		Name			"y"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "113::21"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      12
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "y"
-	      SID		      "113::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      "phi"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      "P"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      2
-	    }
-	    Line {
-	      Name		      "y"
-	      ZOrder		      3
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "y"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      4
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      5
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	  }
+	  BlockType		  Product
+	  Name			  "Matrix Multiply"
+	  SID			  "135"
+	  Ports			  [3, 1]
+	  Position		  [605, 427, 655, 483]
+	  ZOrder		  345
+	  Inputs		  "3"
+	  Multiplication	  "Matrix(*)"
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "MATLAB Function1"
-	  SID			  "114"
-	  Ports			  [3, 1]
-	  Position		  [310, 334, 375, 376]
-	  ZOrder		  321
-	  ErrorFcn		  "Stateflow.Translate.translate"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  RequestExecContextInheritance	off
-	  SFBlockType		  "MATLAB Function"
-	  ContentPreviewEnabled	  on
-	  System {
-	    Name		    "MATLAB Function1"
-	    Location		    [223, 338, 826, 833]
-	    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-	    Open		    off
-	    PortBlocksUseCompactNotation off
-	    SetExecutionDomain	    off
-	    ExecutionDomainType	    "Deduce"
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "usletter"
-	    PaperUnits		    "inches"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "23"
-	    SimulinkSubDomain	    "Simulink"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "phi"
-	      SID		      "114::1"
-	      Position		      [20, 101, 40, 119]
-	      ZOrder		      -1
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "P"
-	      SID		      "114::22"
-	      Position		      [20, 136, 40, 154]
-	      ZOrder		      13
-	      Port		      "2"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "m2"
-	      SID		      "114::23"
-	      Position		      [20, 171, 40, 189]
-	      ZOrder		      14
-	      Port		      "3"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "114::20"
-	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
-	      ZOrder		      11
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      S-Function
-	      Name		      " SFunction "
-	      SID		      "114::19"
-	      Tag		      "Stateflow S-Function 1"
-	      Ports		      [3, 2]
-	      Position		      [180, 100, 230, 180]
-	      ZOrder		      10
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[3 2]"
-	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
-	      SFcnIsStateOwnerBlock   off
-	      Port {
-		PortNumber		2
-		Name			"p_dot"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "114::21"
-	      Position		      [460, 241, 480, 259]
-	      ZOrder		      12
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "p_dot"
-	      SID		      "114::5"
-	      Position		      [460, 101, 480, 119]
-	      ZOrder		      -5
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      "phi"
-	      SrcPort		      1
-	      Points		      [60, 0; 0, 5]
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      "P"
-	      SrcPort		      1
-	      Points		      [44, 0; 0, -5]
-	      DstBlock		      " SFunction "
-	      DstPort		      2
-	    }
-	    Line {
-	      ZOrder		      3
-	      SrcBlock		      "m2"
-	      SrcPort		      1
-	      Points		      [75, 0; 0, -15]
-	      DstBlock		      " SFunction "
-	      DstPort		      3
-	    }
-	    Line {
-	      Name		      "p_dot"
-	      ZOrder		      4
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      Points		      [119, 0; 0, -50]
-	      DstBlock		      "p_dot"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      5
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      6
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      Points		      [16, 0; 0, 130]
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	  }
+	  BlockType		  Product
+	  Name			  "Matrix Multiply1"
+	  SID			  "136"
+	  Ports			  [2, 1]
+	  Position		  [525, 537, 570, 573]
+	  ZOrder		  347
+	  Multiplication	  "Matrix(*)"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Matrix Multiply2"
+	  SID			  "137"
+	  Ports			  [2, 1]
+	  Position		  [630, 512, 675, 548]
+	  ZOrder		  348
+	  Multiplication	  "Matrix(*)"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Matrix Multiply3"
+	  SID			  "138"
+	  Ports			  [2, 1]
+	  Position		  [765, 567, 810, 603]
+	  ZOrder		  349
+	  Multiplication	  "Matrix(*)"
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product"
-	  SID			  "115"
+	  SID			  "139"
 	  Ports			  [2, 1]
-	  Position		  [20, 101, 60, 139]
-	  ZOrder		  -5
+	  Position		  [340, 351, 380, 389]
+	  ZOrder		  332
 	  ShowName		  off
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
@@ -2313,19 +2071,19 @@ Model {
 	Block {
 	  BlockType		  Product
 	  Name			  "Product1"
-	  SID			  "116"
+	  SID			  "140"
 	  Ports			  [2, 1]
-	  Position		  [110, 109, 160, 151]
-	  ZOrder		  319
+	  Position		  [720, 359, 770, 401]
+	  ZOrder		  343
 	  Multiplication	  "Matrix(*)"
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "117"
+	  SID			  "141"
 	  Ports			  [2, 1]
-	  Position		  [230, 240, 250, 260]
-	  ZOrder		  6
+	  Position		  [820, 445, 840, 465]
+	  ZOrder		  338
 	  Inputs		  "|++"
 	  Port {
 	    PortNumber		    1
@@ -2335,10 +2093,10 @@ Model {
 	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace 2"
-	  SID			  "118"
+	  SID			  "142"
 	  Ports			  [1]
-	  Position		  [505, 77, 545, 103]
-	  ZOrder		  -6
+	  Position		  [1115, 327, 1155, 353]
+	  ZOrder		  331
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  VariableName		  "theta"
@@ -2348,10 +2106,10 @@ Model {
 	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace 3"
-	  SID			  "119"
+	  SID			  "143"
 	  Ports			  [1]
-	  Position		  [10, 47, 35, 73]
-	  ZOrder		  -7
+	  Position		  [330, 297, 355, 323]
+	  ZOrder		  330
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  VariableName		  "e0"
@@ -2359,11 +2117,20 @@ Model {
 	  SampleTime		  "st"
 	}
 	Block {
+	  BlockType		  Math
+	  Name			  "Transpose"
+	  SID			  "144"
+	  Ports			  [1, 1]
+	  Position		  [365, 419, 395, 451]
+	  ZOrder		  346
+	  Operator		  "transpose"
+	}
+	Block {
 	  BlockType		  Gain
 	  Name			  "kappa"
-	  SID			  "120"
-	  Position		  [150, 229, 205, 271]
-	  ZOrder		  4
+	  SID			  "145"
+	  Position		  [690, 434, 745, 476]
+	  ZOrder		  336
 	  BackgroundColor	  "lightBlue"
 	  Gain			  "kappa"
 	  ParamDataTypeStr	  "Inherit: Same as input"
@@ -2373,9 +2140,9 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "theta"
-	  SID			  "121"
-	  Position		  [510, 120, 530, 140]
-	  ZOrder		  -8
+	  SID			  "146"
+	  Position		  [1120, 370, 1140, 390]
+	  ZOrder		  329
 	  BackgroundColor	  "green"
 	  InitialOutput		  "0"
 	  VectorParamsAs1DForOutWhenUnconnected	off
@@ -2383,91 +2150,60 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Pout"
-	  SID			  "122"
-	  Position		  [510, 345, 530, 365]
-	  ZOrder		  315
+	  SID			  "147"
+	  Position		  [1120, 585, 1140, 605]
+	  ZOrder		  342
 	  BackgroundColor	  "green"
 	  Port			  "2"
 	  InitialOutput		  "0"
 	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Integrator"
+	  ZOrder		  29
+	  SrcBlock		  "Divide1"
 	  SrcPort		  1
-	  Points		  [30, 0; 0, -10]
-	  Branch {
-	    ZOrder		    2
-	    Points		    [0, -40]
-	    DstBlock		    "To Workspace 2"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    3
-	    DstBlock		    "theta"
-	    DstPort		    1
-	  }
+	  DstBlock		  "Integrator1"
+	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  4
+	  ZOrder		  30
+	  SrcBlock		  "Matrix Multiply"
+	  SrcPort		  1
+	  DstBlock		  "kappa"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  31
+	  SrcBlock		  "Matrix Multiply2"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, 45]
+	  DstBlock		  "Matrix Multiply3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  32
+	  SrcBlock		  "Gain1"
+	  SrcPort		  1
+	  DstBlock		  "Divide1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  33
+	  SrcBlock		  "Matrix Multiply1"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, -15]
+	  DstBlock		  "Matrix Multiply2"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  34
 	  SrcBlock		  "Divide"
 	  SrcPort		  1
 	  DstBlock		  "Integrator"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  5
-	  SrcBlock		  "phi"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  Branch {
-	    ZOrder		    6
-	    Points		    [0, 55]
-	    Branch {
-	      ZOrder		      7
-	      Points		      [0, 100]
-	      DstBlock		      "MATLAB Function1"
-	      DstPort		      1
-	    }
-	    Branch {
-	      ZOrder		      8
-	      DstBlock		      "MATLAB Function"
-	      DstPort		      1
-	    }
-	  }
-	  Branch {
-	    ZOrder		    9
-	    Points		    [0, -55]
-	    DstBlock		    "Product"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  ZOrder		  10
-	  SrcBlock		  "e0"
-	  SrcPort		  1
-	  Points		  [7, 0]
-	  Branch {
-	    ZOrder		    11
-	    DstBlock		    "Product"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    12
-	    Points		    [0, -50]
-	    DstBlock		    "To Workspace 3"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Product1"
-	  SrcPort		  1
-	  DstBlock		  "Gain"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  14
+	  ZOrder		  35
 	  SrcBlock		  "Product"
 	  SrcPort		  1
 	  Points		  [8, 0; 0, 20]
@@ -2475,105 +2211,198 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  15
-	  SrcBlock		  "MATLAB Function"
-	  SrcPort		  1
-	  DstBlock		  "kappa"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  16
+	  ZOrder		  36
 	  SrcBlock		  "Constant"
 	  SrcPort		  1
 	  DstBlock		  "Sum"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  17
-	  SrcBlock		  "kappa"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "m^2"
-	  ZOrder		  18
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [18, 0]
-	  Branch {
-	    ZOrder		    19
-	    Labels		    [1, 0]
-	    Points		    [0, 120]
-	    DstBlock		    "MATLAB Function1"
-	    DstPort		    3
-	  }
-	  Branch {
-	    ZOrder		    20
-	    Points		    [0, -105]
-	    DstBlock		    "Divide"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  ZOrder		  21
-	  SrcBlock		  "Integrator1"
-	  SrcPort		  1
-	  DstBlock		  "Pout"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  22
-	  SrcBlock		  "P"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  Branch {
-	    ZOrder		    23
-	    Points		    [0, 95]
-	    DstBlock		    "MATLAB Function1"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    24
-	    Points		    [15, 0]
-	    Branch {
-	      ZOrder		      25
-	      Points		      [0, -76; 65, 0; 0, -64]
-	      DstBlock		      "Product1"
-	      DstPort		      1
-	    }
-	    Branch {
-	      ZOrder		      26
-	      DstBlock		      "MATLAB Function"
-	      DstPort		      2
-	    }
-	  }
-	}
-	Line {
-	  ZOrder		  27
+	  ZOrder		  37
 	  SrcBlock		  "Gain"
 	  SrcPort		  1
 	  DstBlock		  "Divide"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  28
-	  SrcBlock		  "MATLAB Function1"
+	  ZOrder		  40
+	  SrcBlock		  "Integrator"
 	  SrcPort		  1
-	  DstBlock		  "Integrator1"
+	  Points		  [30, 0; 0, -10]
+	  Branch {
+	    ZOrder		    39
+	    Points		    [0, -40]
+	    DstBlock		    "To Workspace 2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    38
+	    DstBlock		    "theta"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "m^2"
+	  ZOrder		  43
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [38, 0]
+	  Branch {
+	    ZOrder		    42
+	    Labels		    [2, 0]
+	    Points		    [32, 0; 0, 145]
+	    DstBlock		    "Divide1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    41
+	    Points		    [0, -60]
+	    DstBlock		    "Divide"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  46
+	  SrcBlock		  "Transpose"
+	  SrcPort		  1
+	  Points		  [69, 0]
+	  Branch {
+	    ZOrder		    45
+	    Points		    [0, 130]
+	    DstBlock		    "Matrix Multiply1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    44
+	    DstBlock		    "Matrix Multiply"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  53
+	  SrcBlock		  "P"
+	  SrcPort		  1
+	  Points		  [76, 0]
+	  Branch {
+	    ZOrder		    52
+	    Points		    [0, 85]
+	    DstBlock		    "Matrix Multiply3"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    51
+	    Points		    [69, 0]
+	    Branch {
+	      ZOrder		      50
+	      Points		      [0, 10]
+	      DstBlock		      "Matrix Multiply2"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      49
+	      Points		      [0, -55]
+	      Branch {
+		ZOrder			48
+		DstBlock		"Matrix Multiply"
+		DstPort			2
+	      }
+	      Branch {
+		ZOrder			47
+		Points			[0, -85]
+		DstBlock		"Product1"
+		DstPort			1
+	      }
+	    }
+	  }
+	}
+	Line {
+	  ZOrder		  54
+	  SrcBlock		  "Integrator1"
+	  SrcPort		  1
+	  DstBlock		  "Pout"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  55
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  56
+	  SrcBlock		  "kappa"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  62
+	  SrcBlock		  "phi"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    ZOrder		    61
+	    DstBlock		    "Transpose"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    60
+	    Points		    [0, 40; 192, 0]
+	    Branch {
+	      ZOrder		      59
+	      Points		      [0, 70]
+	      DstBlock		      "Matrix Multiply1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      58
+	      DstBlock		      "Matrix Multiply"
+	      DstPort		      3
+	    }
+	  }
+	  Branch {
+	    ZOrder		    57
+	    Points		    [0, -55]
+	    DstBlock		    "Product"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  65
+	  SrcBlock		  "e0"
+	  SrcPort		  1
+	  Points		  [7, 0]
+	  Branch {
+	    ZOrder		    64
+	    DstBlock		    "Product"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    63
+	    Points		    [0, -50]
+	    DstBlock		    "To Workspace 3"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  66
+	  SrcBlock		  "Matrix Multiply3"
+	  SrcPort		  1
+	  DstBlock		  "Gain1"
 	  DstPort		  1
 	}
 	Annotation {
-	  SID			  "124"
-	  Name			  "theta"
-	  Position		  [445, 111, 469, 125]
+	  SID			  "148"
+	  Name			  "dtheta"
+	  Position		  [974, 358, 1003, 372]
 	  InternalMargins	  [0, 0, 0, 0]
 	  ZOrder		  -1
 	}
 	Annotation {
-	  SID			  "123"
-	  Name			  "dtheta"
-	  Position		  [364, 108, 393, 122]
+	  SID			  "149"
+	  Name			  "theta"
+	  Position		  [1055, 361, 1079, 375]
 	  InternalMargins	  [0, 0, 0, 0]
 	  ZOrder		  -2
 	}
@@ -3084,7 +2913,7 @@ Model {
       }
     }
     Line {
-      ZOrder		      197
+      ZOrder		      228
       SrcBlock		      "Adaptation"
       SrcPort		      1
       Points		      [19, 0; 0, -55]
@@ -3099,7 +2928,7 @@ Model {
       SrcPort		      1
       Points		      [218, 0; 0, -95; 59, 0; 0, -15]
       Branch {
-	ZOrder			196
+	ZOrder			225
 	DstBlock		"Adaptation"
 	DstPort			2
       }
@@ -3182,7 +3011,7 @@ Model {
       SrcPort		      1
       Points		      [113, 0]
       Branch {
-	ZOrder			199
+	ZOrder			224
 	DstBlock		"Adaptation"
 	DstPort			1
       }
@@ -3275,10 +3104,10 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      200
+      ZOrder		      227
       SrcBlock		      "Adaptation"
       SrcPort		      2
-      Points		      [7, 0; 0, -86; -142, 0; 0, 91]
+      Points		      [19, 0; 0, 39; -143, 0; 0, -34]
       DstBlock		      "Adaptation"
       DstPort		      3
     }
@@ -3294,335 +3123,10 @@ Stateflow {
     id			    1
     name		    "least_square_p3"
     sfVersion		    80000041
-    firstTarget		    19
-  }
-  chart {
-    id			    2
-    machine		    1
-    name		    "Adaptation/MATLAB Function1"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 3 0 0]
-    viewObj		    2
-    subviewS {
-    }
-    ssIdHighWaterMark	    7
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    chartFileNumber	    1
-    disableImplicitCasting  1
-    eml {
-      name		      "fcn"
-    }
-    firstData		    4
-    firstTransition	    9
-    firstJunction	    8
-  }
-  state {
-    id			    3
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    2
-    treeNode		    [2 0 0 0]
-    superState		    SUBCHART
-    subviewer		    2
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function p_dot = fcn(phi,P,m2)\n\np_dot = -(P*phi*phi'*P)/m2;\n"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    4
-    ssIdNumber		    4
-    name		    "phi"
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [2 0 5]
-  }
-  data {
-    id			    5
-    ssIdNumber		    5
-    name		    "p_dot"
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [2 4 6]
-  }
-  data {
-    id			    6
-    ssIdNumber		    6
-    name		    "P"
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [2 5 7]
-  }
-  data {
-    id			    7
-    ssIdNumber		    7
-    name		    "m2"
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [2 6 0]
-  }
-  junction {
-    id			    8
-    position		    [23.5747 49.5747 7]
-    chart		    2
-    subviewer		    2
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-    linkNode		    [2 0 0]
-  }
-  transition {
-    id			    9
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      8
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    2
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    2
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-    linkNode		    [2 0 0]
-  }
-  instance {
-    id			    10
-    machine		    1
-    name		    "Adaptation/MATLAB Function1"
-    chart		    2
-  }
-  chart {
-    id			    11
-    machine		    1
-    name		    "Adaptation/MATLAB Function"
-    windowPosition	    [422 539.941 189 413]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3600 1200 1.180555555555556]
-    treeNode		    [0 12 0 0]
-    viewObj		    11
-    subviewS {
-    }
-    ssIdHighWaterMark	    6
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    chartFileNumber	    2
-    disableImplicitCasting  1
-    eml {
-      name		      "fcn"
-    }
-    firstData		    13
-    firstTransition	    17
-    firstJunction	    16
-  }
-  state {
-    id			    12
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    11
-    treeNode		    [11 0 0 0]
-    superState		    SUBCHART
-    subviewer		    11
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function y = fcn(phi,P)\n\ny = phi'*P*phi;\n"
-      editorLayout	      "100 M4x1[10 5 700 500]"
-    }
-  }
-  data {
-    id			    13
-    ssIdNumber		    4
-    name		    "phi"
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [11 0 14]
-  }
-  data {
-    id			    14
-    ssIdNumber		    5
-    name		    "y"
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [11 13 15]
-  }
-  data {
-    id			    15
-    ssIdNumber		    6
-    name		    "P"
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-      unit {
-	name			"inherit"
-      }
-    }
-    dataType		    "Inherit: Same as Simulink"
-    linkNode		    [11 14 0]
-  }
-  junction {
-    id			    16
-    position		    [23.5747 49.5747 7]
-    chart		    11
-    subviewer		    11
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-    linkNode		    [11 0 0]
-  }
-  transition {
-    id			    17
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [28.125 13.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      16
-      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    11
-    dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    11
-    drawStyle		    SMART
-    slide {
-      sticky		      BOTH_STICK
-    }
-    executionOrder	    1
-    ssIdNumber		    2
-    linkNode		    [11 0 0]
-  }
-  instance {
-    id			    18
-    machine		    1
-    name		    "Adaptation/MATLAB Function"
-    chart		    11
+    firstTarget		    2
   }
   target {
-    id			    19
+    id			    2
     machine		    1
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
