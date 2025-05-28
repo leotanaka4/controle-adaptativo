@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  25 MAY 2025 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  27 MAY 2025 21:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -558,266 +558,266 @@ File: img/diagrama_referencia.png Graphic file (type png)
 Package pdftex.def Info: img/diagrama_referencia.png  used on input line 285.
 (pdftex.def)             Requested size: 173.45197pt x 114.78925pt.
  [6 <./img/diagrama_adaptacao.png> <./img/diagrama_modelo.png> <./img/diagrama_planta.png> <./img/diagrama_referencia.png>]
-<img/fig01a.png, id=53, 354.6048pt x 141.1674pt>
+<img/fig01a.png, id=53, 358.941pt x 150.8034pt>
 File: img/fig01a.png Graphic file (type png)
 <use img/fig01a.png>
 Package pdftex.def Info: img/fig01a.png  used on input line 319.
-(pdftex.def)             Requested size: 189.71205pt x 75.52487pt.
-<img/fig01b.png, id=54, 355.5684pt x 146.4672pt>
+(pdftex.def)             Requested size: 162.60915pt x 68.3165pt.
+<img/fig01b.png, id=54, 353.1594pt x 157.0668pt>
 File: img/fig01b.png Graphic file (type png)
 <use img/fig01b.png>
 Package pdftex.def Info: img/fig01b.png  used on input line 324.
-(pdftex.def)             Requested size: 189.71205pt x 78.14796pt.
-<img/fig01c.png, id=55, 360.8682pt x 142.6128pt>
+(pdftex.def)             Requested size: 162.60915pt x 72.3187pt.
+<img/fig01c.png, id=55, 353.1594pt x 153.6942pt>
 File: img/fig01c.png Graphic file (type png)
 <use img/fig01c.png>
 Package pdftex.def Info: img/fig01c.png  used on input line 330.
-(pdftex.def)             Requested size: 189.71205pt x 74.97292pt.
-<img/fig01e.png, id=56, 358.4592pt x 151.2852pt>
+(pdftex.def)             Requested size: 162.60915pt x 70.76584pt.
+<img/fig01e.png, id=56, 353.6412pt x 155.1396pt>
 File: img/fig01e.png Graphic file (type png)
 <use img/fig01e.png>
 Package pdftex.def Info: img/fig01e.png  used on input line 335.
-(pdftex.def)             Requested size: 189.71205pt x 80.06766pt.
-<img/fig01d.png, id=57, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.33665pt.
+<img/fig01d.png, id=57, 357.4956pt x 316.0608pt>
 File: img/fig01d.png Graphic file (type png)
 <use img/fig01d.png>
 Package pdftex.def Info: img/fig01d.png  used on input line 341.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [7 <./img/fig01a.png> <./img/fig01b.png> <./img/fig01c.png> <./img/fig01e.png> <./img/fig01d.png (PNG copy)>] [8]
-<img/fig02a.png, id=72, 357.9774pt x 144.0582pt>
+(pdftex.def)             Requested size: 162.60915pt x 143.76448pt.
+ [7 <./img/fig01a.png> <./img/fig01b.png> <./img/fig01c.png> <./img/fig01e.png> <./img/fig01d.png>] [8]
+<img/fig02a.png, id=73, 352.1958pt x 152.7306pt>
 File: img/fig02a.png Graphic file (type png)
 <use img/fig02a.png>
 Package pdftex.def Info: img/fig02a.png  used on input line 388.
-(pdftex.def)             Requested size: 189.71205pt x 76.34387pt.
-<img/fig02b.png, id=73, 357.9774pt x 151.2852pt>
+(pdftex.def)             Requested size: 162.60915pt x 70.51561pt.
+<img/fig02b.png, id=74, 350.7504pt x 154.176pt>
 File: img/fig02b.png Graphic file (type png)
 <use img/fig02b.png>
 Package pdftex.def Info: img/fig02b.png  used on input line 393.
-(pdftex.def)             Requested size: 189.71205pt x 80.17384pt.
-<img/fig02c.png, id=74, 359.9046pt x 141.6492pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.47935pt.
+<img/fig02c.png, id=75, 350.7504pt x 155.1396pt>
 File: img/fig02c.png Graphic file (type png)
 <use img/fig02c.png>
 Package pdftex.def Info: img/fig02c.png  used on input line 399.
-(pdftex.def)             Requested size: 189.71205pt x 74.66736pt.
-<img/fig02e.png, id=75, 357.9774pt x 139.722pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.9261pt.
+<img/fig02e.png, id=76, 357.4956pt x 156.1032pt>
 File: img/fig02e.png Graphic file (type png)
 <use img/fig02e.png>
 Package pdftex.def Info: img/fig02e.png  used on input line 404.
-(pdftex.def)             Requested size: 189.71205pt x 74.0459pt.
-<img/fig02d.png, id=76, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.00562pt.
+<img/fig02d.png, id=77, 359.9046pt x 316.0608pt>
 File: img/fig02d.png Graphic file (type png)
 <use img/fig02d.png>
 Package pdftex.def Info: img/fig02d.png  used on input line 410.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [9 <./img/fig02a.png> <./img/fig02b.png> <./img/fig02c.png> <./img/fig02e.png> <./img/fig02d.png (PNG copy)>] [10]
-<img/fig03a.png, id=87, 354.6048pt x 140.6856pt>
+(pdftex.def)             Requested size: 162.60915pt x 142.80476pt.
+ [9 <./img/fig02a.png> <./img/fig02b.png> <./img/fig02c.png> <./img/fig02e.png> <./img/fig02d.png>] [10]
+<img/fig03a.png, id=89, 353.1594pt x 155.6214pt>
 File: img/fig03a.png Graphic file (type png)
 <use img/fig03a.png>
 Package pdftex.def Info: img/fig03a.png  used on input line 457.
-(pdftex.def)             Requested size: 189.71205pt x 75.2671pt.
-<img/fig03b.png, id=88, 363.759pt x 143.5764pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.65318pt.
+<img/fig03b.png, id=90, 356.532pt x 156.585pt>
 File: img/fig03b.png Graphic file (type png)
 <use img/fig03b.png>
 Package pdftex.def Info: img/fig03b.png  used on input line 462.
-(pdftex.def)             Requested size: 189.71205pt x 74.87923pt.
-<img/fig03c.png, id=89, 361.35pt x 145.0218pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.4183pt.
+<img/fig03c.png, id=91, 348.3414pt x 154.176pt>
 File: img/fig03c.png Graphic file (type png)
 <use img/fig03c.png>
 Package pdftex.def Info: img/fig03c.png  used on input line 468.
-(pdftex.def)             Requested size: 189.71205pt x 76.13757pt.
-<img/fig03e.png, id=90, 359.4228pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.97339pt.
+<img/fig03e.png, id=92, 358.4592pt x 153.2124pt>
 File: img/fig03e.png Graphic file (type png)
 <use img/fig03e.png>
 Package pdftex.def Info: img/fig03e.png  used on input line 473.
-(pdftex.def)             Requested size: 189.71205pt x 76.29044pt.
-<img/fig03d.png, id=91, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 69.50133pt.
+<img/fig03d.png, id=93, 355.5684pt x 316.0608pt>
 File: img/fig03d.png Graphic file (type png)
 <use img/fig03d.png>
 Package pdftex.def Info: img/fig03d.png  used on input line 479.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [11 <./img/fig03a.png> <./img/fig03b.png> <./img/fig03c.png> <./img/fig03e.png> <./img/fig03d.png (PNG copy)>] [12]
-<img/fig04a.png, id=102, 355.0866pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 144.54094pt.
+ [11 <./img/fig03a.png> <./img/fig03b.png> <./img/fig03c.png> <./img/fig03e.png> <./img/fig03d.png>] [12]
+<img/fig04a.png, id=105, 352.1958pt x 154.6578pt>
 File: img/fig04a.png Graphic file (type png)
 <use img/fig04a.png>
 Package pdftex.def Info: img/fig04a.png  used on input line 526.
-(pdftex.def)             Requested size: 189.71205pt x 77.22336pt.
-<img/fig04b.png, id=103, 361.35pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.40538pt.
+<img/fig04b.png, id=106, 356.0502pt x 156.585pt>
 File: img/fig04b.png Graphic file (type png)
 <use img/fig04b.png>
 Package pdftex.def Info: img/fig04b.png  used on input line 531.
-(pdftex.def)             Requested size: 189.71205pt x 75.88461pt.
-<img/fig04c.png, id=104, 359.9046pt x 141.6492pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.51149pt.
+<img/fig04c.png, id=107, 353.1594pt x 155.6214pt>
 File: img/fig04c.png Graphic file (type png)
 <use img/fig04c.png>
 Package pdftex.def Info: img/fig04c.png  used on input line 537.
-(pdftex.def)             Requested size: 189.71205pt x 74.66736pt.
-<img/fig04e.png, id=105, 357.9774pt x 141.6492pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.65318pt.
+<img/fig04e.png, id=108, 357.9774pt x 153.6942pt>
 File: img/fig04e.png Graphic file (type png)
 <use img/fig04e.png>
 Package pdftex.def Info: img/fig04e.png  used on input line 542.
-(pdftex.def)             Requested size: 189.71205pt x 75.06721pt.
-<img/fig04d.png, id=106, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 69.81604pt.
+<img/fig04d.png, id=109, 362.3136pt x 316.0608pt>
 File: img/fig04d.png Graphic file (type png)
 <use img/fig04d.png>
 Package pdftex.def Info: img/fig04d.png  used on input line 548.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [13 <./img/fig04a.png> <./img/fig04b.png> <./img/fig04c.png> <./img/fig04e.png> <./img/fig04d.png (PNG copy)>] [14]
-<img/fig05a.png, id=118, 361.8318pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 141.84987pt.
+ [13 <./img/fig04a.png> <./img/fig04b.png> <./img/fig04c.png> <./img/fig04e.png> <./img/fig04d.png>] [14]
+<img/fig05a.png, id=122, 361.35pt x 156.1032pt>
 File: img/fig05a.png Graphic file (type png)
 <use img/fig05a.png>
 Package pdftex.def Info: img/fig05a.png  used on input line 595.
-(pdftex.def)             Requested size: 189.71205pt x 75.78317pt.
-<img/fig05b.png, id=119, 352.1958pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 70.24815pt.
+<img/fig05b.png, id=123, 350.7504pt x 155.1396pt>
 File: img/fig05b.png Graphic file (type png)
 <use img/fig05b.png>
 Package pdftex.def Info: img/fig05b.png  used on input line 600.
-(pdftex.def)             Requested size: 189.71205pt x 77.85854pt.
-<img/fig05c.png, id=120, 355.0866pt x 140.2038pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.9261pt.
+<img/fig05c.png, id=124, 357.9774pt x 152.7306pt>
 File: img/fig05c.png Graphic file (type png)
 <use img/fig05c.png>
 Package pdftex.def Info: img/fig05c.png  used on input line 606.
-(pdftex.def)             Requested size: 189.71205pt x 74.90666pt.
-<img/fig05e.png, id=121, 351.2322pt x 140.6856pt>
+(pdftex.def)             Requested size: 162.60915pt x 69.37833pt.
+<img/fig05e.png, id=125, 349.305pt x 153.2124pt>
 File: img/fig05e.png Graphic file (type png)
 <use img/fig05e.png>
 Package pdftex.def Info: img/fig05e.png  used on input line 611.
-(pdftex.def)             Requested size: 189.71205pt x 75.99054pt.
-<img/fig05d.png, id=122, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.32484pt.
+<img/fig05d.png, id=126, 352.6776pt x 316.0608pt>
 File: img/fig05d.png Graphic file (type png)
 <use img/fig05d.png>
 Package pdftex.def Info: img/fig05d.png  used on input line 617.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [15 <./img/fig05a.png> <./img/fig05b.png> <./img/fig05c.png> <./img/fig05e.png> <./img/fig05d.png (PNG copy)>] [16]
-<img/fig06a.png, id=133, 352.6776pt x 139.2402pt>
+(pdftex.def)             Requested size: 162.60915pt x 145.72731pt.
+ [15 <./img/fig05a.png> <./img/fig05b.png> <./img/fig05c.png> <./img/fig05e.png> <./img/fig05d.png>] [16]
+<img/fig06a.png, id=138, 352.1958pt x 153.6942pt>
 File: img/fig06a.png Graphic file (type png)
 <use img/fig06a.png>
 Package pdftex.def Info: img/fig06a.png  used on input line 649.
-(pdftex.def)             Requested size: 189.71205pt x 74.89963pt.
-<img/fig06b.png, id=134, 352.1958pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 70.9605pt.
+<img/fig06b.png, id=139, 350.2686pt x 156.585pt>
 File: img/fig06b.png Graphic file (type png)
 <use img/fig06b.png>
 Package pdftex.def Info: img/fig06b.png  used on input line 654.
-(pdftex.def)             Requested size: 189.71205pt x 77.85854pt.
-<img/fig06c.png, id=135, 357.4956pt x 142.6128pt>
+(pdftex.def)             Requested size: 162.60915pt x 72.6918pt.
+<img/fig06c.png, id=140, 350.7504pt x 153.6942pt>
 File: img/fig06c.png Graphic file (type png)
 <use img/fig06c.png>
 Package pdftex.def Info: img/fig06c.png  used on input line 660.
-(pdftex.def)             Requested size: 189.71205pt x 75.68233pt.
-<img/fig06e.png, id=136, 356.532pt x 144.54pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.25598pt.
+<img/fig06e.png, id=141, 350.2686pt x 153.6942pt>
 File: img/fig06e.png Graphic file (type png)
 <use img/fig06e.png>
 Package pdftex.def Info: img/fig06e.png  used on input line 665.
-(pdftex.def)             Requested size: 189.71205pt x 76.91238pt.
-<img/fig06d.png, id=137, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.3498pt.
+<img/fig06d.png, id=142, 358.4592pt x 316.0608pt>
 File: img/fig06d.png Graphic file (type png)
 <use img/fig06d.png>
 Package pdftex.def Info: img/fig06d.png  used on input line 671.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [17 <./img/fig06a.png> <./img/fig06b.png> <./img/fig06c.png> <./img/fig06e.png> <./img/fig06d.png (PNG copy)>] [18]
-<img/fig07a.png, id=148, 351.2322pt x 140.2038pt>
+(pdftex.def)             Requested size: 162.60915pt x 143.37384pt.
+ [17 <./img/fig06a.png> <./img/fig06b.png> <./img/fig06c.png> <./img/fig06e.png> <./img/fig06d.png>] [18]
+<img/fig07a.png, id=154, 357.4956pt x 156.1032pt>
 File: img/fig07a.png Graphic file (type png)
 <use img/fig07a.png>
 Package pdftex.def Info: img/fig07a.png  used on input line 703.
-(pdftex.def)             Requested size: 189.71205pt x 75.7303pt.
-<img/fig07b.png, id=149, 350.2686pt x 140.6856pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.00562pt.
+<img/fig07b.png, id=155, 349.7868pt x 156.585pt>
 File: img/fig07b.png Graphic file (type png)
 <use img/fig07b.png>
 Package pdftex.def Info: img/fig07b.png  used on input line 708.
-(pdftex.def)             Requested size: 189.71205pt x 76.19662pt.
-<img/fig07c.png, id=150, 355.0866pt x 140.6856pt>
+(pdftex.def)             Requested size: 162.60915pt x 72.79214pt.
+<img/fig07c.png, id=156, 355.0866pt x 154.6578pt>
 File: img/fig07c.png Graphic file (type png)
 <use img/fig07c.png>
 Package pdftex.def Info: img/fig07c.png  used on input line 714.
-(pdftex.def)             Requested size: 189.71205pt x 75.16408pt.
-<img/fig07e.png, id=151, 351.2322pt x 139.2402pt>
+(pdftex.def)             Requested size: 162.60915pt x 70.82486pt.
+<img/fig07e.png, id=157, 349.305pt x 151.767pt>
 File: img/fig07e.png Graphic file (type png)
 <use img/fig07e.png>
 Package pdftex.def Info: img/fig07e.png  used on input line 719.
-(pdftex.def)             Requested size: 189.71205pt x 75.20982pt.
-<img/fig07d.png, id=152, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 70.65196pt.
+<img/fig07d.png, id=158, 360.8682pt x 316.0608pt>
 File: img/fig07d.png Graphic file (type png)
 <use img/fig07d.png>
 Package pdftex.def Info: img/fig07d.png  used on input line 725.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [19 <./img/fig07a.png> <./img/fig07b.png> <./img/fig07c.png> <./img/fig07e.png> <./img/fig07d.png (PNG copy)>] [20]
-<img/fig08a.png, id=164, 354.123pt x 141.1674pt>
+(pdftex.def)             Requested size: 162.60915pt x 142.41895pt.
+ [19 <./img/fig07a.png> <./img/fig07b.png> <./img/fig07c.png> <./img/fig07e.png> <./img/fig07d.png>] [20]
+<img/fig08a.png, id=171, 350.7504pt x 154.6578pt>
 File: img/fig08a.png Graphic file (type png)
 <use img/fig08a.png>
 Package pdftex.def Info: img/fig08a.png  used on input line 757.
-(pdftex.def)             Requested size: 189.71205pt x 75.62827pt.
-<img/fig08b.png, id=165, 350.2686pt x 141.1674pt>
+(pdftex.def)             Requested size: 162.60915pt x 71.70273pt.
+<img/fig08b.png, id=172, 352.1958pt x 156.585pt>
 File: img/fig08b.png Graphic file (type png)
 <use img/fig08b.png>
 Package pdftex.def Info: img/fig08b.png  used on input line 762.
-(pdftex.def)             Requested size: 189.71205pt x 76.45758pt.
-<img/fig08c.png, id=166, 354.6048pt x 140.6856pt>
+(pdftex.def)             Requested size: 162.60915pt x 72.29518pt.
+<img/fig08c.png, id=173, 347.8596pt x 155.6214pt>
 File: img/fig08c.png Graphic file (type png)
 <use img/fig08c.png>
 Package pdftex.def Info: img/fig08c.png  used on input line 768.
-(pdftex.def)             Requested size: 189.71205pt x 75.2671pt.
-<img/fig08e.png, id=167, 355.5684pt x 140.2038pt>
+(pdftex.def)             Requested size: 162.60915pt x 72.74788pt.
+<img/fig08e.png, id=174, 356.532pt x 152.2488pt>
 File: img/fig08e.png Graphic file (type png)
 <use img/fig08e.png>
 Package pdftex.def Info: img/fig08e.png  used on input line 773.
-(pdftex.def)             Requested size: 189.71205pt x 74.8061pt.
-<img/fig08d.png, id=168, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 162.60915pt x 69.44057pt.
+<img/fig08d.png, id=175, 355.5684pt x 316.0608pt>
 File: img/fig08d.png Graphic file (type png)
 <use img/fig08d.png>
 Package pdftex.def Info: img/fig08d.png  used on input line 779.
-(pdftex.def)             Requested size: 189.71205pt x 142.23087pt.
- [21 <./img/fig08a.png> <./img/fig08b.png> <./img/fig08c.png> <./img/fig08e.png> <./img/fig08d.png (PNG copy)>] [22]
-<img/fig09a.png, id=179, 351.2322pt x 139.722pt>
+(pdftex.def)             Requested size: 162.60915pt x 144.54094pt.
+ [21 <./img/fig08a.png> <./img/fig08b.png> <./img/fig08c.png> <./img/fig08e.png> <./img/fig08d.png>] [22]
+<img/fig09a.png, id=187, 352.1958pt x 153.6942pt>
 File: img/fig09a.png Graphic file (type png)
 <use img/fig09a.png>
 Package pdftex.def Info: img/fig09a.png  used on input line 815.
-(pdftex.def)             Requested size: 162.60915pt x 64.68863pt.
-<img/fig09b.png, id=180, 352.6776pt x 142.6128pt>
+(pdftex.def)             Requested size: 135.50624pt x 59.13374pt.
+<img/fig09b.png, id=188, 352.6776pt x 156.585pt>
 File: img/fig09b.png Graphic file (type png)
 <use img/fig09b.png>
 Package pdftex.def Info: img/fig09b.png  used on input line 820.
-(pdftex.def)             Requested size: 162.60915pt x 65.75499pt.
-<img/fig09c.png, id=181, 356.0502pt x 139.722pt>
+(pdftex.def)             Requested size: 135.50624pt x 60.16235pt.
+<img/fig09c.png, id=189, 359.4228pt x 154.176pt>
 File: img/fig09c.png Graphic file (type png)
 <use img/fig09c.png>
 Package pdftex.def Info: img/fig09c.png  used on input line 826.
-(pdftex.def)             Requested size: 162.60915pt x 63.81024pt.
-<img/fig09e.png, id=182, 349.7868pt x 140.6856pt>
+(pdftex.def)             Requested size: 135.50624pt x 58.12402pt.
+<img/fig09e.png, id=190, 350.7504pt x 151.2852pt>
 File: img/fig09e.png Graphic file (type png)
 <use img/fig09e.png>
 Package pdftex.def Info: img/fig09e.png  used on input line 831.
-(pdftex.def)             Requested size: 162.60915pt x 65.40094pt.
-<img/fig09d.png, id=183, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 135.50624pt x 58.44696pt.
+<img/fig09d.png, id=191, 355.5684pt x 316.0608pt>
 File: img/fig09d.png Graphic file (type png)
 <use img/fig09d.png>
 Package pdftex.def Info: img/fig09d.png  used on input line 837.
-(pdftex.def)             Requested size: 162.60915pt x 121.91286pt.
- [23 <./img/fig09a.png> <./img/fig09b.png> <./img/fig09c.png> <./img/fig09e.png> <./img/fig09d.png (PNG copy)>] [24]
-<img/fig10a.png, id=194, 349.7868pt x 139.2402pt>
+(pdftex.def)             Requested size: 135.50624pt x 120.45158pt.
+ [23 <./img/fig09a.png> <./img/fig09b.png> <./img/fig09c.png> <./img/fig09e.png> <./img/fig09d.png>]
+<img/fig10a.png, id=200, 349.7868pt x 154.176pt>
 File: img/fig10a.png Graphic file (type png)
 <use img/fig10a.png>
 Package pdftex.def Info: img/fig10a.png  used on input line 873.
-(pdftex.def)             Requested size: 162.60915pt x 64.72902pt.
-<img/fig10b.png, id=195, 349.7868pt x 139.722pt>
+(pdftex.def)             Requested size: 135.50624pt x 59.7261pt.
+<img/fig10b.png, id=201, 354.6048pt x 158.0304pt>
 File: img/fig10b.png Graphic file (type png)
 <use img/fig10b.png>
 Package pdftex.def Info: img/fig10b.png  used on input line 878.
-(pdftex.def)             Requested size: 162.60915pt x 64.95299pt.
-<img/fig10c.png, id=196, 356.532pt x 141.6492pt>
+(pdftex.def)             Requested size: 135.50624pt x 60.38976pt.
+<img/fig10c.png, id=202, 347.3778pt x 156.585pt>
 File: img/fig10c.png Graphic file (type png)
 <use img/fig10c.png>
 Package pdftex.def Info: img/fig10c.png  used on input line 884.
-(pdftex.def)             Requested size: 162.60915pt x 64.6061pt.
-<img/fig10e.png, id=197, 354.123pt x 137.7948pt>
+(pdftex.def)             Requested size: 135.50624pt x 61.07983pt.
+<img/fig10e.png, id=203, 356.0502pt x 155.1396pt>
 File: img/fig10e.png Graphic file (type png)
 <use img/fig10e.png>
 Package pdftex.def Info: img/fig10e.png  used on input line 889.
-(pdftex.def)             Requested size: 162.60915pt x 63.27493pt.
-<img/fig10d.png, id=198, 421.575pt x 316.0608pt>
+(pdftex.def)             Requested size: 135.50624pt x 59.04361pt.
+<img/fig10d.png, id=204, 352.1958pt x 316.0608pt>
 File: img/fig10d.png Graphic file (type png)
 <use img/fig10d.png>
 Package pdftex.def Info: img/fig10d.png  used on input line 895.
-(pdftex.def)             Requested size: 162.60915pt x 121.91286pt.
- [25 <./img/fig10a.png> <./img/fig10b.png> <./img/fig10c.png> <./img/fig10e.png> <./img/fig10d.png (PNG copy)>] [26] (trabalho-01-cll.aux) ) 
+(pdftex.def)             Requested size: 135.50624pt x 121.6042pt.
+ [24 <./img/fig10a.png> <./img/fig10b.png> <./img/fig10c.png> <./img/fig10e.png> <./img/fig10d.png>] [25] (trabalho-01-cll.aux) ) 
 Here is how much of TeX's memory you used:
  18392 strings out of 478338
  362391 string characters out of 2836700
@@ -827,9 +827,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,15n,80p,537b,530s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on trabalho-01-cll.pdf (26 pages, 1836716 bytes).
+Output written on trabalho-01-cll.pdf (25 pages, 1741987 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
+ 299 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

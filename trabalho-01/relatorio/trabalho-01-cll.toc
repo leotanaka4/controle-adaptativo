@@ -44,8 +44,8 @@
 \contentsline {subsection}{\numberline {3.9}Simulação \#9}{23}{}%
 \contentsline {subsubsection}{\numberline {3.9.1}Configuração do experimento:}{23}{}%
 \contentsline {subsubsection}{\numberline {3.9.2}Resultados da simulação:}{23}{}%
-\contentsline {subsubsection}{\numberline {3.9.3}Comentários:}{24}{}%
-\contentsline {subsection}{\numberline {3.10}Simulação \#10}{25}{}%
-\contentsline {subsubsection}{\numberline {3.10.1}Configuração do experimento:}{25}{}%
-\contentsline {subsubsection}{\numberline {3.10.2}Resultados da simulação:}{25}{}%
-\contentsline {subsubsection}{\numberline {3.10.3}Comentários:}{26}{}%
+\contentsline {subsubsection}{\numberline {3.9.3}Comentários:}{23}{}%
+\contentsline {subsection}{\numberline {3.10}Simulação \#10}{24}{}%
+\contentsline {subsubsection}{\numberline {3.10.1}Configuração do experimento:}{24}{}%
+\contentsline {subsubsection}{\numberline {3.10.2}Resultados da simulação:}{24}{}%
+\contentsline {subsubsection}{\numberline {3.10.3}Comentários:}{25}{}%
