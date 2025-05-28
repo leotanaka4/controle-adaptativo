@@ -211,6 +211,9 @@ grid on
 title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
+% Salvar Figura 3 (após a subplot com o método GN)
+saveas(gcf, '../images/figura3_gn.png')
+
 %grafico do LS 
 
 figure(2)
@@ -305,6 +308,8 @@ grid on
 title('Parametrizações 1, 2 e 3 (LS)', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
+% Salvar Figura 3 (após a subplot com o método LS)
+saveas(gcf, '../images/figura3_ls.png')
 
 %{
 figure(2)
