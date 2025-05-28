@@ -12,9 +12,9 @@ clc;
 disp('-------------------------------')
 disp('Script para simular o exemplo 1')
 disp(' ')
-disp('Caso: Planta ............. n = 2')
+disp('Caso: Planta ............. n = 3')
 disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 4')
+disp('      Parâmetros ........ np = 6')
 disp(' ')
 disp('Algoritmo: Gradiente Normalizado')
 disp(' ')
@@ -25,22 +25,23 @@ tfinal = 100;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
-
 %--------------------------------------------------------- Filter ----
+lambda2 = 3;
 lambda1 = 2;
 lambda0 = 1;
-
 %--------------------------------------------------------- Plant -----
+a2 = 2;
 a1 = 2.5;
 a0 = 1.5;
+b2 = 3;
 b1 = 2;
 b0 = 0.8;
 
-P = (b1*s+b0)/(s^2+a1*s+a0)
+P = (b2*s^2+b1*s+b0)/(s^3+a2*s^2+a1*s+a0)
 P = ss(P);
 
 %--------------------------------------------- Initial condition -----
-yp0  = [0; 0]
+yp0  = [0; 0; 0]
 x0   = yp0;
 
 %----------------------------------- Reference signal parameters -----
@@ -49,65 +50,70 @@ As = 2   %Sine wave amplitude
 ws = 0.1*pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
-theta_star1 = [b0; b1; a0 - lambda0; a1 - lambda1]   %theta* parametrização 1
-theta_star2 = [b0; b1; a0; a1]                       %theta* parametrização 2
-theta_star3 = [1/b0; b1/b0; a0/b0; a1/b0]            %theta* parametrização 3
+theta_star1 = [b0; b1; b2; a0 - lambda0; a1 - lambda1; a2 - lambda2]   %theta* parametrização 1
+theta_star2 = [b0; b1; b2; a0; a1;a2]                                  %theta* parametrização 2
+theta_star3 = [1/b0; b1/b0; b2/b0; a0/b0; a1/b0; a2/b0]                %theta* parametrização 3
 %----------------------------------------- Adaptation parameters -----
-gamma = 1*eye(4);         %Adaptation gains
-theta0 = [0;0;0;0];       %Adaptation inicial condition
-kappa = 0;
-P0 = 1*eye(4);
-%-------------------------------------------------- GNSimulation -----
+gamma = 1*eye(6);             %Adaptation gains
+theta0 = [0;0;0;0;0;0];       %Adaptation inicial condition
+kappa = 1e-9;
+P0 = eye(6);
+%---------------------------------------------------- Simulation -----
 theta_star = theta_star1;
-sim('gradiente_normalizado',tfinal);
+sim('gradiente_normalizado_3ordem',tfinal);
 
 yp1 = yp;   %Save results
 e01 = e0;
 theta1 = theta;
 u1 = u;
-%-------------------------------------------------- GNSimulation 2 ---
+%---------------------------------------------------- Simulation 2 ---
 theta_star = theta_star2;
-sim('gradiente_normalizado',tfinal);
+sim('gradiente_normalizado_3ordem',tfinal);
 
 yp2 = yp;   %Save results
 e02 = e0;
 theta2 = theta;
 u2 = u;
-%-------------------------------------------------- GNSimulation 3 ---
+%---------------------------------------------------- Simulation 3 ---
 theta_star = theta_star3;
-sim('gradiente_normalizado_p3',tfinal);
+sim('gradiente_normalizado_3ordem_p3',tfinal);
 
 yp3 = yp;   %Save results
 e03 = e0;
 theta3 = theta;
 u3 = u;
-%-------------------------------------------------- LSSimulation -----
+%---------------------------------------------------- Simulation 4---
 theta_star = theta_star1;
-sim('least_square',tfinal);
+sim('rascunho_LS',tfinal);
 
 yp4 = yp;   %Save results
 e04 = e0;
 theta4 = theta;
 u4 = u;
-%-------------------------------------------------- LSSimulation 2 ---
+
+%---------------------------------------------------- Simulation 5---
 theta_star = theta_star2;
-sim('least_square',tfinal);
+sim('rascunho_LS',tfinal);
 
 yp5 = yp;   %Save results
 e05 = e0;
 theta5 = theta;
 u5 = u;
-%-------------------------------------------------- LSSimulation 3 ---
+
+%---------------------------------------------------- Simulation 6---
 theta_star = theta_star3;
-sim('least_square_p3',tfinal);
+sim('rascunho_LS',tfinal);
 
 yp6 = yp;   %Save results
 e06 = e0;
 theta6 = theta;
 u6 = u;
+
+
 %----------------------------------------------- Print eps plots -----
 figure(1)
 clf
+
 % 1º gráfico: saída yp e referência r
 subplot(3,2,1)
 hold on
@@ -205,10 +211,11 @@ grid on
 title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% Salvar Figura 1 (após a subplot com o método GN)
-saveas(gcf, '../images/figura2_gn.png')
+% Salvar Figura 3 (após a subplot com o método GN)
+saveas(gcf, '../images/figura3_gn.png')
 
-%---------------------------------------------------------------------------------------------------------
+%grafico do LS 
+
 figure(2)
 clf
 % 1º gráfico: saída yp e referência r
@@ -301,6 +308,140 @@ grid on
 title('Parametrizações 1, 2 e 3 (LS)', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% Salvar Figura 2 (após a subplot com o método LS)
-saveas(gcf, '../images/figura2_ls.png')
+% Salvar Figura 3 (após a subplot com o método LS)
+saveas(gcf, '../images/figura3_ls.png')
 
+%{
+figure(2)
+clf
+subplot(211)
+plot(t, theta1, t, Theta1, t, Theta2, t, Theta3, t, Theta4, 'LineWidth', 0.5);
+grid on
+title({'$\theta, \theta^*$'}, 'FontSize', 10, 'Interpreter', 'latex')
+
+par1 = strcat('$\theta_{1}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+par2 = strcat('$\theta_{2}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+par3 = strcat('$\theta_{3}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+par4 = strcat('$\theta_{4}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$');
+
+legend({'$\theta$', par1, par2, par3, par4}, ...
+    'FontSize', 8, 'Interpreter', 'latex', 'Location', 'NorthEast')
+
+sublaby("   ");  % Verifique se sublaby está corretamente definido
+
+print -dpng images/fig01b.png
+
+figure(3)
+clf
+subplot(211)
+hold on
+plot(t,yp1,t,r,t,ym,'Linew',0.5)
+grid on
+title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
+par1 = strcat('$y\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+legend({par1,par2,'$r$','$y_m$'},...
+    'FontSize',8,'Interpreter','latex','Location','NorthEast')
+sublaby("   ");
+V = axis;
+axis([V(1) V(2) 0 2.5 ]);
+print -dpng images\fig01c.png
+
+dims = size(t);
+thetas_matrix = ones([dims(1),4])*[thetas(1) 0 0 0;0 thetas(2) 0 0;0 0 thetas(3) 0;0 0 0 thetas(4)];
+
+ttheta1 = theta1 - thetas_matrix;
+
+figure(4)
+clf
+hold on
+plot(e01,ttheta1)
+grid on
+%axis equal
+title({'$e_0 \times \tilde\theta$'},'FontSize',10,'Interpreter','latex')
+xlabel({'$e_0$'},'FontSize',10,'Interpreter','latex')
+ylabel({'$\tilde\theta$'},'FontSize',10,'Interpreter','latex')
+par1 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2 = strcat('$e_0 \times \tilde\theta_1\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+legend({par1,par2},...
+    'FontSize',8,'Interpreter','latex','Location','SouthEast')
+sublaby("   ");
+print -dpng images\fig03d.png
+
+figure(5)
+clf
+subplot(211)
+hold on
+plot(t,u1,'Linew',0.5)
+grid on
+title({'$u$'},'FontSize',10,'Interpreter','latex')
+par1 = strcat('$u\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+legend({par1},...
+    'FontSize',8,'Interpreter','latex','Location','SouthEast')
+sublaby("   ");
+print -dpng images\fig03e.png
+
+%------------------------------------------------- Display plots -----
+figure(6)
+clf
+
+subplot(221)
+hold on
+plot(t,e01)
+plot(t,e02,'Linew',0.5);
+grid on
+title({'$e_0$'},'FontSize',10,'Interpreter','latex')
+par1 = strcat('$\gamma=',strrep(mat2str(gamma1), ' ', '\ '),'$');
+par2 = strcat('$\gamma=',strrep(mat2str(gamma2), ' ', '\ '),'$');
+legend({par1,par2},...
+    'FontSize',10,'Interpreter','latex','Location','SouthEast')
+
+subplot(222)
+hold on
+plot(t,theta1,t,Theta1)
+plot(t,theta2,t,Theta2,'r','Linew',0.5);
+grid on; 
+title({'$\theta, \theta^*$'},'FontSize',10,'Interpreter','latex')
+par1c = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par2c = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma1), ' ', '\ '),')$');
+par3c = strcat('$\theta_{1}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+par4c = strcat('$\theta_{2}\;(\gamma=',strrep(mat2str(gamma2), ' ', '\ '),')$');
+legend({par1c,par2c,'$\theta_1^*$',par3c,par4c,'$\theta_1^*$'},...
+    'FontSize',10,'Interpreter','latex','Location','NorthEast')
+
+subplot(223)
+hold on
+plot(t,yp1);
+plot(t,yp2,t,r,t,ym,'Linew',0.5);
+grid on
+title({'$r, y_m, y_p$'},'FontSize',10,'Interpreter','latex')
+legend({par1,par2,'$r$','$y_m$'},...
+    'FontSize',10,'Interpreter','latex','Location','SouthEast')
+
+subplot(224)
+hold on
+plot(t,u1)
+plot(t,u2,'Linew',0.5);grid;
+grid on
+title({'$u$'},'FontSize',10,'Interpreter','latex')
+legend({par1,par2},...
+    'FontSize',10,'Interpreter','latex','Location','SouthEast')
+
+%--------------------------------------- Impressão dos diagramas -----
+% open_system('MRAC_111');
+% print -depsc2 -sMRAC_111 MRAC-111.eps
+% 
+% open_system('MRAC_111/Plant');
+% print -depsc2 -sMRAC_111/Plant plant.eps
+% 
+% open_system('MRAC_111/Reference model');
+% print -depsc2 '-sMRAC_111/Reference model' reference-model.eps
+% 
+% open_system('MRAC_111/Adaptation');
+% print -depsc2 -sMRAC_111/Adaptation adaptation.eps
+% 
+% open_system('MRAC_111/Reference signal');
+% print -depsc2 '-sMRAC_111/Reference signal' reference-signal.eps
+% 
+% close_system('MRAC_111');
+%---------------------------------------------------------------------
+%}
