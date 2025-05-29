@@ -1,53 +1,53 @@
 Model {
-  Name			  "least_square"
+  Name			  "least_square_2ordem"
   Version		  10.3
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1252"
   ModelUUID		  "00b3364d-869f-4cef-9153-dfb5e36ca6ce"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.22"
+    ComputedModelVersion    "7.23"
     NumModelReferences	    0
     NumTestPointedSignals   6
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "least_square/Adaptation"
+      FullBlockPath	      "least_square_2ordem/Adaptation"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "least_square/Constant"
+      FullBlockPath	      "least_square_2ordem/Constant"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "Y"
-      FullBlockPath	      "least_square/Dot Product1"
+      FullBlockPath	      "least_square_2ordem/Dot Product1"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "yp"
-      FullBlockPath	      "least_square/Plant"
+      FullBlockPath	      "least_square_2ordem/Plant"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "r"
-      FullBlockPath	      "least_square/Reference signal"
+      FullBlockPath	      "least_square_2ordem/Reference signal"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "least_square/Sum"
+      FullBlockPath	      "least_square_2ordem/Sum"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -64,7 +64,7 @@ Model {
     NumExternalFileReferences 1
     ExternalFileReference {
       Reference		      "cstblocks/LTI System"
-      Path		      "least_square/Plant/Planta"
+      Path		      "least_square_2ordem/Plant/Planta"
       SID		      "14"
       Type		      "LIBRARY_BLOCK"
     }
@@ -75,6 +75,9 @@ Model {
   slcheck_filter_plugin	  "on"
   NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
+  LogicAnalyzerSignalOrdering "70793da9-eb15-4f57-99ee-5707dcc79d9b,2ef5c575-fcfa-49cc-b545-e8a8b41c0ea7,fea41da3-d57e"
+  "-44aa-96d4-4ceda414349f,b400014a-40bf-49f6-9e38-b7c144e10992,919e012d-1cd0-4a05-ae56-aa165e610728,8f7b36af-7405-431b"
+  "-9f2e-81f8b2f0f1ee"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
   SimscapeDaeAutoSolver	  "ode23t"
@@ -122,18 +125,18 @@ Model {
 	Dimension		4
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "29"
 	  Extents		  [1844.0, 808.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-160.160182963563, -163.88614319686508]
-	  SceneRectInView	  [-160.160182963563, -163.88614319686508, 1475.2, 646.4]
+	  ZoomFactor		  [1.75]
+	  Offset		  [-193.23687669436589, 14.270814173036264]
+	  SceneRectInView	  [-193.23687669436589, 14.270814173036264, 842.97142857142853, 369.37142857142857]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
@@ -146,12 +149,12 @@ Model {
 	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "29"
-	  Extents		  [1850.0, 814.0]
-	  ZoomFactor		  [1.8851902173913042]
-	  Offset		  [-262.14505208333338, -96.060000000000016]
-	  SceneRectInView	  [-262.14505208333338, -96.060000000000016, 981.33333333333337, 431.78666666666669]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1844.0, 808.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-378.72265625, -238.5]
+	  SceneRectInView	  [-378.72265625, -238.5, 1475.2, 646.4]
 	}
 	Object {
 	  $ObjectID		  8
@@ -222,11 +225,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "caioc"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 28 01:12:48 2025"
-  RTWModifiedTimeStamp	  670295563
-  ModelVersionFormat	  "%<AutoIncrement:7.22>"
+  LastModifiedDate	  "Wed May 28 21:25:15 2025"
+  RTWModifiedTimeStamp	  670368312
+  ModelVersionFormat	  "%<AutoIncrement:7.23>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -286,11 +289,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    11
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "least_square"
+    model_		    "least_square_2ordem"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "least_square"
+      Cell		      "least_square_2ordem"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1707,10 +1710,10 @@ Model {
     }
   }
   System {
-    Name		    "least_square"
+    Name		    "least_square_2ordem"
     Location		    [8, 8, 1562, 890]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1726,7 +1729,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "111"
+    SIDHighWatermark	    "116"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -2448,9 +2451,9 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[-8, -8, 1928, 1048]
+	Location		[8, 8, 1562, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2464,7 +2467,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"189"
+	ZoomFactor		"175"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
@@ -2475,40 +2478,51 @@ Model {
 	}
 	Block {
 	  BlockType		  Constant
-	  Name			  "DC"
-	  SID			  "31"
-	  Position		  [55, 41, 85, 69]
-	  ZOrder		  -2
+	  Name			  "DC1"
+	  SID			  "112"
+	  Position		  [60, 41, 90, 69]
+	  ZOrder		  5
 	  Value			  "DC"
 	}
 	Block {
 	  BlockType		  Relay
-	  Name			  "Relay"
-	  SID			  "52"
-	  Position		  [65, 110, 95, 140]
-	  ZOrder		  1
-	  OnOutputValue		  "As"
-	  OffOutputValue	  "-As"
+	  Name			  "Relay1"
+	  SID			  "113"
+	  Position		  [70, 110, 100, 140]
+	  ZOrder		  6
+	  OnOutputValue		  "Aq"
+	  OffOutputValue	  "-Aq"
 	}
 	Block {
 	  BlockType		  Sin
-	  Name			  "Sine wave"
-	  SID			  "32"
+	  Name			  "Sine wave1"
+	  SID			  "114"
 	  Ports			  [0, 1]
-	  Position		  [5, 110, 35, 140]
-	  ZOrder		  -3
+	  Position		  [10, 110, 40, 140]
+	  ZOrder		  4
+	  Frequency		  "wq"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine wave2"
+	  SID			  "115"
+	  Ports			  [0, 1]
+	  Position		  [70, 170, 100, 200]
+	  ZOrder		  7
+	  Amplitude		  "As"
 	  Frequency		  "ws"
 	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "33"
-	  Ports			  [2, 1]
-	  Position		  [125, 110, 155, 140]
-	  ZOrder		  -4
+	  Name			  "Sum1"
+	  SID			  "116"
+	  Ports			  [3, 1]
+	  Position		  [130, 110, 160, 140]
+	  ZOrder		  3
 	  ShowName		  off
-	  Inputs		  "++|"
+	  Inputs		  "+++"
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
@@ -2550,31 +2564,6 @@ Model {
 	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "DC"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  Branch {
-	    ZOrder		    3
-	    DstBlock		    "r"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    4
-	    Points		    [0, -45]
-	    DstBlock		    "To Workspace 2"
-	    DstPort		    1
-	  }
-	}
-	Line {
 	  ZOrder		  5
 	  SrcBlock		  "Clock"
 	  SrcPort		  1
@@ -2582,18 +2571,51 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
-	  SrcBlock		  "Sine wave"
+	  ZOrder		  9
+	  SrcBlock		  "Sine wave2"
 	  SrcPort		  1
-	  DstBlock		  "Relay"
+	  Points		  [40, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Sine wave1"
+	  SrcPort		  1
+	  DstBlock		  "Relay1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
-	  SrcBlock		  "Relay"
+	  ZOrder		  11
+	  SrcBlock		  "Relay1"
 	  SrcPort		  1
-	  DstBlock		  "Sum"
+	  DstBlock		  "Sum1"
 	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "DC1"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    ZOrder		    17
+	    Points		    [0, -45]
+	    DstBlock		    "To Workspace 2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    16
+	    DstBlock		    "r"
+	    DstPort		    1
+	  }
 	}
       }
     }
@@ -2847,7 +2869,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "least_square"
+    name		    "least_square_2ordem"
     sfVersion		    80000041
     firstTarget		    2
   }

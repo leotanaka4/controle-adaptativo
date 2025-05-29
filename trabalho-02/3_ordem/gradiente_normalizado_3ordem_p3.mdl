@@ -1,5 +1,5 @@
 Model {
-  Name			  "gradiente_normalizado_p3"
+  Name			  "gradiente_normalizado_3ordem_p3"
   Version		  10.3
   SavedCharacterEncoding  "windows-1252"
   ModelUUID		  "00b3364d-869f-4cef-9153-dfb5e36ca6ce"
@@ -7,33 +7,33 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.18"
+    ComputedModelVersion    "7.19"
     NumModelReferences	    0
     NumTestPointedSignals   12
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "gradiente_normalizado_p3/Adaptation"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Adaptation"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "gradiente_normalizado_p3/Constant1"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Constant1"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "uf"
-      FullBlockPath	      "gradiente_normalizado_p3/Demux"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Demux"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "uf_dot"
-      FullBlockPath	      "gradiente_normalizado_p3/Demux"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Demux"
       PortIndex		      2
       LogSignal		      1
       MaxPoints		      5000
@@ -41,56 +41,56 @@ Model {
     }
     TestPointedSignal {
       SignalName	      "u"
-      FullBlockPath	      "gradiente_normalizado_p3/Dot Product"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Dot Product"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "yp"
-      FullBlockPath	      "gradiente_normalizado_p3/Plant"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Plant"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "r"
-      FullBlockPath	      "gradiente_normalizado_p3/Reference signal"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Reference signal"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "yf,yfdot,yfddot"
-      FullBlockPath	      "gradiente_normalizado_p3/State-Space"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/State-Space"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "uf,ufdot,ufddot"
-      FullBlockPath	      "gradiente_normalizado_p3/State-Space1"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/State-Space1"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "gradiente_normalizado_p3/Sum"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Sum"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "phi"
-      FullBlockPath	      "gradiente_normalizado_p3/Vector Concatenate"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Vector Concatenate"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "phi_2"
-      FullBlockPath	      "gradiente_normalizado_p3/Vector Concatenate1"
+      FullBlockPath	      "gradiente_normalizado_3ordem_p3/Vector Concatenate1"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -107,7 +107,7 @@ Model {
     NumExternalFileReferences 1
     ExternalFileReference {
       Reference		      "cstblocks/LTI System"
-      Path		      "gradiente_normalizado_p3/Plant/Planta"
+      Path		      "gradiente_normalizado_3ordem_p3/Plant/Planta"
       SID		      "14"
       Type		      "LIBRARY_BLOCK"
     }
@@ -147,7 +147,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1936.0, 1056.0]
+      Location		      [8.0, 8.0, 1554.0, 882.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -172,15 +172,26 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1850.0, 814.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-465.47940622663646, -154.83108170868587]
-	  SceneRectInView	  [-465.47940622663646, -154.83108170868587, 1850.0, 814.0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "29"
+	  Extents		  [1844.0, 808.0]
+	  ZoomFactor		  [1.4970355731225296]
+	  Offset		  [-264.18544812293737, -96.060000000000016]
+	  SceneRectInView	  [-264.18544812293737, -96.060000000000016, 985.41412541254135, 431.78666666666669]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1844.0, 808.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-348.32265625, -79.199999999999989]
+	  SceneRectInView	  [-348.32265625, -79.199999999999989, 1475.2, 646.4]
+	}
+	Object {
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -189,17 +200,6 @@ Model {
 	  ZoomFactor		  [1.8090225894348246]
 	  Offset		  [-96.468164794007521, -113.05003745318351]
 	  SceneRectInView	  [-96.468164794007521, -113.05003745318351, 1022.6516853932584, 449.96674157303369]
-	}
-	Object {
-	  $ObjectID		  7
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "29"
-	  Extents		  [1850.0, 814.0]
-	  ZoomFactor		  [1.8851902173913042]
-	  Offset		  [-262.14505208333338, -96.060000000000016]
-	  SceneRectInView	  [-262.14505208333338, -96.060000000000016, 981.33333333333337, 431.78666666666669]
 	}
 	Object {
 	  $ObjectID		  8
@@ -226,8 +226,8 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	Object {
@@ -239,18 +239,18 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "On"
 	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADD/wCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAABjAP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAHYAAAA2sAAAABAAAAAgAAAAEAAAAC/"
+      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHYQAAA28AAAABAAAAAgAAAAEAAAAC/"
       "AAAAAQAAAAAAAAAAQAAADYAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAEwAZQBmAHQCAAAAAP////8AAAAAA"
       "AAAAAAAAAEAAAABAAAAOABjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAUgBpAGcAaAB0AwAAAAD/////AAAAA"
       "AAAAAAAAAACAAAAAAAAAAMAAAABAAAAOgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAQgBvAHQAdABvAG0AA"
@@ -270,11 +270,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "linco"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu May 22 11:41:45 2025"
-  RTWModifiedTimeStamp	  669814840
-  ModelVersionFormat	  "%<AutoIncrement:7.18>"
+  LastModifiedDate	  "Wed May 28 21:34:08 2025"
+  RTWModifiedTimeStamp	  670368847
+  ModelVersionFormat	  "%<AutoIncrement:7.19>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -334,11 +334,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    11
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "gradiente_normalizado_p3"
+    model_		    "gradiente_normalizado_3ordem_p3"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "gradiente_normalizado_p3"
+      Cell		      "gradiente_normalizado_3ordem_p3"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1888,10 +1888,10 @@ Model {
     }
   }
   System {
-    Name		    "gradiente_normalizado_p3"
-    Location		    [-8, -8, 1928, 1048]
+    Name		    "gradiente_normalizado_3ordem_p3"
+    Location		    [8, 8, 1562, 890]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1907,7 +1907,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "84"
+    SIDHighWatermark	    "89"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -2443,9 +2443,9 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[-8, -8, 1928, 1048]
+	Location		[8, 8, 1562, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2459,7 +2459,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"189"
+	ZoomFactor		"150"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
@@ -2471,39 +2471,50 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "DC"
-	  SID			  "31"
-	  Position		  [55, 41, 85, 69]
-	  ZOrder		  -2
+	  SID			  "85"
+	  Position		  [60, 41, 90, 69]
+	  ZOrder		  5
 	  Value			  "DC"
 	}
 	Block {
 	  BlockType		  Relay
 	  Name			  "Relay"
-	  SID			  "52"
-	  Position		  [65, 110, 95, 140]
-	  ZOrder		  1
-	  OnOutputValue		  "As"
-	  OffOutputValue	  "-As"
+	  SID			  "86"
+	  Position		  [70, 110, 100, 140]
+	  ZOrder		  6
+	  OnOutputValue		  "Aq"
+	  OffOutputValue	  "-Aq"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "Sine wave"
-	  SID			  "32"
+	  SID			  "87"
 	  Ports			  [0, 1]
-	  Position		  [5, 110, 35, 140]
-	  ZOrder		  -3
+	  Position		  [10, 110, 40, 140]
+	  ZOrder		  4
+	  Frequency		  "wq"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine wave1"
+	  SID			  "88"
+	  Ports			  [0, 1]
+	  Position		  [70, 170, 100, 200]
+	  ZOrder		  7
+	  Amplitude		  "As"
 	  Frequency		  "ws"
 	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "33"
-	  Ports			  [2, 1]
-	  Position		  [125, 110, 155, 140]
-	  ZOrder		  -4
+	  SID			  "89"
+	  Ports			  [3, 1]
+	  Position		  [130, 110, 160, 140]
+	  ZOrder		  3
 	  ShowName		  off
-	  Inputs		  "++|"
+	  Inputs		  "+++"
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
@@ -2545,31 +2556,6 @@ Model {
 	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "DC"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  Branch {
-	    ZOrder		    3
-	    DstBlock		    "r"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    4
-	    Points		    [0, -45]
-	    DstBlock		    "To Workspace 2"
-	    DstPort		    1
-	  }
-	}
-	Line {
 	  ZOrder		  5
 	  SrcBlock		  "Clock"
 	  SrcPort		  1
@@ -2577,18 +2563,51 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
-	  SrcBlock		  "Sine wave"
+	  ZOrder		  9
+	  SrcBlock		  "Sine wave1"
 	  SrcPort		  1
-	  DstBlock		  "Relay"
+	  Points		  [40, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    ZOrder		    17
+	    Points		    [0, -45]
+	    DstBlock		    "To Workspace 2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    16
+	    DstBlock		    "r"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "DC"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  DstBlock		  "Sum"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
+	  ZOrder		  14
 	  SrcBlock		  "Relay"
 	  SrcPort		  1
 	  DstBlock		  "Sum"
 	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Sine wave"
+	  SrcPort		  1
+	  DstBlock		  "Relay"
+	  DstPort		  1
 	}
       }
     }

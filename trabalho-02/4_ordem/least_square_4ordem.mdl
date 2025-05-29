@@ -1,53 +1,53 @@
 Model {
-  Name			  "Ls_4ordem"
+  Name			  "least_square_4ordem"
   Version		  10.3
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1252"
   ModelUUID		  "91622432-0a40-4078-9ae9-bfa044b723ec"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1"
+    ComputedModelVersion    "1.2"
     NumModelReferences	    0
     NumTestPointedSignals   6
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "Ls_4ordem/Adaptation"
+      FullBlockPath	      "least_square_4ordem/Adaptation"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "Ls_4ordem/Constant"
+      FullBlockPath	      "least_square_4ordem/Constant"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "Y"
-      FullBlockPath	      "Ls_4ordem/Dot Product1"
+      FullBlockPath	      "least_square_4ordem/Dot Product1"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "yp"
-      FullBlockPath	      "Ls_4ordem/Plant"
+      FullBlockPath	      "least_square_4ordem/Plant"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      "r"
-      FullBlockPath	      "Ls_4ordem/Reference signal"
+      FullBlockPath	      "least_square_4ordem/Reference signal"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
       SignalName	      ""
-      FullBlockPath	      "Ls_4ordem/Sum"
+      FullBlockPath	      "least_square_4ordem/Sum"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -64,7 +64,7 @@ Model {
     NumExternalFileReferences 1
     ExternalFileReference {
       Reference		      "cstblocks/LTI System"
-      Path		      "Ls_4ordem/Plant/Planta"
+      Path		      "least_square_4ordem/Plant/Planta"
       SID		      "23"
       Type		      "LIBRARY_BLOCK"
     }
@@ -75,9 +75,9 @@ Model {
   slcheck_filter_plugin	  "on"
   NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering "0233d596-4821-490c-ab2b-355bb15aff6a,f47595fd-e350-4535-a2d2-707b9134d88f,b1117ee0-ae57"
-  "-46a4-a3f3-e6b57122be4d,299e7845-54dc-4b25-ab59-9686c0d33e1b,90a5275e-e683-4430-b441-38f39f12d474,b178845b-de54-4519"
-  "-ab7e-640a42e42a22"
+  LogicAnalyzerSignalOrdering "90a5275e-e683-4430-b441-38f39f12d474,299e7845-54dc-4b25-ab59-9686c0d33e1b,b1117ee0-ae57"
+  "-46a4-a3f3-e6b57122be4d,b178845b-de54-4519-ab7e-640a42e42a22,f47595fd-e350-4535-a2d2-707b9134d88f,0233d596-4821-490c"
+  "-ab2b-355bb15aff6a"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
   SimscapeModelParametersPlugin	"on"
@@ -132,17 +132,17 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		3
+	Dimension		4
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [1]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1"
+	  LoadSaveID		  "29"
 	  Extents		  [1807.0, 744.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [-356.514138384636, 23.722400539974416]
-	  SceneRectInView	  [-356.514138384636, 23.722400539974416, 1156.48, 476.16]
+	  ZoomFactor		  [1.8899999999999997]
+	  Offset		  [-253.96939070767203, -37.69576719576726]
+	  SceneRectInView	  [-253.96939070767203, -37.69576719576726, 764.867724867725, 314.92063492063494]
 	}
 	Object {
 	  $ObjectID		  7
@@ -160,6 +160,17 @@ Model {
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "1"
+	  Extents		  [1807.0, 744.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [-356.514138384636, 23.722400539974416]
+	  SceneRectInView	  [-356.514138384636, 23.722400539974416, 1156.48, 476.16]
+	}
+	Object {
+	  $ObjectID		  9
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "21"
 	  Extents		  [1807.0, 744.0]
 	  ZoomFactor		  [1.6299999999999997]
@@ -172,7 +183,7 @@ Model {
 	Type			"Simulink.DockComponentInfo"
 	Dimension		2
 	Object {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [1]
@@ -185,7 +196,7 @@ Model {
 	  Minimized		  "On"
 	}
 	Object {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  Type			  "Simulink:Editor:ReferencedFiles"
 	  ID			  "Referenced Files"
 	  Visible		  [0]
@@ -224,11 +235,11 @@ Model {
   Created		  "Mon May 26 22:42:22 2025"
   Creator		  "caioc"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "caioc"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon May 26 23:06:48 2025"
-  RTWModifiedTimeStamp	  670201031
-  ModelVersionFormat	  "%<AutoIncrement:1.1>"
+  LastModifiedDate	  "Wed May 28 21:32:40 2025"
+  RTWModifiedTimeStamp	  670368402
+  ModelVersionFormat	  "%<AutoIncrement:1.2>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -286,14 +297,14 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    11
+    $ObjectID		    12
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "Ls_4ordem"
-    overrideMode_	    [0U]
+    model_		    "least_square_4ordem"
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "Ls_4ordem"
+      Cell		      "least_square_4ordem"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -305,7 +316,7 @@ Model {
   }
   Object {
     $PropName		    "InstrumentedSignals"
-    $ObjectID		    12
+    $ObjectID		    13
     $ClassName		    "Simulink.HMI.InstrumentedSignals"
     Array {
       Type		      "Struct"
@@ -487,7 +498,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      13
+      $ObjectID		      14
       Version		      "21.0.0"
       DisabledProps	      []
       Description	      ""
@@ -495,7 +506,7 @@ Model {
 	Type			"Handle"
 	Dimension		10
 	Simulink.SolverCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -538,7 +549,7 @@ Model {
 	  ODENIntegrationMethod	  "ode3"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -580,7 +591,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -655,7 +666,7 @@ Model {
 	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  17
+	  $ObjectID		  18
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -777,7 +788,7 @@ Model {
 	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -827,7 +838,7 @@ Model {
 	  HardwareBoardFeatureSet "EmbeddedCoderHSP"
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -847,7 +858,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  20
+	  $ObjectID		  21
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -896,7 +907,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  21
+	  $ObjectID		  22
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -1003,7 +1014,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      22
+	      $ObjectID		      23
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1093,7 +1104,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      23
+	      $ObjectID		      24
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1197,7 +1208,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  24
+	  $ObjectID		  25
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1236,7 +1247,7 @@ Model {
 	  CovMcdcMode		  "Masking"
 	}
 	hdlcoderui.hdlcc {
-	  $ObjectID		  25
+	  $ObjectID		  26
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  "HDL Coder custom configuration component"
@@ -1261,11 +1272,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    13
+    $ObjectID		    14
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    26
+    $ObjectID		    27
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1588,7 +1599,7 @@ Model {
     }
   }
   System {
-    Name		    "Ls_4ordem"
+    Name		    "least_square_4ordem"
     Location		    [-7, -7, 1543, 823]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    off
@@ -1607,7 +1618,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "50"
+    SIDHighWatermark	    "55"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1620,13 +1631,12 @@ Model {
       RequestExecContextInheritance off
       Port {
 	PortNumber		1
-	DataLogging		on
       }
       System {
 	Name			"Adaptation"
 	Location		[-7, -7, 1543, 823]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2096,7 +2106,6 @@ Model {
       Value		      "theta_star"
       Port {
 	PortNumber		1
-	DataLogging		on
       }
     }
     Block {
@@ -2123,7 +2132,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"Y"
-	DataLogging		on
       }
     }
     Block {
@@ -2147,7 +2155,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"yp"
-	DataLogging		on
       }
       System {
 	Name			"Plant"
@@ -2300,13 +2307,12 @@ Model {
       Port {
 	PortNumber		1
 	Name			"r"
-	DataLogging		on
       }
       System {
 	Name			"Reference signal"
-	Location		[-8, -8, 1928, 1048]
+	Location		[-7, -7, 1543, 823]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2332,39 +2338,50 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "DC"
-	  SID			  "31"
-	  Position		  [55, 41, 85, 69]
-	  ZOrder		  -2
+	  SID			  "51"
+	  Position		  [60, 41, 90, 69]
+	  ZOrder		  5
 	  Value			  "DC"
 	}
 	Block {
 	  BlockType		  Relay
 	  Name			  "Relay"
-	  SID			  "32"
-	  Position		  [65, 110, 95, 140]
-	  ZOrder		  1
-	  OnOutputValue		  "As"
-	  OffOutputValue	  "-As"
+	  SID			  "52"
+	  Position		  [70, 110, 100, 140]
+	  ZOrder		  6
+	  OnOutputValue		  "Aq"
+	  OffOutputValue	  "-Aq"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "Sine wave"
-	  SID			  "33"
+	  SID			  "53"
 	  Ports			  [0, 1]
-	  Position		  [5, 110, 35, 140]
-	  ZOrder		  -3
+	  Position		  [10, 110, 40, 140]
+	  ZOrder		  4
+	  Frequency		  "wq"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine wave1"
+	  SID			  "54"
+	  Ports			  [0, 1]
+	  Position		  [70, 170, 100, 200]
+	  ZOrder		  7
+	  Amplitude		  "As"
 	  Frequency		  "ws"
 	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "34"
-	  Ports			  [2, 1]
-	  Position		  [125, 110, 155, 140]
-	  ZOrder		  -4
+	  SID			  "55"
+	  Ports			  [3, 1]
+	  Position		  [130, 110, 160, 140]
+	  ZOrder		  3
 	  ShowName		  off
-	  Inputs		  "++|"
+	  Inputs		  "+++"
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
@@ -2406,31 +2423,6 @@ Model {
 	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "DC"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  Branch {
-	    ZOrder		    3
-	    DstBlock		    "r"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    4
-	    Points		    [0, -45]
-	    DstBlock		    "To Workspace 2"
-	    DstPort		    1
-	  }
-	}
-	Line {
 	  ZOrder		  5
 	  SrcBlock		  "Clock"
 	  SrcPort		  1
@@ -2438,18 +2430,51 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  6
+	  ZOrder		  8
+	  SrcBlock		  "Sine wave1"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Sine wave"
 	  SrcPort		  1
 	  DstBlock		  "Relay"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
+	  ZOrder		  10
 	  SrcBlock		  "Relay"
 	  SrcPort		  1
 	  DstBlock		  "Sum"
 	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "DC"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    ZOrder		    16
+	    DstBlock		    "r"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    15
+	    Points		    [0, -45]
+	    DstBlock		    "To Workspace 2"
+	    DstPort		    1
+	  }
 	}
       }
     }
@@ -2533,7 +2558,6 @@ Model {
       Inputs		      "+-|"
       Port {
 	PortNumber		1
-	DataLogging		on
       }
     }
     Block {

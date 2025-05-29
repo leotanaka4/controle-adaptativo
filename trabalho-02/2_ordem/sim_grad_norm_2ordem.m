@@ -41,12 +41,16 @@ P = ss(P);
 
 %--------------------------------------------- Initial condition -----
 yp0  = [0; 0]
+% yp0  = [0; 3]
 x0   = yp0;
 
 %----------------------------------- Reference signal parameters -----
 DC = 1   %Constant
-As = 2   %Sine wave amplitude
-ws = 0.1*pi  %Frequency
+Aq = 2   %Sine wave amplitude
+wq = 0.1*pi  %Frequency
+As = 0   %Square wave amplitude
+% As = 0.5
+ws = pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
 theta_star1 = [b0; b1; a0 - lambda0; a1 - lambda1]   %theta* parametrização 1
@@ -54,8 +58,10 @@ theta_star2 = [b0; b1; a0; a1]                       %theta* parametrização 2
 theta_star3 = [1/b0; b1/b0; a0/b0; a1/b0]            %theta* parametrização 3
 %----------------------------------------- Adaptation parameters -----
 gamma = 1*eye(4);         %Adaptation gains
+% gamma = 100*eye(4); 
 theta0 = [0;0;0;0];       %Adaptation inicial condition
-kappa = 0;
+kappa = 1;
+% kappa = 0;
 P0 = 1*eye(4);
 %-------------------------------------------------- GNSimulation -----
 theta_star = theta_star1;
@@ -206,7 +212,10 @@ title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
 % Salvar Figura 1 (após a subplot com o método GN)
-saveas(gcf, '../images/figura2_gn.png')
+saveas(gcf, '../images/figura2_gn_1.png')
+%saveas(gcf, '../images/figura2_gn_2.png')
+%saveas(gcf, '../images/figura2_gn_3.png')
+%saveas(gcf, '../images/figura2_gn_4.png')
 
 %---------------------------------------------------------------------------------------------------------
 figure(2)
@@ -302,5 +311,7 @@ title('Parametrizações 1, 2 e 3 (LS)', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
 % Salvar Figura 2 (após a subplot com o método LS)
-saveas(gcf, '../images/figura2_ls.png')
-
+saveas(gcf, '../images/figura2_ls_1.png')
+%saveas(gcf, '../images/figura2_ls_2.png')
+%saveas(gcf, '../images/figura2_ls_3.png')
+%saveas(gcf, '../images/figura2_ls_4.png')
