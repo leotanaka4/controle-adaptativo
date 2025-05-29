@@ -27,7 +27,7 @@ st = 0.01;      %Sample time to workspace
 s = tf('s');    %trick!
 
 %--------------------------------------------------------- Plant -----
-ap = 2;
+ap = 10;
 kp = 1;
 
 P = kp/(s-ap)
