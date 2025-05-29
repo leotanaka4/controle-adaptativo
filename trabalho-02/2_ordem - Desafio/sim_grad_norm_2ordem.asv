@@ -1,0 +1,164 @@
+%---------------------------------------------------------------------
+%  COE-603  Controle adaptativo
+%
+%  Script para simular o exemplo 1
+%                                             Leonardo S. da C. Tanaka 
+%                                                       30/mar/25, Rio
+%---------------------------------------------------------------------
+clear all;
+clc;
+
+%---------------------------------------------------------------------
+disp('-------------------------------')
+disp('Script para simular o exemplo 1')
+disp(' ')
+disp('Caso: Planta ............. n = 2')
+disp('      Grau relativo ..... n* = 1')
+disp('      Parâmetros ........ np = 4')
+disp(' ')
+disp('Algoritmo: Gradiente Normalizado')
+disp(' ')
+disp('-------------------------------')
+
+%------------------------------------------------ Initialization -----
+tfinal = 100;    %Simulation interval
+st = 0.01;      %Sample time to workspace
+
+s = tf('s');    %trick!
+
+%--------------------------------------------------------- Filter ----
+lambda2 = 3;
+lambda1 = 2;
+lambda0 = 1;
+
+%--------------------------------------------------------- Plant -----
+a1 = 2.5;
+a0 = 1.5;
+b1 = 2;
+b0 = 0.8;
+
+P = (b1*s+b0)/(s^2+a1*s+a0)
+P = ss(P);
+
+%--------------------------------------------- Initial condition -----
+yp0  = [0; 0]
+x0   = yp0;
+
+%----------------------------------- Reference signal parameters -----
+DC = 1   %Constant
+As = 2   %Sine wave amplitude
+ws = 0.1*pi  %Frequency
+
+%------------------------------------------------- Matching gain -----
+theta_star1 = [b0; b1; a0; a1]                       %theta* parametrização 1
+theta_star2 = theta_star1                            %theta* parametrização 2
+%----------------------------------------- Adaptation parameters -----
+gamma1 = 1;        %Adaptation gains
+gamma2 = 1;        %Adaptation gains
+theta0 = [0;0;0;0];       %Adaptation inicial condition
+kappa = 0;
+P01 = 1*eye(4);
+P02 = 1*eye(4);
+%-------------------------------------------------- Simulation 1 -----
+sim('least_square_2ordem_des',tfinal);
+
+yp1 = yp;   %Save results
+e01 = e0;
+thetap1 = theta1;
+thetap2 = theta2;
+u1 = u;
+phi11 = phi1;
+phi21 = phi2;
+A1 = A;
+%-------------------------------------------------- Simulation 2 -----
+gamma1 = 0;
+sim('least_square_2ordem_des',tfinal);
+
+yp2 = yp;   %Save results
+e02 = e0;
+thetap1_2 = theta1;
+thetap2_2 = theta2;
+u2 = u;
+%-------------------------------------------------- Simulation 3 -----
+gamma1 = 1;
+gamma2 = 0;
+sim('least_square_2ordem_des',tfinal);
+
+yp3 = yp;   %Save results
+e03 = e0;
+thetap1_3 = theta1;
+thetap2_3 = theta2;
+u2 = u;
+
+%----------------------------------------------- Print eps plots -----
+figure(1)
+clf
+
+% 1º gráfico: saída y e referência r da primeira simulação
+subplot(3,2,1)
+hold on
+plot(t, yp1, 'LineWidth', 1.2, 'DisplayName', '$y$')
+plot(t, r, 'LineWidth', 1.2, 'DisplayName', '$r$')
+grid on
+title('$y$ e $r$', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+% 2º gráfico: theta_star, thetap1 e thetap2 (simulação 1)
+subplot(3,2,3)
+hold on
+colors = lines(4);
+for i = 1:4
+    plot(t, thetap1(:,i), '-', 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', ['$\theta_{p1,' num2str(i) '}$'])
+    plot(t, thetap2(:,i), '-.', 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', ['$\theta_{p2,' num2str(i) '}$'])
+    h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), ...
+        'LineWidth', 1.2);
+    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+end
+grid on
+title('$\theta^*$, $\theta_{p1\_3}$ e $\theta_{p2\_2}$', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+% 3º gráfico: theta_star, thetap1_3 e thetap2_2
+subplot(3,2,5)
+hold on
+for i = 1:4
+    plot(t, thetap1_3(:,i), '-', 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', ['$\theta_{p1\_3,' num2str(i) '}$'])
+    plot(t, thetap2_2(:,i), '-.', 'Color', colors(i,:), 'LineWidth', 1.2, ...
+        'DisplayName', ['$\theta_{p2\_2,' num2str(i) '}$'])
+    h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), ...
+        'LineWidth', 1.2);
+    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+end
+grid on
+title('$\theta^*$, $\theta_{p1\_3}$ e $\theta_{p2\_2}$', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
+
+% 4º gráfico: phi11
+subplot(3,2,2)
+plot(t, phi11)
+grid on
+title('$\phi_{11}$', 'Interpreter','latex')
+
+% 5º gráfico: phi22
+subplot(3,2,4)
+plot(t, phi21)
+grid on
+title('$\phi_{22}$', 'Interpreter','latex')
+
+% 6º gráfico: SVD(A1)
+subplot(3,2,6)
+svd_vals = zeros(length(t), 4); % Assumindo 4x4
+for i = 1:length(t)
+    svd_vals(i,:) = svd(A1(:,:,i));
+end
+plot(t, svd_vals, 'LineWidth', 1.2)
+grid on
+title('SVD($A_1$)', 'Interpreter','latex')
+
+% Salvar figura
+saveas(gcf, '../images/figura1_customizada.png')
+
+
