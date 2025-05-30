@@ -34,10 +34,10 @@ P = kp/(s-ap)
 P = ss(P);
 
 %----------------------------------------------- Reference model -----
-am = 4;
+am = 10;
 km = 1;
 
-M = 1/(s+am)
+M = km/(s+am)
 M = ss(M);
 
 %--------------------------------------------- Initial condition -----
@@ -108,7 +108,7 @@ par2 = ['$e_0\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
 legend(par1, par2, 'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
 
 sublaby("   "); 
-print -dpng images\fig05a.png
+print -dpng images\05_am=10_degrau\fig05a.png
 
 Theta1 = thetas(1) * ones(size(t));
 Theta2 = thetas(2) * ones(size(t));
@@ -147,7 +147,7 @@ padding = 0.1 * (ymax - ymin);
 ylim([ymin - padding, ymax + padding])
 
 sublaby("   ");  % Mantido conforme seu código original
-print -dpng images\fig05b.png
+print -dpng images\05_am=10_degrau\fig05b.png
 
 figure(3)
 clf
@@ -182,7 +182,7 @@ padding = 0.1 * (ymax - ymin);
 ylim([ymin - padding, ymax + padding])
 
 sublaby("   ");  % Mantido conforme o original
-print -dpng images\fig05c.png
+print -dpng images\05_am=10_degrau\fig05c.png
 
 dims = size(t);
 thetas_matrix = ones([dims(1), 2]) * [thetas(1), 0; 0, thetas(2)];
@@ -231,7 +231,7 @@ xlim([xmin - padding_x, xmax + padding_x])
 
 % Ativa o sub-rótulo se necessário
 sublaby("   ");
-print -dpng images\fig05d.png
+print -dpng images\05_am=10_degrau\fig05d.png
 
 figure(5)
 clf
@@ -264,7 +264,7 @@ padding = 0.1 * (umax - umin);
 ylim([umin - padding, umax + padding])
 
 sublaby("   ");
-print -dpng images\fig05e.png
+print -dpng images\05_am=10_degrau\fig05e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)

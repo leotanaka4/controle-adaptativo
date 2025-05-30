@@ -49,3 +49,4 @@
 \contentsline {subsubsection}{\numberline {3.10.1}Configuração do experimento:}{25}{}%
 \contentsline {subsubsection}{\numberline {3.10.2}Resultados da simulação:}{25}{}%
 \contentsline {subsubsection}{\numberline {3.10.3}Comentários:}{26}{}%
+\contentsline {section}{\numberline {A}Decomposição de Matrizes: Parte Simétrica e Antissimétrica}{27}{}%

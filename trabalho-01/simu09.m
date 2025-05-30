@@ -37,7 +37,7 @@ P = ss(P);
 am = 1;
 km = 1;
 
-M = 1/(s+am)
+M = km/(s+am)
 M = ss(M);
 
 %--------------------------------------------- Initial condition -----
@@ -57,8 +57,8 @@ ws = 5  %Frequency
 thetas = [-(ap+am)/kp; km/kp];   %theta*
 
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 2*[1 0.35;0.35 1];       %Adaptation gains
-gamma2 = 100*[1 0.35;0.35 1];
+gamma1 = 2*[1 0.35;-0.35 1];       %Adaptation gains
+gamma2 = 100*[1 0.35;-0.35 1];
 theta0 = [0;0];       %Adaptation inicial condition
 
 %---------------------------------------------------- Simulation -----
@@ -108,7 +108,7 @@ par2 = ['$e_0\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
 legend(par1, par2, 'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
 
 sublaby("   "); 
-print -dpng images\fig09a.png
+print -dpng images\09_gamma_full_degrau\fig09a.png
 
 Theta1 = thetas(1) * ones(size(t));
 Theta2 = thetas(2) * ones(size(t));
@@ -147,7 +147,7 @@ padding = 0.1 * (ymax - ymin);
 ylim([ymin - padding, ymax + padding])
 
 sublaby("   ");  % Mantido conforme seu código original
-print -dpng images\fig09b.png
+print -dpng images\09_gamma_full_degrau\fig09b.png
 
 figure(3)
 clf
@@ -182,7 +182,7 @@ padding = 0.1 * (ymax - ymin);
 ylim([ymin - padding, ymax + padding])
 
 sublaby("   ");  % Mantido conforme o original
-print -dpng images\fig09c.png
+print -dpng images\09_gamma_full_degrau\fig09c.png
 
 dims = size(t);
 thetas_matrix = ones([dims(1), 2]) * [thetas(1), 0; 0, thetas(2)];
@@ -231,7 +231,7 @@ xlim([xmin - padding_x, xmax + padding_x])
 
 % Ativa o sub-rótulo se necessário
 sublaby("   ");
-print -dpng images\fig09d.png
+print -dpng images\09_gamma_full_degrau\fig09d.png
 
 figure(5)
 clf
@@ -264,7 +264,7 @@ padding = 0.1 * (umax - umin);
 ylim([umin - padding, umax + padding])
 
 sublaby("   ");
-print -dpng images\fig09e.png
+print -dpng images\09_gamma_full_degrau\fig09e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)

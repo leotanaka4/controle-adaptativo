@@ -37,7 +37,7 @@ P = ss(P);
 am = 1;
 km = 10;
 
-M = 1/(s+am)
+M = km/(s+am)
 M = ss(M);
 
 %--------------------------------------------- Initial condition -----
@@ -108,7 +108,7 @@ par2 = ['$e_0\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
 legend(par1, par2, 'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
 
 sublaby("   "); 
-print -dpng images\fig08a.png
+print -dpng images\08_km=10_senoide\fig08a.png
 
 Theta1 = thetas(1) * ones(size(t));
 Theta2 = thetas(2) * ones(size(t));
@@ -147,7 +147,7 @@ padding = 0.1 * (ymax - ymin);
 ylim([ymin - padding, ymax + padding])
 
 sublaby("   ");  % Mantido conforme seu código original
-print -dpng images\fig08b.png
+print -dpng images\08_km=10_senoide\fig08b.png
 
 figure(3)
 clf
@@ -182,7 +182,7 @@ padding = 0.1 * (ymax - ymin);
 ylim([ymin - padding, ymax + padding])
 
 sublaby("   ");  % Mantido conforme o original
-print -dpng images\fig08c.png
+print -dpng images\08_km=10_senoide\fig08c.png
 
 dims = size(t);
 thetas_matrix = ones([dims(1), 2]) * [thetas(1), 0; 0, thetas(2)];
@@ -231,7 +231,7 @@ xlim([xmin - padding_x, xmax + padding_x])
 
 % Ativa o sub-rótulo se necessário
 sublaby("   ");
-print -dpng images\fig08d.png
+print -dpng images\08_km=10_senoide\fig08d.png
 
 figure(5)
 clf
@@ -264,7 +264,7 @@ padding = 0.1 * (umax - umin);
 ylim([umin - padding, umax + padding])
 
 sublaby("   ");
-print -dpng images\fig08e.png
+print -dpng images\08_km=10_senoide\fig08e.png
 
 %------------------------------------------------- Display plots -----
 figure(6)
