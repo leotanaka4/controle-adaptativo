@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  1 JUN 2025 19:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  1 JUN 2025 19:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,27 +795,27 @@ Package pdftex.def Info: img/fig09d.png  used on input line 896.
 <img/fig10a.png, id=198, 345.9324pt x 148.8762pt>
 File: img/fig10a.png Graphic file (type png)
 <use img/fig10a.png>
-Package pdftex.def Info: img/fig10a.png  used on input line 947.
+Package pdftex.def Info: img/fig10a.png  used on input line 946.
 (pdftex.def)             Requested size: 135.50624pt x 58.31818pt.
 <img/fig10b.png, id=199, 346.896pt x 151.767pt>
 File: img/fig10b.png Graphic file (type png)
 <use img/fig10b.png>
-Package pdftex.def Info: img/fig10b.png  used on input line 952.
+Package pdftex.def Info: img/fig10b.png  used on input line 951.
 (pdftex.def)             Requested size: 135.50624pt x 59.28383pt.
 <img/fig10c.png, id=200, 344.487pt x 149.358pt>
 File: img/fig10c.png Graphic file (type png)
 <use img/fig10c.png>
-Package pdftex.def Info: img/fig10c.png  used on input line 958.
+Package pdftex.def Info: img/fig10c.png  used on input line 957.
 (pdftex.def)             Requested size: 135.50624pt x 58.75076pt.
 <img/fig10e.png, id=201, 350.2686pt x 149.358pt>
 File: img/fig10e.png Graphic file (type png)
 <use img/fig10e.png>
-Package pdftex.def Info: img/fig10e.png  used on input line 963.
+Package pdftex.def Info: img/fig10e.png  used on input line 962.
 (pdftex.def)             Requested size: 135.50624pt x 57.77989pt.
 <img/fig10d.png, id=202, 421.575pt x 316.0608pt>
 File: img/fig10d.png Graphic file (type png)
 <use img/fig10d.png>
-Package pdftex.def Info: img/fig10d.png  used on input line 969.
+Package pdftex.def Info: img/fig10d.png  used on input line 968.
 (pdftex.def)             Requested size: 135.50624pt x 101.59003pt.
  [25 <./img/fig10a.png> <./img/fig10b.png> <./img/fig10c.png> <./img/fig10e.png> <./img/fig10d.png (PNG copy)>] [26] [27] (trabalho-01-cll.aux) ) 
 Here is how much of TeX's memory you used:
@@ -827,7 +827,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,15n,80p,881b,530s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on trabalho-01-cll.pdf (27 pages, 1881434 bytes).
+Output written on trabalho-01-cll.pdf (27 pages, 1880084 bytes).
 PDF statistics:
  304 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

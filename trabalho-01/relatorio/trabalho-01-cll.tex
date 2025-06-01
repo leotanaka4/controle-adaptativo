@@ -903,22 +903,21 @@ Nesta simulação, o modelo de referência mantém-se em $M(s) = \frac{10}{s+1}$
 
 \subsubsection{Comentários:}
 
-Nesta simulação, mantêm-se a planta instável $P(s) = \dfrac{1}{s - 2}$ e o sinal de referência puramente constante (DC = 1), mas introduz-se uma modificação importante: os ganhos de adaptação $\Gamma_1$ e $\Gamma_2$ passam a ser matrizes simétricas e não-diagonais, com termos fora da diagonal igual a 0{,}35. Isso permite investigar o impacto de acoplamentos entre os parâmetros adaptativos. Os principais pontos observados são:
+Nesta simulação, utilizando ganhos de adaptação matriciais com valores diferentes de identidade, observou-se o seguinte:
 
 \begin{itemize}
-    \item \textbf{Erro de rastreamento ($e_0$):} A convergência do erro ocorre de forma estável e eficaz, com desempenho semelhante ao de simulações anteriores com ganho diagonal. A presença de termos fora da diagonal na matriz $\Gamma$ não compromete o rastreamento, indicando robustez do algoritmo adaptativo.
+    \item \textbf{Erro de rastreamento ($e_0$):} O erro apresenta convergência semelhante aos casos anteriores, com oscilações iniciais mais amortecidas para $\Gamma_2 = 100 \begin{bmatrix} 1 & 0.35 \\ -0.35 & 1 \end{bmatrix}$, evidenciando resposta mais rápida e suave.
 
-    \item \textbf{Ganho de adaptação ($\theta$):} A trajetória dos parâmetros $\theta$ tende a convergir para valores próximos ao ótimo teórico $\theta^* = [-3;\ 1]$, com dinâmica influenciada pelo acoplamento entre os parâmetros. Observa-se uma interação mais pronunciada entre as componentes de $\theta$, refletida em trajetórias mais entrelaçadas.
+    \item \textbf{Ganho de adaptação ($\theta$):} A evolução dos parâmetros adaptativos mostra convergência próxima do valor ótimo $\theta^* = [-3;1]$, com maior rapidez para o ganho maior $\Gamma_2$.
 
-    \item \textbf{Resposta do sistema:} A saída da planta acompanha fielmente a resposta do modelo de referência, evidenciando que o sistema adaptativo é capaz de compensar a instabilidade da planta mesmo com uma matriz $\Gamma$ não-diagonal.
+    \item \textbf{Resposta do sistema ($y_p$ e $y_m$):} O rastreamento do modelo de referência é eficiente em ambos os casos, com desempenho superior para o ganho de adaptação maior.
 
-    \item \textbf{Sinal de controle ($u$):} O esforço de controle permanece dentro de níveis aceitáveis, com um pico inicial relacionado à correção rápida dos parâmetros. O comportamento do controle é suavizado após o transiente inicial.
+    \item \textbf{Sinal de controle ($u$):} O controle inicial é mais agressivo para $\Gamma_2$, estabilizando mais rapidamente.
 
-    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} O diagrama mostra um padrão de convergência para a origem, com trajetórias mais curvilíneas ou inclinadas do que nas simulações anteriores, evidenciando a influência da matriz $\Gamma$ com acoplamento.
-
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Mostra trajetórias que convergem rapidamente próxima à origem, especialmente para $\Gamma_2$, só que mais perto da origem para $\Gamma_1$.
 \end{itemize}
 
-\textbf{Conclusão:} A introdução de uma matriz de adaptação não-diagonal mostra-se viável e eficaz para este cenário. O acoplamento entre os parâmetros não prejudica a estabilidade ou o rastreamento, e pode até favorecer uma adaptação mais coordenada, dependendo do caso. Esta simulação demonstra a flexibilidade do esquema adaptativo frente a diferentes configurações matriciais de ganho.
+\textbf{Conclusão:} A escolha do ganho de adaptação matricial com termos fora da diagonal não compromete a estabilidade e pode melhorar a resposta dinâmica do sistema, aproximando os parâmetros adaptativos dos valores ótimos mais rapidamente.
 
 \newpage
 
@@ -976,23 +975,21 @@ Nesta simulação, mantêm-se a planta instável $P(s) = \dfrac{1}{s - 2}$ e o s
 
 \subsubsection{Comentários:}
 
-Nesta simulação, a planta instável e o modelo de referência permanecem inalterados em relação à Simulação \#9. A principal modificação está no sinal de referência, que agora possui uma componente oscilatória (senoide) além do valor DC, tornando o rastreamento mais desafiador. A estrutura de adaptação com matrizes de ganho não-diagonais é mantida.
+Nesta simulação, com sinal de referência composto por uma componente DC maior e componente senoidal, foram observados os seguintes comportamentos:
 
 \begin{itemize}
-    \item \textbf{Erro de rastreamento ($e_0$):} O erro apresenta oscilações coerentes com a natureza senoidal do sinal de referência, mas com amplitude limitada, indicando que o sistema consegue acompanhar a referência com boa fidelidade, apesar da maior exigência dinâmica.
+    \item \textbf{Erro de rastreamento ($e_0$):} O erro apresenta oscilações permanentes devido à senoidal, mas o ganho de adaptação maior suaviza o comportamento e acelera a convergência.
 
-    \item \textbf{Ganho de adaptação ($\theta$):} A trajetória dos parâmetros adaptativos mantém estabilidade, com convergência gradual para a vizinhança dos valores ótimos. A oscilação na referência se reflete em oscilações nos parâmetros, especialmente durante os primeiros instantes.
+    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros adaptativos convergem para valores próximos do ideal, com maior velocidade para $\Gamma_2$.
 
-    \item \textbf{Resposta do sistema:} A planta segue o modelo de referência com boa precisão, reproduzindo tanto o valor DC quanto a componente oscilatória da entrada. A performance confirma a eficácia da estrutura adaptativa mesmo sob sinal de referência variado.
+    \item \textbf{Resposta do sistema ($y_p$, $y_m$):} O sistema consegue acompanhar a referência com boa precisão, especialmente para o ganho maior.
 
-    \item \textbf{Sinal de controle ($u$):} O controle exibe oscilações em frequência compatível com a senoide de entrada, mas com amplitude controlada. O esforço de controle aumenta levemente em relação à simulação anterior, como esperado em situações com maior exigência dinâmica.
+    \item \textbf{Sinal de controle ($u$):} Oscilatório, com maior intensidade e frequência inicial para $\Gamma_2$, porém com estabilização mais rápida.
 
-    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} As trajetórias não convergem diretamente à origem devido à natureza persistente do erro oscilatório. No entanto, o padrão cíclico observado é compatível com um regime permanente de rastreamento senoidal.
-
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Evidencia convergência dos parâmetros adaptativos, com trajetórias mais fechadas para $\Gamma_2$.
 \end{itemize}
 
-\textbf{Conclusão:} A Simulação \#10 demonstra a robustez da estrutura adaptativa frente a sinais de referência mais complexos, com bom rastreamento, estabilidade dos parâmetros e controle efetivo. A combinação de matriz $\Gamma$ não-diagonal e entrada mista revela a capacidade do sistema de lidar com variações dinâmicas sem comprometer a convergência e o desempenho.
-
+\textbf{Conclusão:} Ganhos de adaptação matriciais altos continuam promovendo melhor desempenho e velocidade de convergência, mesmo em sinais de referência mais complexos.
 \newpage
 
 \appendix
