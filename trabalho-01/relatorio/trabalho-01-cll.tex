@@ -624,21 +624,22 @@ Nesta simulação, a planta inicia novamente em $y_p(0)=3$, mas o sinal de refer
 
 \subsubsection{Comentários:}
 
-Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ é controlada de modo que sua saída siga o modelo de referência $M(s) = \dfrac{1}{s + 4}$. O sinal de referência é puramente constante (DC = 1), sem componente senoidal. Os principais pontos observados são:
+Nesta simulação, o modelo de referência foi modificado para $M(s) = \frac{1}{s+10}$, ou seja, com constante de tempo menor devido ao aumento de $a_m$ de 1 para 10. O sinal de referência é puramente constante ($DC = 1$), sem componente senoidal, o que permite avaliar o comportamento do sistema em regime estacionário. Os principais pontos observados são:
 
 \begin{itemize}
-    \item \textbf{Erro de rastreamento ($e_0$):} Como o sinal de referência é constante e não possui componentes oscilatórias, o erro converge rapidamente para zero. O modelo adaptativo consegue compensar a dinâmica instável da planta com eficiência, especialmente com os ganhos de adaptação utilizados.
+    \item \textbf{Erro de rastreamento ($e_0$):} Em Figura~\ref{fig:sim5}(a),  erro converge para zero em ambos os casos. Para $\Gamma = 2I$, observa-se um pico inicial mais acentuado. Já com $\Gamma = 100I$, a convergência é mais rápida e uma pequena ondulação em torno de $t \approx 1\,$s, com menor overshoot.
 
-    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros adaptativos convergem suavemente para valores próximos de $\theta^* = [-6;\ 1]$. Isso é esperado, já que a referência constante permite que o algoritmo de adaptação atue em um regime mais estável e previsível.
+    \item \textbf{Ganho de adaptação ($\theta$):} Em Figura~\ref{fig:sim5}(b), os parâmetros adaptativos convergem para valores constantes em ambos os casos, aproximando-se de $\theta^* = [-12,\;1]$. A configuração com $\Gamma = 100I$ apresenta convergência mais rápida, com oscilações transitórias ligeiramente maiores. Para $\Gamma = 2I$, a convergência é mais lenta e apresenta maior oscilação inicial.
 
-    \item \textbf{Resposta do sistema:} A resposta da planta controlada aproxima-se da resposta do modelo de referência, com um comportamento estável e transiente bem amortecido. A escolha de um polo mais afastado ($a_m = 4$) no modelo de referência acelera a convergência do sistema.
+    \item \textbf{Resposta do sistema:} Em Figura~\ref{fig:sim5}(c), a resposta com $\Gamma = 100I$ é mais rápida e atinge o valor de regime de forma mais direta. Já para $\Gamma = 2I$, o sistema apresenta overshoot antes de se estabilizar.
 
-    \item \textbf{Sinal de controle ($u$):} O esforço de controle é moderado e se estabiliza rapidamente. Como não há variações rápidas na referência, o sinal de controle não apresenta oscilações significativas.
+    \item \textbf{Sinal de controle ($u$):} Em Figura~\ref{fig:sim5}(d), o controle apresenta um pico mais elevado no caso de $\Gamma = 2I$, chegando a aproximadamente $-90$, enquanto para $\Gamma = 100I$ o pico é menor (em torno de $-10$ e $10$). Após o regime transitório, ambos convergem para valores próximos.
 
-    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} As trajetórias no plano de fase convergem para a origem, indicando que tanto o erro de rastreamento quanto o erro nos parâmetros adaptativos são eliminados com o tempo. Isso demonstra a eficácia do controlador adaptativo nesse cenário.
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Em Figura~\ref{fig:sim5}(e),As trajetórias no plano de fase convergem para a origem em ambos os casos, indicando estabilidade e boa adaptação. Para $\Gamma = 2I$, os ciclos iniciais são mais amplos e com espirais mais prolongadas. Já com $\Gamma = 100I$, a convergência é mais direta e rápida.
+
 \end{itemize}
 
-\textbf{Conclusão:} A estabilidade do modelo de referência e a ausência de componentes senoidais na entrada facilitam a convergência do erro e dos parâmetros adaptativos. A planta instável é controlada com sucesso, e a escolha de um polo mais rápido ($a_m = 4$) no modelo de referência proporciona uma resposta mais ágil, sem comprometer a estabilidade ou exigir esforço excessivo de controle.
+\textbf{Conclusão:} O aumento do ganho de adaptação ($\Gamma = 100I$) acelera a convergência do erro e dos parâmetros adaptativos, com menor overshoot e menor esforço de controle durante o transitório, entretanto com um comportamento mais oscilatório. Ganhos menores ($\Gamma = 2I$) resultam em comportamento mais lento e maior pico de controle, apesar de também garantir rastreamento preciso. Em ambos os casos, o controlador estabiliza a planta instável $P(s)=\frac{1}{s-2}$ e segue adequadamente o modelo de referência $M(s)=\frac{1}{s+10}$.
 
 \newpage
 
@@ -692,21 +693,21 @@ Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ é controlada de
 
 \subsubsection{Comentários:}
 
-Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ deve acompanhar o modelo de referência $M(s) = \dfrac{1}{s + 4}$, sendo excitada por um sinal de referência composto por uma parte constante (DC = 2) e uma componente senoidal de amplitude $A_s = 1$ e frequência $\omega_s = 5$ rad/s. Os principais pontos observados são:
+Nesta simulação, o modelo de referência é $M(s) = \frac{1}{s+10}$ (com $a_m=10$), e o sinal de referência possui componente senoidal sobreposta à parte DC ($DC = 2$, $A_s = 1$, $\omega_s = 5\,$rad/s). Dessa forma, o sistema entra em regime permanente oscilatório. Os principais pontos observados são:
 
 \begin{itemize}
-    \item \textbf{Erro de rastreamento ($e_0$):} Devido à presença da componente senoidal no sinal de referência, o erro não converge exatamente para zero, mas estabiliza em torno de uma oscilação periódica. Ainda assim, o sistema acompanha bem a referência, com pequenas oscilações residuais no erro.
+    \item \textbf{Erro de rastreamento ($e_0$):} Em Figura~\ref{fig:sim6}(a), o erro não converge para zero devido à presença da componente harmônica no referencial. Para $\Gamma = 2I$ (azul), as oscilações iniciais de $e_0$ são maiores e demoram mais a se estabilizar; já para $\Gamma = 100I$ (laranja), o erro atinge menor amplitude e adquire regime permanente oscilatório mais rapidamente, indicando melhor desempenho de seguimento.
 
-    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros adaptativos não convergem para valores fixos, refletindo o caráter dinâmico da referência. Observa-se que os ganhos oscilam em torno de valores próximos a $\theta^* = [-6;\ 2]$, com maior oscilação para o caso de $\Gamma = 100I$, devido à maior sensibilidade do ganho de adaptação.
+    \item \textbf{Ganho de adaptação ($\theta$):} Em Figura~\ref{fig:sim6}(b), ambos os parâmetros $\theta_1$ e $\theta_2$ não convergem a constantes fixas, pois permanecem oscilando para acompanhar o referencial senoidal. Para $\Gamma = 100I$, as oscilações transitórias em $\theta$ são mais intensas e a adaptação entra em regime oscilatório mais cedo, enquanto para $\Gamma = 2I$ a variação é mais lenta, mas também menos amortecida.
 
-    \item \textbf{Resposta do sistema:} A resposta da planta segue bem o comportamento do modelo de referência, incluindo a oscilação imposta pela referência senoidal. O modelo de referência com polo em $-4$ proporciona uma resposta mais rápida, o que exige maior agilidade do controlador adaptativo.
+    \item \textbf{Resposta do sistema ($y$, $y_m$, $r$):} Em Figura~\ref{fig:sim6}(c), a saída de referência $r(t) = 2 + \sin(5\,t)$ (linha preta tracejada) é seguida pela saída do modelo $y_m$ (rosa). Para $\Gamma = 100I$, $y(t)$ (laranja) aproxima-se de $y_m$ com menor defasagem e amplitude de erro reduzida, entrando rapidamente em regime permanente. Para $\Gamma = 2I$, $y(t)$ (azul) segue $y_m$ com overshoot maior e mais defasagem, levando mais tempo até estabilizar no padrão oscilatório.
 
-    \item \textbf{Sinal de controle ($u$):} O sinal de controle apresenta oscilações mais intensas em comparação com o caso de referência puramente constante, resultado da necessidade de acompanhar a frequência da referência. Para $\Gamma = 100I$, esse esforço de controle é ainda mais pronunciado.
+    \item \textbf{Sinal de controle ($u$):} Em Figura~\ref{fig:sim6}(d), observa-se que $\Gamma = 100I$ (laranja) gera um pico de controle inicial maior (na ordem de $\pm 5$), mas as oscilações em regime permanente têm amplitude menor. Para $\Gamma = 2I$ (azul), o pico inicial é mais baixo, porém as oscilações de $u(t)$ em regime permanente permanecem de maior amplitude, refletindo a dificuldade de acompanhar plenamente a parte harmônica.
 
-    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} As trajetórias no plano de fase revelam ciclos fechados, indicando que o sistema entra em um regime oscilatório estável. A presença de laços periódicos é típica de referências não constantes e confirma a persistência da adaptação ao longo do tempo.
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Em Figura~\ref{fig:sim6}(e), as trajetórias não convergem para a origem, pois o erro e o vetor de erro de parâmetros $\tilde{\theta} = \theta - \theta^*$ permanecem oscilando em torno de valores médios. Para $\Gamma = 2I$ (azul), as espirais no plano de fase são mais amplas e demoram mais para adotar um padrão quase-periódico; já para $\Gamma = 100I$ (laranja), a trajetória atinge rapidamente um ciclo quase-periódico de menor amplitude, indicando regime oscilatório mais estável.
 \end{itemize}
 
-\textbf{Conclusão:} A introdução da componente senoidal no sinal de referência impede a convergência do erro para zero, mas o sistema adaptativo ainda é capaz de manter o erro dentro de limites aceitáveis. O modelo de referência mais rápido ($a_m = 4$) melhora a velocidade de resposta, ao custo de maior esforço de controle e flutuações nos parâmetros adaptativos.
+\textbf{Conclusão:} A inclusão da componente senoidal no sinal de referência impede a convergência do erro para zero. O ganho de adaptação mais alto ($\Gamma = 100I$) resulta em melhor desempenho de rastreamento em regime permanente (menor amplitude de erro e de oscilações nos parâmetros), porém exige maior esforço inicial de controle e gera oscilações mais rápidas em $\theta$. O ganho menor ($\Gamma = 2I$) leva a oscilações iniciais mais amplas e maior defasagem, ainda que com menor agressividade no sinal de controle. Em ambos os casos, o controlador adaptativo estabiliza a planta instável $P(s)=\frac{1}{s-2}$ e acompanha adequadamente o modelo de referência $M(s)=\frac{1}{s+10}$ em regime oscilatório.
 
 \newpage
 
@@ -760,21 +761,22 @@ Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ deve acompanhar 
 
 \subsubsection{Comentários:}
 
-Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ deve acompanhar o modelo de referência $M(s) = \dfrac{2}{s + 1}$ sob a ação de um sinal de referência puramente constante (DC = 1). O modelo de referência é mais lento em comparação com simulações anteriores. Os principais pontos observados são:
+Nesta simulação, o modelo de referência é dado por $M(s) = \frac{10}{s+1}$, ou seja, uma planta de primeira ordem com ganho estático maior (10) e constante de tempo igual a 1, mantendo o comportamento mais lento comparado a simulações com valores maiores de $a_m$. O sinal de referência é um degrau constante ($DC=1$) sem componente senoidal, focando na resposta em regime permanente. Os principais aspectos observados são:
 
 \begin{itemize}
-    \item \textbf{Erro de rastreamento ($e_0$):} O erro converge rapidamente para zero, evidenciando o bom desempenho do sistema adaptativo. A ausência de componentes oscilatórias no sinal de referência facilita a convergência do erro.
+    \item \textbf{Erro de rastreamento ($e_0$):} Conforme mostrado na Figura~\ref{fig:sim7}(a), o erro converge para zero nas duas configurações de ganho de adaptação. Para $\Gamma_1 = 2I$, o pico inicial do erro é maior e a convergência é mais lenta. Com $\Gamma_2 = 100I$, o erro diminui mais rapidamente, embora com uma leve oscilação inicial em torno de $t \approx 1$\,s.
 
-    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros adaptativos convergem para valores próximos de $\theta^* = [-3;\ 2]$, conforme esperado para o regime com referência constante. A velocidade de convergência é maior no caso de $\Gamma = 100I$, devido ao ganho de adaptação mais elevado.
+    \item \textbf{Ganho de adaptação ($\theta$):} Na Figura~\ref{fig:sim7}(b), os parâmetros adaptativos não convergem exatamente para os valores ótimos $\theta^* = [-3; 10]$ em nenhum dos casos. A maior taxa de adaptação ($\Gamma_2 = 100I$) provoca uma convergência mais rápida, porém com oscilações transitórias mais evidentes. Para $\Gamma_1 = 2I$, a adaptação é mais lenta e com menor oscilação.
 
-    \item \textbf{Resposta do sistema:} A resposta da planta segue fielmente o modelo de referência, com tempo de acomodação compatível com o polo em $-1$. O sistema exibe comportamento suave, sem oscilações ou sobressaltos.
+    \item \textbf{Resposta do sistema:} A Figura~\ref{fig:sim7}(c) mostra que, com $\Gamma_2 = 100I$, a resposta do sistema atinge o regime de forma mais rápida e suave. Para $\Gamma_1 = 2I$, observa-se um overshoot maior e tempo de acomodação maior.
 
-    \item \textbf{Sinal de controle ($u$):} O esforço de controle é moderado, refletindo tanto a suavidade da referência quanto a lentidão relativa do modelo de referência. Para valores maiores de $\Gamma$, há um pico mais acentuado no controle inicial, mas que rapidamente se estabiliza.
+    \item \textbf{Sinal de controle ($u$):} Na Figura~\ref{fig:sim7}(d), o controle apresenta maior pico para $\Gamma_1 = 2I$, refletindo um esforço inicial maior para compensar a planta instável. Já para $\Gamma_2 = 100I$, o controle é mais moderado e mais rapidamente estabilizado.
 
-    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} O diagrama mostra a trajetória de convergência dos parâmetros, com o erro indo a zero conforme os parâmetros se estabilizam. Ao contrário do caso com referência senoidal, não há ciclos fechados, indicando convergência estática.
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Conforme Figura~\ref{fig:sim7}(e), as trajetórias no plano de fase não convergem para a origem em nenhum dos casos, mas a configuração com $\Gamma_1 = 2I$ apresenta uma aproximação maior da origem do que a com $\Gamma_2 = 100I$, indicando maior estabilidade relativa.
+
 \end{itemize}
 
-\textbf{Conclusão:} A utilização de um modelo de referência mais lento e um sinal de entrada constante resulta em uma adaptação mais tranquila, com menor esforço de controle e rápida convergência dos parâmetros. O desempenho do sistema adaptativo é excelente neste cenário, evidenciando a eficácia do controlador mesmo para plantas instáveis.
+\textbf{Conclusão:} A simulação confirma que o aumento do ganho de adaptação acelera a convergência do erro, apesar dos parâmetros adaptativos não atingirem os valores ótimos. O ganho maior reduz o overshoot e o esforço de controle em regime transitório, porém com maior oscilação inicial e menor proximidade da origem no diagrama de fase. Ganhos menores apresentam comportamento mais conservador, com maior esforço de controle inicial e aproximação melhor da estabilidade no plano de fase. Em ambos os casos, o controlador estabiliza a planta instável $P(s) = \frac{1}{s - 2}$ e segue adequadamente o modelo de referência proposto.
 
 \newpage
 
@@ -828,22 +830,22 @@ Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ deve acompanhar 
 
 \subsubsection{Comentários:}
 
-Nesta simulação, a planta instável $P(s) = \dfrac{1}{s - 2}$ deve seguir o modelo de referência $M(s) = \dfrac{2}{s + 1}$, sob um sinal de referência composto por uma componente constante (DC = 2) e uma senoidal de baixa amplitude ($A_s = 1$) com frequência $\omega_s = 5$ rad/s. Este cenário permite observar o desempenho do sistema adaptativo diante de sinais mistos. Os principais pontos observados são:
+Nesta simulação, o modelo de referência mantém-se em $M(s) = \frac{10}{s+1}$, com constante de tempo 1 e ganho estático 10, porém o sinal de referência agora inclui um componente senoidal além do degrau: $DC = 2$, amplitude senoidal $A_s = 1$ e frequência $\omega_s = 5$ rad/s. Essa configuração permite avaliar a capacidade do controlador em seguir sinais compostos e dinâmicos. Os principais pontos observados são:
 
 \begin{itemize}
-    \item \textbf{Erro de rastreamento ($e_0$):} O erro inicial é significativo devido à condição inicial nula, mas rapidamente converge, oscilando de forma suave em torno de zero em resposta à componente senoidal. O bom desempenho do controle adaptativo se mantém mesmo com o acréscimo da oscilação.
+    \item \textbf{Erro de rastreamento ($e_0$):} Na Figura~\ref{fig:sim8}(a), o erro apresenta oscilações permanentes devido à componente senoidal da referência. Com $\Gamma_2 = 100I$, o erro tem amplitude menor e convergência mais rápida no valor médio, enquanto para $\Gamma_1 = 2I$ as oscilações são maiores e a convergência mais lenta.
 
-    \item \textbf{Ganho de adaptação ($\theta$):} Os parâmetros convergem para valores próximos ao ganho ótimo $\theta^* = [-3;\ 2]$, com oscilações em regime permanente induzidas pela natureza periódica da entrada. As variações de $\theta$ são mais acentuadas quando $\Gamma = 100I$, como esperado.
+    \item \textbf{Ganho de adaptação ($\theta$):} Conforme Figura~\ref{fig:sim8}(b), os parâmetros adaptativos não convergem exatamente para os valores ótimos $\theta^* = [-3; 10]$ em ambos os casos, devido à natureza do sinal de referência. O ganho maior ($\Gamma_2$) proporciona convergência mais rápida, porém com maior oscilação transitória.
 
-    \item \textbf{Resposta do sistema:} A planta acompanha de forma bastante próxima o comportamento do modelo de referência, apresentando tanto o nível DC quanto a forma oscilatória. A fidelidade na reprodução da dinâmica de referência indica uma adaptação eficaz.
+    \item \textbf{Resposta do sistema:} Na Figura~\ref{fig:sim8}(c), a saída do sistema segue adequadamente o sinal de referência composto, com melhor desempenho em amplitude e fase para $\Gamma_2 = 100I$. Para $\Gamma_1 = 2I$, observa-se atraso maior e amplitude reduzida nas oscilações.
 
-    \item \textbf{Sinal de controle ($u$):} O controle apresenta variações coerentes com a natureza do sinal de referência, com esforço adicional para compensar a instabilidade da planta e seguir as oscilações. Um pico inicial mais elevado aparece nos casos com maior ganho adaptativo, seguido por estabilização.
+    \item \textbf{Sinal de controle ($u$):} Conforme Figura~\ref{fig:sim8}(d), o controle com $\Gamma_1 = 2I$ apresenta picos maiores e maior esforço durante o transiente, enquanto para $\Gamma_2 = 100I$ o controle é mais suave e estabiliza mais rapidamente.
 
-    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} O diagrama mostra trajetórias oscilatórias, indicando regime permanente com erro pequeno e parâmetros levemente variantes. A forma espiralada ou cíclica está associada à persistência de excitação da entrada.
+    \item \textbf{Diagrama de fase ($e_0 \times \tilde{\theta}$):} Na Figura~\ref{fig:sim8}(e), as trajetórias não convergem para a origem, refletindo a presença das oscilações permanentes. A configuração com $\Gamma_1 = 2I$ mostra maior proximidade da origem em relação a $\Gamma_2 = 100I$, indicando comportamento menos oscilatório.
 
 \end{itemize}
 
-\textbf{Conclusão:} A presença de uma referência mista (constante + senoidal) impõe maior desafio ao controlador adaptativo, mas os resultados mostram que a estrutura é capaz de lidar com esse cenário com boa precisão. A adaptação responde bem à excitação persistente, promovendo rastreamento eficaz mesmo para uma planta instável.
+\textbf{Conclusão:} A inclusão do componente senoidal no sinal de referência introduz oscilações permanentes no erro e nos parâmetros adaptativos, impedindo a convergência exata para os valores ótimos. Ganhos maiores aceleram a adaptação e reduzem a amplitude do erro médio, mas aumentam as oscilações transitórias. Ganhos menores resultam em resposta mais conservadora, com maior esforço inicial de controle e menor oscilação, porém com erro médio maior. Em ambos os casos, o controlador é capaz de estabilizar a planta instável $P(s) = \frac{1}{s-2}$ e seguir o modelo de referência com o sinal de entrada composto.
 
 \newpage
 
