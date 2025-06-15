@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.8"
+    ComputedModelVersion    "7.9"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -98,6 +98,17 @@ Model {
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [0]
+	  IsTabbed		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "1"
+	  Extents		  [1496.0, 588.0]
+	  ZoomFactor		  [1.2517029972752043]
+	  Offset		  [-301.38585034013596, -146.2000000000001]
+	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 1195.1717006802721, 469.76000000000005]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "12"
@@ -107,7 +118,7 @@ Model {
 	  SceneRectInView	  [-230.93492063492067, -76.612925170068053, 854.85714285714289, 336.0]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -118,7 +129,7 @@ Model {
 	  SceneRectInView	  [-278.83275024295438, -68.271428571428629, 853.69407191448022, 335.5428571428572]
 	}
 	Object {
-	  $ObjectID		  8
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -129,7 +140,7 @@ Model {
 	  SceneRectInView	  [-625.8984375, -158.0, 1496.0, 588.0]
 	}
 	Object {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -139,17 +150,6 @@ Model {
 	  Offset		  [-423.0, -183.5]
 	  SceneRectInView	  [-423.0, -183.5, 1496.0, 588.0]
 	}
-	Object {
-	  $ObjectID		  10
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1"
-	  Extents		  [913.0, 734.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [4.0400000000000773, -146.20000000000007]
-	  SceneRectInView	  [4.0400000000000773, -146.20000000000007, 584.32, 469.76]
-	}
 	PropName		"EditorsInfo"
       }
       Array {
@@ -157,19 +157,6 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  11
-	  Type			  "Simulink:Editor:ReferencedFiles"
-	  ID			  "Referenced Files"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
-	  Floating		  [0]
-	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
-	  Minimized		  "Unset"
-	}
-	Object {
-	  $ObjectID		  12
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [0]
@@ -177,6 +164,19 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
+	  Width			  [640]
+	  Height		  [480]
+	  Minimized		  "Unset"
+	}
+	Object {
+	  $ObjectID		  12
+	  Type			  "Simulink:Editor:ReferencedFiles"
+	  ID			  "Referenced Files"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
+	  Floating		  [0]
+	  DockPosition		  "Left"
 	  Width			  [640]
 	  Height		  [480]
 	  Minimized		  "Unset"
@@ -207,9 +207,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 15 17:59:15 2025"
-  RTWModifiedTimeStamp	  671910903
-  ModelVersionFormat	  "%<AutoIncrement:7.8>"
+  LastModifiedDate	  "Sun Jun 15 20:11:56 2025"
+  RTWModifiedTimeStamp	  671914362
+  ModelVersionFormat	  "%<AutoIncrement:7.9>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1403,9 +1403,9 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Adaptation"
-	Location		[762, 0, 1543, 822]
+	Location		[8, 8, 1558, 838]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1640,7 +1640,6 @@ Model {
       Ports		      [1, 1]
       Position		      [560, 200, 590, 230]
       ZOrder		      5
-      InitialCondition	      "w10"
       Port {
 	PortNumber		1
 	Name			"w1"
@@ -1653,7 +1652,6 @@ Model {
       Ports		      [1, 1]
       Position		      [560, 310, 590, 340]
       ZOrder		      10
-      InitialCondition	      "w20"
       Port {
 	PortNumber		1
 	Name			"w2"
