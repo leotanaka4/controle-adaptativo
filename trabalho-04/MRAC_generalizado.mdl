@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.9"
+    ComputedModelVersion    "7.10"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -63,7 +63,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [8.0, 8.0, 1550.0, 830.0]
+      Location		      [-7.0, -7.0, 1550.0, 830.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -90,10 +90,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1496.0, 588.0]
+	  Extents		  [1875.0, 744.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-292.60698991292429, -48.0]
-	  SceneRectInView	  [-292.60698991292429, -48.0, 1496.0, 588.0]
+	  Offset		  [-222.72615120646196, -1.2000000000001023]
+	  SceneRectInView	  [-222.72615120646196, -1.2000000000001023, 1500.0, 595.2]
 	}
 	Object {
 	  $ObjectID		  6
@@ -101,10 +101,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [1496.0, 588.0]
+	  Extents		  [1875.0, 744.0]
 	  ZoomFactor		  [1.2517029972752043]
 	  Offset		  [-301.38585034013596, -146.2000000000001]
-	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 1195.1717006802721, 469.76000000000005]
+	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 1198.3673469387754, 475.51216326530613]
 	}
 	Object {
 	  $ObjectID		  7
@@ -164,8 +164,8 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	Object {
@@ -177,18 +177,18 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADJfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAABjAP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAF/gAAAokAAAABAAAAAgAAAAEAAAAC/"
+      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHgAAAAy8AAAABAAAAAgAAAAEAAAAC/"
       "AAAAAEAAAACAAAAAA=="
       Array {
 	Type			"Cell"
@@ -205,11 +205,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "linco"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 15 20:11:56 2025"
-  RTWModifiedTimeStamp	  671914362
-  ModelVersionFormat	  "%<AutoIncrement:7.9>"
+  LastModifiedDate	  "Sun Jun 15 20:38:01 2025"
+  RTWModifiedTimeStamp	  671920668
+  ModelVersionFormat	  "%<AutoIncrement:7.10>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1372,7 +1372,7 @@ Model {
   }
   System {
     Name		    "MRAC_generalizado"
-    Location		    [8, 8, 1558, 838]
+    Location		    [-7, -7, 1543, 823]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1390,7 +1390,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "71"
+    SIDHighWatermark	    "72"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1403,7 +1403,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Adaptation"
-	Location		[8, 8, 1558, 838]
+	Location		[-7, -7, 1543, 823]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			on
 	PortBlocksUseCompactNotation off
@@ -2195,6 +2195,19 @@ Model {
       }
     }
     Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace 3"
+      SID		      "72"
+      Ports		      [1]
+      Position		      [785, 302, 810, 328]
+      ZOrder		      14
+      BackgroundColor	      "yellow"
+      ShowName		      off
+      VariableName	      "w"
+      MaxDataPoints	      "inf"
+      SampleTime	      "st"
+    }
+    Block {
       BlockType		      Concatenate
       Name		      "Vector\nConcatenate"
       SID		      "60"
@@ -2202,6 +2215,10 @@ Model {
       Position		      [665, 235, 695, 395]
       ZOrder		      13
       NumInputs		      "4"
+      Port {
+	PortNumber		1
+	Name			"w"
+      }
     }
     Line {
       Name		      "ym"
@@ -2399,18 +2416,25 @@ Model {
       DstPort		      1
     }
     Line {
+      Name		      "w"
       ZOrder		      61
       SrcBlock		      "Vector\nConcatenate"
       SrcPort		      1
       Points		      [23, 0]
       Branch {
-	ZOrder			83
+	ZOrder			110
 	Points			[0, 110]
 	DstBlock		"Dot Product"
 	DstPort			1
       }
       Branch {
+	ZOrder			109
+	DstBlock		"To Workspace 3"
+	DstPort			1
+      }
+      Branch {
 	ZOrder			81
+	Labels			[1, 1]
 	Points			[0, -115]
 	DstBlock		"Adaptation"
 	DstPort			2

@@ -1,5 +1,5 @@
 clc; close all; 
-%clear; 
+clear; 
 
 %% ======= Escolher Ordem do Sistema =======
 n = 2;  % ordem da planta e do modelo
@@ -7,7 +7,7 @@ reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = eye(2*n);
-tfinal = 200;    %Simulation interval
+tfinal = 300;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 theta0 = zeros(2*n, 1);
 
@@ -62,7 +62,8 @@ xm0 = zeros(n,1);
 A0 = 1; 
 
 %% Rodar cálculo dos parâmetros ideais
-%[theta1, theta_n, theta2, theta_2n] = controle2DOF(P, M, A0);
+[theta1, theta_n, theta2, theta_2n] = controle2DOF(P, M, A0);
+theta_star = [theta1; theta_n; theta2; theta_2n];
 
 %% ======= Definir Filtro =======
 % Grau da planta (denominador de P)
@@ -75,33 +76,42 @@ den_filtro = poly(filtro_polos);            % coeficientes do denominador
 
 % Forma canônica controlável
 Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -den_filtro(2:end);
-Bf = zeros(nf,1); Bf(end) = 1; 
+Bf = zeros(nf,1); Bf(end) = 1;
 
+%% ======= Simulação e Processamento =======
+sim('MRAC_generalizado', tfinal);
 
-%% ======= Simulation =======
-sim('MRAC_generalizado',tfinal);
+% Parâmetros ideais replicados no tempo
+theta_star_t = repmat(theta_star, 1, length(t));
 
-yp1 = yp;   %Save results
-ea1 = ea;
-theta1 = theta;
-u1 = u;
+% Normas dos parâmetros
+norm_theta = vecnorm(theta');
+norm_theta_star = vecnorm(theta_star_t);
+
+% Entrada ideal
+u_star = theta_star' * w';
+u_star_t = repmat(u_star, 1, length(t));
+
+% Erro de parâmetros e sua norma
+theta_til = theta' - theta_star_t;
+norm_tilde = vecnorm(theta_til);
 
 %% === Gráficos ===
 figure('Name','Resultados da Simulação MRAC','Units','normalized','Position',[0.05 0.05 0.9 0.85]);
 
 % 1. Referência, ym, yp
 subplot(3,2,1);
-plot(t, r_val, 'k', 'LineWidth', 1.2); hold on;
-plot(t, ym_val, 'b--', 'LineWidth', 1.2);
-plot(t, yp_val, 'r', 'LineWidth', 1.2);
+plot(t, r, 'k', 'LineWidth', 1.2); hold on;
+plot(t, ym, 'b--', 'LineWidth', 1.2);
+plot(t, yp, 'r', 'LineWidth', 1.2);
 xlabel('Tempo [s]'); ylabel('Saída');
 legend('r','y_m','y_p'); title('Saídas: Referência, Modelo, Planta');
 grid on;
 
 % 2. theta vs theta*
 subplot(3,2,2);
-plot(t, theta_val, 'LineWidth', 1.2); hold on;
-plot(t, theta_star_val, '--', 'LineWidth', 1.2);
+plot(t, theta, 'LineWidth', 1.2); hold on;
+plot(t, theta_star_t, '--', 'LineWidth', 1.2);
 xlabel('Tempo [s]'); ylabel('\theta');
 title('\theta estimado vs \theta^* (ideal)');
 legend(arrayfun(@(i)sprintf('\\theta_{%d}',i),1:2*n,'UniformOutput',false));
@@ -109,7 +119,7 @@ grid on;
 
 % 3. Erro de acompanhamento
 subplot(3,2,3);
-plot(t, ea_val, 'm', 'LineWidth', 1.2);
+plot(t, ea, 'm', 'LineWidth', 1.2);
 xlabel('Tempo [s]'); ylabel('Erro');
 title('Erro de acompanhamento: e_a = y_p - y_m');
 grid on;
@@ -125,7 +135,7 @@ grid on;
 
 % 5. Controle u e u*
 subplot(3,2,5);
-plot(t, u_val, 'r', 'LineWidth', 1.2); hold on;
+plot(t, u, 'r', 'LineWidth', 1.2); hold on;
 plot(t, u_star, 'b--', 'LineWidth', 1.2);
 xlabel('Tempo [s]'); ylabel('u(t)');
 legend('u','u^*');
@@ -135,7 +145,7 @@ grid on;
 % 6. Norma de theta tilde
 subplot(3,2,6);
 plot(t, norm_tilde, 'k', 'LineWidth', 1.2);
-xlabel('Tempo [s]'); ylabel('||\tilde{\theta}||');
+xlabel('Tempo [s]'); ylabel('$$\|\tilde{\theta}\|$$','Interpreter','latex');
 title('Erro de estimação: ||\theta - \theta^*||');
 grid on;
 
