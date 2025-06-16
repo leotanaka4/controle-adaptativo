@@ -59,11 +59,11 @@ den_M = poly(poles_M);
 num_M = poly(zeros_M);
 num_L = poly(zeros_L);
 % Ganho positivo arbitrário
-km = 1 + rand();
+km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
 Mparcial = tf(num_M, den_M);  % Modelo não pode ser SPR
-L = tf(num_L);
+L = tf(num_L,1);
 M = Mparcial*L;
 xm0 = zeros(n,1);
 
@@ -71,7 +71,7 @@ xm0 = zeros(n,1);
 A0 = [1 10]; 
 
 %% Rodar cálculo dos parâmetros ideais
-[theta1, theta_n, theta2, theta_2n] = controle2DOF(P, M, A0);
+[theta1, theta_n, theta2, theta_2n] = controle2DOF_nstar2(P, M, A0);
 theta_star = [theta1; theta_n; theta2; theta_2n];
 
 %% ======= Definir Filtro =======
