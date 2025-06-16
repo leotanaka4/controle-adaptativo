@@ -7,11 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-<<<<<<< HEAD
-    ComputedModelVersion    "7.13"
-=======
-    ComputedModelVersion    "7.12"
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
+    ComputedModelVersion    "1.2"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -96,26 +92,19 @@ Model {
 	  LoadSaveID		  "0"
 	  Extents		  [1496.0, 588.0]
 	  ZoomFactor		  [1.25]
-	  Offset		  [-110.70716042465938, -21.399999999999864]
-	  SceneRectInView	  [-110.70716042465938, -21.399999999999864, 1196.8, 470.4]
+	  Offset		  [-89.792874710373979, 20.037241338505083]
+	  SceneRectInView	  [-89.792874710373979, 20.037241338505083, 1196.8, 470.4]
 	}
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [0]
-	  IsTabbed		  [1]
+	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1"
-<<<<<<< HEAD
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.5646287465940054]
-	  Offset		  [-301.38585034013596, -146.2000000000001]
-	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 956.1373605442177, 375.808]
-=======
+	  LoadSaveID		  ""
 	  Extents		  [1875.0, 744.0]
 	  ZoomFactor		  [1.5646287465940054]
 	  Offset		  [-301.38585034013596, -146.2000000000001]
 	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 958.69387755102048, 380.40973061224491]
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
 	}
 	Object {
 	  $ObjectID		  7
@@ -218,15 +207,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-<<<<<<< HEAD
-  LastModifiedDate	  "Sun Jun 15 21:34:08 2025"
-  RTWModifiedTimeStamp	  671924027
-  ModelVersionFormat	  "%<AutoIncrement:7.13>"
-=======
-  LastModifiedDate	  "Sun Jun 15 22:22:11 2025"
-  RTWModifiedTimeStamp	  671926893
-  ModelVersionFormat	  "%<AutoIncrement:7.12>"
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
+  LastModifiedDate	  "Mon Jun 16 13:44:12 2025"
+  RTWModifiedTimeStamp	  671982250
+  ModelVersionFormat	  "%<AutoIncrement:1.2>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1422,7 +1405,7 @@ Model {
 	Name			"Adaptation"
 	Location		[94, 94, 1644, 924]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2151,16 +2134,16 @@ Model {
       "lor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509803921"
       "5686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074509803921"
       "5686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title"
-      "','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Gain'}}"
-      ",'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1','MaxYLimReal','2','YLabe"
-      "lReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',f"
-      "alse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1"
-      " 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745"
-      "098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509"
-      "8039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}}"
-      ",'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','20','TimeRangeFrames','20"
-      "'),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measure"
-      "ments',true,'Version','2021a')),'Version','2021a','Location',[857 206 1181 445],'VisibleAtModelOpen','on')"
+      "','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'ea'}},'"
+      "ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1','MaxYLimReal','2','YLabelR"
+      "eal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',fal"
+      "se,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1"
+      " 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686274509"
+      "8 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450980"
+      "39215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'"
+      "NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','20','TimeRangeFrames','20')"
+      ",extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measureme"
+      "nts',true,'Version','2021a')),'Version','2021a','Location',[857 206 1181 445])"
       NumInputPorts	      "1"
       Floating		      off
     }
@@ -2254,35 +2237,19 @@ Model {
       SrcPort		      1
       Points		      [13, 0]
       Branch {
-<<<<<<< HEAD
-	ZOrder			134
-	Points			[0, 140; 1, 0]
-	Branch {
-	  ZOrder		  136
-	  Points		  [0, 30]
-	  DstBlock		  "Gain4"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  135
-	  DstBlock		  "Vector\nConcatenate"
-	  DstPort		  2
-	}
-=======
 	ZOrder			49
-	Points			[0, 140]
+	Points			[1, 140]
 	Branch {
-	  ZOrder		  122
-	  DstBlock		  "Vector\nConcatenate"
-	  DstPort		  2
-	}
-	Branch {
-	  ZOrder		  121
+	  ZOrder		  161
 	  Points		  [0, 30]
 	  DstBlock		  "Gain4"
 	  DstPort		  1
 	}
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
+	Branch {
+	  ZOrder		  160
+	  DstBlock		  "Vector\nConcatenate"
+	  DstPort		  2
+	}
       }
       Branch {
 	ZOrder			133
@@ -2297,20 +2264,12 @@ Model {
       SrcPort		      1
       Points		      [-29, 0; 0, -220]
       Branch {
-<<<<<<< HEAD
-	ZOrder			131
-=======
 	ZOrder			120
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
 	DstBlock		"Gain2"
 	DstPort			1
       }
       Branch {
-<<<<<<< HEAD
-	ZOrder			130
-=======
 	ZOrder			119
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
 	Points			[0, -60]
 	DstBlock		"Plant"
 	DstPort			1
@@ -2408,54 +2367,42 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Reference signal"
       SrcPort		      1
-<<<<<<< HEAD
-      Points		      [31, 0]
-      Branch {
-	ZOrder			129
-	Labels			[2, 1]
-	Points			[0, 340; 486, 0; 0, -35]
-=======
-      Points		      [16, 0]
+      Points		      [47, 0]
       Branch {
 	ZOrder			114
 	Labels			[2, 1]
-	Points			[0, 332; 501, 0; 0, -27]
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
+	Points			[0, 332; 471, 0; 0, -27]
 	DstBlock		"Vector\nConcatenate"
 	DstPort			4
       }
       Branch {
-<<<<<<< HEAD
-	ZOrder			128
-=======
 	ZOrder			113
 	Labels			[1, 1]
->>>>>>> 749d289490b1637eda7f40de9a4a03f9b439e4ee
 	DstBlock		"Reference model"
 	DstPort			1
       }
     }
     Line {
       Name		      "w2"
-      ZOrder		      55
+      ZOrder		      163
+      Labels		      [0, 0]
       SrcBlock		      "Integrator1"
       SrcPort		      1
-      Points		      [23, 0; 0, 10]
+      Points		      [19, 0; 0, 10]
       Branch {
-	ZOrder			84
-	Labels			[1, 1]
+	ZOrder			176
+	DstBlock		"Vector\nConcatenate"
+	DstPort			3
+      }
+      Branch {
+	ZOrder			175
 	Points			[0, 45]
 	DstBlock		"Gain3"
 	DstPort			1
       }
-      Branch {
-	ZOrder			77
-	DstBlock		"Vector\nConcatenate"
-	DstPort			3
-      }
     }
     Line {
-      ZOrder		      56
+      ZOrder		      164
       SrcBlock		      "Gain3"
       SrcPort		      1
       Points		      [-45, 0]
@@ -2463,7 +2410,7 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      57
+      ZOrder		      165
       SrcBlock		      "Gain4"
       SrcPort		      1
       DstBlock		      "Sum2"
@@ -2471,35 +2418,28 @@ Model {
     }
     Line {
       Name		      "w"
-      ZOrder		      61
+      ZOrder		      171
+      Labels		      [0, 0]
       SrcBlock		      "Vector\nConcatenate"
       SrcPort		      1
-      Points		      [23, 0]
+      Points		      [26, 0]
       Branch {
-	ZOrder			110
+	ZOrder			178
 	Points			[0, 110]
 	DstBlock		"Dot Product"
 	DstPort			1
       }
       Branch {
-	ZOrder			109
+	ZOrder			177
 	DstBlock		"To Workspace 3"
 	DstPort			1
       }
       Branch {
-	ZOrder			81
-	Labels			[1, 1]
+	ZOrder			173
 	Points			[0, -115]
 	DstBlock		"Adaptation"
 	DstPort			2
       }
-    }
-    Annotation {
-      SID		      "40"
-      Name		      "u"
-      Position		      [234, 140, 241, 154]
-      InternalMargins	      [0, 0, 0, 0]
-      ZOrder		      -1
     }
   }
 }

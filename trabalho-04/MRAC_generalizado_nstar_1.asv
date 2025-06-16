@@ -13,7 +13,7 @@ theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 2   %Constant
-Aq = 0   %Sqr wave amplitude
+Aq = 1   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
 As = 5   %Sine wave amplitude
 % As = 0.5
@@ -111,16 +111,12 @@ grid on;
 
 % 2. theta vs theta*
 subplot(3,2,2);
-colors = lines(2*n);
-hold on;
-for i = 1:2*n
-    plot(t, theta(:,i), 'Color', colors(i,:), 'LineWidth', 1.2);
-    plot(t, theta_star_t(i,:), '--', 'Color', colors(i,:), 'LineWidth', 1.2, 'HandleVisibility', 'off');
-end
-xlabel('Tempo [s]');
-ylabel('\theta');
+colors = lines(4);
+plot(t, theta, 'Color', colors, 'LineWidth', 1.2); hold on;
+plot(t, theta_star_t, '--','Color', colors, 'LineWidth', 1.2);
+xlabel('Tempo [s]'); ylabel('\theta');
 title('\theta estimado vs \theta^* (ideal)');
-legend(arrayfun(@(i)sprintf('\\theta_{%d}', i), 1:4*n, 'UniformOutput', false));
+legend(arrayfun(@(i)sprintf('\\theta_{%d}',i),1:2*n,'UniformOutput',false));
 grid on;
 
 % 3. Erro de acompanhamento
