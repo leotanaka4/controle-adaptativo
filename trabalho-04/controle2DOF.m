@@ -91,24 +91,25 @@ function [theta1, theta_n, theta2, theta_2n, L] = controle2DOF(P, M, A0)
     % Obter nomes dos campos da solução
     fields = fieldnames(sol);
 
-    %% Processar H
+    % Processar H
     h_fields = fields(startsWith(fields, 'h'));
 
     if isempty(h_fields)
-        H_sol = [];  % Caso não exista H (grau zero)
-        H_final = 1; % Constante 1, como em H(s) = 1
+        H_sol = [];          % Caso não exista H (grau zero)
+        H_final = 1;         % H(s) = 1
     else
-        h_fields = sort(h_fields); % Ordena lexicograficamente
+        h_fields = sort(h_fields);  % Ordena os nomes dos coeficientes
         H_cells = cellfun(@(c) sol.(c), h_fields, 'UniformOutput', false);
-        H_sol = [H_cells{:}]; % Vetor linha com os coeficientes
+        H_sol = [H_cells{:}];       % Coeficientes do menor para o maior grau (h₁,...,hₙ)
 
-        % Construir H(s) = 1 + H_sol(1)*s^1 + H_sol(2)*s^2 + ...
         grau_H = length(H_sol);
-        H_final = 1; % Começa com o termo constante 1
+        H_final = s^(grau_H);       % Começa com sⁿ
+
         for i = 1:grau_H
-            H_final = H_final + H_sol(i) * s^i;
+            H_final = H_final + H_sol(i) * s^(grau_H - i);
         end
-        H_final = expand(H_final);
+
+        H_final = expand(H_final);  % Expande a expressão simbólica
     end
 
     %% Processar G

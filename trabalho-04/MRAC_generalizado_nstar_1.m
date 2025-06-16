@@ -2,7 +2,7 @@ clc; close all;
 clear; 
 
 %% ======= Escolher Ordem do Sistema =======
-n = 3;  % ordem da planta e do modelo
+n = 2;  % ordem da planta e do modelo
 reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
@@ -13,7 +13,7 @@ theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 2   %Constant
-Aq = 2   %Sqr wave amplitude
+Aq = 0   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
 As = 5   %Sine wave amplitude
 % As = 0.5
@@ -71,7 +71,7 @@ Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
-%theta0 = 0.95*theta_star;
+theta0 = 0.95*theta_star;
 sim('MRAC_generalizado', tfinal);
 
 % Parâmetros ideais replicados no tempo

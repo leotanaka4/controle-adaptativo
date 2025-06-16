@@ -3,7 +3,7 @@ clear;
 
 %% ======= Escolher Ordem do Sistema =======
 n = 3;  % ordem da planta e do modelo
-n_star = 2 % grau relativo da planta
+n_star = 2; % grau relativo da planta
 reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
@@ -45,14 +45,12 @@ poles_M = sort(-1 * (1:pole_spacing:n*pole_spacing) );
 % Passo 2: gerar zeros entre os polos (alternados)
 zeros_M = zeros(1, n-2);
 for i = 1:n-2
-    zeros_M(i) = (poles_M(i) + poles_M(i+1)) / 2;  % entre dois polos
+    zeros_M(i) = (poles_M(end - i) + poles_M( end -i+1)) / 2;  % entre dois polos
 end
 
 %Passo 3: gerar multiplicador de Monopoli L(s)
-zeros_L = zeros(1, n_star-1);
-for i = n-2:n-1
-    zeros_M(i) = (poles_M(i) + poles_M(i+1)/2);
-end
+zeros_L = zeros_M(end)-2;
+l0 = -zeros_L;
 
 % Polinômios
 den_M = poly(poles_M);
@@ -68,23 +66,16 @@ M = Mparcial*L;
 xm0 = zeros(n,1);
 
 %% Polinômio do Observador Vetorizado
-A0 = [1 10]; 
+A0 = [1 2]; 
 
 %% Rodar cálculo dos parâmetros ideais
-[theta1, theta_n, theta2, theta_2n] = controle2DOF_nstar2(P, M, A0);
-theta_star = [theta1; theta_n; theta2; theta_2n];
+[theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, Mparcial, A0);
+theta_star = [theta1(:); theta_n; theta2(:); theta_2n];
 
 %% ======= Definir Filtro =======
-% Grau da planta (denominador de P)
-nf = n - 1;                 % grau do filtro
-
-% Definir coeficientes do denominador do filtro (escolha arbitrária estável)
-% Exemplo: filtro com polos em -2, -3, ..., arbitrário mas estável
-filtro_polos = -2:-1:-(nf+1);                % nf polos reais negativos
-den_filtro = poly(filtro_polos);            % coeficientes do denominador
-
 % Forma canônica controlável
-Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -den_filtro(2:end);
+nf = n-1;
+Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:end));
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
