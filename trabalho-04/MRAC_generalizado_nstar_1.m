@@ -51,8 +51,7 @@ end
 den_M = poly(poles_M);
 num_M = poly(zeros_M);
 
-% Ganho positivo arbitrário
-km = 1 + rand();
+km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
 M = tf(num_M, den_M);  % Modelo SPR garantido
