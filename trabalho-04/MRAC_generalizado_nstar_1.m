@@ -6,7 +6,7 @@ n = 2;  % ordem da planta e do modelo
 reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
-gamma = eye(2*n);
+gamma = 10*eye(2*n);
 tfinal = 300;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 theta0 = zeros(2*n, 1);
@@ -23,7 +23,7 @@ ws = pi  %Frequency
 %% ======= Gerar Planta =======
 if reset
     % Polos da planta (podem ser instáveis)
-    plant_polos = randi([-3, 10], 1, n);           % polos arbitrários
+    plant_polos = randi([-10, 0], 1, n);           % polos arbitrários
     plant_den = poly(plant_polos);
 
     % Zeros reais negativos para numerador (mínima fase)

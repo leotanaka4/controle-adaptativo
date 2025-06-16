@@ -1,14 +1,14 @@
 clc; clear; close all;
 
 %% Definir Planta
-kp = 2;
+kp = 0.1;
 b = 3;
-P = tf([kp b*kp], [1 4 3]);
+P = tf(kp*[1 2], [1 5 3]);
 
 %% Definir Modelo
 km = 1;
 bm = 2;
-M = tf([km bm*km], [1 5 6]);
+M = tf(km*[1 3], [1 2 1]);
 
 %% Polinômio do Observador
 A0 = 1; 
