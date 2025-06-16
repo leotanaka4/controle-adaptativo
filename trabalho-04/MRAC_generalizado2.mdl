@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.8"
+    ComputedModelVersion    "7.10"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -103,8 +103,8 @@ Model {
 	  LoadSaveID		  "1"
 	  Extents		  [1875.0, 744.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-164.00043010752682, -239.35440860215067]
-	  SceneRectInView	  [-164.00043010752682, -239.35440860215067, 1500.0, 595.2]
+	  Offset		  [-164.00043010752688, -239.35440860215067]
+	  SceneRectInView	  [-164.00043010752688, -239.35440860215067, 1500.0, 595.2]
 	}
 	Object {
 	  $ObjectID		  7
@@ -146,19 +146,6 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  10
-	  Type			  "Simulink:Editor:ReferencedFiles"
-	  ID			  "Referenced Files"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
-	  Floating		  [0]
-	  DockPosition		  "Left"
-	  Width			  [512]
-	  Height		  [384]
-	  Minimized		  "Unset"
-	}
-	Object {
-	  $ObjectID		  11
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [0]
@@ -166,6 +153,19 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
+	  Width			  [512]
+	  Height		  [384]
+	  Minimized		  "Unset"
+	}
+	Object {
+	  $ObjectID		  11
+	  Type			  "Simulink:Editor:ReferencedFiles"
+	  ID			  "Referenced Files"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
+	  Floating		  [0]
+	  DockPosition		  "Left"
 	  Width			  [512]
 	  Height		  [384]
 	  Minimized		  "Unset"
@@ -196,9 +196,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jun 14 22:45:46 2025"
-  RTWModifiedTimeStamp	  671841619
-  ModelVersionFormat	  "%<AutoIncrement:7.8>"
+  LastModifiedDate	  "Sun Jun 15 21:14:57 2025"
+  RTWModifiedTimeStamp	  671922836
+  ModelVersionFormat	  "%<AutoIncrement:7.10>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1681,7 +1681,6 @@ Model {
       Ports		      [1, 1]
       Position		      [560, 200, 590, 230]
       ZOrder		      5
-      InitialCondition	      "w10"
       Port {
 	PortNumber		1
 	Name			"w1"
@@ -1694,7 +1693,6 @@ Model {
       Ports		      [1, 1]
       Position		      [560, 310, 590, 340]
       ZOrder		      10
-      InitialCondition	      "w20"
       Port {
 	PortNumber		1
 	Name			"w2"
@@ -1707,7 +1705,6 @@ Model {
       Ports		      [1, 1]
       Position		      [835, 300, 865, 330]
       ZOrder		      15
-      InitialCondition	      "csi0"
       Port {
 	PortNumber		1
 	Name			"csi"
