@@ -1,13 +1,13 @@
 Model {
   Name			  "MRAC_generalizado2"
   Version		  10.3
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1252"
   ModelUUID		  "00b3364d-869f-4cef-9153-dfb5e36ca6ce"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.11"
+    ComputedModelVersion    "7.12"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -98,8 +98,8 @@ Model {
 	  LoadSaveID		  "0"
 	  Extents		  [1875.0, 744.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [40.459465204763376, -75.7897282763819]
-	  SceneRectInView	  [40.459465204763376, -75.7897282763819, 1500.0, 595.2]
+	  Offset		  [40.459465204763319, -75.789728276381879]
+	  SceneRectInView	  [40.459465204763319, -75.789728276381879, 1500.0, 595.2]
 	}
 	Object {
 	  $ObjectID		  6
@@ -200,11 +200,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "caioc"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 15 22:05:15 2025"
-  RTWModifiedTimeStamp	  671925851
-  ModelVersionFormat	  "%<AutoIncrement:7.11>"
+  LastModifiedDate	  "Sun Jun 15 22:25:25 2025"
+  RTWModifiedTimeStamp	  671927122
+  ModelVersionFormat	  "%<AutoIncrement:7.12>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1385,7 +1385,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "81"
+    SIDHighWatermark	    "84"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1480,6 +1480,19 @@ Model {
 	}
 	Block {
 	  BlockType		  ToWorkspace
+	  Name			  "To Workspace 1"
+	  SID			  "84"
+	  Ports			  [1]
+	  Position		  [475, 237, 515, 263]
+	  ZOrder		  4
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  VariableName		  "dtheta"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "st"
+	}
+	Block {
+	  BlockType		  ToWorkspace
 	  Name			  "To Workspace 2"
 	  SID			  "7"
 	  Ports			  [1]
@@ -1549,9 +1562,18 @@ Model {
 	  Points		  [28, 0]
 	  Branch {
 	    ZOrder		    53
-	    Points		    [0, 65]
-	    DstBlock		    "dtheta"
-	    DstPort		    1
+	    Points		    [0, 65; 115, 0]
+	    Branch {
+	      ZOrder		      61
+	      Points		      [0, 65]
+	      DstBlock		      "To Workspace 1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      60
+	      DstBlock		      "dtheta"
+	      DstPort		      1
+	    }
 	  }
 	  Branch {
 	    ZOrder		    52
@@ -2324,6 +2346,32 @@ Model {
       }
     }
     Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace 1"
+      SID		      "83"
+      Ports		      [1]
+      Position		      [910, 257, 935, 283]
+      ZOrder		      20
+      BackgroundColor	      "yellow"
+      ShowName		      off
+      VariableName	      "csi"
+      MaxDataPoints	      "inf"
+      SampleTime	      "st"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace 3"
+      SID		      "82"
+      Ports		      [1]
+      Position		      [760, 222, 785, 248]
+      ZOrder		      19
+      BackgroundColor	      "yellow"
+      ShowName		      off
+      VariableName	      "w"
+      MaxDataPoints	      "inf"
+      SampleTime	      "st"
+    }
+    Block {
       BlockType		      Concatenate
       Name		      "Vector\nConcatenate"
       SID		      "60"
@@ -2535,6 +2583,12 @@ Model {
       SrcPort		      1
       Points		      [23, 0]
       Branch {
+	ZOrder			207
+	Points			[0, -80]
+	DstBlock		"To Workspace 3"
+	DstPort			1
+      }
+      Branch {
 	ZOrder			115
 	DstBlock		"Sum4"
 	DstPort			1
@@ -2554,10 +2608,19 @@ Model {
       SrcPort		      1
       Points		      [28, 0]
       Branch {
-	ZOrder			130
-	Points			[0, -47; -62, 0; 0, -68]
-	DstBlock		"Adaptation"
-	DstPort			2
+	ZOrder			209
+	Points			[0, -45]
+	Branch {
+	  ZOrder		  208
+	  DstBlock		  "To Workspace 1"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  130
+	  Points		  [0, -2; -62, 0; 0, -68]
+	  DstBlock		  "Adaptation"
+	  DstPort		  2
+	}
       }
       Branch {
 	ZOrder			129
