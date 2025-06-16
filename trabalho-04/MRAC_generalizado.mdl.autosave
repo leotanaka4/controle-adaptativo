@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.2"
+    ComputedModelVersion    "1.3"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -91,34 +91,12 @@ Model {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-169.74525566275497, 2.8086699099336556]
-	  SceneRectInView	  [-169.74525566275497, 2.8086699099336556, 1496.0, 588.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [-35.616684234183595, 63.24200324326705]
+	  SceneRectInView	  [-35.616684234183595, 63.24200324326705, 997.33333333333337, 392.0]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "24:956"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-535.5, -239.0]
-	  SceneRectInView	  [-535.5, -239.0, 1496.0, 588.0]
-	}
-	Object {
-	  $ObjectID		  7
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "24:953"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-535.5, -239.0]
-	  SceneRectInView	  [-535.5, -239.0, 1496.0, 588.0]
-	}
-	Object {
-	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -129,7 +107,7 @@ Model {
 	  SceneRectInView	  [-230.93492063492067, -76.612925170068053, 854.85714285714289, 336.0]
 	}
 	Object {
-	  $ObjectID		  9
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -140,7 +118,7 @@ Model {
 	  SceneRectInView	  [-253.89843749999989, -17.999999999999972, 748.0, 294.0]
 	}
 	Object {
-	  $ObjectID		  10
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -151,7 +129,7 @@ Model {
 	  SceneRectInView	  [-278.83275024295438, -68.271428571428629, 853.69407191448022, 335.5428571428572]
 	}
 	Object {
-	  $ObjectID		  11
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -162,7 +140,7 @@ Model {
 	  SceneRectInView	  [-423.0, -183.5, 1496.0, 588.0]
 	}
 	Object {
-	  $ObjectID		  12
+	  $ObjectID		  10
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -171,6 +149,28 @@ Model {
 	  ZoomFactor		  [1.5]
 	  Offset		  [-182.4761904761906, -67.071428571428442]
 	  SceneRectInView	  [-182.4761904761906, -67.071428571428442, 997.33333333333337, 392.0]
+	}
+	Object {
+	  $ObjectID		  11
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "24:953"
+	  Extents		  [1496.0, 588.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-535.5, -239.0]
+	  SceneRectInView	  [-535.5, -239.0, 1496.0, 588.0]
+	}
+	Object {
+	  $ObjectID		  12
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "24:956"
+	  Extents		  [1496.0, 588.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-535.5, -239.0]
+	  SceneRectInView	  [-535.5, -239.0, 1496.0, 588.0]
 	}
 	Object {
 	  $ObjectID		  13
@@ -240,9 +240,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 16 13:44:12 2025"
-  RTWModifiedTimeStamp	  671984016
-  ModelVersionFormat	  "%<AutoIncrement:1.2>"
+  LastModifiedDate	  "Mon Jun 16 19:09:39 2025"
+  RTWModifiedTimeStamp	  672002574
+  ModelVersionFormat	  "%<AutoIncrement:1.3>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -2179,7 +2179,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "150"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "72"
     SimulinkSubDomain	    "Simulink"
@@ -2398,10 +2398,11 @@ Model {
       BlockType		      Gain
       Name		      "Gain1"
       SID		      "51"
-      Position		      [540, 255, 570, 285]
+      Position		      [540, 245, 590, 285]
       ZOrder		      4
       BlockMirror	      on
       Gain		      "Af"
+      Multiplication	      "Matrix(K*u) (u vector)"
     }
     Block {
       BlockType		      Gain
@@ -2415,10 +2416,11 @@ Model {
       BlockType		      Gain
       Name		      "Gain3"
       SID		      "56"
-      Position		      [540, 365, 570, 395]
+      Position		      [540, 355, 590, 395]
       ZOrder		      9
       BlockMirror	      on
       Gain		      "Af"
+      Multiplication	      "Matrix(K*u) (u vector)"
     }
     Block {
       BlockType		      Gain
@@ -3130,7 +3132,7 @@ Model {
       }
       Branch {
 	ZOrder			85
-	Points			[0, 15]
+	Points			[0, 10]
 	DstBlock		"Gain1"
 	DstPort			1
       }
@@ -3187,7 +3189,7 @@ Model {
       }
       Branch {
 	ZOrder			175
-	Points			[0, 45]
+	Points			[0, 40]
 	DstBlock		"Gain3"
 	DstPort			1
       }

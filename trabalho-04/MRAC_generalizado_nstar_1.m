@@ -1,9 +1,9 @@
 clc; close all; 
-%clear; 
+clear; 
 
 %% ======= Escolher Ordem do Sistema =======
-n = 2;  % ordem da planta e do modelo
-reset = 0; % resetar a planta / usar a que já foi criada
+n = 3;  % ordem da planta e do modelo
+reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = 10*eye(2*n);
@@ -13,7 +13,7 @@ theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 2   %Constant
-Aq = 0   %Sqr wave amplitude
+Aq = 2   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
 As = 5   %Sine wave amplitude
 % As = 0.5
@@ -23,7 +23,7 @@ ws = 1%pi  %Frequency
 %% ======= Gerar Planta =======
 if reset
     % Polos da planta (podem ser instáveis)
-    plant_polos = randi([-10, 0], 1, n);           % polos arbitrários
+    plant_polos = randi([-10, -1], 1, n);           % polos arbitrários
     plant_den = poly(plant_polos);
 
     % Zeros reais negativos para numerador (mínima fase)
@@ -33,7 +33,7 @@ if reset
     plant_num = kp * poly(plant_zeros);            % numerador grau n-1
 
     P = tf(plant_num, plant_den);
-    x0 = ones(n, 1);
+    x0 = zeros(n, 1);
 end
 %% ======= Gerar Modelo SPR com polos e zeros alternados =======
 
@@ -61,20 +61,13 @@ xm0 = zeros(n,1);
 A0 = 1; 
 
 %% Rodar cálculo dos parâmetros ideais
-[theta1, theta_n, theta2, theta_2n] = controle2DOF(P, M, A0);
-theta_star = [theta1; theta_n; theta2; theta_2n];
+[theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);
+theta_star = [theta1(:); theta_n; theta2(:); theta_2n];
 
 %% ======= Definir Filtro =======
-% Grau da planta (denominador de P)
-nf = n - 1;                 % grau do filtro
-
-% Definir coeficientes do denominador do filtro (escolha arbitrária estável)
-% Exemplo: filtro com polos em -2, -3, ..., arbitrário mas estável
-filtro_polos = -2:-1:-(nf+1);                % nf polos reais negativos
-den_filtro = poly(filtro_polos);            % coeficientes do denominador
-
 % Forma canônica controlável
-Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -den_filtro(2:end);
+nf = n-1;
+Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:end));
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
