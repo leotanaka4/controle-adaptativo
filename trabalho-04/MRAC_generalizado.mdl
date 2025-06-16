@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.10"
+    ComputedModelVersion    "7.11"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -101,10 +101,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [1875.0, 744.0]
-	  ZoomFactor		  [1.2517029972752043]
+	  Extents		  [2344.0, 930.0]
+	  ZoomFactor		  [1.5646287465940054]
 	  Offset		  [-301.38585034013596, -146.2000000000001]
-	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 1198.3673469387754, 475.51216326530613]
+	  SceneRectInView	  [-301.38585034013596, -146.2000000000001, 1198.3673469387757, 475.51216326530613]
 	}
 	Object {
 	  $ObjectID		  7
@@ -207,9 +207,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 15 20:38:01 2025"
-  RTWModifiedTimeStamp	  671920668
-  ModelVersionFormat	  "%<AutoIncrement:7.10>"
+  LastModifiedDate	  "Sun Jun 15 22:18:34 2025"
+  RTWModifiedTimeStamp	  671926711
+  ModelVersionFormat	  "%<AutoIncrement:7.11>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1419,7 +1419,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"125"
+	ZoomFactor		"156"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2239,17 +2239,16 @@ Model {
       Points		      [28, 0]
       Branch {
 	ZOrder			49
-	Points			[0, 60; 1, 0]
+	Points			[0, 140]
 	Branch {
-	  ZOrder		  80
-	  Labels		  [2, 1]
-	  Points		  [0, 80]
+	  ZOrder		  122
 	  DstBlock		  "Vector\nConcatenate"
 	  DstPort		  2
 	}
 	Branch {
-	  ZOrder		  79
-	  DstBlock		  "Gain2"
+	  ZOrder		  121
+	  Points		  [0, 30]
+	  DstBlock		  "Gain4"
 	  DstPort		  1
 	}
       }
@@ -2263,9 +2262,18 @@ Model {
       ZOrder		      28
       SrcBlock		      "Dot Product"
       SrcPort		      1
-      Points		      [-29, 0; 0, -280]
-      DstBlock		      "Plant"
-      DstPort		      1
+      Points		      [-29, 0; 0, -220]
+      Branch {
+	ZOrder			120
+	DstBlock		"Gain2"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			119
+	Points			[0, -60]
+	DstBlock		"Plant"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      27
@@ -2358,24 +2366,16 @@ Model {
       ZOrder		      10
       SrcBlock		      "Reference signal"
       SrcPort		      1
-      Points		      [30, 0]
+      Points		      [16, 0]
       Branch {
-	ZOrder			58
-	Points			[0, 255; 223, 0]
-	Branch {
-	  ZOrder		  72
-	  Points		  [0, 79; 272, 0]
-	  DstBlock		  "Vector\nConcatenate"
-	  DstPort		  4
-	}
-	Branch {
-	  ZOrder		  71
-	  DstBlock		  "Gain4"
-	  DstPort		  1
-	}
+	ZOrder			114
+	Labels			[2, 1]
+	Points			[0, 332; 501, 0; 0, -27]
+	DstBlock		"Vector\nConcatenate"
+	DstPort			4
       }
       Branch {
-	ZOrder			11
+	ZOrder			113
 	Labels			[1, 1]
 	DstBlock		"Reference model"
 	DstPort			1
