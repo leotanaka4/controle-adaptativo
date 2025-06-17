@@ -7,24 +7,24 @@ n_star = 2; % grau relativo da planta
 reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
-gamma = 10*eye(2*n);
+gamma = 1*eye(2*n);
 tfinal = 300;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 1   %Constant
-Aq = 0   %Sqr wave amplitude
+Aq = 2   %Sine wave amplitude
 wq = 0.1*pi  %Frequency
-As = 5   %Sine wave amplitude
+As = 0   %Square wave amplitude
 % As = 0.5
-ws = 1%pi  %Frequency
+ws = pi  %Frequency
 
 
 %% ======= Gerar Planta =======
 if reset
     % Polos da planta (podem ser instáveis)
-    plant_polos = randi([-10, 1], 1, n);           % polos arbitrários
+    plant_polos = randi([-3, 1], 1, n);           % polos arbitrários
     plant_den = poly(plant_polos);
 
     % Zeros reais negativos para numerador (mínima fase)
@@ -84,7 +84,7 @@ Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
-%theta0 = 0.90*theta_star;
+theta0 = 0.90*theta_star;
 sim('MRAC_generalizado2', tfinal);
 
 % Parâmetros ideais replicados no tempo
