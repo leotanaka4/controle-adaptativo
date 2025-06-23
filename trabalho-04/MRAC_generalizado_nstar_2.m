@@ -1,10 +1,10 @@
 clc; close all; 
-clear; 
+%clear; 
 
 %% ======= Escolher Ordem do Sistema =======
 n = 3;  % ordem da planta e do modelo
 n_star = 2; % grau relativo da planta
-reset = 1; % resetar a planta / usar a que já foi criada
+reset = 0; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = 10*eye(2*n);
@@ -13,18 +13,17 @@ st = 0.01;      %Sample time to workspace
 theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
-DC = 1   %Constant
-Aq = 0   %Sqr wave amplitude
+DC = 2   %Constant
+Aq = 2   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
 As = 5   %Sine wave amplitude
-% As = 0.5
 ws = 1%pi  %Frequency
 
 
 %% ======= Gerar Planta =======
 if reset
     % Polos da planta (podem ser instáveis)
-    plant_polos = randi([-10, 1], 1, n);           % polos arbitrários
+    plant_polos = randi([-10, -1], 1, n);           % polos arbitrários
     plant_den = poly(plant_polos);
 
     % Zeros reais negativos para numerador (mínima fase)
@@ -65,16 +64,14 @@ num_L = poly(zeros_L);
 km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
-Mparcial = tf(num_M, den_M);  % Modelo não pode ser SPR
-L = tf(num_L,1);
-M = Mparcial*L;
+M = tf(num_M, den_M);  % Modelo não pode ser SPR
 xm0 = zeros(n,1);
 
 %% Polinômio do Observador Vetorizado
 A0 = [1 10]; 
 
 %% Rodar cálculo dos parâmetros ideais
-[theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, Mparcial, A0);
+[theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);
 theta_star = [theta1(:); theta_n; theta2(:); theta_2n];
 
 %% ======= Definir Filtro =======
@@ -84,7 +81,7 @@ Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
-%theta0 = 0.90*theta_star;
+theta0 = 0.95*theta_star;
 sim('MRAC_generalizado2', tfinal);
 
 % Parâmetros ideais replicados no tempo
@@ -116,13 +113,17 @@ grid on;
 
 % 2. theta vs theta*
 subplot(3,2,2);
-plot(t, theta, 'LineWidth', 1.2); hold on;
-plot(t, theta_star_t, '--', 'LineWidth', 1.2);
-xlabel('Tempo [s]'); ylabel('\theta');
+colors = lines(2*n);
+hold on;
+for i = 1:2*n
+    plot(t, theta(:,i), 'Color', colors(i,:), 'LineWidth', 1.2);
+    plot(t, theta_star_t(i,:), '--', 'Color', colors(i,:), 'LineWidth', 1.2, 'HandleVisibility', 'off');
+end
+xlabel('Tempo [s]');
+ylabel('\theta');
 title('\theta estimado vs \theta^* (ideal)');
-legend(arrayfun(@(i)sprintf('\\theta_{%d}',i),1:2*n,'UniformOutput',false));
+legend(arrayfun(@(i)sprintf('\\theta_{%d}', i), 1:4*n, 'UniformOutput', false));
 grid on;
-
 % 3. Erro de acompanhamento
 subplot(3,2,3);
 plot(t, ea, 'm', 'LineWidth', 1.2);

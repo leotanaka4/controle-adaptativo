@@ -1,9 +1,9 @@
 clc; close all; 
-clear; 
+%clear; 
 
 %% ======= Escolher Ordem do Sistema =======
-n = 2;  % ordem da planta e do modelo
-reset = 1; % resetar a planta / usar a que já foi criada
+n = 3;  % ordem da planta e do modelo
+reset = 0; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = 10*eye(2*n);
@@ -13,7 +13,7 @@ theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 2   %Constant
-Aq = 0   %Sqr wave amplitude
+Aq = 2   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
 As = 5   %Sine wave amplitude
 % As = 0.5
