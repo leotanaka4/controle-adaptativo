@@ -7,9 +7,30 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.4"
+    ComputedModelVersion    "1.5"
     NumModelReferences	    0
-    NumTestPointedSignals   0
+    NumTestPointedSignals   3
+    TestPointedSignal {
+      SignalName	      "y"
+      FullBlockPath	      "MRAC_generalizado/Plant"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "r"
+      FullBlockPath	      "MRAC_generalizado/Reference signal"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "w"
+      FullBlockPath	      "MRAC_generalizado/Vector Concatenate"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
     NumProvidedFunctions    0
     NumRequiredFunctions    0
     NumResetEvents	    0
@@ -39,6 +60,8 @@ Model {
   slcheck_filter_plugin	  "on"
   NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
+  LogicAnalyzerSignalOrdering "91375379-6204-4e29-b584-b898db01c62f,b1c03556-8efb-47e3-8c3b-ea0d47cc8d01,995f44ca-3b1b"
+  "-4533-9df6-5245141e0052"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
   SimscapeDaeAutoSolver	  "ode23t"
@@ -63,7 +86,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [94.0, 94.0, 1550.0, 830.0]
+      Location		      [-8.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -90,10 +113,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1496.0, 588.0]
+	  Extents		  [1882.0, 814.0]
 	  ZoomFactor		  [1.25]
 	  Offset		  [-152.41668423418366, 6.175336576600273]
-	  SceneRectInView	  [-152.41668423418366, 6.175336576600273, 1196.8, 470.4]
+	  SceneRectInView	  [-152.41668423418366, 6.175336576600273, 1505.6, 651.2]
 	}
 	Object {
 	  $ObjectID		  6
@@ -101,10 +124,10 @@ Model {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [1496.0, 588.0]
+	  Extents		  [1882.0, 814.0]
 	  ZoomFactor		  [1.56]
 	  Offset		  [-199.16666666666663, -59.461538461538453]
-	  SceneRectInView	  [-199.16666666666663, -59.461538461538453, 958.97435897435889, 376.92307692307691]
+	  SceneRectInView	  [-199.16666666666663, -59.461538461538453, 1206.4102564102564, 521.79487179487182]
 	}
 	Object {
 	  $ObjectID		  7
@@ -232,7 +255,7 @@ Model {
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAABjAP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
       "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAF/gAAAokAAAABAAAAAgAAAAEAAAAC/"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAHgAAAA2sAAAABAAAAAgAAAAEAAAAC/"
       "AAAAAEAAAACAAAAAA=="
       Array {
 	Type			"Cell"
@@ -251,9 +274,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 16 19:52:55 2025"
-  RTWModifiedTimeStamp	  672002574
-  ModelVersionFormat	  "%<AutoIncrement:1.4>"
+  LastModifiedDate	  "Mon Jun 23 20:59:59 2025"
+  RTWModifiedTimeStamp	  672612563
+  ModelVersionFormat	  "%<AutoIncrement:1.5>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -327,6 +350,88 @@ Model {
       PropName		      "logAsSpecifiedByModelsSSIDs_"
     }
   }
+  Object {
+    $PropName		    "InstrumentedSignals"
+    $ObjectID		    18
+    $ClassName		    "Simulink.HMI.InstrumentedSignals"
+    Array {
+      Type		      "Struct"
+      Dimension		      3
+      MATStruct {
+	UUID			"91375379-6204-4e29-b584-b898db01c62f"
+	BlockPath_		"Reference signal"
+	SID_			"29"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"r"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"b1c03556-8efb-47e3-8c3b-ea0d47cc8d01"
+	BlockPath_		"Plant"
+	SID_			"12"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"y"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      MATStruct {
+	UUID			"995f44ca-3b1b-4533-9df6-5245141e0052"
+	BlockPath_		"Vector Concatenate"
+	SID_			"60"
+	SubPath_		""
+	OutputPortIndex_	[1.0]
+	LogicalPortIndex_	[0.0]
+	SignalName_		"w"
+	SubSysPath_		""
+	Decimation_		[1.0]
+	MaxPoints_		[1024.0]
+	TargetBufferedStreaming_ [0.0]
+	IsFrameBased_		[0.0]
+	HideInSDI_		[0.0]
+	DomainType_		""
+	Array {
+	  Type			  "Struct"
+	  Dimension		  1
+	  MATStruct {
+	  }
+	  PropName		  "DomainParams_"
+	}
+	VisualType_		""
+      }
+      PropName		      "Persistence"
+    }
+  }
   ExtModeBatchMode	  off
   ExtModeEnableFloating	  on
   ExtModeTrigType	  "manual"
@@ -357,7 +462,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      18
+      $ObjectID		      19
       Version		      "21.0.0"
       DisabledProps	      []
       Description	      ""
@@ -365,7 +470,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -408,7 +513,7 @@ Model {
 	  ODENIntegrationMethod	  "ode3"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  20
+	  $ObjectID		  21
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -450,7 +555,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  21
+	  $ObjectID		  22
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -525,7 +630,7 @@ Model {
 	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  22
+	  $ObjectID		  23
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -647,7 +752,7 @@ Model {
 	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  23
+	  $ObjectID		  24
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -697,7 +802,7 @@ Model {
 	  HardwareBoardFeatureSet "EmbeddedCoderHSP"
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  24
+	  $ObjectID		  25
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -717,7 +822,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  25
+	  $ObjectID		  26
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -766,7 +871,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  26
+	  $ObjectID		  27
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -873,7 +978,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      27
+	      $ObjectID		      28
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -963,7 +1068,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      28
+	      $ObjectID		      29
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1069,7 +1174,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  29
+	  $ObjectID		  30
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1118,11 +1223,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    18
+    $ObjectID		    19
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    30
+    $ObjectID		    31
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1416,7 +1521,7 @@ Model {
   }
   System {
     Name		    "MRAC_generalizado"
-    Location		    [94, 94, 1644, 924]
+    Location		    [-8, -8, 1928, 1048]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1447,7 +1552,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"Adaptation"
-	Location		[94, 94, 1644, 924]
+	Location		[-8, -8, 1928, 1048]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -2287,6 +2392,7 @@ Model {
 	Points			[1, 140]
 	Branch {
 	  ZOrder		  161
+	  Labels		  [2, 1]
 	  Points		  [0, 30]
 	  DstBlock		  "Gain4"
 	  DstPort		  1

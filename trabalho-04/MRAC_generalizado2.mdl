@@ -86,7 +86,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [112.0, 17.0, 1550.0, 830.0]
+      Location		      [-8.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -113,10 +113,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [23.604905437582829, -37.183333333332769]
-	  SceneRectInView	  [23.604905437582829, -37.183333333332769, 1496.0, 588.0]
+	  Extents		  [1882.0, 814.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [23.00490543758292, -25.649999999999466]
+	  SceneRectInView	  [23.00490543758292, -25.649999999999466, 1254.6666666666667, 542.66666666666663]
 	}
 	Object {
 	  $ObjectID		  6
@@ -124,10 +124,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "22"
-	  Extents		  [1496.0, 588.0]
+	  Extents		  [1882.0, 814.0]
 	  ZoomFactor		  [1.7523841961852862]
 	  Offset		  [-278.83275024295432, -68.271428571428629]
-	  SceneRectInView	  [-278.83275024295432, -68.271428571428629, 853.69407191448, 335.54285714285714]
+	  SceneRectInView	  [-278.83275024295432, -68.271428571428629, 1073.9654033041788, 464.51000971817297]
 	}
 	Object {
 	  $ObjectID		  7
@@ -135,10 +135,10 @@ Model {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [-262.22857142857157, -16.138095238095246]
-	  SceneRectInView	  [-262.22857142857157, -16.138095238095246, 997.33333333333337, 392.0]
+	  Extents		  [1882.0, 814.0]
+	  ZoomFactor		  [1.8870320855614973]
+	  Offset		  [-262.22857142857157, -35.820702393603568]
+	  SceneRectInView	  [-262.22857142857157, -35.820702393603568, 997.33333333333337, 431.36521431101664]
 	}
 	Object {
 	  $ObjectID		  8
@@ -200,7 +200,7 @@ Model {
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAABjAP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
       "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAF/gAAAokAAAABAAAAAgAAAAEAAAAC/"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAHgAAAA2sAAAABAAAAAgAAAAEAAAAC/"
       "AAAAAEAAAACAAAAAA=="
       Array {
 	Type			"Cell"
@@ -219,7 +219,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 16 20:38:32 2025"
+  LastModifiedDate	  "Mon Jun 23 21:00:00 2025"
   RTWModifiedTimeStamp	  672006506
   ModelVersionFormat	  "%<AutoIncrement:7.14>"
   SampleTimeColors	  off
@@ -1466,7 +1466,7 @@ Model {
   }
   System {
     Name		    "MRAC_generalizado2"
-    Location		    [112, 17, 1662, 847]
+    Location		    [-8, -8, 1928, 1048]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1482,7 +1482,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "150"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "84"
     SimulinkSubDomain	    "Simulink"
@@ -1505,7 +1505,7 @@ Model {
       }
       System {
 	Name			"Adaptation"
-	Location		[112, 17, 1662, 847]
+	Location		[-8, -8, 1928, 1048]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -1521,7 +1521,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"189"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2001,7 +2001,7 @@ Model {
       }
       System {
 	Name			"Reference model"
-	Location		[191, 176, 1741, 1006]
+	Location		[-8, -8, 1928, 1048]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			on
 	PortBlocksUseCompactNotation off
