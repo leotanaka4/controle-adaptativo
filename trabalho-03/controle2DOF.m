@@ -79,6 +79,7 @@ function [theta1, theta_n, theta2, theta_2n, L] = controle2DOF(P, M, A0)
 
     % Coletar os coeficientes em potências de s
     coeffs_Eq = fliplr(coeffs(Eq, s));
+    %coeffs_Eq = coeffs(Eq, s); esse aqui muda porra nenhuma
 
     % Sistema de equações
     eqns = coeffs_Eq == zeros(1, length(coeffs_Eq));
@@ -164,6 +165,7 @@ function [theta1, theta_n, theta2, theta_2n, L] = controle2DOF(P, M, A0)
 
     % Igualar coeficientes
     G_est_coeffs = fliplr(coeffs(G_est, s));
+    %G_est_coeffs = coeffs(G_est, s); esse aqui dá errado a conta
     G_coeffs_target = [zeros(1, length(G_est_coeffs) - length(G_coeffs)), G_coeffs];
 
     % Resolver sistema
@@ -173,11 +175,13 @@ function [theta1, theta_n, theta2, theta_2n, L] = controle2DOF(P, M, A0)
 
     % Extrair soluções
     theta2 = double(arrayfun(@(i) sol.(sprintf('t%d', i)), 1:len_theta));
+    theta2 = fliplr(theta2);
     theta_n = double(sol.theta_n_scalar);
     
     % θ1 -> Coeficientes de F(s) normalizados por Λ
     theta1 = sym2poly(F);
     theta1 = double(theta1);
+    theta1 = fliplr(theta1);
     
     L = double(fliplr(coeffs(Lambda,s)));
     %% Exibir resultados
