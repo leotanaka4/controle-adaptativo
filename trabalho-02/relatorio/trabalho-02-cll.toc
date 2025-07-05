@@ -1,0 +1,6 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {section}{\numberline {1}Descrição dos Algoritmos}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Gradiente Normalizado}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Least-square Normalizado}{2}{}%
+\contentsline {section}{\numberline {2}Resultados das Simulações}{2}{}%
+\contentsline {section}{\numberline {3}Discussão dos Resultados}{3}{}%

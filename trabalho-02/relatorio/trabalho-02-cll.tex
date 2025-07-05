@@ -1,0 +1,107 @@
+\documentclass[10pt]{article}
+
+% Pacotes extras necessários
+\usepackage{amsmath}
+\usepackage[lmargin=0.5in, rmargin=0.5in, tmargin=0.5in, bmargin=0.5in, includehead, includefoot]{geometry}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{appendix}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% Define estilo para listagens de código
+\lstdefinestyle{mystyle}{
+    language=Matlab,
+    inputencoding=latin1,
+    extendedchars=true,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt,
+    tabsize=2,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{orange},
+    frame=single,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0pt}
+\setstretch{1.5}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\sinc}{sinc}
+\newcommand{\Lap}[1]{\mathcal{L}\left\{#1\right\}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+% Cabeçalho e rodapé em todas as páginas
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Relatório das simulações}
+\fancyfoot[C]{\thepage}
+
+% Dados do Grupo
+\title{
+    Trabalho Nº - Gradiente Normalizado e Least-square Normalizado \\
+    \large COE603 - Controle Adaptativo
+}
+\author{
+    Caio Cesar Leal Verissimo - 119046624 \\
+    Leonardo Soares da Costa Tanaka - 121067652 \\
+    Lincoln Rodrigues Proença - 121076407 \\
+    Engenharia de Controle e Automação - UFRJ \\
+    Rio de Janeiro, Rio de Janeiro, Brasil \\
+    Junho de 2025
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Geração automática do sumário
+\tableofcontents
+\newpage
+
+\section{Descrição dos Algoritmos}
+
+\subsection{Gradiente Normalizado}
+
+\subsection{Least-square Normalizado}
+
+\section{Resultados das Simulações}
+
+\newpage
+
+\section{Discussão dos Resultados}
+
+Os resultados obtidos ao longo das simulações demonstram o bom desempenho dos algoritmos de Gradiente Normalizado (NG) e Least-Square Normalizado (NLS) em cenários variados, apesar de limitações inerentes ao tempo finito de simulação e à estrutura dos sinais de entrada.
+
+No \textbf{caso nominal}, observou-se que o erro converge para valores próximos de zero em todas as parametrizações, mantendo-se limitado ao longo do tempo. Contudo, a solução ótima de identificação não foi plenamente atingida, refletindo-se nos picos de erro que ocorrem nas transições da onda quadrada. Tais descontinuidades impõem desafios à adaptação, uma vez que o sistema precisa reagir rapidamente a mudanças bruscas na referência.
+
+Com a \textbf{mudança do sinal de referência} para uma forma com componente senoidal, notou-se uma leve melhoria na resposta adaptativa, atribuída à maior riqueza espectral do sinal. Entretanto, essa melhoria não foi suficiente para garantir a convergência aos parâmetros ótimos. Além disso, o erro passou a apresentar um comportamento mais ruidoso, o que é esperado, já que fora dos ganhos ideais a planta tem maior dificuldade em acompanhar sinais com maior conteúdo em frequência.
+
+Ao considerar o \textbf{aumento do ganho de adaptação}, identificou-se uma melhora significativa na rapidez de convergência e uma redução no valor absoluto do erro. No entanto, esse ganho mais elevado pode comprometer a robustez do sistema, especialmente quando combinado a outras condições, como estados iniciais não nulos ou perturbações, podendo levar a respostas instáveis ou imprevisíveis.
+
+Por fim, a influência das \textbf{condições iniciais} manifestou-se principalmente como um pico inicial no erro, que, após um período de transiente, tende a decair e a seguir o comportamento do caso nominal. Esse fenômeno destaca a importância de uma análise criteriosa na escolha dos ganhos de adaptação, já que a atualização dos parâmetros identificados é diretamente influenciada pelo valor do erro, especialmente nos instantes iniciais de simulação.
+
+De forma geral, os experimentos reforçam a sensibilidade dos algoritmos NG e NLS a características como a forma do sinal de referência, os ganhos de adaptação e as condições iniciais do sistema. Apesar das limitações observadas, ambos os métodos mostraram-se eficazes em promover a adaptação dos parâmetros em tempo real, mantendo o erro de seguimento sob controle.
+
+\end{document}
