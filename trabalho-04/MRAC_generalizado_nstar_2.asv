@@ -67,9 +67,8 @@ km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
 M = tf(num_M, den_M);  % Modelo não pode ser SPR
-ML = tf(convnum_M, den_M);
-
-xm0 = zeros(n,1);
+M = ss(M);
+xm0 = M.c \ ;
 
 %% Polinômio do Observador Vetorizado
 A0 = [1 1]; 
@@ -85,7 +84,7 @@ Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
-theta0 = 1*theta_star;
+theta0 = 0.95*theta_star;
 sim('MRAC_generalizado2', tfinal);
 
 % Parâmetros ideais replicados no tempo

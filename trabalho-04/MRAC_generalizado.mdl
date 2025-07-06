@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.7"
+    ComputedModelVersion    "1.8"
     NumModelReferences	    0
     NumTestPointedSignals   3
     TestPointedSignal {
@@ -56,8 +56,6 @@ Model {
     OrderedModelArguments   1
   }
   LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering "91375379-6204-4e29-b584-b898db01c62f,b1c03556-8efb-47e3-8c3b-ea0d47cc8d01,995f44ca-3b1b"
-  "-4533-9df6-5245141e0052"
   WebScopes_FoundationPlugin "on"
   SLCCPlugin		  "on"
   slcheck_filter_plugin	  "on"
@@ -111,12 +109,12 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "12"
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
 	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [1.758422459893048]
-	  Offset		  [-230.93492063492067, -86.499643029111638]
-	  SceneRectInView	  [-230.93492063492067, -86.499643029111638, 854.857142857143, 355.77343571808717]
+	  ZoomFactor		  [0.96068796068796092]
+	  Offset		  [-181.9726944643628, 6.175336576600273]
+	  SceneRectInView	  [-181.9726944643628, 6.175336576600273, 1564.7120204603577, 651.19999999999982]
 	}
 	Object {
 	  $ObjectID		  6
@@ -126,19 +124,19 @@ Model {
 	  LoadSaveID		  "22"
 	  Extents		  [1879.0, 782.0]
 	  ZoomFactor		  [1.7608181308193327]
-	  Offset		  [-278.83275024295438, -78.144695113657178]
-	  SceneRectInView	  [-278.83275024295438, -78.144695113657178, 853.69407191448022, 355.28939022731424]
+	  Offset		  [-278.83275024295438, -78.1446951136572]
+	  SceneRectInView	  [-278.83275024295438, -78.1446951136572, 853.69407191448022, 355.28939022731424]
 	}
 	Object {
 	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "12"
 	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [0.96068796068796081]
-	  Offset		  [-181.9726944643628, 6.175336576600273]
-	  SceneRectInView	  [-181.9726944643628, 6.175336576600273, 1564.7120204603577, 651.19999999999982]
+	  ZoomFactor		  [1.7584224598930478]
+	  Offset		  [-230.93492063492067, -86.499643029111667]
+	  SceneRectInView	  [-230.93492063492067, -86.499643029111667, 854.857142857143, 355.77343571808717]
 	}
 	Object {
 	  $ObjectID		  8
@@ -274,9 +272,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "LRPROENC"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 06 00:30:19 2025"
-  RTWModifiedTimeStamp	  673661740
-  ModelVersionFormat	  "%<AutoIncrement:1.7>"
+  LastModifiedDate	  "Sun Jul 06 00:35:23 2025"
+  RTWModifiedTimeStamp	  673662913
+  ModelVersionFormat	  "%<AutoIncrement:1.8>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1523,7 +1521,7 @@ Model {
     Name		    "MRAC_generalizado"
     Location		    [8, 8, 1562, 890]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-    Open		    off
+    Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1829,7 +1827,7 @@ Model {
 	Name			"Plant"
 	Location		[8, 8, 1562, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1871,7 +1869,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "ss(P)"
+	  sys			  "P"
 	  IC			  "x0"
 	}
 	Block {
@@ -2019,7 +2017,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "ss(M)"
+	  sys			  "M"
 	  IC			  "xm0"
 	}
 	Block {

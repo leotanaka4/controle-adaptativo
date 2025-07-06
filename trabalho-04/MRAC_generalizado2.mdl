@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.16"
+    ComputedModelVersion    "7.17"
     NumModelReferences	    0
     NumTestPointedSignals   4
     TestPointedSignal {
@@ -130,9 +130,9 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "22"
 	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [1.430213669150159]
-	  Offset		  [-278.83275024295432, -138.06919339164244]
-	  SceneRectInView	  [-278.83275024295432, -138.06919339164244, 1051.0317670877876, 437.41715905409785]
+	  ZoomFactor		  [1.4614210988655165]
+	  Offset		  [-278.83275024295432, -186.90841395009153]
+	  SceneRectInView	  [-278.83275024295432, -186.90841395009153, 1028.5878595614338, 428.07648013679676]
 	}
 	Object {
 	  $ObjectID		  7
@@ -207,19 +207,6 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  13
-	  Type			  "Simulink:Editor:ReferencedFiles"
-	  ID			  "Referenced Files"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
-	  Floating		  [0]
-	  DockPosition		  "Left"
-	  Width			  [512]
-	  Height		  [384]
-	  Minimized		  "Unset"
-	}
-	Object {
-	  $ObjectID		  14
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [0]
@@ -227,6 +214,19 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
+	  Width			  [512]
+	  Height		  [384]
+	  Minimized		  "Unset"
+	}
+	Object {
+	  $ObjectID		  14
+	  Type			  "Simulink:Editor:ReferencedFiles"
+	  ID			  "Referenced Files"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
+	  Floating		  [0]
+	  DockPosition		  "Left"
 	  Width			  [512]
 	  Height		  [384]
 	  Minimized		  "Unset"
@@ -257,9 +257,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "LRPROENC"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 06 00:30:08 2025"
-  RTWModifiedTimeStamp	  673661706
-  ModelVersionFormat	  "%<AutoIncrement:7.16>"
+  LastModifiedDate	  "Sun Jul 06 00:35:48 2025"
+  RTWModifiedTimeStamp	  673662945
+  ModelVersionFormat	  "%<AutoIncrement:7.17>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1959,7 +1959,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "ss(P)"
+	  sys			  "P"
 	  IC			  "x0"
 	}
 	Block {
@@ -2079,7 +2079,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"143"
+	ZoomFactor		"146"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2115,7 +2115,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "ss(M)"
+	  sys			  "M"
 	  IC			  "xm0"
 	}
 	Block {

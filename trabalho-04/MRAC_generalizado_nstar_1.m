@@ -3,7 +3,7 @@ clc; close all;
 
 %% ======= Escolher Ordem do Sistema =======
 n = 3;  % ordem da planta e do modelo
-reset = 0; % resetar a planta / usar a que já foi criada
+reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = 10*eye(2*n);
@@ -34,7 +34,9 @@ if reset
     plant_num = kp * poly(plant_zeros);            % numerador grau n-1
 
     P = tf(plant_num, plant_den);
-    x0 = zeros(n, 1);
+    P = ss(P);
+    y0 = 0;
+    x0 = P.c \ y0;
 end
 %% ======= Gerar Modelo SPR com polos e zeros alternados =======
 
@@ -56,7 +58,9 @@ km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
 M = tf(num_M, den_M);  % Modelo SPR garantido
-xm0 = zeros(n,1);
+M = ss(M);
+ym0 = 0;
+xm0 = M.c \ ym0;
 
 %% Polinômio do Observador
 A0 = 1; 

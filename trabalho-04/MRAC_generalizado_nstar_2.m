@@ -35,7 +35,9 @@ if reset
     plant_num = kp * poly(plant_zeros);            % numerador grau n-2
 
     P = tf(plant_num, plant_den);
-    x0 = zeros(n, 1);
+    P = ss(P);
+    y0 = 0;
+    x0 = P.c \ y0;
 end
 %% ======= Gerar Modelo SPR com polos e zeros alternados =======
 
@@ -67,7 +69,9 @@ km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
 M = tf(num_M, den_M);  % Modelo não pode ser SPR
-xm0 = zeros(n,1);
+M = ss(M);
+ym0 = 0;
+xm0 = M.c \ ym0;
 
 %% Polinômio do Observador Vetorizado
 A0 = [1 1]; 
