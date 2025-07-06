@@ -52,7 +52,8 @@ function [theta1, theta_n, theta2, theta_2n, L] = controle2DOF(P, M, A0)
     k = 1;  % índice para gerar lambdas distintos
     while grau_Lambda < n - 1
         %lambda_k = sym(['lambda', num2str(k)]);
-        lambda_k = -0.25*k^2+1.75*k-1;
+        %lambda_k = -0.25*k^2+1.75*k-1;
+        lambda_k =1;
         fator = s + lambda_k;
         Nm = expand(Nm * fator);
         Dm = expand(Dm * fator);

@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.5"
+    ComputedModelVersion    "1.6"
     NumModelReferences	    0
     NumTestPointedSignals   3
     TestPointedSignal {
@@ -55,15 +55,15 @@ Model {
     }
     OrderedModelArguments   1
   }
-  WebScopes_FoundationPlugin "on"
-  SLCCPlugin		  "on"
-  slcheck_filter_plugin	  "on"
-  NotesPlugin		  "on"
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering "91375379-6204-4e29-b584-b898db01c62f,b1c03556-8efb-47e3-8c3b-ea0d47cc8d01,995f44ca-3b1b"
   "-4533-9df6-5245141e0052"
+  WebScopes_FoundationPlugin "on"
+  SLCCPlugin		  "on"
+  slcheck_filter_plugin	  "on"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
+  NotesPlugin		  "on"
   SimscapeDaeAutoSolver	  "ode23t"
   SimscapeModelParametersPlugin	"on"
   EnableAccessToBaseWorkspace on
@@ -86,7 +86,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1936.0, 1056.0]
+      Location		      [8.0, 8.0, 1554.0, 882.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -113,13 +113,24 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1882.0, 814.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [-152.41668423418366, 6.175336576600273]
-	  SceneRectInView	  [-152.41668423418366, 6.175336576600273, 1505.6, 651.2]
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [0.9606879606879607]
+	  Offset		  [-181.9726944643628, 6.175336576600273]
+	  SceneRectInView	  [-181.9726944643628, 6.175336576600273, 1564.712020460358, 651.19999999999993]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "29"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [2.009625668449198]
+	  Offset		  [-253.89843749999989, -26.650878126663088]
+	  SceneRectInView	  [-253.89843749999989, -26.650878126663088, 748.0, 311.30175625332623]
+	}
+	Object {
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -130,7 +141,7 @@ Model {
 	  SceneRectInView	  [-199.16666666666663, -59.461538461538453, 1206.4102564102564, 521.79487179487182]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -139,17 +150,6 @@ Model {
 	  ZoomFactor		  [1.75]
 	  Offset		  [-230.93492063492067, -76.612925170068053]
 	  SceneRectInView	  [-230.93492063492067, -76.612925170068053, 854.85714285714289, 336.0]
-	}
-	Object {
-	  $ObjectID		  8
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "29"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [2.0]
-	  Offset		  [-253.89843749999989, -17.999999999999972]
-	  SceneRectInView	  [-253.89843749999989, -17.999999999999972, 748.0, 294.0]
 	}
 	Object {
 	  $ObjectID		  9
@@ -231,8 +231,8 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	Object {
@@ -244,19 +244,19 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADJfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAABjAP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAHgAAAA2sAAAABAAAAAgAAAAEAAAAC/"
-      "AAAAAEAAAACAAAAAA=="
+      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHhAAAA1UAAAABAAAAAgAAAAEAAAAC/"
+      "AAAAAEAAAACAAAAAf////8BAAAAAP////8AAAAAAAAAAA=="
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -272,11 +272,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "linco"
+  LastModifiedBy	  "LRPROENC"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 23 20:59:59 2025"
-  RTWModifiedTimeStamp	  672612563
-  ModelVersionFormat	  "%<AutoIncrement:1.5>"
+  LastModifiedDate	  "Sat Jul 05 23:38:30 2025"
+  RTWModifiedTimeStamp	  673656977
+  ModelVersionFormat	  "%<AutoIncrement:1.6>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1521,7 +1521,7 @@ Model {
   }
   System {
     Name		    "MRAC_generalizado"
-    Location		    [-8, -8, 1928, 1048]
+    Location		    [8, 8, 1562, 890]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1537,9 +1537,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "96"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "72"
+    SIDHighWatermark	    "73"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -2100,7 +2100,7 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[94, 94, 1644, 924]
+	Location		[8, 8, 1562, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -2116,7 +2116,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"200"
+	ZoomFactor		"201"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
@@ -2147,7 +2147,7 @@ Model {
 	  Name			  "Sine wave"
 	  SID			  "32"
 	  Ports			  [0, 1]
-	  Position		  [55, 110, 85, 140]
+	  Position		  [-25, 80, 5, 110]
 	  ZOrder		  -3
 	  Amplitude		  "As"
 	  Frequency		  "ws"
@@ -2164,14 +2164,25 @@ Model {
 	  SampleTime		  "0"
 	}
 	Block {
+	  BlockType		  Sin
+	  Name			  "Sine wave2"
+	  SID			  "73"
+	  Ports			  [0, 1]
+	  Position		  [-25, 130, 5, 160]
+	  ZOrder		  9
+	  Amplitude		  "As2"
+	  Frequency		  "ws2"
+	  SampleTime		  "0"
+	}
+	Block {
 	  BlockType		  Sum
 	  Name			  "Sum1"
 	  SID			  "65"
-	  Ports			  [3, 1]
+	  Ports			  [4, 1]
 	  Position		  [125, 110, 155, 140]
 	  ZOrder		  8
 	  ShowName		  off
-	  Inputs		  "+++"
+	  Inputs		  "++++"
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
@@ -2248,16 +2259,17 @@ Model {
 	  ZOrder		  16
 	  SrcBlock		  "Sine wave"
 	  SrcPort		  1
+	  Points		  [92, 0; 0, 15]
 	  DstBlock		  "Sum1"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  20
+	  ZOrder		  23
 	  SrcBlock		  "Relay"
 	  SrcPort		  1
-	  Points		  [50, 0]
+	  Points		  [12, 0; 0, -45]
 	  DstBlock		  "Sum1"
-	  DstPort		  3
+	  DstPort		  4
 	}
 	Line {
 	  ZOrder		  10
@@ -2265,6 +2277,14 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Relay"
 	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  24
+	  SrcBlock		  "Sine wave2"
+	  SrcPort		  1
+	  Points		  [93, 0; 0, -5]
+	  DstBlock		  "Sum1"
+	  DstPort		  3
 	}
       }
     }

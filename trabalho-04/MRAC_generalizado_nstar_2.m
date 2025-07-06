@@ -4,7 +4,7 @@ clc; close all;
 %% ======= Escolher Ordem do Sistema =======
 n = 3;  % ordem da planta e do modelo
 n_star = 2; % grau relativo da planta
-reset = 0; % resetar a planta / usar a que já foi criada
+reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = 10*eye(2*n);
@@ -14,10 +14,12 @@ theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 2   %Constant
-Aq = 2   %Sqr wave amplitude
+Aq = 5   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
-As = 5   %Sine wave amplitude
-ws = 1%pi  %Frequency
+As = 3   %Sine wave amplitude
+ws = 0.2*pi  %Frequency
+As2 = 2   %Sine wave amplitude
+ws2 = 0.3*pi  %Frequency
 
 
 %% ======= Gerar Planta =======
@@ -29,7 +31,7 @@ if reset
     % Zeros reais negativos para numerador (mínima fase)
     plant_zeros = -randi([1, 5], 1, n-2);          % zeros reais negativos
 
-    kp = 2 + rand();                               % ganho da planta
+    kp = 2;% + rand();                               % ganho da planta
     plant_num = kp * poly(plant_zeros);            % numerador grau n-2
 
     P = tf(plant_num, plant_den);
@@ -68,7 +70,7 @@ M = tf(num_M, den_M);  % Modelo não pode ser SPR
 xm0 = zeros(n,1);
 
 %% Polinômio do Observador Vetorizado
-A0 = [1 10]; 
+A0 = [1 1]; 
 
 %% Rodar cálculo dos parâmetros ideais
 [theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);

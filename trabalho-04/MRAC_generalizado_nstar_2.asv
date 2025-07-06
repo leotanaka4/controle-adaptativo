@@ -3,6 +3,7 @@ clc; close all;
 
 %% ======= Escolher Ordem do Sistema =======
 n = 3;  % ordem da planta e do modelo
+n_star = 2; % grau relativo da planta
 reset = 1; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
@@ -28,10 +29,10 @@ if reset
     plant_den = poly(plant_polos);
 
     % Zeros reais negativos para numerador (mínima fase)
-    plant_zeros = -randi([1, 5], 1, n-1);          % zeros reais negativos
+    plant_zeros = -randi([1, 5], 1, n-2);          % zeros reais negativos
 
-    kp = 2 + rand();                               % ganho da planta
-    plant_num = kp * poly(plant_zeros);            % numerador grau n-1
+    kp = 2;% + rand();                               % ganho da planta
+    plant_num = kp * poly(plant_zeros);            % numerador grau n-2
 
     P = tf(plant_num, plant_den);
     x0 = zeros(n, 1);
@@ -43,23 +44,35 @@ pole_spacing = 2.0;
 poles_M = sort(-1 * (1:pole_spacing:n*pole_spacing) );
 
 % Passo 2: gerar zeros entre os polos (alternados)
-zeros_M = zeros(1, n-1);
-for i = 1:n-1
-    zeros_M(i) = (poles_M(i) + poles_M(i+1)) / 2;  % entre dois polos
+zeros_M = zeros(1, n-2);
+for i = 1:n-2
+    zeros_M(i) = (poles_M(end - i) + poles_M( end -i+1)) / 2;  % entre dois polos
 end
+
+%Passo 3: gerar multiplicador de Monopoli L(s)
+if isempty(zeros_M)
+    zeros_L = -2;
+else
+    zeros_L = zeros_M(end) - 2;
+end
+
+l0 = -zeros_L;
 
 % Polinômios
 den_M = poly(poles_M);
 num_M = poly(zeros_M);
-
+num_L = poly(zeros_L);
+% Ganho positivo arbitrário
 km = polyval(den_M, 0) / polyval(num_M, 0);
 num_M = km * num_M;
 
-M = tf(num_M, den_M);  % Modelo SPR garantido
+M = tf(num_M, den_M);  % Modelo não pode ser SPR
+ML = tf(convnum_M, den_M);
+
 xm0 = zeros(n,1);
 
-%% Polinômio do Observador
-A0 = 1; 
+%% Polinômio do Observador Vetorizado
+A0 = [1 1]; 
 
 %% Rodar cálculo dos parâmetros ideais
 [theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);
@@ -72,8 +85,8 @@ Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
-%theta0 = 0.95*theta_star;
-sim('MRAC_generalizado', tfinal);
+theta0 = 1*theta_star;
+sim('MRAC_generalizado2', tfinal);
 
 % Parâmetros ideais replicados no tempo
 theta_star_t = repmat(theta_star, 1, length(t));
@@ -115,7 +128,6 @@ ylabel('\theta');
 title('\theta estimado vs \theta^* (ideal)');
 legend(arrayfun(@(i)sprintf('\\theta_{%d}', i), 1:4*n, 'UniformOutput', false));
 grid on;
-
 % 3. Erro de acompanhamento
 subplot(3,2,3);
 plot(t, ea, 'm', 'LineWidth', 1.2);
