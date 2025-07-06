@@ -72,7 +72,7 @@ Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:
 Bf = zeros(nf,1); Bf(end) = 1;
 
 %% ======= Simulação e Processamento =======
-theta0 = 0.95*theta_star;
+%theta0 = 0.95*theta_star;
 sim('MRAC_generalizado', tfinal);
 
 % Parâmetros ideais replicados no tempo
