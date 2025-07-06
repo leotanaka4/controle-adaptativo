@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.15"
+    ComputedModelVersion    "7.16"
     NumModelReferences	    0
     NumTestPointedSignals   4
     TestPointedSignal {
@@ -63,7 +63,6 @@ Model {
     OrderedModelArguments   1
   }
   LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering "794c3240-ef97-40de-8188-b8273184b6b3"
   WebScopes_FoundationPlugin "on"
   SLCCPlugin		  "on"
   slcheck_filter_plugin	  "on"
@@ -112,7 +111,7 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		5
+	Dimension		8
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [1]
@@ -130,13 +129,57 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "22"
-	  Extents		  [1920.0, 1018.0]
+	  Extents		  [1879.0, 782.0]
 	  ZoomFactor		  [1.430213669150159]
-	  Offset		  [-278.83275024295432, -120.58928773890517]
-	  SceneRectInView	  [-278.83275024295432, -120.58928773890517, 1073.9654033041788, 569.145728053126]
+	  Offset		  [-278.83275024295432, -138.06919339164244]
+	  SceneRectInView	  [-278.83275024295432, -138.06919339164244, 1051.0317670877876, 437.41715905409785]
 	}
 	Object {
 	  $ObjectID		  7
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "12"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [1.5980926430517712]
+	  Offset		  [-302.21065643648757, -101.23333333333335]
+	  SceneRectInView	  [-302.21065643648757, -101.23333333333335, 940.62131287297518, 391.46666666666664]
+	}
+	Object {
+	  $ObjectID		  8
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "24"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [2.0]
+	  Offset		  [-91.9600000000002, 16.979999999998967]
+	  SceneRectInView	  [-91.9600000000002, 16.979999999998967, 751.6, 312.8]
+	}
+	Object {
+	  $ObjectID		  9
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "24:862"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-538.7, -257.8]
+	  SceneRectInView	  [-538.7, -257.8, 1503.2, 625.6]
+	}
+	Object {
+	  $ObjectID		  10
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "24:864"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [1.4999999999999996]
+	  Offset		  [-177.12666666666678, -178.28000000000006]
+	  SceneRectInView	  [-177.12666666666678, -178.28000000000006, 1002.1333333333336, 417.06666666666678]
+	}
+	Object {
+	  $ObjectID		  11
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -147,7 +190,7 @@ Model {
 	  SceneRectInView	  [-262.22857142857157, -35.820702393603568, 997.33333333333337, 431.36521431101664]
 	}
 	Object {
-	  $ObjectID		  8
+	  $ObjectID		  12
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -157,24 +200,13 @@ Model {
 	  Offset		  [-237.61171874999957, -225.83333333333343]
 	  SceneRectInView	  [-237.61171874999957, -225.83333333333343, 730.4, 587.2]
 	}
-	Object {
-	  $ObjectID		  9
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "12"
-	  Extents		  [913.0, 734.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [-75.366666666666646, -101.23333333333335]
-	  SceneRectInView	  [-75.366666666666646, -101.23333333333335, 486.93333333333334, 391.46666666666664]
-	}
 	PropName		"EditorsInfo"
       }
       Array {
 	Type			"Simulink.DockComponentInfo"
 	Dimension		2
 	Object {
-	  $ObjectID		  10
+	  $ObjectID		  13
 	  Type			  "Simulink:Editor:ReferencedFiles"
 	  ID			  "Referenced Files"
 	  Visible		  [0]
@@ -187,7 +219,7 @@ Model {
 	  Minimized		  "Unset"
 	}
 	Object {
-	  $ObjectID		  11
+	  $ObjectID		  14
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [0]
@@ -225,9 +257,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "LRPROENC"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 05 23:02:02 2025"
-  RTWModifiedTimeStamp	  673657319
-  ModelVersionFormat	  "%<AutoIncrement:7.15>"
+  LastModifiedDate	  "Sun Jul 06 00:30:08 2025"
+  RTWModifiedTimeStamp	  673661706
+  ModelVersionFormat	  "%<AutoIncrement:7.16>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -285,7 +317,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    12
+    $ObjectID		    15
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "MRAC_generalizado2"
     Array {
@@ -303,7 +335,7 @@ Model {
   }
   Object {
     $PropName		    "InstrumentedSignals"
-    $ObjectID		    13
+    $ObjectID		    16
     $ClassName		    "Simulink.HMI.InstrumentedSignals"
     Array {
       Type		      "Struct"
@@ -437,7 +469,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      14
+      $ObjectID		      17
       Version		      "21.0.0"
       DisabledProps	      []
       Description	      ""
@@ -445,7 +477,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  15
+	  $ObjectID		  18
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -488,7 +520,7 @@ Model {
 	  ODENIntegrationMethod	  "ode3"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  16
+	  $ObjectID		  19
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -530,7 +562,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  17
+	  $ObjectID		  20
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -605,7 +637,7 @@ Model {
 	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  18
+	  $ObjectID		  21
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -727,7 +759,7 @@ Model {
 	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  19
+	  $ObjectID		  22
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -777,7 +809,7 @@ Model {
 	  HardwareBoardFeatureSet "EmbeddedCoderHSP"
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  20
+	  $ObjectID		  23
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -797,7 +829,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  21
+	  $ObjectID		  24
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -846,7 +878,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  22
+	  $ObjectID		  25
 	  Version		  "21.0.0"
 	  Array {
 	    Type		    "Cell"
@@ -953,7 +985,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      23
+	      $ObjectID		      26
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1043,7 +1075,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      24
+	      $ObjectID		      27
 	      Version		      "21.0.0"
 	      Array {
 		Type			"Cell"
@@ -1149,7 +1181,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  25
+	  $ObjectID		  28
 	  Version		  "21.0.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -1198,11 +1230,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    14
+    $ObjectID		    17
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    26
+    $ObjectID		    29
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1514,7 +1546,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "115"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "95"
+    SIDHighWatermark	    "96"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1883,7 +1915,7 @@ Model {
       }
       System {
 	Name			"Plant"
-	Location		[762, 0, 1543, 822]
+	Location		[0, 4, 1554, 886]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -1899,7 +1931,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"160"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -1927,7 +1959,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "P"
+	  sys			  "ss(P)"
 	  IC			  "x0"
 	}
 	Block {
@@ -2031,7 +2063,7 @@ Model {
       }
       System {
 	Name			"Reference model"
-	Location		[58, 108, 1994, 1164]
+	Location		[0, 4, 1554, 886]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			on
 	PortBlocksUseCompactNotation off
@@ -2083,7 +2115,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "M"
+	  sys			  "ss(M)"
 	  IC			  "xm0"
 	}
 	Block {
@@ -2168,7 +2200,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"r"
-	DataLogging		on
       }
       System {
 	Name			"Reference signal"

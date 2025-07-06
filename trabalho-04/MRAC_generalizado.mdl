@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.6"
+    ComputedModelVersion    "1.7"
     NumModelReferences	    0
     NumTestPointedSignals   3
     TestPointedSignal {
@@ -111,15 +111,37 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "12"
 	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [0.9606879606879607]
-	  Offset		  [-181.9726944643628, 6.175336576600273]
-	  SceneRectInView	  [-181.9726944643628, 6.175336576600273, 1564.712020460358, 651.19999999999993]
+	  ZoomFactor		  [1.758422459893048]
+	  Offset		  [-230.93492063492067, -86.499643029111638]
+	  SceneRectInView	  [-230.93492063492067, -86.499643029111638, 854.857142857143, 355.77343571808717]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "22"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [1.7608181308193327]
+	  Offset		  [-278.83275024295438, -78.144695113657178]
+	  SceneRectInView	  [-278.83275024295438, -78.144695113657178, 853.69407191448022, 355.28939022731424]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1879.0, 782.0]
+	  ZoomFactor		  [0.96068796068796081]
+	  Offset		  [-181.9726944643628, 6.175336576600273]
+	  SceneRectInView	  [-181.9726944643628, 6.175336576600273, 1564.7120204603577, 651.19999999999982]
+	}
+	Object {
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -130,7 +152,7 @@ Model {
 	  SceneRectInView	  [-253.89843749999989, -26.650878126663088, 748.0, 311.30175625332623]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -139,28 +161,6 @@ Model {
 	  ZoomFactor		  [1.56]
 	  Offset		  [-199.16666666666663, -59.461538461538453]
 	  SceneRectInView	  [-199.16666666666663, -59.461538461538453, 1206.4102564102564, 521.79487179487182]
-	}
-	Object {
-	  $ObjectID		  8
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "12"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.75]
-	  Offset		  [-230.93492063492067, -76.612925170068053]
-	  SceneRectInView	  [-230.93492063492067, -76.612925170068053, 854.85714285714289, 336.0]
-	}
-	Object {
-	  $ObjectID		  9
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "22"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.7523841961852857]
-	  Offset		  [-278.83275024295438, -68.271428571428629]
-	  SceneRectInView	  [-278.83275024295438, -68.271428571428629, 853.69407191448022, 335.5428571428572]
 	}
 	Object {
 	  $ObjectID		  10
@@ -224,19 +224,6 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  15
-	  Type			  "Simulink:Editor:ReferencedFiles"
-	  ID			  "Referenced Files"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
-	  Floating		  [0]
-	  DockPosition		  "Left"
-	  Width			  [512]
-	  Height		  [384]
-	  Minimized		  "Unset"
-	}
-	Object {
-	  $ObjectID		  16
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [0]
@@ -244,6 +231,19 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
+	  Width			  [512]
+	  Height		  [384]
+	  Minimized		  "Unset"
+	}
+	Object {
+	  $ObjectID		  16
+	  Type			  "Simulink:Editor:ReferencedFiles"
+	  ID			  "Referenced Files"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
+	  Floating		  [0]
+	  DockPosition		  "Left"
 	  Width			  [512]
 	  Height		  [384]
 	  Minimized		  "Unset"
@@ -274,9 +274,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "LRPROENC"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 05 23:38:30 2025"
-  RTWModifiedTimeStamp	  673656977
-  ModelVersionFormat	  "%<AutoIncrement:1.6>"
+  LastModifiedDate	  "Sun Jul 06 00:30:19 2025"
+  RTWModifiedTimeStamp	  673661740
+  ModelVersionFormat	  "%<AutoIncrement:1.7>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1523,7 +1523,7 @@ Model {
     Name		    "MRAC_generalizado"
     Location		    [8, 8, 1562, 890]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1827,9 +1827,9 @@ Model {
       }
       System {
 	Name			"Plant"
-	Location		[94, 94, 1644, 924]
+	Location		[8, 8, 1562, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1843,7 +1843,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"175"
+	ZoomFactor		"176"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -1871,7 +1871,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "P"
+	  sys			  "ss(P)"
 	  IC			  "x0"
 	}
 	Block {
@@ -1975,7 +1975,7 @@ Model {
       }
       System {
 	Name			"Reference model"
-	Location		[94, 94, 1644, 924]
+	Location		[8, 8, 1562, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -1991,7 +1991,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"175"
+	ZoomFactor		"176"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2019,7 +2019,7 @@ Model {
 	  RTWMemSecDataInternal	  "Inherit from model"
 	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
-	  sys			  "M"
+	  sys			  "ss(M)"
 	  IC			  "xm0"
 	}
 	Block {
