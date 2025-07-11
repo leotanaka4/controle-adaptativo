@@ -1,0 +1,162 @@
+\documentclass[10pt]{article}
+
+% Pacotes extras necessários
+\usepackage{amsmath}
+\usepackage[lmargin=0.5in, rmargin=0.5in, tmargin=0.5in, bmargin=0.5in, includehead, includefoot]{geometry}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{appendix}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{makecell}
+\usetikzlibrary{positioning}
+
+% Define estilo para listagens de código
+\lstdefinestyle{mystyle}{
+    language=Matlab,
+    inputencoding=latin1,
+    extendedchars=true,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt,
+    tabsize=2,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{orange},
+    frame=single,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0pt}
+\setstretch{1.5}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\sinc}{sinc}
+\newcommand{\Lap}[1]{\mathcal{L}\left\{#1\right\}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+% Cabeçalho e rodapé em todas as páginas
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Relatório das simulações}
+\fancyfoot[C]{\thepage}
+
+% Dados do Grupo
+\title{
+    Trabalho Nº 07 -  Combined M-MRAC + LS \\
+    \large COE603 - Controle Adaptativo
+}
+\author{
+    Caio Cesar Leal Verissimo - 119046624 \\
+    Leonardo Soares da Costa Tanaka - 121067652 \\
+    Lincoln Rodrigues Proença - 121076407 \\
+    Engenharia de Controle e Automação - UFRJ \\
+    Rio de Janeiro, Rio de Janeiro, Brasil \\
+    Julho de 2025
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Geração automática do sumário
+\tableofcontents
+\newpage
+
+\section{Descrição do Algoritmo}
+
+\subsection{Introdução ao Algoritmo}
+
+\subsection{Análise de Estabilidade}
+
+\subsection{Resumo do Algoritmo}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|>{\bfseries}m{4cm}|m{7cm}|c|}
+\hline
+\textcolor{blue}{Subsistema} & \textcolor{blue}{Equação} & \textcolor{blue}{Ordem} \\
+\hline
+Planta & $y = P(s)\,u$ & $n$ \\
+\hline
+Modelo & $y_m = M(s)\,r$ & $n$ \\
+\hline
+Erro de rastreamento & $e_a = \text{sign}(k_p)(y - y_m)$ & \\
+\hline
+Filtros SV & 
+$\begin{aligned}
+\dot{\omega}_1 &= A_f \omega_1 + b_f u \\
+\dot{\omega}_2 &= A_f \omega_2 + b_f y
+\end{aligned}$ & $n-1$ \\
+\hline
+Regressor & $\omega^T = \begin{bmatrix} \omega_1^T & y & \omega_2^T & r \end{bmatrix}$ & \\
+\hline
+Filtro $\xi$ & 
+$\begin{aligned}
+\xi &= -\ell_0 \xi + \omega, \quad \ell_0 > a_m
+\end{aligned}$ & $2n$ \\
+\hline
+Lei de controle & $u = \theta^T \omega + \dot{\theta}^T \xi$ & \\
+\hline
+Lei de adaptação & 
+$\begin{aligned}
+\dot{\theta} &= -\Gamma \xi e_a - \sigma \Delta, \quad \Gamma = \Gamma^T > 0, \quad \sigma > 0 \\
+\Delta &= \theta - \psi
+\end{aligned}$ & $2n$ \\
+\hline
+Filtros auxiliares & 
+$\begin{aligned}
+\dot{\zeta} &= -\ell_0 \zeta + u \\
+\dot{\varphi} &= -\ell_0 \varphi + e_0
+\end{aligned}$ & $1$ \\
+\hline
+Predição & 
+$\begin{aligned}
+\hat{\zeta} &= \psi^T \phi \\
+\phi &= \xi + \left[ \mathbf{0}^T \quad (e_0 - \alpha \varphi) \right]^T, \quad \mathbf{0} \in \mathbb{R}^{2n-1}
+\end{aligned}$ & \\
+\hline
+Erro de predição & $\varepsilon = \hat{\zeta} - \zeta$ & \\
+\hline
+Estimador LS & 
+$\begin{aligned}
+\dot{\psi} &= -R \left( \tau \phi \varepsilon - \frac{\sigma}{\beta} \Gamma^{-1} \Delta \right), \quad \tau > \frac{1}{2}, \quad \beta > 0 \\
+\dot{R} &= - \frac{R \phi \phi^T R}{m^2}, \quad R(0) = R^T(0) > 0 \\
+m^2 &= 1 + \kappa \phi^T R \phi, \quad \kappa \geq 0
+\end{aligned}$ & 
+$\begin{aligned}
+2n \\
+\textcolor{red}{4n^2}
+\end{aligned}$ \\
+\hline
+\end{tabular}
+\caption{Resumo dos subsistemas, equações e ordens no controle adaptativo}
+\vspace{1em}
+\textbf{Dimensão total do sistema:} \quad
+\fcolorbox{magenta}{white}{$\displaystyle N = 10n + \textcolor{red}{4n^2}$}
+\end{table}
+
+\section{Resultados das Simulações}
+
+\section{Discussão dos Resultados}
+
+
+\end{document}
