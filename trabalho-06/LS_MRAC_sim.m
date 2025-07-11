@@ -27,24 +27,18 @@ xm0 = M.c \ ym0;
 Lambda = 1 / ((s + 0.5)*(s + 1)*(s + 1.5));
 l0 = 2;
 
-%% ======= Definir Filtro =======
-% Get numerator and denominator coefficients
-[num, den] = tfdata(Lambda, 'v');
-den = den / den(1);
-nf = n-1;
-Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den(2:end));
-Bf = zeros(nf,1); Bf(end) = 1;
+%% Polinômio do Observador Vetorizado
+A0 = 1; 
 
-theta_star = [
-    -7.25;
-    -9.25;
-    -3;
-    -12;
-    6.75;
-    22.5;
-    18.75;
-    3
-];
+%% Rodar cálculo dos parâmetros ideais
+[theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);
+theta_star = [theta1(:); theta_n; theta2(:); theta_2n];
+
+%% ======= Definir Filtro =======
+% Forma canônica controlável
+nf = n-1;
+Af = zeros(nf); Af(1:nf-1, 2:nf) = eye(nf-1); Af(end, :) = -fliplr(den_filtro(2:end));
+Bf = zeros(nf,1); Bf(end) = 1;
 %theta0 = theta_star;
 
 sim('LS_MRAC', tfinal);
@@ -55,10 +49,6 @@ theta_star_t = repmat(theta_star, 1, length(t));
 % Normas dos parâmetros
 norm_theta = vecnorm(theta');
 norm_theta_star = vecnorm(theta_star_t);
-
-% Entrada ideal
-u_star = theta_star' * w';
-u_star_t = repmat(u_star, 1, length(t));
 
 % Erro de parâmetros e sua norma
 theta_til = theta' - theta_star_t;
@@ -108,10 +98,12 @@ grid on;
 
 % 5. Controle u e u*
 subplot(3,2,4);
-plot(t, u, 'r', 'LineWidth', 1.2); hold on;
-plot(t, u_star, 'b--', 'LineWidth', 1.2);
+plot(t, sum(theta_til.*w',1) + sum(dtheta'.*w',1), 'LineWidth', 1.2); hold on;
+plot(t, sum(theta_til.*w',1), 'LineWidth', 1.2);
+plot(t, sum(dtheta'.*w',1), 'LineWidth', 1.2);
 xlabel('Tempo [s]'); ylabel('u(t)');
-legend('u','u^*');
+legend('$\tilde{u}$', '$\tilde{\theta}^T \omega$', '$\dot{\theta}^T \omega$', 'Interpreter', 'latex');
+
 title('Controle aplicado vs ideal');
 grid on;
 
