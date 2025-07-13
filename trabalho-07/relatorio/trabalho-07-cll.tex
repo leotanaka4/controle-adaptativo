@@ -126,7 +126,7 @@
 
 \textbf{Modelo de identificação:}
 \begin{equation}
-    \dot{\hat{y}} = -a_i \epsilon + \psi_1 y + \psi_2 u, \quad a_i > 0
+    \dot{\hat{y}} = -a_i \epsilon - \psi_1 y + \psi_2 u, \quad a_i > 0
 \end{equation}
 
 \textbf{Erro de identificação:}
@@ -149,7 +149,7 @@
 
 \textbf{Equação de identificação:}
 \begin{equation}
-    \dot{\epsilon} = -a_i \epsilon + \tilde{\psi}_1 y + \tilde{\psi}_2 u
+    \dot{\epsilon} = -a_i \epsilon - \tilde{\psi}_1 y + \tilde{\psi}_2 u
 \end{equation}
 
 \subsection*{Leis de Atualização}
@@ -162,7 +162,7 @@
 \textbf{Identificação:}
 \begin{align}
     \dot{\psi}_1 &= \kappa_1 \epsilon y + \kappa_2 \Delta_1 \\
-    \dot{\psi}_2 &= \kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
+    \dot{\psi}_2 &= -\kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
 \end{align}
 
 \subsection*{Reescrevendo as Funções $\Delta$}
@@ -181,71 +181,90 @@
 Seja a seguinte função de Lyapunov candidata:
 
 \begin{equation}
-V = \frac{\gamma_1}{2\gamma_2} e^2 + \frac{|k_p|}{\gamma_2} \tilde{\theta}^T \tilde{\theta} + \frac{\kappa_1}{2\kappa_2} \epsilon^2 + \frac{1}{\kappa_2} \tilde{\psi}^T \tilde{\psi}
+V = \frac{\gamma_1}{2\gamma_2} e^2 + \frac{|k_p|}{2\gamma_2} \tilde{\theta}^T \tilde{\theta} + \frac{\kappa_1}{2\kappa_2} \epsilon^2 + \frac{1}{2\kappa_2} \tilde{\psi}^T \tilde{\psi}
+\label{eq:lyapunov}
 \end{equation}
 
 Ela é positiva definida, pois cada termo representa um quadrado ponderado por constantes positivas. Derivando \(V\) no tempo, temos:
 
-\begin{align*}
-\dot{V} &= \frac{\gamma_1}{\gamma_2} e \dot{e} + \frac{2|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} + \frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} + \frac{2}{\kappa_2} \tilde{\psi}^T \dot{\psi}
-\end{align*}
+\begin{equation}
+\dot{V} = \frac{\gamma_1}{\gamma_2} e \dot{e} + \frac{|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} + \frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} + \frac{1}{\kappa_2} \tilde{\psi}^T \dot{\psi}
+\label{eq:Vdot_geral}
+\end{equation}
 
 \textbf{Derivada do erro de rastreamento \(e\):}
-\[
+
+\begin{equation}
 \dot{e} = -a_m e + k_p \tilde{\theta}^T \omega
-\quad \Rightarrow \quad
+\label{eq:edot}
+\end{equation}
+
+\begin{equation}
+\Rightarrow \quad
 \frac{\gamma_1}{\gamma_2} e \dot{e} = -\frac{\gamma_1}{\gamma_2} a_m e^2 + \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega
-\]
+\label{eq:Vdot_e}
+\end{equation}
 
 \textbf{Lei de adaptação de \(\theta\):}
-\[
-\dot{\theta} = -\operatorname{sign}(k_p) \big[\gamma_1 e \omega + \gamma_2 \Delta \big]
-\quad \Rightarrow \quad
-\tilde{\theta}^T \dot{\theta} = -\operatorname{sign}(k_p) \gamma_1 e \tilde{\theta}^T \omega - \operatorname{sign}(k_p) \gamma_2 \tilde{\theta}^T \Delta
-\]
 
-Logo:
-\[
-\frac{2|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} = -2 \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega - 2 k_p \tilde{\theta}^T \Delta
-\]
+\begin{equation}
+\dot{\theta} = -\operatorname{sign}(k_p) \left[\gamma_1 e \omega + \gamma_2 \Delta \right]
+\label{eq:thetadot}
+\end{equation}
+
+\begin{equation}
+\Rightarrow \quad
+\frac{|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} = - \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega - k_p \tilde{\theta}^T \Delta
+\label{eq:Vdot_theta}
+\end{equation}
 
 \textbf{Derivada do erro de identificação \(\epsilon\):}
-\[
-\dot{\epsilon} = -a_i \epsilon + \tilde{\psi}^T \phi \quad \text{com} \quad \phi = \begin{bmatrix} y \\ u \end{bmatrix}
-\quad \Rightarrow \quad
-\frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} = -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 + \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}^T \phi
-\]
+
+\begin{equation}
+\dot{\epsilon} = -a_i \epsilon - \tilde{\psi}_1 y + \tilde{\psi}_2 u
+\label{eq:epsdot}
+\end{equation}
+
+\begin{equation}
+\Rightarrow \quad
+\frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} = -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_1 y + \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_2 u 
+\label{eq:Vdot_eps}
+\end{equation}
 
 \textbf{Lei de adaptação de \(\psi\):}
-\[
-\dot{\psi} = \kappa_1 \epsilon \phi + \kappa_2 \begin{bmatrix} \Delta_1 \\ -\theta^T \Delta \end{bmatrix}
-\quad \Rightarrow \quad
-\tilde{\psi}^T \dot{\psi} = \kappa_1 \epsilon \tilde{\psi}^T \phi + \kappa_2 \tilde{\psi}_1 \Delta_1 - \kappa_2 \tilde{\psi}_2 \theta^T \Delta
-\]
 
-Logo:
-\[
-\frac{2}{\kappa_2} \tilde{\psi}^T \dot{\psi} = 2\epsilon \tilde{\psi}^T \phi + 2\tilde{\psi}_1 \Delta_1 - 2 \tilde{\psi}_2 \theta^T \Delta
-\]
+\begin{equation}
+\dot{\psi}_1 = \kappa_1 \epsilon y + \kappa_2 \Delta_1, \quad
+\dot{\psi}_2 = -\kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
+\label{eq:psidot}
+\end{equation}
+
+\begin{equation}
+\Rightarrow \quad
+\frac{1}{\kappa_2} \tilde{\psi}^T \dot{\psi} = \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_1 y + \tilde{\psi}_1 \Delta_1 - \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_2 u - \tilde{\psi}_2 \theta^T \Delta
+\label{eq:Vdot_psi}
+\end{equation}
 
 \textbf{Somando os termos:}
 
-\begin{align*}
-\dot{V} &= -\frac{\gamma_1}{\gamma_2} a_m e^2 - 2\gamma_1 e \tilde{\theta}^T \omega + \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega + 2|k_p| \tilde{\theta}^T \Delta \\
-&\quad -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 + \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}^T \phi + 2\epsilon \tilde{\psi}^T \phi + 2\tilde{\psi}_1 \Delta_1 - 2\tilde{\psi}_2 \theta^T \Delta
-\end{align*}
+\begin{equation}
+\dot{V} = -\frac{\gamma_1}{\gamma_2} a_m e^2 -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - k_p \tilde{\theta}^T \Delta + \tilde{\psi}_1 \Delta_1 - \tilde{\psi}_2 \theta^T \Delta
+\label{eq:Vdot_total}
+\end{equation}
 
 \textbf{Agrupando os termos de \(\Delta\):}
 
-\[
-2|k_p| \tilde{\theta}^T \Delta + 2\tilde{\psi}_1 \Delta_1 - 2\tilde{\psi}_2 \theta^T \Delta = 2 \Delta^T \Delta
-\]
+\begin{equation}
+- k_p \tilde{\theta}^T \Delta + \tilde{\psi}_1 \Delta_1 - \tilde{\psi}_2 \theta^T \Delta = - \Delta^T \Delta
+\label{eq:delta_agrupado}
+\end{equation}
 
 \textbf{Assim, a derivada total resulta em:}
 
-\[
+\begin{equation}
 \dot{V} = -\frac{\gamma_1}{\gamma_2} a_m e^2 - \frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - \Delta^T \Delta \leq 0
-\]
+\label{eq:Vdot_final}
+\end{equation}
 
 Logo, pelo Teorema de Lyapunov Direto, o sistema é \textbf{estável no sentido de Lyapunov}.
 
