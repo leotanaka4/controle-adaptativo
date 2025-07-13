@@ -81,6 +81,178 @@
 \tableofcontents
 \newpage
 
+\section*{Estabilidade do algoritmo Combined MRAC}
+
+\subsection*{Modelo da Planta e do Modelo de Referência}
+
+\begin{align}
+    \dot{y} &= -a_p y + k_p u \\
+    \dot{y}_m &= -a_m y_m + k_m r, \quad a_m > 0 \\
+    e &= y - y_m
+\end{align}
+
+\textbf{Regressor:}
+\begin{equation}
+    \omega = \begin{bmatrix} y & r \end{bmatrix}^T
+\end{equation}
+
+\textbf{Parâmetros estimados de controle:}
+\begin{equation}
+    \theta = \begin{bmatrix} \theta_1 & \theta_2 \end{bmatrix}^T
+\end{equation}
+
+\textbf{Lei de controle:}
+\begin{equation}
+    u = \theta^T \omega
+\end{equation}
+
+\textbf{Parâmetros correspondentes ideais:}
+\begin{align}
+    \theta_1^* &= \frac{a_p - a_m}{k_p} \\
+    \theta_2^* &= \frac{k_m}{k_p}
+\end{align}
+
+\subsection*{Estimador Composto M-MRAC + LS}
+
+\textbf{Parâmetros estimados da planta:}
+\begin{equation}
+    \psi = \begin{bmatrix} \psi_1 & \psi_2 \end{bmatrix}^T
+\end{equation}
+
+\textbf{Parâmetros correspondentes ideais:}
+\begin{equation}
+    \psi^* = \begin{bmatrix} a_p & k_p \end{bmatrix}^T
+\end{equation}
+
+\textbf{Modelo de identificação:}
+\begin{equation}
+    \dot{\hat{y}} = -a_i \epsilon + \psi_1 y + \psi_2 u, \quad a_i > 0
+\end{equation}
+
+\textbf{Erro de identificação:}
+\begin{equation}
+    \epsilon = y - \hat{y}
+\end{equation}
+
+\textbf{Relações algébricas:}
+\begin{align}
+    \psi_2^* \theta_1^* - \psi_1^* + a_m &= 0 \\
+    \psi_2^* \theta_2^* - k_m &= 0
+\end{align}
+
+\textbf{Equações dos erros (não lineares):}
+\begin{align}
+    \Delta_1 &= \psi_2 \theta_1 - \psi_1 + a_m \\
+    \Delta_2 &= \psi_2 \theta_2 - k_m \\
+    \dot{e} &= -a_m e + k_p \tilde{\theta}^T \omega
+\end{align}
+
+\textbf{Equação de identificação:}
+\begin{equation}
+    \dot{\epsilon} = -a_i \epsilon + \tilde{\psi}_1 y + \tilde{\psi}_2 u
+\end{equation}
+
+\subsection*{Leis de Atualização}
+
+\textbf{Controle:}
+\begin{equation}
+    \dot{\theta} = -\operatorname{sign}(k_p)[\gamma_1 e \omega + \gamma_2 \Delta]
+\end{equation}
+
+\textbf{Identificação:}
+\begin{align}
+    \dot{\psi}_1 &= \kappa_1 \epsilon y + \kappa_2 \Delta_1 \\
+    \dot{\psi}_2 &= \kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
+\end{align}
+
+\subsection*{Reescrevendo as Funções $\Delta$}
+
+\begin{align}
+    \Delta_1 &= \psi_2 \theta_1 - \psi_1 + a_m - (\psi_2^* \theta_1^* - \psi_1^* + a_m) \\
+             &= \psi_2 \theta_1 - (\psi_1 - \psi_1^*) - k_p (\theta_1 - \tilde{\theta}_1) \\
+             &= \theta_1 \tilde{\psi}_2 - \tilde{\psi}_1 + k_p \tilde{\theta}_1 \\
+    \Delta_2 &= \psi_2 \theta_2 - k_m - (\psi_2^* \theta_2^* - k_m) \\
+             &= \psi_2 \theta_2 - k_p (\theta_2 - \tilde{\theta}_2) \\
+             &= \theta_2 \tilde{\psi}_2 + k_p \tilde{\theta}_2
+\end{align}
+
+\subsection*{Análise de Estabilidade pelo Método de Lyapunov}
+
+Seja a seguinte função de Lyapunov candidata:
+
+\begin{equation}
+V = \frac{\gamma_1}{2\gamma_2} e^2 + \frac{|k_p|}{\gamma_2} \tilde{\theta}^T \tilde{\theta} + \frac{\kappa_1}{2\kappa_2} \epsilon^2 + \frac{1}{\kappa_2} \tilde{\psi}^T \tilde{\psi}
+\end{equation}
+
+Ela é positiva definida, pois cada termo representa um quadrado ponderado por constantes positivas. Derivando \(V\) no tempo, temos:
+
+\begin{align*}
+\dot{V} &= \frac{\gamma_1}{\gamma_2} e \dot{e} + \frac{2|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} + \frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} + \frac{2}{\kappa_2} \tilde{\psi}^T \dot{\psi}
+\end{align*}
+
+\textbf{Derivada do erro de rastreamento \(e\):}
+\[
+\dot{e} = -a_m e + k_p \tilde{\theta}^T \omega
+\quad \Rightarrow \quad
+\frac{\gamma_1}{\gamma_2} e \dot{e} = -\frac{\gamma_1}{\gamma_2} a_m e^2 + \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega
+\]
+
+\textbf{Lei de adaptação de \(\theta\):}
+\[
+\dot{\theta} = -\operatorname{sign}(k_p) \big[\gamma_1 e \omega + \gamma_2 \Delta \big]
+\quad \Rightarrow \quad
+\tilde{\theta}^T \dot{\theta} = -\operatorname{sign}(k_p) \gamma_1 e \tilde{\theta}^T \omega - \operatorname{sign}(k_p) \gamma_2 \tilde{\theta}^T \Delta
+\]
+
+Logo:
+\[
+\frac{2|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} = -2 \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega - 2 k_p \tilde{\theta}^T \Delta
+\]
+
+\textbf{Derivada do erro de identificação \(\epsilon\):}
+\[
+\dot{\epsilon} = -a_i \epsilon + \tilde{\psi}^T \phi \quad \text{com} \quad \phi = \begin{bmatrix} y \\ u \end{bmatrix}
+\quad \Rightarrow \quad
+\frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} = -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 + \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}^T \phi
+\]
+
+\textbf{Lei de adaptação de \(\psi\):}
+\[
+\dot{\psi} = \kappa_1 \epsilon \phi + \kappa_2 \begin{bmatrix} \Delta_1 \\ -\theta^T \Delta \end{bmatrix}
+\quad \Rightarrow \quad
+\tilde{\psi}^T \dot{\psi} = \kappa_1 \epsilon \tilde{\psi}^T \phi + \kappa_2 \tilde{\psi}_1 \Delta_1 - \kappa_2 \tilde{\psi}_2 \theta^T \Delta
+\]
+
+Logo:
+\[
+\frac{2}{\kappa_2} \tilde{\psi}^T \dot{\psi} = 2\epsilon \tilde{\psi}^T \phi + 2\tilde{\psi}_1 \Delta_1 - 2 \tilde{\psi}_2 \theta^T \Delta
+\]
+
+\textbf{Somando os termos:}
+
+\begin{align*}
+\dot{V} &= -\frac{\gamma_1}{\gamma_2} a_m e^2 - 2\gamma_1 e \tilde{\theta}^T \omega + \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega + 2|k_p| \tilde{\theta}^T \Delta \\
+&\quad -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 + \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}^T \phi + 2\epsilon \tilde{\psi}^T \phi + 2\tilde{\psi}_1 \Delta_1 - 2\tilde{\psi}_2 \theta^T \Delta
+\end{align*}
+
+\textbf{Agrupando os termos de \(\Delta\):}
+
+\[
+2|k_p| \tilde{\theta}^T \Delta + 2\tilde{\psi}_1 \Delta_1 - 2\tilde{\psi}_2 \theta^T \Delta = 2 \Delta^T \Delta
+\]
+
+\textbf{Assim, a derivada total resulta em:}
+
+\[
+\dot{V} = -\frac{\gamma_1}{\gamma_2} a_m e^2 - \frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - \Delta^T \Delta \leq 0
+\]
+
+Logo, pelo Teorema de Lyapunov Direto, o sistema é \textbf{estável no sentido de Lyapunov}.
+
+\bigskip
+
+\textbf{Observação sobre Convergência:} Para garantir a \textbf{convergência assintótica} dos erros, é necessário aplicar o Teorema de LaSalle. Como \(\dot{V} = 0\) implica que \(e = 0\), \(\epsilon = 0\) e \(\Delta = 0\), sob persistência de excitação, conclui-se que os parâmetros estimados convergem para seus valores ideais.
+
 \section{Descrição do Algoritmo}
 
 \subsection{Introdução ao Algoritmo}

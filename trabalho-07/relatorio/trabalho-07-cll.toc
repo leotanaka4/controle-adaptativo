@@ -1,7 +1,7 @@
 \babel@toc {portuguese}{}\relax 
-\contentsline {section}{\numberline {1}Descrição do Algoritmo}{2}{}%
-\contentsline {subsection}{\numberline {1.1}Introdução ao Algoritmo}{2}{}%
-\contentsline {subsection}{\numberline {1.2}Análise de Estabilidade}{2}{}%
-\contentsline {subsection}{\numberline {1.3}Resumo do Algoritmo}{2}{}%
-\contentsline {section}{\numberline {2}Resultados das Simulações}{2}{}%
-\contentsline {section}{\numberline {3}Discussão dos Resultados}{2}{}%
+\contentsline {section}{\numberline {1}Descrição do Algoritmo}{5}{}%
+\contentsline {subsection}{\numberline {1.1}Introdução ao Algoritmo}{5}{}%
+\contentsline {subsection}{\numberline {1.2}Análise de Estabilidade}{5}{}%
+\contentsline {subsection}{\numberline {1.3}Resumo do Algoritmo}{5}{}%
+\contentsline {section}{\numberline {2}Resultados das Simulações}{6}{}%
+\contentsline {section}{\numberline {3}Discussão dos Resultados}{6}{}%
