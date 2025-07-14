@@ -1,24 +1,27 @@
 clc; close all; 
 clear all;
 %% ======= Escolher Ordem do Sistema =======
-n = 4;  % ordem da planta e do modelo
+n = 3;  % ordem da planta e do modelo
 
 %% ======= Inicialization =======
-y0 = 10;
+y0 = 0;
 ym0 = 0;
 gamma = 20;
 R0 = 20*eye(2*n);
-tfinal = 100;    %Simulation interval
+tfinal = 150;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 3;   %Constant
-
+S1 = 0;
+S2 = 0;
+S3 = 0;
+SQ = 1;
 % Define Laplace variable
 s = tf('s');
 kp= 1/3;
-P = kp*((s + 2)^3) / (s^4);
+P = kp*((s + 2)^2) / (s^3);
 P = ss(P);
 x0 = P.c \ y0;
 M = 1 / (s + 1);
@@ -33,7 +36,7 @@ A0 = 1;
 %% Rodar cálculo dos parâmetros ideais
 [theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);
 theta_star = [theta1(:); theta_n; theta2(:); theta_2n];
-
+theta0 = 0.9*theta_star;
 %% ======= Definir Filtro =======
 % Forma canônica controlável
 nf = n-1;
