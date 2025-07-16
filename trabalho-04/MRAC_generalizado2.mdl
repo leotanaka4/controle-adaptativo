@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.17"
+    ComputedModelVersion    "7.18"
     NumModelReferences	    0
     NumTestPointedSignals   4
     TestPointedSignal {
@@ -62,13 +62,13 @@ Model {
     }
     OrderedModelArguments   1
   }
-  LogicAnalyzerPlugin	  "on"
   WebScopes_FoundationPlugin "on"
   SLCCPlugin		  "on"
   slcheck_filter_plugin	  "on"
+  NotesPlugin		  "on"
+  LogicAnalyzerPlugin	  "on"
   DiagnosticSuppressor	  "on"
   AnimationPlugin	  "on"
-  NotesPlugin		  "on"
   SimscapeDaeAutoSolver	  "ode23t"
   SimscapeModelParametersPlugin	"on"
   EnableAccessToBaseWorkspace on
@@ -118,10 +118,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [1.1528255528255529]
-	  Offset		  [-1.6251030875662309, -25.649999999999466]
-	  SceneRectInView	  [-1.6251030875662309, -25.649999999999466, 1303.926683716965, 542.66666666666663]
+	  Extents		  [1880.0, 808.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-15.353538087838388, -70.8120821316495]
+	  SceneRectInView	  [-15.353538087838388, -70.8120821316495, 1504.0, 646.4]
 	}
 	Object {
 	  $ObjectID		  6
@@ -129,10 +129,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "22"
-	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [1.4614210988655165]
-	  Offset		  [-278.83275024295432, -186.90841395009153]
-	  SceneRectInView	  [-278.83275024295432, -186.90841395009153, 1028.5878595614338, 428.07648013679676]
+	  Extents		  [1880.0, 808.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [-395.22512614188531, -249.14600384049214]
+	  SceneRectInView	  [-395.22512614188531, -249.14600384049214, 1203.2, 517.12]
 	}
 	Object {
 	  $ObjectID		  7
@@ -140,10 +140,10 @@ Model {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "12"
-	  Extents		  [1879.0, 782.0]
-	  ZoomFactor		  [1.5980926430517712]
-	  Offset		  [-302.21065643648757, -101.23333333333335]
-	  SceneRectInView	  [-302.21065643648757, -101.23333333333335, 940.62131287297518, 391.46666666666664]
+	  Extents		  [1880.0, 808.0]
+	  ZoomFactor		  [1.5989431447244971]
+	  Offset		  [-302.21065643648757, -107.63351617057555]
+	  SceneRectInView	  [-302.21065643648757, -107.63351617057555, 940.62131287297518, 404.26703234115104]
 	}
 	Object {
 	  $ObjectID		  8
@@ -207,19 +207,6 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  13
-	  Type			  "GLUE2:PropertyInspector"
-	  ID			  "Property Inspector"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  ""
-	  Floating		  [0]
-	  DockPosition		  "Right"
-	  Width			  [512]
-	  Height		  [384]
-	  Minimized		  "Unset"
-	}
-	Object {
-	  $ObjectID		  14
 	  Type			  "Simulink:Editor:ReferencedFiles"
 	  ID			  "Referenced Files"
 	  Visible		  [0]
@@ -231,6 +218,19 @@ Model {
 	  Height		  [384]
 	  Minimized		  "Unset"
 	}
+	Object {
+	  $ObjectID		  14
+	  Type			  "GLUE2:PropertyInspector"
+	  ID			  "Property Inspector"
+	  Visible		  [0]
+	  CreateCallback	  ""
+	  UserData		  ""
+	  Floating		  [0]
+	  DockPosition		  "Right"
+	  Width			  [512]
+	  Height		  [384]
+	  Minimized		  "Unset"
+	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADJfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
@@ -238,8 +238,8 @@ Model {
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
       "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHhAAAA1UAAAABAAAAAgAAAAEAAAAC/"
-      "AAAAAEAAAACAAAAAf////8BAAAAAP////8AAAAAAAAAAA=="
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHhQAAA28AAAABAAAAAgAAAAEAAAAC/"
+      "AAAAAEAAAACAAAAAA=="
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -255,11 +255,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "LRPROENC"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 06 00:35:48 2025"
-  RTWModifiedTimeStamp	  673662945
-  ModelVersionFormat	  "%<AutoIncrement:7.17>"
+  LastModifiedDate	  "Tue Jul 15 21:29:34 2025"
+  RTWModifiedTimeStamp	  674515764
+  ModelVersionFormat	  "%<AutoIncrement:7.18>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1544,7 +1544,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "115"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "96"
     SimulinkSubDomain	    "Simulink"
@@ -2079,7 +2079,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"146"
+	ZoomFactor		"125"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2088,14 +2088,6 @@ Model {
 	  Position		  [-195, 105, -175, 125]
 	  ZOrder		  -1
 	  BackgroundColor	  "green"
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Kp"
-	  SID			  "81"
-	  Position		  [-115, 100, -85, 130]
-	  ZOrder		  2
-	  Gain			  "kp"
 	}
 	Block {
 	  BlockType		  Reference
@@ -2159,17 +2151,10 @@ Model {
 	  }
 	}
 	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Kp"
-	  SrcPort		  1
-	  DstBlock		  "M(s)"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  7
+	  ZOrder		  11
 	  SrcBlock		  "r"
 	  SrcPort		  1
-	  DstBlock		  "Kp"
+	  DstBlock		  "M(s)"
 	  DstPort		  1
 	}
 	Annotation {
