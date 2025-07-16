@@ -85,28 +85,37 @@
 
 \subsection*{Modelo da Planta e do Modelo de Referência}
 
-\begin{align}
-    \dot{y} &= -a_p y + k_p u \\
-    \dot{y}_m &= -a_m y_m + k_m r, \quad a_m > 0 \\
-    e &= y - y_m
-\end{align}
+Considera-se uma planta de primeira ordem com dinâmica dada por:
+\begin{equation}
+    \dot{y} = -a_p y + k_p u
+\end{equation}
 
-\textbf{Regressor:}
+O modelo de referência, que define o comportamento desejado para a saída, é dado por:
+\begin{equation}
+    \dot{y}_m = -a_m y_m + k_m r, \quad a_m > 0
+\end{equation}
+
+O erro de rastreamento entre a planta e o modelo é definido como:
+\begin{equation}
+    e = y - y_m
+\end{equation}
+
+Define-se o vetor regressor como:
 \begin{equation}
     \omega = \begin{bmatrix} y & r \end{bmatrix}^T
 \end{equation}
 
-\textbf{Parâmetros estimados de controle:}
+E os parâmetros estimados de controle como:
 \begin{equation}
     \theta = \begin{bmatrix} \theta_1 & \theta_2 \end{bmatrix}^T
 \end{equation}
 
-\textbf{Lei de controle:}
+A lei de controle adotada é linear em relação ao vetor regressor e definida por:
 \begin{equation}
     u = \theta^T \omega
 \end{equation}
 
-\textbf{Parâmetros correspondentes ideais:}
+Os parâmetros ideais correspondentes são obtidos de forma a garantir que o erro de rastreamento vá a zero quando usados na lei de controle:
 \begin{align}
     \theta_1^* &= \frac{a_p - a_m}{k_p} \\
     \theta_2^* &= \frac{k_m}{k_p}
@@ -114,52 +123,52 @@
 
 \subsection*{Estimador Composto M-MRAC + LS}
 
-\textbf{Parâmetros estimados da planta:}
+Para complementar o algoritmo, é incluído um estimador dos parâmetros da planta. Os parâmetros estimados da planta são representados por:
 \begin{equation}
     \psi = \begin{bmatrix} \psi_1 & \psi_2 \end{bmatrix}^T
 \end{equation}
 
-\textbf{Parâmetros correspondentes ideais:}
+E os valores ideais desses parâmetros são:
 \begin{equation}
     \psi^* = \begin{bmatrix} a_p & k_p \end{bmatrix}^T
 \end{equation}
 
-\textbf{Modelo de identificação:}
+O modelo de identificação proposto para estimar a saída da planta é:
 \begin{equation}
     \dot{\hat{y}} = -a_i \epsilon - \psi_1 y + \psi_2 u, \quad a_i > 0
 \end{equation}
 
-\textbf{Erro de identificação:}
+Com o erro de identificação definido como a diferença entre a saída real e a saída estimada:
 \begin{equation}
     \epsilon = y - \hat{y}
 \end{equation}
 
-\textbf{Relações algébricas:}
+Com base nas equações do modelo, estabelecem-se as seguintes relações algébricas entre os parâmetros ideais:
 \begin{align}
     \psi_2^* \theta_1^* - \psi_1^* + a_m &= 0 \\
     \psi_2^* \theta_2^* - k_m &= 0
 \end{align}
 
-\textbf{Equações dos erros (não lineares):}
+Com isso, definem-se as expressões dos erros não lineares:
 \begin{align}
     \Delta_1 &= \psi_2 \theta_1 - \psi_1 + a_m \\
     \Delta_2 &= \psi_2 \theta_2 - k_m \\
     \dot{e} &= -a_m e + k_p \tilde{\theta}^T \omega
 \end{align}
 
-\textbf{Equação de identificação:}
+Além disso, a equação dinâmica do erro de identificação é dada por:
 \begin{equation}
     \dot{\epsilon} = -a_i \epsilon - \tilde{\psi}_1 y + \tilde{\psi}_2 u
 \end{equation}
 
 \subsection*{Leis de Atualização}
 
-\textbf{Controle:}
+A lei de adaptação dos parâmetros de controle é definida da seguinte forma:
 \begin{equation}
     \dot{\theta} = -\operatorname{sign}(k_p)[\gamma_1 e \omega + \gamma_2 \Delta]
 \end{equation}
 
-\textbf{Identificação:}
+E a atualização dos parâmetros da planta é feita por:
 \begin{align}
     \dot{\psi}_1 &= \kappa_1 \epsilon y + \kappa_2 \Delta_1 \\
     \dot{\psi}_2 &= -\kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
@@ -167,116 +176,284 @@
 
 \subsection*{Reescrevendo as Funções $\Delta$}
 
+As expressões para os termos $\Delta_1$ e $\Delta_2$ podem ser reescritas com base nos parâmetros de erro:
 \begin{align}
     \Delta_1 &= \psi_2 \theta_1 - \psi_1 + a_m - (\psi_2^* \theta_1^* - \psi_1^* + a_m) \\
-             &= \psi_2 \theta_1 - (\psi_1 - \psi_1^*) - k_p (\theta_1 - \tilde{\theta}_1) \\
              &= \theta_1 \tilde{\psi}_2 - \tilde{\psi}_1 + k_p \tilde{\theta}_1 \\
     \Delta_2 &= \psi_2 \theta_2 - k_m - (\psi_2^* \theta_2^* - k_m) \\
-             &= \psi_2 \theta_2 - k_p (\theta_2 - \tilde{\theta}_2) \\
              &= \theta_2 \tilde{\psi}_2 + k_p \tilde{\theta}_2
 \end{align}
 
 \subsection*{Análise de Estabilidade pelo Método de Lyapunov}
 
-Seja a seguinte função de Lyapunov candidata:
-
+Para analisar a estabilidade do sistema, considera-se a seguinte função de Lyapunov candidata:
 \begin{equation}
 V = \frac{\gamma_1}{2\gamma_2} e^2 + \frac{|k_p|}{2\gamma_2} \tilde{\theta}^T \tilde{\theta} + \frac{\kappa_1}{2\kappa_2} \epsilon^2 + \frac{1}{2\kappa_2} \tilde{\psi}^T \tilde{\psi}
-\label{eq:lyapunov}
 \end{equation}
 
-Ela é positiva definida, pois cada termo representa um quadrado ponderado por constantes positivas. Derivando \(V\) no tempo, temos:
+Cada termo é um quadrado ponderado por constantes positivas, portanto $V$ é positiva definida.
 
+Derivando a função $V$ no tempo:
 \begin{equation}
 \dot{V} = \frac{\gamma_1}{\gamma_2} e \dot{e} + \frac{|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} + \frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} + \frac{1}{\kappa_2} \tilde{\psi}^T \dot{\psi}
-\label{eq:Vdot_geral}
 \end{equation}
 
-\textbf{Derivada do erro de rastreamento \(e\):}
+Substituindo as dinâmicas de erro e leis de adaptação:
 
+Para o erro de rastreamento:
 \begin{equation}
 \dot{e} = -a_m e + k_p \tilde{\theta}^T \omega
-\label{eq:edot}
 \end{equation}
-
 \begin{equation}
 \Rightarrow \quad
 \frac{\gamma_1}{\gamma_2} e \dot{e} = -\frac{\gamma_1}{\gamma_2} a_m e^2 + \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega
-\label{eq:Vdot_e}
 \end{equation}
 
-\textbf{Lei de adaptação de \(\theta\):}
-
+Para a atualização de $\theta$:
 \begin{equation}
 \dot{\theta} = -\operatorname{sign}(k_p) \left[\gamma_1 e \omega + \gamma_2 \Delta \right]
-\label{eq:thetadot}
 \end{equation}
-
 \begin{equation}
 \Rightarrow \quad
 \frac{|k_p|}{\gamma_2} \tilde{\theta}^T \dot{\theta} = - \frac{\gamma_1}{\gamma_2} k_p e \tilde{\theta}^T \omega - k_p \tilde{\theta}^T \Delta
-\label{eq:Vdot_theta}
 \end{equation}
 
-\textbf{Derivada do erro de identificação \(\epsilon\):}
-
+Para o erro de identificação:
 \begin{equation}
 \dot{\epsilon} = -a_i \epsilon - \tilde{\psi}_1 y + \tilde{\psi}_2 u
-\label{eq:epsdot}
 \end{equation}
-
 \begin{equation}
 \Rightarrow \quad
 \frac{\kappa_1}{\kappa_2} \epsilon \dot{\epsilon} = -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_1 y + \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_2 u 
-\label{eq:Vdot_eps}
 \end{equation}
 
-\textbf{Lei de adaptação de \(\psi\):}
-
+Para a atualização dos parâmetros da planta:
 \begin{equation}
-\dot{\psi}_1 = \kappa_1 \epsilon y + \kappa_2 \Delta_1, \quad
-\dot{\psi}_2 = -\kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
-\label{eq:psidot}
-\end{equation}
-
-\begin{equation}
-\Rightarrow \quad
 \frac{1}{\kappa_2} \tilde{\psi}^T \dot{\psi} = \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_1 y + \tilde{\psi}_1 \Delta_1 - \frac{\kappa_1}{\kappa_2} \epsilon \tilde{\psi}_2 u - \tilde{\psi}_2 \theta^T \Delta
-\label{eq:Vdot_psi}
 \end{equation}
 
-\textbf{Somando os termos:}
-
+Agrupando os termos:
 \begin{equation}
 \dot{V} = -\frac{\gamma_1}{\gamma_2} a_m e^2 -\frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - k_p \tilde{\theta}^T \Delta + \tilde{\psi}_1 \Delta_1 - \tilde{\psi}_2 \theta^T \Delta
-\label{eq:Vdot_total}
 \end{equation}
 
-\textbf{Agrupando os termos de \(\Delta\):}
-
+E reconhecendo que os termos restantes formam um quadrado:
 \begin{equation}
 - k_p \tilde{\theta}^T \Delta + \tilde{\psi}_1 \Delta_1 - \tilde{\psi}_2 \theta^T \Delta = - \Delta^T \Delta
-\label{eq:delta_agrupado}
 \end{equation}
 
-\textbf{Assim, a derivada total resulta em:}
-
+Conclui-se que a derivada de $V$ é:
 \begin{equation}
 \dot{V} = -\frac{\gamma_1}{\gamma_2} a_m e^2 - \frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - \Delta^T \Delta \leq 0
-\label{eq:Vdot_final}
 \end{equation}
 
-Logo, pelo Teorema de Lyapunov Direto, o sistema é \textbf{estável no sentido de Lyapunov}.
+\subsection*{Conclusão sobre Estabilidade}
+
+Como a derivada de $V$ é negativa semi-definida, pelo Teorema de Lyapunov Direto, o sistema é estável no sentido de Lyapunov.
 
 \bigskip
 
-\textbf{Observação sobre Convergência:} Para garantir a \textbf{convergência assintótica} dos erros, é necessário aplicar o Teorema de LaSalle. Como \(\dot{V} = 0\) implica que \(e = 0\), \(\epsilon = 0\) e \(\Delta = 0\), sob persistência de excitação, conclui-se que os parâmetros estimados convergem para seus valores ideais.
+\textit{Observação final:} Para garantir a convergência assintótica dos erros, aplica-se o Teorema de LaSalle. Como $\dot{V} = 0$ implica que $e = 0$, $\epsilon = 0$ e $\Delta = 0$, sob a hipótese de persistência de excitação, os parâmetros estimados convergem para os seus valores ideais.
 
 \section{Descrição do Algoritmo}
 
-\subsection{Introdução ao Algoritmo}
+\subsection{Introdução do Algoritmo}
+
+O algoritmo M-MRAC + LS tem como motivação o fato de que, se o erro de controle \( \tilde{u} \approx 0 \), então:
+\begin{equation}
+    u = \theta^{*T}\omega + \tilde{u} \quad \Rightarrow \quad u \approx \theta^{*T}\omega
+\end{equation}
+
+Dessa forma, é possível aplicar um algoritmo de mínimos quadrados (LS) para estimar diretamente o vetor de parâmetros \(\theta^*\) a partir da medida da entrada \(u\).
+
+O diagrama em blocos do algoritmo combinado M-MRAC com LS é apresentado na Figura~\ref{fig:diagrama-blocos}, onde \(\psi\) representa uma segunda estimativa para os parâmetros \(\theta^*\), fornecida pelo estimador LS.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/mmrac-ls.png}
+    \caption{Diagrama em blocos do estimador combinado M-MRAC + LS}
+    \label{fig:diagrama-blocos}
+\end{figure}
+
+O problema principal consiste em projetar um algoritmo de estimação combinado que seja estável.
+
+\bigskip
+
+Recordando a equação do erro de adaptação:
+\begin{equation}
+    e_a = \alpha |k_p| M(s) [\tilde{\theta}^T \xi] + |k_p| [\tilde{\theta}^T \xi]
+\end{equation}
+
+Esse sistema, composto pela planta e pelos filtros, tem ordem total igual a \(5n - 2\). A realização em espaço de estados não mínima é dada por:
+\begin{equation}
+    \left\{\begin{aligned}
+        \dot{e} &= A_m e + B_m [\tilde{\theta}^T \xi] \\
+        e_a &= C_m e + |k_p| [\tilde{\theta}^T \xi]
+    \end{aligned}\right.
+\end{equation}
+
+Pelo Lema de Kalman-Yakubovich (MKY), se o sistema \(\{A_m, B_m, C_m\}\) é SPR (strictly positive real), então existe duas matrizes simétricas definidas positivas \(P = P^T > 0\) e \(Q = Q^T > 0\) tal que:
+\begin{equation}
+    \left\{\begin{aligned}
+        A_m^T P + P A_m &= -2Q,\\
+        P B_m &= C_m^T
+    \end{aligned}\right.
+\end{equation}
 
 \subsection{Análise de Estabilidade}
+
+O algoritmo combinado propõe uma nova lei de adaptação para \(\theta\), incorporando a estimativa LS \(\psi\):
+\begin{equation}
+    \dot{\theta} = -\Gamma \xi e_a - \sigma \Delta, \quad \Gamma = \Gamma^T > 0, \quad \sigma > 0
+\end{equation}
+onde:
+\begin{equation}
+    \Delta = \theta - \psi
+\end{equation}
+
+Quando \(e_a \equiv 0\), temos:
+\begin{equation}
+    \dot{\theta} = -\sigma (\theta - \psi) \quad \Rightarrow \quad \theta = \frac{1}{(1/\sigma)s + 1} \psi
+\end{equation}
+
+Ou seja, \(\theta\) segue \(\psi\) com constante de tempo igual a \(1/\sigma\).
+
+A parametrização linear é obtida reescrevendo-se o erro:
+\begin{equation}
+    \frac{1}{k_p} e_0 = M(s)[u] - \theta^{*T} M(s)[\omega]
+\end{equation}
+
+Aplicando \(M^{-1}(s) L^{-1}(s)\) em ambos os lados:
+\begin{equation}
+    \frac{1}{k_p} M^{-1} L^{-1} [e_0] = L^{-1} [u] - \theta^{*T} L^{-1} [\omega],
+\end{equation}
+isso é:
+\begin{equation}
+    \zeta = \theta^{*T} \xi + \theta^*_{2n} M^{-1} L^{-1} [e_0]
+\end{equation}
+
+Com a decomposição:
+\begin{equation}
+    M^{-1}(s)L^{-1}(s) = -(\ell_0 - a_m) L^{-1}(s) + 1
+\end{equation}
+
+Obtemos:
+\begin{equation}
+    \zeta = \theta^{*T} \left(\xi + \begin{bmatrix} 0 \\ e_0 - \alpha \varphi \end{bmatrix}\right) = \theta^{*T} \phi
+\end{equation}
+
+Sendo:
+\begin{equation}
+    \varphi = L^{-1}(s)[e_0], \quad \phi = \xi + \begin{bmatrix} 0 \\ e_0 - \alpha \varphi \end{bmatrix}
+\end{equation}
+
+\subsubsection{Algoritmo LS Proposto}
+
+A nova estimativa \(\psi\) segue a estrutura:
+\begin{align}
+    \hat{\zeta} &= \psi^T \phi \\
+    \varepsilon &= \zeta - \hat{\zeta} = (\psi - \theta^*)^T \phi = \tilde{\psi}^T \phi
+\end{align}
+
+Com as seguintes leis de atualização:
+\begin{align}
+    \dot{\psi} &= -R \left( \frac{\tau \phi \varepsilon}{m^2} - \frac{\sigma}{\beta} \Gamma^{-1} \Delta \right), \quad \tau \geq \frac{1}{2}, \beta > 0 \\
+    \dot{R} &= -\frac{R \phi \phi^T R}{m^2}, \quad R(0) = R^T(0) > 0 \\
+    m^2 &= 1 + \kappa \phi^T R \phi, \quad \kappa > 0
+\end{align}
+
+\subsubsection{Procedimento de Projeto}
+
+A função de Lyapunov considerada para o sistema combinado é dada por:
+\begin{equation}
+    2V(e, \tilde{\theta}, \tilde{\psi}) = e^T P e + \tilde{\theta}^T \Gamma^{-1} \tilde{\theta} + \beta \tilde{\psi}^T R^{-1}(t) \tilde{\psi}
+\end{equation}
+
+Derivando essa função em relação ao tempo:
+\begin{equation}
+    \dot{V} = -e^T Q e + e^T P B_m \tilde{\theta}^T \xi + \tilde{\theta}^T \Gamma^{-1} \dot{\theta} + \beta \tilde{\psi}^T R^{-1} \dot{\psi} - \frac{1}{2} \beta \tilde{\psi}^T R^{-1} \dot{R} R^{-1} \tilde{\psi}
+\end{equation}
+
+Sabemos que:
+\begin{equation}
+    e^T P B_m = e^T C_m^T = e_a - |k_p| \tilde{\theta}^T \xi
+\end{equation}
+
+Substituindo essa relação na equação da derivada:
+\begin{align}
+    \dot{V} &= -e^T Q e - |k_p|(\tilde{\theta}^T \xi)^2 + \tilde{\theta}^T [\xi e_a + \Gamma^{-1} \dot{\theta}] + \beta \tilde{\psi}^T R^{-1} \dot{\psi} - \frac{1}{2} \beta \tilde{\psi}^T R^{-1} \dot{R} R^{-1} \tilde{\psi}
+\end{align}
+
+Utilizando as leis de atualização de \(\dot{\theta}, \dot{\psi}, \dot{R}\), obtemos:
+\begin{align}
+    \dot{V} &= -e^T Q e - |k_p| (\tilde{\theta}^T \xi)^2 - \sigma \tilde{\theta}^T \Gamma^{-1} \Delta - \beta \tilde{\psi}^T \left( \frac{\tau \phi \phi^T \tilde{\psi}}{m^2} - \frac{\sigma}{\beta} \Gamma^{-1} \Delta \right) + \frac{1}{2} \beta \tilde{\psi}^T \frac{\phi \phi^T}{m_2} \tilde{\psi} \\
+           &= -e^T Q e - |k_p| (\tilde{\theta}^T \xi)^2 - \sigma (\tilde{\theta} - \tilde{\psi})^T \Gamma^{-1} (\tilde{\theta} - \tilde{\psi}) - \frac{\beta}{2 m^2}(2\tau - 1)(\tilde{\psi}^T\phi)^2
+\end{align}
+
+Como \(\Delta = \theta - \psi = \tilde{\theta} - \tilde{\psi}\), o termo cruzado pode ser reescrito de forma a garantir que todos os termos são negativos definidos ou semi-definidos.
+
+Portanto, a derivada de Lyapunov é dada por:
+\begin{equation}
+    \dot{V} = -e^T Q e - |k_p| (\tilde{\theta}^T \xi)^2 - \sigma \Delta^T \Gamma^{-1} \Delta - \frac{\beta}{2 m^2}(2\tau - 1) \varepsilon^2
+\end{equation}
+
+Sob a condição de projeto \(\tau > 1/2\), garantimos que \(\dot{V} \leq 0\), assegurando a estabilidade do sistema no sentido de Lyapunov.
+
+\subsubsection{Conclusões da Análise}
+
+A condição de estabilidade para o algoritmo proposto é que \( \tau > \frac{1}{2} \). Sob essa condição, temos:
+
+\begin{itemize}
+    \item \( \dot{V}(e, \tilde{\theta}, \tilde{\psi}) \leq 0 \), garantindo que \( e, \theta \in \mathcal{L}_\infty \), bem como \( \tilde{\psi}^T R^{-1} \tilde{\psi} \in \mathcal{L}_\infty \).
+    \item Os sinais \( e, \tilde{\theta}^T \xi, \Delta, \varepsilon \in \mathcal{L}_2 \).
+    \item Como \( e \in \mathcal{L}_\infty \), então \( \omega, \xi, \dot{\xi}, \varphi, \dot{\varphi} \in \mathcal{L}_\infty \).
+    \item \( \theta, \xi \in \mathcal{L}_\infty \Rightarrow \dot{e} \in \mathcal{L}_\infty \).
+    \item \( e, \dot{e}, \xi, \dot{\xi} \in \mathcal{L}_\infty \Rightarrow \phi, \dot{\phi} \in \mathcal{L}_\infty \)
+\end{itemize}
+
+Sabemos que \( R(0) = R^T(0) > 0 \). Integrando a derivada de \( R^{-1}(t) \), temos:
+
+\begin{equation}
+    \dot{R}^{-1}(t) = \phi \phi^T \geq 0 \Rightarrow R^{-1}(t) = R^{-1}(0) + \int_0^t \phi(\tau)\phi^T(\tau), \quad t \geq 0
+\end{equation}
+
+Com isso, segue que:
+\begin{itemize}
+    \item \( R^{-1}(t) > R^{-1}(0) \), ou seja, cresce monotonicamente.
+    \item \( R(t) > 0, \forall t \geq 0 \), ou seja, \( R(t) \) decresce monotonicamente.
+    \item \( R \in \mathcal{L}_\infty \).
+    \item Como \( R, \phi \in \mathcal{L}_\infty \), então \( \dot{R} \in \mathcal{L}_\infty \).
+\end{itemize}
+
+A partir da função de Lyapunov:
+\begin{equation}
+    2V = e^T P e + \tilde{\theta}^T \Gamma^{-1} \tilde{\theta} + \beta \tilde{\psi}^T R^{-1}(0) \tilde{\psi} + \beta \tilde{\psi}^T J(t) \tilde{\psi}
+\end{equation}
+
+Concluímos que:
+\begin{itemize}
+    \item \( V \in \mathcal{L}_\infty \Rightarrow \tilde{\psi}^T R^{-1}(0) \tilde{\psi} \in \mathcal{L}_\infty \Rightarrow \tilde{\psi} \in \mathcal{L}_\infty \).
+    \item \( \tilde{\psi} \in \mathcal{L}_\infty \Rightarrow \hat{\zeta}, \Delta, \dot{\theta} \in \mathcal{L}_\infty \).
+    \item \( \dot{\theta} \in \mathcal{L}_\infty \Rightarrow u \in \mathcal{L}_\infty \).
+    \item \( u \in \mathcal{L}_\infty \Rightarrow \zeta, \dot{\zeta} \in \mathcal{L}_\infty \).
+    \item \( \zeta, \hat{\zeta} \in \mathcal{L}_\infty \Rightarrow \varepsilon \in \mathcal{L}_\infty \).
+    \item \( \varepsilon \in \mathcal{L}_\infty \Rightarrow \dot{\psi}, \dot{\Delta} \in \mathcal{L}_\infty \).
+\end{itemize}
+
+\subsubsection*{Convergência dos Erros}
+
+\begin{itemize}
+    \item Como \( \dot{e} \in \mathcal{L}_\infty \Rightarrow \lim_{t \to \infty} e(t) = 0 \).
+    \item Como \( \frac{d}{dt} \tilde{\theta}^T \xi \in \mathcal{L}_\infty \Rightarrow \lim_{t \to \infty} \tilde{\theta}^T \xi = 0 \).
+    \item Como \( \dot{\Delta} \in \mathcal{L}_\infty \Rightarrow \lim_{t \to \infty} \Delta(t) = 0 \).
+    \item Como \( \dot{\varepsilon} = \frac{d}{dt} (\tilde{\psi}^T \phi) \in \mathcal{L}_\infty \Rightarrow \lim_{t \to \infty} \varepsilon = 0 \).
+\end{itemize}
+
+Portanto, todos os sinais são limitados e os erros convergem para zero. Isso garante estabilidade global uniforme.
+
+\textbf{Observação:} Para valores grandes de \(\beta\), o termo \( \frac{\sigma}{\beta} \Gamma^{-1} \Delta \) torna-se desprezível, desacoplando a equação de atualização de \(\dot{\psi}\) da dinâmica de \(\theta\).
+
+\newpage
 
 \subsection{Resumo do Algoritmo}
 
