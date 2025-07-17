@@ -9,7 +9,7 @@ ym0 = 0;
 gamma = 5*eye(2*n);
 R0 = 200*eye(2*n);
 tau=5;
-beta=1;
+beta=1000;
 kappa=0.1;
 sigma=0.5;
 alpha=1;
@@ -19,9 +19,9 @@ theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
 DC = 3;   %Constant
-S1 = 1;
-S2 = 1;
-S3 = 1;
+S1 = 0;
+S2 = 0;
+S3 = 0;
 SQ = 1;
 % Define Laplace variable
 s = tf('s');
@@ -41,7 +41,7 @@ A0 = 1;
 %% Rodar cálculo dos parâmetros ideais
 [theta1, theta_n, theta2, theta_2n, den_filtro] = controle2DOF(P, M, A0);
 theta_star = [theta1(:); theta_n; theta2(:); theta_2n];
-%theta0 = 0.9*theta_star;
+%%theta0 = 0.9*theta_star;
 %% ======= Definir Filtro =======
 % Forma canônica controlável
 nf = n-1;
@@ -73,32 +73,18 @@ subplot(3,2,1);
 plot(t, r, 'k', 'LineWidth', 1.2); hold on;
 plot(t, ym, 'b--', 'LineWidth', 1.2);
 plot(t, yp, 'r', 'LineWidth', 1.2);
-xlabel('Tempo [s]'); ylabel('Saída');
-legend('r','y_m','y_p'); title('Saídas: Referência, Modelo, Planta');
+xlabel('$t$ [s]', 'Interpreter', 'latex');
+ylabel('$y(t)$', 'Interpreter', 'latex');
+legend({'$r(t)$','$y_m(t)$','$y_p(t)$'}, 'Interpreter', 'latex');
+title('Sinal de Refer\^encia e Sa\''idas: $r(t)$, $y_m(t)$, $y_p(t)$', 'Interpreter', 'latex')
 grid on;
 
-%{
- 2. theta vs theta*
-subplot(3,2,2);
-colors = lines(2*n);
-hold on;
-for i = 1:2*n
-    plot(t, theta(:,i), 'Color', colors(i,:), 'LineWidth', 1.2);
-    plot(t, theta_star_t(i,:), '--', 'Color', colors(i,:), 'LineWidth', 1.2, 'HandleVisibility', 'off');
-end
-xlabel('Tempo [s]');
-ylabel('\theta');
-title('\theta estimado vs \theta^* (ideal)');
-legend(arrayfun(@(i)sprintf('\\theta_{%d}', i), 1:4*n, 'UniformOutput', false));
-grid on;
-%}
 % 2. theta - theta*
 subplot(3,2,2);
-hold on;
-plot(t, theta_til, 'LineWidth', 1.2);
-xlabel('Tempo [s]');
-ylabel('$\tilde{\theta}$', 'Interpreter', 'latex');
-title('$\tilde{\theta}$', 'Interpreter', 'latex');
+plot(t, theta_til, 'LineWidth', 1.2); hold on;
+xlabel('$t$ [s]', 'Interpreter', 'latex');
+ylabel('$\tilde{\theta}(t)$', 'Interpreter', 'latex');
+title('Erro de Estimativa: $\tilde{\theta}(t)$', 'Interpreter', 'latex');
 legend(arrayfun(@(i) sprintf('$\\tilde{\\theta}_{%d}$', i), 1:4*n, 'UniformOutput', false), ...
        'Interpreter', 'latex');
 grid on;
@@ -106,26 +92,17 @@ grid on;
 % 3. Erro de acompanhamento
 subplot(3,2,3);
 plot(t, ea, 'm', 'LineWidth', 1.2);
-xlabel('Tempo [s]'); ylabel('Erro');
-title('Erro de acompanhamento: e_a = y_p - y_m');
+xlabel('$t$ [s]', 'Interpreter', 'latex');
+ylabel('$e_a(t)$', 'Interpreter', 'latex');
+title('Erro de Acompanhamento: $e_a = y_p - y_m$', 'Interpreter', 'latex');
 grid on;
 
-%{
- 4. Norma de theta e theta*
+% 4. psi til
 subplot(3,2,4);
-plot(t, norm_theta, 'b', 'LineWidth', 1.2); hold on;
-plot(t, norm_theta_star, 'k--', 'LineWidth', 1.2);
-xlabel('Tempo [s]'); ylabel('||\theta||');
-legend('||\theta||', '||\theta^*||');
-title('Norma dos parâmetros');
-grid on;
-%}
-subplot(3,2,4);
-hold on;
-plot(t, psi_til, 'LineWidth', 1.2);
-xlabel('Tempo [s]');
-ylabel('$\tilde{\psi}$', 'Interpreter', 'latex');
-title('$\tilde{\psi}$', 'Interpreter', 'latex');
+plot(t, psi_til, 'LineWidth', 1.2); hold on;
+xlabel('$t$ [s]', 'Interpreter', 'latex');
+ylabel('$\tilde{\psi}(t)$', 'Interpreter', 'latex');
+title('Erro de Estimativa: $\tilde{\psi}(t)$', 'Interpreter', 'latex');
 legend(arrayfun(@(i) sprintf('$\\tilde{\\psi}_{%d}$', i), 1:4*n, 'UniformOutput', false), ...
        'Interpreter', 'latex');
 grid on;
@@ -135,22 +112,18 @@ subplot(3,2,5);
 plot(t, sum(theta_til.*w',1) + sum(dtheta'.*w',1), 'LineWidth', 1.2); hold on;
 plot(t, sum(theta_til.*w',1), 'LineWidth', 1.2);
 plot(t, sum(dtheta'.*w',1), 'LineWidth', 1.2);
-xlabel('Tempo [s]'); ylabel('u(t)');
-legend('$\tilde{u}$', '$\tilde{\theta}^T \omega$', '$\dot{\theta}^T \omega$', 'Interpreter', 'latex');
-
-title('Controle aplicado');
+xlabel('$t$ [s]', 'Interpreter', 'latex');
+ylabel('$u(t)$', 'Interpreter', 'latex');
+legend({'$\tilde{u}$', '$\tilde{\theta}^\top \omega$', '$\dot{\theta}^\top \omega$'}, 'Interpreter', 'latex');
+title('Controle Aplicado', 'Interpreter', 'latex');
 grid on;
 
-% 6. Norma de theta tilde
+% 6. Norma de theta tilde e psi tilde
 subplot(3,2,6);
-hold on
-plot(t, norm_tilde, 'LineWidth', 1.2);
+plot(t, norm_tilde, 'LineWidth', 1.2); hold on;
 plot(t, norm_tilde2, 'LineWidth', 1.2);
-
-xlabel('Tempo [s]', 'Interpreter', 'latex');
-ylabel('$\|\tilde{\theta}\|$', 'Interpreter', 'latex');
-title('$\|\tilde{\theta}\|\ ,  \| \tilde{\psi}\|$', 'Interpreter', 'latex');
-
+xlabel('$t$ [s]', 'Interpreter', 'latex');
+ylabel('Norma', 'Interpreter', 'latex');
+title('Normas: $\|\tilde{\theta}\|$ e $\|\tilde{\psi}\|$', 'Interpreter', 'latex');
 legend({'$\|\tilde{\theta}\|$', '$\|\tilde{\psi}\|$'}, 'Interpreter', 'latex');
-
 grid on;

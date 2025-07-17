@@ -1,13 +1,13 @@
 Model {
   Name			  "combined_MRAC"
   Version		  10.3
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1252"
   ModelUUID		  "00b3364d-869f-4cef-9153-dfb5e36ca6ce"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.23"
+    ComputedModelVersion    "7.24"
     NumModelReferences	    0
     NumTestPointedSignals   15
     TestPointedSignal {
@@ -174,7 +174,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [8.0, 8.0, 1936.0, 1056.0]
+      Location		      [8.0, 8.0, 1936.0, 882.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -201,10 +201,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [2357.0, 1026.0]
+	  Extents		  [2946.0, 1080.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-85.223697960997342, 10.583333333333234]
-	  SceneRectInView	  [-85.223697960997342, 10.583333333333234, 1885.6, 820.8]
+	  Offset		  [-569.13450523049858, -155.5]
+	  SceneRectInView	  [-569.13450523049858, -155.5, 2357.0, 864.0]
 	}
 	Object {
 	  $ObjectID		  6
@@ -212,10 +212,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "91"
-	  Extents		  [2357.0, 1026.0]
+	  Extents		  [2946.0, 1080.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-198.37268592296013, 88.328121401925728]
-	  SceneRectInView	  [-198.37268592296013, 88.328121401925728, 1885.6, 820.8]
+	  Offset		  [-581.54296875, -10.935939299037102]
+	  SceneRectInView	  [-581.54296875, -10.935939299037102, 2357.0, 864.0]
 	}
 	Object {
 	  $ObjectID		  7
@@ -223,10 +223,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "29"
-	  Extents		  [2357.0, 1026.0]
+	  Extents		  [2357.0, 808.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-1114.4246279761896, -314.56948966882419]
-	  SceneRectInView	  [-1114.4246279761896, -314.56948966882419, 1885.6, 820.8]
+	  Offset		  [-1114.4246279761896, -339.7]
+	  SceneRectInView	  [-1114.4246279761896, -339.7, 1885.6, 646.4]
 	}
 	Object {
 	  $ObjectID		  8
@@ -234,10 +234,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [2353.0, 1018.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [-333.65496858936723, -111.09589856869854]
-	  SceneRectInView	  [-333.65496858936723, -111.09589856869854, 1254.6666666666667, 542.66666666666663]
+	  Extents		  [2941.0, 1080.0]
+	  ZoomFactor		  [1.5921375921375922]
+	  Offset		  [-445.26530809554, -111.09589856869854]
+	  SceneRectInView	  [-445.26530809554, -111.09589856869854, 1477.8873456790122, 542.66666666666663]
 	}
 	Object {
 	  $ObjectID		  9
@@ -310,7 +310,7 @@ Model {
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
       "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAJYgAABEkAAAABAAAAAgAAAAEAAAAC/"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAJYgAAA28AAAABAAAAAgAAAAEAAAAC/"
       "AAAAAEAAAACAAAAAA=="
       Array {
 	Type			"Cell"
@@ -327,11 +327,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "caioc"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 14 15:28:44 2025"
-  RTWModifiedTimeStamp	  674407722
-  ModelVersionFormat	  "%<AutoIncrement:7.23>"
+  LastModifiedDate	  "Wed Jul 16 21:29:35 2025"
+  RTWModifiedTimeStamp	  674602174
+  ModelVersionFormat	  "%<AutoIncrement:7.24>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1868,9 +1868,6 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      Terminator
-    }
-    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1939,7 +1936,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"159"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -3559,7 +3556,7 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[8, 8, 1944, 1064]
+	Location		[8, 8, 1944, 890]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			on
 	PortBlocksUseCompactNotation off
@@ -3579,27 +3576,10 @@ Model {
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
-	  Name			  "Clock"
-	  SID			  "30"
-	  Position		  [-710, 47, -685, 73]
-	  ZOrder		  -1
-	  Commented		  "on"
-	}
-	Block {
-	  BlockType		  Clock
 	  Name			  "Clock1"
 	  SID			  "150"
 	  Position		  [-65, 17, -40, 43]
 	  ZOrder		  25
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "DC"
-	  SID			  "31"
-	  Position		  [-835, -84, -805, -56]
-	  ZOrder		  -2
-	  Commented		  "on"
-	  Value			  "DC"
 	}
 	Block {
 	  BlockType		  Constant
@@ -3608,16 +3588,6 @@ Model {
 	  Position		  [-395, -149, -365, -121]
 	  ZOrder		  24
 	  Value			  "DC"
-	}
-	Block {
-	  BlockType		  Relay
-	  Name			  "Relay"
-	  SID			  "62"
-	  Position		  [-835, 60, -805, 90]
-	  ZOrder		  6
-	  Commented		  "on"
-	  OnOutputValue		  "10"
-	  OffOutputValue	  "-10"
 	}
 	Block {
 	  BlockType		  Relay
@@ -3662,16 +3632,6 @@ Model {
 	}
 	Block {
 	  BlockType		  Sin
-	  Name			  "Sine Wave3"
-	  SID			  "156"
-	  Ports			  [0, 1]
-	  Position		  [-485, 20, -455, 50]
-	  ZOrder		  31
-	  Frequency		  "7"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sin
 	  Name			  "Sine Wave4"
 	  SID			  "157"
 	  Ports			  [0, 1]
@@ -3680,30 +3640,6 @@ Model {
 	  Amplitude		  "SQ"
 	  Frequency		  "0.1*pi"
 	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sin
-	  Name			  "Sine wave1"
-	  SID			  "63"
-	  Ports			  [0, 1]
-	  Position		  [-895, 60, -865, 90]
-	  ZOrder		  4
-	  Commented		  "on"
-	  Frequency		  "0.1*pi"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum1"
-	  SID			  "65"
-	  Ports			  [2, 1]
-	  Position		  [-765, -15, -735, 15]
-	  ZOrder		  8
-	  ShowName		  off
-	  Commented		  "on"
-	  InputSameDT		  on
-	  OutDataTypeStr	  "Inherit: Same as first input"
-	  SaturateOnIntegerOverflow on
 	}
 	Block {
 	  BlockType		  Sum
@@ -3730,48 +3666,6 @@ Model {
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "Terminator"
-	  SID			  "160"
-	  Position		  [-230, 5, -210, 25]
-	  ZOrder		  32
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "Terminator1"
-	  SID			  "161"
-	  Position		  [-345, -20, -325, 0]
-	  ZOrder		  33
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace 1"
-	  SID			  "34"
-	  Ports			  [1]
-	  Position		  [-655, 47, -630, 73]
-	  ZOrder		  -5
-	  BackgroundColor	  "yellow"
-	  ShowName		  off
-	  Commented		  "on"
-	  VariableName		  "t"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "st"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace 2"
-	  SID			  "35"
-	  Ports			  [1]
-	  Position		  [-655, -58, -630, -32]
-	  ZOrder		  -6
-	  BackgroundColor	  "yellow"
-	  ShowName		  off
-	  Commented		  "on"
-	  VariableName		  "r"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "st"
 	}
 	Block {
 	  BlockType		  ToWorkspace
@@ -3808,52 +3702,6 @@ Model {
 	  BackgroundColor	  "green"
 	  InitialOutput		  "0"
 	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  15
-	  SrcBlock		  "DC"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  DstBlock		  "Sum1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Sum1"
-	  SrcPort		  1
-	  Points		  [50, 0; 0, -45]
-	  DstBlock		  "To Workspace 2"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Clock"
-	  SrcPort		  1
-	  DstBlock		  "To Workspace 1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  23
-	  SrcBlock		  "Relay"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  DstBlock		  "Sum1"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  10
-	  SrcBlock		  "Sine wave1"
-	  SrcPort		  1
-	  DstBlock		  "Relay"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  25
-	  SrcBlock		  "Sine Wave3"
-	  SrcPort		  1
-	  Points		  [45, 0; 0, -23; 39, 0; 0, -22]
-	  DstBlock		  "Terminator1"
-	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  26

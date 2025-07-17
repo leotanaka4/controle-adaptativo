@@ -81,9 +81,9 @@
 \tableofcontents
 \newpage
 
-\section*{Estabilidade do algoritmo Combined MRAC}
+\section{Estabilidade do algoritmo Combined MRAC - Caso de Primeira Ordem}
 
-\subsection*{Modelo da Planta e do Modelo de Referência}
+\subsection{Modelo da Planta e do Modelo de Referência}
 
 Considera-se uma planta de primeira ordem com dinâmica dada por:
 \begin{equation}
@@ -121,7 +121,7 @@ Os parâmetros ideais correspondentes são obtidos de forma a garantir que o err
     \theta_2^* &= \frac{k_m}{k_p}
 \end{align}
 
-\subsection*{Estimador Composto M-MRAC + LS}
+\subsection{Estimador Composto M-MRAC + LS}
 
 Para complementar o algoritmo, é incluído um estimador dos parâmetros da planta. Os parâmetros estimados da planta são representados por:
 \begin{equation}
@@ -161,7 +161,7 @@ Além disso, a equação dinâmica do erro de identificação é dada por:
     \dot{\epsilon} = -a_i \epsilon - \tilde{\psi}_1 y + \tilde{\psi}_2 u
 \end{equation}
 
-\subsection*{Leis de Atualização}
+\subsection{Leis de Atualização}
 
 A lei de adaptação dos parâmetros de controle é definida da seguinte forma:
 \begin{equation}
@@ -174,7 +174,7 @@ E a atualização dos parâmetros da planta é feita por:
     \dot{\psi}_2 &= -\kappa_1 \epsilon u - \kappa_2 \theta^T \Delta
 \end{align}
 
-\subsection*{Reescrevendo as Funções $\Delta$}
+\subsection{Reescrevendo as Funções $\Delta$}
 
 As expressões para os termos $\Delta_1$ e $\Delta_2$ podem ser reescritas com base nos parâmetros de erro:
 \begin{align}
@@ -184,7 +184,7 @@ As expressões para os termos $\Delta_1$ e $\Delta_2$ podem ser reescritas com b
              &= \theta_2 \tilde{\psi}_2 + k_p \tilde{\theta}_2
 \end{align}
 
-\subsection*{Análise de Estabilidade pelo Método de Lyapunov}
+\subsection{Análise de Estabilidade pelo Método de Lyapunov}
 
 Para analisar a estabilidade do sistema, considera-se a seguinte função de Lyapunov candidata:
 \begin{equation}
@@ -247,7 +247,7 @@ Conclui-se que a derivada de $V$ é:
 \dot{V} = -\frac{\gamma_1}{\gamma_2} a_m e^2 - \frac{\kappa_1}{\kappa_2} a_i \epsilon^2 - \Delta^T \Delta \leq 0
 \end{equation}
 
-\subsection*{Conclusão sobre Estabilidade}
+\subsection{Conclusão sobre Estabilidade}
 
 Como a derivada de $V$ é negativa semi-definida, pelo Teorema de Lyapunov Direto, o sistema é estável no sentido de Lyapunov.
 
@@ -440,7 +440,7 @@ Concluímos que:
     \item \( \varepsilon \in \mathcal{L}_\infty \Rightarrow \dot{\psi}, \dot{\Delta} \in \mathcal{L}_\infty \).
 \end{itemize}
 
-\subsubsection*{Convergência dos Erros}
+\subsubsection{Convergência dos Erros}
 
 \begin{itemize}
     \item Como \( \dot{e} \in \mathcal{L}_\infty \Rightarrow \lim_{t \to \infty} e(t) = 0 \).
@@ -524,7 +524,145 @@ $\begin{aligned}
 
 \section{Resultados das Simulações}
 
-\section{Discussão dos Resultados}
+Nesta seção, são apresentados os resultados das simulações realizadas com o sistema adaptativo proposto. A estrutura da simulação foi mantida, variando-se apenas um parâmetro por vez em relação à simulação base. Dessa forma, torna-se possível analisar a sensibilidade e influência de cada parâmetro no desempenho do sistema.
 
+As simulações consideram as seguintes definições de planta e modelo de referência:
+
+\begin{itemize}
+    \item \textbf{Planta:} \( P(s) = \dfrac{k_p(s + 2)^2}{s^2} \), com \( k_p = \dfrac{1}{3} \)
+    \item \textbf{Modelo de referência:} \( M(s) = \dfrac{1}{s + 1} \)
+    \item \textbf{Filtro auxiliar:} \( \frac{1}{\Lambda(s)} = \dfrac{1}{(s + 0.5)(s + 1)(s + 1.5)} \)
+\end{itemize}
+
+A configuração de simulação base foi definida da seguinte forma:
+
+\begin{itemize}
+    \item Ordem do sistema: $n = 3$
+    \item Tempo final da simulação: $t_{\text{final}} = 80$ s
+    \item Passo de simulação: $st = 0.01$ s
+    \item Condições iniciais: $y_0 = 0$, $\theta_0 = \mathbf{0}_{6\times1}$
+    \item $\gamma = 5I$, $R(0) = 200I$
+    \item $\tau = 5$, $\beta = 1000$, $\kappa = 0.1$, $\sigma = 0.5$, $\alpha = 1$
+    \item Sinal de referência: $r(t) = 3$ (constante)
+\end{itemize}
+
+A partir desta configuração base, foram realizadas as seguintes simulações adicionais:
+
+\begin{itemize}
+    \item Condições iniciais com $y_0 = 10$
+    \item Condições iniciais com $\theta(0) = 0{,}95 \cdot \theta^*$
+    \item Matriz $R(0) = 2I$
+    \item $\gamma = 50$
+    \item $\tau = 50$
+    \item $\beta = 1$
+    \item $\kappa = 0{,}01$
+    \item $\sigma = 0{,}05$
+    \item $\alpha = 100$
+    \item Sinal de referência com componentes senoidais: $S_1 = S_2 = S_3 = 1$, $\omega = \{1,\ 3,\ 5\}$ rad/s
+\end{itemize}
+
+Os resultados serão discutidos a seguir, com gráficos de comparação entre a saída do sistema e o modelo, além das estimativas dos parâmetros adaptativos e da evolução dos erros. Cada simulação destacará o impacto da variação considerada sobre o comportamento geral do sistema.
+
+\newpage
+
+\subsection{Simulação \#1 - Base}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim01.png}
+    \caption{Resultados da Simulação \#1}
+    \label{fig:sim01}
+\end{figure}
+
+\subsection{Simulação \#2 - $y_0 = 10$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim02.png}
+    \caption{Resultados da Simulação \#2}
+    \label{fig:sim02}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#3 - $\theta(0) = 0.9\theta^{*}$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim03.png}
+    \caption{Resultados da Simulação \#3}
+    \label{fig:sim03}
+\end{figure}
+
+\subsection{Simulação \#4 - $R(0) = 2I$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim04.png}
+    \caption{Resultados da Simulação \#4}
+    \label{fig:sim04}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#5 - $\gamma = 50$ }
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim05.png}
+    \caption{Resultados da Simulação \#5}
+    \label{fig:sim05}
+\end{figure}
+
+\subsection{Simulação \#6 - $\tau = 50$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim06.png}
+    \caption{Resultados da Simulação \#6}
+    \label{fig:sim06}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#7 - $\beta = 1$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim07.png}
+    \caption{Resultados da Simulação \#7}
+    \label{fig:sim07}
+\end{figure}
+
+\subsection{Simulação \#8 - $\kappa = 0.01$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim08.png}
+    \caption{Resultados da Simulação \#8}
+    \label{fig:sim08}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#9 - $\sigma = 0.05$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim09.png}
+    \caption{Resultados da Simulação \#9}
+    \label{fig:sim09}
+\end{figure}
+
+\subsection{Simulação \#10 - $\alpha = 100$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim10.png}
+    \caption{Resultados da Simulação \#10}
+    \label{fig:sim10}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#11 - Mudança no Sinal de Referência}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/sim11.png}
+    \caption{Resultados da Simulação \#11}
+    \label{fig:sim11}
+\end{figure}
+
+\section{Discussão dos Resultados}
 
 \end{document}
