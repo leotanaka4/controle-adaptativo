@@ -1,0 +1,543 @@
+\documentclass[10pt]{article}
+
+% Pacotes extras necessários
+\usepackage{amsmath}
+\usepackage[lmargin=0.5in, rmargin=0.5in, tmargin=0.5in, bmargin=0.5in, includehead, includefoot]{geometry}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{appendix}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{makecell}
+\usetikzlibrary{positioning}
+
+% Define estilo para listagens de código
+\lstdefinestyle{mystyle}{
+    language=Matlab,
+    inputencoding=latin1,
+    extendedchars=true,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt,
+    tabsize=2,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{orange},
+    frame=single,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0pt}
+\setstretch{1.5}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\sinc}{sinc}
+\newcommand{\Lap}[1]{\mathcal{L}\left\{#1\right\}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+% Cabeçalho e rodapé em todas as páginas
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Relatório das simulações}
+\fancyfoot[C]{\thepage}
+
+% Dados do Grupo
+\title{
+    Trabalho Nº 04 - LS-MRAC \\
+    \large COE603 - Controle Adaptativo
+}
+\author{
+    Caio Cesar Leal Verissimo - 119046624 \\
+    Leonardo Soares da Costa Tanaka - 121067652 \\
+    Lincoln Rodrigues Proença - 121076407 \\
+    Engenharia de Controle e Automação - UFRJ \\
+    Rio de Janeiro, Rio de Janeiro, Brasil \\
+    Julho de 2025
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% Geração automática do sumário
+\tableofcontents
+\newpage
+
+\section{Descrição do Algoritmo}
+
+\subsection{Caso \( n^* = 1 \)}
+
+\subsubsection{Hipóteses Básicas}
+
+Seja a planta dada por:
+
+\[
+y = P(s)u, \quad P(s) = k \frac{N_p(s)}{D_p(s)}
+\]
+
+Já o modelo de referência:
+
+\[
+y_m = M(s)r, \quad M(s) = k_m \frac{N_m(s)}{D_m(s)}
+\]
+
+E o erro de rastreamento é dado por:
+
+\[
+e_0 = y - y_m
+\]
+
+Sem perda de generalidade, pode-se assumir \( k_m = 1 \), de modo que:
+
+\[
+M(s) = \frac{N_m(s)}{D_m(s)}
+\]
+
+Assumimos:
+\begin{itemize}
+    \item (1) A ordem da planta \( n \) é conhecida.
+    \item (2) O grau relativo \( n^* \) é conhecido.
+    \item (3) \( N_p(s) \) é Hurwitz (planta de fase mínima).
+    \item (4) O sinal de \( k_p \) é conhecido.
+\end{itemize}
+
+\textbf{Objetivo:} Encontrar uma lei de controle \( u(t) \) tal que:
+\begin{itemize}
+    \item O sistema em malha fechada seja estável;
+    \item \( \lim_{t \to \infty} e_0(t) = 0 \), onde \( e_0 = y - y_m \), para quaisquer condições iniciais.
+\end{itemize}
+
+\subsubsection{Estrutura do Controlador}
+
+Utiliza-se filtros de variáveis de estado (SVF):
+\[
+\dot{\omega}_1 = A_f \omega_1 + b_f u, \quad \omega_1 \in \mathbb{R}^{n-1}
+\]
+\[
+\dot{\omega}_2 = A_f \omega_2 + b_f y, \quad \omega_2 \in \mathbb{R}^{n-1}
+\]
+
+O vetor de regressores é:
+\[
+\omega^T = [\omega_1^T \;\; y \;\; \omega_2^T \;\; r], \quad \omega \in \mathbb{R}^{2n}
+\]
+
+A lei de controle é dada por:
+\[
+u = \theta^T \omega, \quad \theta^T = [\theta_1^T \;\; \theta_n \;\; \theta_2^T \;\; \theta_{2n}] \in \mathbb{R}^{2n}
+\]
+
+Existe um vetor \( \theta^{*T}= [\theta_1^{*T} \;\; \theta_n^{*} \;\; \theta_2^{*T} \;\; \theta_{2n}^{*}]  \) tal que:
+\[
+y = P(s)u^* = P(s)\theta^{*T} \omega = M(s)r
+\]
+
+Erro de parâmetro:
+\[ \tilde{\theta} = \theta - \theta^* \]
+
+Desajuste de controle: 
+\[ \tilde{u} = \tilde{\theta}^T \omega \]
+
+\subsubsection{Equação do Erro}
+
+Definindo o erro de parâmetros \( \tilde{\theta} = \theta - \theta^* \) e o erro de controle \( \tilde{u} = \tilde{\theta}^T \omega \), então:
+
+\[
+y = M(s) \left[ r + \frac{1}{\theta^*_{2n}} \tilde{\theta}^T \omega \right]
+\]
+
+Como \( \frac{1}{\theta^*_{2n}} = k_p \), a equação do erro fica:
+\[
+e_0 = y - y_m = M(s)\left[r + k_p \tilde{\theta}^T \omega\right] = k_p M(s) \left[\tilde{\theta}^T \omega \right]
+\]
+
+Se a lei de controle for generalizada como \( u = \theta^T \omega + v \), temos:
+\[
+e_0 = k_p M(s) \left[u - \tilde{\theta}^{*T} \omega \right] + \varepsilon
+\]
+
+A equação do erro pode ser representada em espaço de estados como:
+\[
+\dot{e} = A e + k_p B [u - \theta^{*T} \omega], \quad e_0 = C e
+\]
+
+Este sistema é uma realização não mínima de \( M(s) \), com \( e \in \mathbb{R}^{3n - 2} \). O termo \( \varepsilon \) aparece como contribuição das condições iniciais e decai exponencialmente.
+
+\subsubsection{Critério de Estabilidade (Lema de Meyer–Kalman–Yakubovich)}
+
+Se \( M(s) \) for estritamente positivo real (SPR), então existe \( P = P^T > 0 \) e \( Q = Q^T > 0 \) tal que:
+\[
+A^T P + P A = -2Q, \quad P B = C^T
+\]
+
+\subsubsection{Projeto via Função de Lyapunov}
+
+Considera-se a função de Lyapunov:
+
+\[
+2V(e, \tilde{\theta}) = e^T P e + |k_p| \tilde{\theta}^T \Gamma^{-1} \tilde{\theta}, \quad \Gamma = \Gamma^T > 0
+\]
+
+Sua derivada é:
+
+\begin{align*}
+2\dot{V} &= \dot{e}^T P e + e^T P \dot{e} + |k_p| \left( \dot{\theta}^T \Gamma^{-1} \tilde{\theta} + \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \right) \\
+&= \left(A e + k_p B \tilde{\theta}^T \omega \right)^T P e + e^T P \left(A e + k_p B \tilde{\theta}^T \omega \right) + 2|k_p| \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \\
+&= e^T A^T P e + \tilde{\theta}^T \omega B^T k_p P e + e^T P A e + k_p e^T P B \tilde{\theta}^T \omega + 2|k_p| \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \\
+&= e^T (A^T P + P A) e + 2 k_p \tilde{\theta}^T \omega B^T P e + 2|k_p| \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \\
+&= -2 e^T Q e + 2 k_p \tilde{\theta}^T \omega B^T P e + 2|k_p| \tilde{\theta}^T \Gamma^{-1} \dot{\theta}
+\end{align*}
+
+Portanto, temos:
+
+\[
+\dot{V} = -e^T Q e + k_p \tilde{\theta}^T \omega B^T P e + |k_p| \tilde{\theta}^T \Gamma^{-1} \dot{\theta}
+\]
+
+Reescrevendo com o uso de \( \text{sign}(k_p) \):
+
+\[
+\dot{V} = -e^T Q e + |k_p| \tilde{\theta}^T \left[ \text{sign}(k_p) \omega B^T e_0 + \Gamma^{-1} \dot{\theta} \right]
+\]
+
+Escolhendo a lei de adaptação:
+
+\[
+\dot{\theta} = -\text{sign}(k_p) \Gamma \omega e_0
+\]
+
+Obtemos:
+\[
+\dot{V} = -e^T Q e \leq 0
+\]
+
+\textbf{Conclusões:}
+\begin{itemize}
+    \item \( V(t) \) é limitada, não crescente.
+    \item \( e, \tilde{\theta} \in \mathcal{L}_\infty \)
+    \item Integrando \( \dot{V} \Rightarrow e \in \mathcal{L}_2 \)
+    \item \( r(t) \in \mathcal{L}_{\infty} \Rightarrow \dot{e} \in \mathcal{L}_{\infty}\)
+    \item \( e \in \mathcal{L}_2\), \( \dot{e} \in \mathcal{L}_\infty \Rightarrow e \to 0 \)
+\end{itemize}
+
+\textbf{Convergência de \( \tilde{\theta} \to 0 \)} requer excitação persistente:
+\[
+\int_t^{t+T} \omega(\tau) \omega^T(\tau) d\tau \geq \alpha I, \quad \forall t \geq t_0, \; \alpha, T > 0
+\]
+
+\subsubsection{Erro Auxiliar}
+
+Para conveniência, definimos o erro auxiliar como:
+\[
+e_a = \operatorname{sign}(k_p) e_0
+\]
+
+Assim, a equação do erro pode ser reescrita como:
+\[
+e_a = |k_p| M(s) [u - \theta^{*T} \omega]
+\]
+
+Sabemos que $M(s)$ é SPR (Strictly Positive Real), portanto:
+\[
+|k_p| M(s)\text{ é SPR}
+\]
+
+O termo desconhecido $|k_p|$ é absorvido pelas matrizes $\{A_m, B_m, C_m\}$. Logo, considerando a representação no espaço de estados:
+
+\[
+\begin{cases}
+\dot{e} = A_m e + B_m [u - \theta^{*T} \omega] \\
+e_a = C_m e
+\end{cases}
+\]
+
+Onde a realização de $M(s)$ é dada por:
+\[
+|k_p| M(s) = C_m (sI - A_m)^{-1} B_m
+\]
+
+Como o sistema $\{A_m, B_m, C_m\}$ é SPR, então existem matrizes:
+
+\[
+\begin{cases}
+P = P^T > 0 \\
+Q = Q^T > 0
+\end{cases}
+\quad \text{tais que:} \quad
+\begin{cases}
+A_m^T P + P A_m = -2Q \\
+P B_m = C_m^T
+\end{cases}
+\]
+
+\subsubsection{Projeto de Lyapunov com $e_a$}
+
+Conjunto de equações do sistema adaptativo:
+
+\[
+\begin{cases}
+\dot{e} = A_m e + B_m \tilde{\theta}^T \omega \\
+e_a = C_m e \\
+\dot{\theta} = ?
+\end{cases}
+\]
+
+Função de Lyapunov candidata:
+\[
+2V(e, \tilde{\theta}) = e^T P e + \tilde{\theta}^T \Gamma^{-1} \tilde{\theta}, \quad \Gamma = \Gamma^T > 0
+\]
+
+
+Derivada temporal da função de Lyapunov:
+
+\[
+\begin{aligned}
+2\dot{V} &= \dot{e}^T P e + e^T P \dot{e} + \left(\dot{\tilde{\theta}}^T \Gamma^{-1} \tilde{\theta} + \tilde{\theta}^T \Gamma^{-1} \dot{\tilde{\theta}} \right) \\
+&= (A_m e + B_m \tilde{\theta}^T \omega)^T P e + e^T P (A_m e + B_m \tilde{\theta}^T \omega) + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\tilde{\theta}} \\
+&= e^T A_m^T P e + \tilde{\theta}^T \omega B_m^T P e + e^T P A_m e + e^T P B_m \tilde{\theta}^T \omega + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\tilde{\theta}} \\
+&= e^T (A_m^T P + P A_m) e + 2 \tilde{\theta}^T \omega B_m^T P e + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\tilde{\theta}} \\
+&= -2 e^T Q e + 2 \tilde{\theta}^T \omega B_m^T P e + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\tilde{\theta}}
+\end{aligned}
+\]
+
+Portanto:
+
+\[
+\dot{V} = -e^T Q e + \tilde{\theta}^T \left[ \omega e_a + \Gamma^{-1} \dot{\tilde{\theta}}\right]
+\]
+
+Como $C_m^T e = e_a$, escolhemos a lei de adaptação como:
+
+\[
+\dot{\theta} = -\Gamma \omega e_a
+\]
+
+Substituindo, temos:
+
+\[
+\dot{V} = -e^T Q e \leq 0
+\]
+
+\textbf{Conclusão:} o sistema é estável no sentido de Lyapunov.
+
+\subsubsection{Resumo do Algoritmo}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|>{\bfseries}m{3cm}|m{8cm}|c|}
+\hline
+\textbf{Subsistema} & \textbf{Equação} & \textbf{Ordem} \\
+\hline
+Planta & $y = P(s)\, u$ & $n$ \\
+\hline
+Modelo & $y_m = M(s)\, r$ & $n$ \\
+\hline
+Erro & $e_a = \operatorname{sign}(k_p)\, (y - y_m)$ & \\
+\hline
+Controle & $u = \theta^T \omega$ & \\
+\hline
+$\Lambda$-Filters & $\dot{\omega}_1 = A_f \omega_1 + b_f u$ \newline $\dot{\omega}_2 = A_f \omega_2 + b_f y$ & $n - 1$ \\
+\hline
+Regressor & $\omega^T = \left[ \omega_1^T \quad y \quad \omega_2^T \quad r \right]$ & \\
+\hline
+Adaptação & $\dot{\theta} = -\Gamma \omega e_a$ & $2n$ \\
+\hline
+\end{tabular}
+\caption{Resumo dos subsistemas, equações e ordens envolvidas no algoritmo de controle adaptativo.}
+\label{tab:resumo_algoritmo1}
+\end{table}
+
+\vspace{1em}
+\noindent
+\textbf{Ordem total do sistema:} \fcolorbox{magenta}{white}{$\displaystyle N = 6n - 2$}
+
+\subsection{Caso $n^* = 2$}
+
+A função de transferência \( M(s) \) não pode ser escolhida como SPR (Strictly Positive Real).
+Selecionamos um polinômio \( L(s) \) tal que:
+\[
+M(s) L(s) \text{ é SPR}
+\quad \Rightarrow \quad L(s) = (s + \ell_0)
+\quad \text{(grau(L) =  1)}
+\]
+Temos o seguinte modelo de 2ª ordem:
+\[
+M(s) = \frac{k_m}{(s+a)(s+b)}, \quad L(s) = s + \ell_0
+\]
+\[
+M(s)L(s) = \frac{k_m(s + \ell_0)}{(s + a)(s + b)}
+\]
+
+Condição suficiente para SPR:
+\[
+a \leq \ell_0 \leq b
+\]
+com polos e zeros devem ser alternados.
+
+A equação do erro pode ser escrita como:
+\[
+e_a = \operatorname{sign}(k_p) e_0 = |k_p| ML [L^{-1}u - \theta^{*T}\xi]
+\]
+
+Selecionamos o controle virtual:
+\[
+\zeta = \theta^T \xi \Rightarrow u = L(s)[\theta^T\xi]
+\quad \text{com} \quad \xi = L(s)^{-1}[\omega]
+\]
+
+Erro como função da diferença paramétrica:
+
+\[
+e_a = |k_p| ML \left[ \theta^T \xi - \theta^{*T} \xi \right] = |k_p| ML [\tilde{\theta}^T \xi]
+\]
+
+Filtro:
+\[
+\xi = \frac{1}{s + \ell_0} \omega
+\quad \Rightarrow \quad \dot{\xi} + \ell_0 \xi = \omega
+\]
+
+Controle implementável:
+\[
+u = (s + \ell_0)\theta^T \xi = (\dot{\theta}^T \xi + \theta^T \dot{\xi}) + \ell_0 (\theta^T \xi)
+\]
+\[
+\Rightarrow u = \dot{\theta}^T \xi + \theta^T (\dot{\xi} + \ell_0 \xi)
+= \theta^T \omega + \dot{\theta}^T \xi
+\]
+Nenhum diferenciador explícito é necessário!
+
+\subsubsection{Projeto de Lyapunov}
+
+Equação do erro:
+\[
+e_a = |k_p| ML \tilde{\theta}^T \xi
+\]
+
+Representação no espaço de estados:
+\[
+\begin{cases}
+\dot{e} = A_m e + B_m [\tilde{\theta}^T \xi] \\
+e_a = C_m e
+\end{cases}
+\]
+
+Observações:
+\begin{itemize}
+  \item \(\{A_m, B_m, C_m\}\) é uma realização não-mínima de \( |k_p| M(s)L(s) \)
+  \item \( e \in \mathbb{R}^{5n - 2} \)
+\end{itemize}
+
+Como o sistema é SPR, então:
+\[
+\exists \quad
+\begin{cases}
+P = P^T > 0 \\
+Q = Q^T > 0
+\end{cases}
+\quad \text{tais que:} \quad
+\begin{cases}
+A_m^T P + P A_m = -2Q \\
+P B_m = C_m^T
+\end{cases}
+\]
+
+Função de Lyapunov:
+\[
+2V(e, \tilde{\theta}) = e^T P e + \tilde{\theta}^T \Gamma^{-1} \tilde{\theta}, \quad \Gamma = \Gamma^T > 0
+\]
+
+Derivada temporal:
+\[
+\begin{aligned}
+2\dot{V} &= \dot{e}^T P e + e^T P \dot{e} + \dot{\tilde{\theta}}^T \Gamma^{-1} \tilde{\theta} + \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \\
+&= \left(A_m e + B_m \tilde{\theta}^T \xi \right)^T P e + e^T P \left(A_m e + B_m \tilde{\theta}^T \xi \right) + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \\
+&= e^T (A_m^T P + P A_m) e + 2 \tilde{\theta}^T \xi B_m^T P e + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\theta} \\
+&= -2 e^T Q e + 2 \tilde{\theta}^T \xi B_m^T P e + 2 \tilde{\theta}^T \Gamma^{-1} \dot{\tilde{\theta}}
+\end{aligned}
+\]
+
+Portanto:
+\[
+\dot{V} = -e^T Q e + \tilde{\theta}^T \Gamma^{-1} [ \Gamma \xi e_a+ \dot{\theta}]
+\]
+
+Escolhemos a lei de adaptação:
+\[
+\dot{\theta} = -\Gamma \xi e_a
+\]
+
+Resultado:
+\[
+\dot{V} = -e^T Q e \leq 0
+\]
+
+\subsubsection{Considerações Finais}
+
+\begin{itemize}
+  \item O regressor original \( \omega \) foi substituído por \( \xi \)
+  \item A dinâmica do filtro \( L^{-1}(s) \) foi incorporada
+  \item Como \( \omega \in \mathcal{L}_\infty \) e \( L^{-1}(s) \) é BIBO, então \( \xi \in \mathcal{L}_\infty \)
+  \item O controle contém o termo extra \( \dot{\theta}^T \xi \), que tende a zero à medida que \( \theta \to \theta^* \)
+  \item Esse termo extra atua apenas durante o transiente de identificação
+\end{itemize}
+
+\subsubsection{Resumo do Algoritmo}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|>{\bfseries}m{3cm}|m{8cm}|c|}
+\hline
+\textbf{Subsistema} & \textbf{Equação} & \textbf{Ordem} \\
+\hline
+Planta & $y = P(s)\, u$ & $n$ \\
+\hline
+Modelo & $y_m = M(s)\, r$ & $n$ \\
+\hline
+Erro & $e_a = \operatorname{sign}(k_p)\, (y - y_m)$ & \\
+\hline
+Controle & $u = \theta^T \omega + \dot{\theta}^T \xi $ & \\
+\hline
+SV filters & $\dot{\omega}_1 = A_f \omega_1 + b_f u$ \newline $\dot{\omega}_2 = A_f \omega_2 + b_f y$ & $n - 1$ \\
+\hline
+Regressor & $\omega^T = \left[ \omega_1^T \quad y \quad \omega_2^T \quad r \right]$ & \\
+\hline
+$\xi$-Filter & $\dot{\xi} = - \ell_0 \xi + \omega, \quad \ell_0 > 0$ & $2n$ \\
+\hline
+Adaptação & $\dot{\theta} = -\Gamma \xi e_a$ & $2n$ \\
+\hline
+\end{tabular}
+\caption{Resumo dos subsistemas, equações e ordens envolvidas no algoritmo de controle adaptativo.}
+\label{tab:resumo_algoritmo2}
+\end{table}
+
+\vspace{1em}
+\noindent
+\textbf{Ordem total do sistema:} \fcolorbox{magenta}{white}{$\displaystyle N = 8n - 2$}
+
+\section{Resultados das Simulações}
+
+\section{Discussão dos Resultados}
+
+
+\end{document}
