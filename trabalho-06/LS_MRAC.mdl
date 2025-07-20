@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.22"
+    ComputedModelVersion    "7.23"
     NumModelReferences	    0
     NumTestPointedSignals   6
     TestPointedSignal {
@@ -108,7 +108,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [8.0, 8.0, 1550.0, 830.0]
+      Location		      [-7.0, -7.0, 1550.0, 830.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -133,15 +133,26 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1496.0, 588.0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "29"
+	  Extents		  [1875.0, 744.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-222.51360863095135, -18.0]
-	  SceneRectInView	  [-222.51360863095135, -18.0, 1496.0, 588.0]
+	  Offset		  [-242.86710579931767, -170.55989913832332]
+	  SceneRectInView	  [-242.86710579931767, -170.55989913832332, 1500.0, 595.2]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1875.0, 744.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-224.87946056547571, -21.600000000000023]
+	  SceneRectInView	  [-224.87946056547571, -21.600000000000023, 1500.0, 595.2]
+	}
+	Object {
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -150,17 +161,6 @@ Model {
 	  ZoomFactor		  [1.0]
 	  Offset		  [-415.0, -101.0]
 	  SceneRectInView	  [-415.0, -101.0, 1496.0, 588.0]
-	}
-	Object {
-	  $ObjectID		  7
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "29"
-	  Extents		  [1496.0, 588.0]
-	  ZoomFactor		  [1.4818548387096773]
-	  Offset		  [-281.66932185374185, -55.872380952382173]
-	  SceneRectInView	  [-281.66932185374185, -55.872380952382173, 1009.5455782312927, 396.80000000000007]
 	}
 	Object {
 	  $ObjectID		  8
@@ -231,8 +231,8 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	Object {
@@ -244,18 +244,18 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
+	  Width			  [512]
+	  Height		  [384]
 	  Minimized		  "Unset"
 	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADJfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAABjAP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAyUAAAB5AP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAF/gAAAokAAAABAAAAAgAAAAEAAAAC/"
+      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAAD8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHgAAAAy8AAAABAAAAAgAAAAEAAAAC/"
       "AAAAAEAAAACAAAAAA=="
       Array {
 	Type			"Cell"
@@ -272,11 +272,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "linco"
+  LastModifiedBy	  "Lucas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 11 19:41:36 2025"
-  RTWModifiedTimeStamp	  674162866
-  ModelVersionFormat	  "%<AutoIncrement:7.22>"
+  LastModifiedDate	  "Sun Jul 20 16:43:09 2025"
+  RTWModifiedTimeStamp	  674930060
+  ModelVersionFormat	  "%<AutoIncrement:7.23>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1613,9 +1613,9 @@ Model {
   }
   System {
     Name		    "LS_MRAC"
-    Location		    [8, 8, 1558, 838]
+    Location		    [-7, -7, 1543, 823]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -2463,9 +2463,9 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[8, 8, 1558, 838]
+	Location		[-7, -7, 1543, 823]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -2479,7 +2479,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"148"
+	ZoomFactor		"100"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
@@ -2500,19 +2500,10 @@ Model {
 	  BlockType		  Relay
 	  Name			  "Relay"
 	  SID			  "115"
-	  Position		  [215, 245, 255, 295]
+	  Position		  [50, 65, 80, 95]
 	  ZOrder		  20
 	  OnOutputValue		  "10"
 	  OffOutputValue	  "-10"
-	}
-	Block {
-	  BlockType		  Sin
-	  Name			  "Sine Wave"
-	  SID			  "94"
-	  Ports			  [0, 1]
-	  Position		  [50, 65, 80, 95]
-	  ZOrder		  13
-	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  Sin
@@ -2521,7 +2512,7 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [50, 110, 80, 140]
 	  ZOrder		  14
-	  Frequency		  "3"
+	  Amplitude		  "S1"
 	  SampleTime		  "0"
 	}
 	Block {
@@ -2531,7 +2522,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [50, 155, 80, 185]
 	  ZOrder		  15
-	  Frequency		  "5"
+	  Amplitude		  "S2"
+	  Frequency		  "3"
 	  SampleTime		  "0"
 	}
 	Block {
@@ -2541,7 +2533,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [50, 200, 80, 230]
 	  ZOrder		  16
-	  Frequency		  "7"
+	  Amplitude		  "S3"
+	  Frequency		  "5"
 	  SampleTime		  "0"
 	}
 	Block {
@@ -2549,8 +2542,9 @@ Model {
 	  Name			  "Sine Wave4"
 	  SID			  "114"
 	  Ports			  [0, 1]
-	  Position		  [50, 257, 80, 283]
+	  Position		  [-10, 67, 20, 93]
 	  ZOrder		  19
+	  Amplitude		  "SQ"
 	  Frequency		  "0.1*pi"
 	  SampleTime		  "0"
 	}
@@ -2579,13 +2573,6 @@ Model {
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  "Terminator"
-	  SID			  "112"
-	  Position		  [305, 185, 325, 205]
-	  ZOrder		  17
 	}
 	Block {
 	  BlockType		  Terminator
@@ -2671,8 +2658,8 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  32
-	  SrcBlock		  "Sine Wave"
+	  ZOrder		  52
+	  SrcBlock		  "Relay"
 	  SrcPort		  1
 	  Points		  [65, 0]
 	  DstBlock		  "Sum1"
@@ -2690,7 +2677,7 @@ Model {
 	  ZOrder		  48
 	  SrcBlock		  "Sine Wave3"
 	  SrcPort		  1
-	  Points		  [45, 0; 0, -22; 105, 0]
+	  Points		  [150, 0]
 	  DstBlock		  "Sum2"
 	  DstPort		  3
 	}
@@ -2706,14 +2693,6 @@ Model {
 	  SrcBlock		  "Sine Wave4"
 	  SrcPort		  1
 	  DstBlock		  "Relay"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  49
-	  SrcBlock		  "Relay"
-	  SrcPort		  1
-	  Points		  [14, 0; 0, -75]
-	  DstBlock		  "Terminator"
 	  DstPort		  1
 	}
       }

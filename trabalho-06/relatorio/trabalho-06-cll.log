@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  11 JUL 2025 19:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  20 JUL 2025 17:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -535,19 +535,52 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] (trabalho-06-cll.aux) ) 
+{C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5]
+<img/sim01.png, id=33, 1300.86pt x 691.08188pt>
+File: img/sim01.png Graphic file (type png)
+<use img/sim01.png>
+Package pdftex.def Info: img/sim01.png  used on input line 287.
+(pdftex.def)             Requested size: 460.72456pt x 244.76108pt.
+<img/sim02.png, id=34, 1300.86pt x 691.08188pt>
+File: img/sim02.png Graphic file (type png)
+<use img/sim02.png>
+Package pdftex.def Info: img/sim02.png  used on input line 295.
+(pdftex.def)             Requested size: 460.72456pt x 244.76108pt.
+ [6 <./img/sim01.png (PNG copy)> <./img/sim02.png (PNG copy)>]
+<img/sim03.png, id=40, 1300.86pt x 691.08188pt>
+File: img/sim03.png Graphic file (type png)
+<use img/sim03.png>
+Package pdftex.def Info: img/sim03.png  used on input line 305.
+(pdftex.def)             Requested size: 460.72456pt x 244.76108pt.
+<img/sim04.png, id=41, 1300.86pt x 691.08188pt>
+File: img/sim04.png Graphic file (type png)
+<use img/sim04.png>
+Package pdftex.def Info: img/sim04.png  used on input line 313.
+(pdftex.def)             Requested size: 460.72456pt x 244.76108pt.
+ [7 <./img/sim03.png (PNG copy)> <./img/sim04.png (PNG copy)>]
+<img/sim05.png, id=47, 1300.86pt x 691.08188pt>
+File: img/sim05.png Graphic file (type png)
+<use img/sim05.png>
+Package pdftex.def Info: img/sim05.png  used on input line 323.
+(pdftex.def)             Requested size: 460.72456pt x 244.76108pt.
+<img/sim06.png, id=48, 1300.86pt x 691.08188pt>
+File: img/sim06.png Graphic file (type png)
+<use img/sim06.png>
+Package pdftex.def Info: img/sim06.png  used on input line 331.
+(pdftex.def)             Requested size: 460.72456pt x 244.76108pt.
+ [8 <./img/sim05.png (PNG copy)> <./img/sim06.png (PNG copy)>] [9] (trabalho-06-cll.aux) ) 
 Here is how much of TeX's memory you used:
- 18164 strings out of 478338
- 357321 string characters out of 2836700
+ 18225 strings out of 478338
+ 358224 string characters out of 2836700
  843657 words of memory out of 3000000
- 36278 multiletter control sequences out of 15000+600000
- 477797 words of font info for 61 fonts, out of 8000000 for 9000
+ 36327 multiletter control sequences out of 15000+600000
+ 479037 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,19n,80p,517b,310s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on trabalho-06-cll.pdf (4 pages, 155743 bytes).
+ 84i,19n,80p,517b,316s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on trabalho-06-cll.pdf (9 pages, 763984 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
+ 121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

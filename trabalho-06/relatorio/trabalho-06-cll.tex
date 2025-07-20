@@ -242,9 +242,116 @@ $\begin{aligned}
 \fcolorbox{magenta}{white}{$\displaystyle N = 8n + \textcolor{red}{4n^2} - 2$}
 \end{table}
 
+\newpage
+
 \section{Resultados das Simulações}
+
+Nesta seção, são apresentados os resultados das simulações realizadas com o sistema adaptativo proposto. A estrutura da simulação foi mantida, variando-se apenas um parâmetro por vez em relação à simulação base. Dessa forma, torna-se possível analisar a sensibilidade e influência de cada parâmetro no desempenho do sistema.
+
+As simulações consideram as seguintes definições de planta e modelo de referência:
+
+\begin{itemize}
+    \item \textbf{Planta:} \( P(s) = \dfrac{k_p(s + 2)^2}{s^3} \), com \( k_p = \dfrac{1}{3} \)
+    \item \textbf{Modelo de referência:} \( M(s) = \dfrac{1}{s + 1} \)
+    \item \textbf{Filtro auxiliar:} \( \frac{1}{\Lambda(s)} = \dfrac{1}{(s + 0.5)(s + 1)(s + 1.5)} \)
+\end{itemize}
+
+A configuração de simulação base foi definida da seguinte forma:
+
+\begin{itemize}
+    \item Ordem do sistema: $n = 3$
+    \item Tempo final da simulação: $t_{\text{final}} = 100$ s
+    \item Passo de simulação: $st = 0.01$ s
+    \item Condições iniciais: $y_0 = 0$, $\theta_0 = \mathbf{0}_{6\times1}$
+    \item $\gamma = 20$, $R(0) = 20I$
+    \item Sinal de referência: $r(t) =  3 + 10sqw(0.1 \pi t)$
+\end{itemize}
+
+A partir desta configuração base, foram realizadas as seguintes simulações adicionais:
+
+\begin{itemize}
+    \item Condições iniciais com $y_0 = 10$
+    \item Condições iniciais com $\theta(0) = 0{,}9 \cdot \theta^*$
+    \item $\gamma = 200$
+    \item Matriz $R(0) = 200I$
+    \item Sinal de referência com componentes senoidais: $r(t) =  3 + 10sqw(0.1 \pi t) + sin(t) + sin(3t) + sin(5t)$
+\end{itemize}
+
+Os resultados serão discutidos a seguir, com gráficos de comparação entre a saída do sistema e o modelo, além das estimativas dos parâmetros adaptativos e da evolução dos erros. Cada simulação destacará o impacto da variação considerada sobre o comportamento geral do sistema.
+
+\newpage
+
+\subsection{Simulação \#1 - Base}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/sim01.png}
+    \caption{Resultados da Simulação \#1}
+    \label{fig:sim01}
+\end{figure}
+
+\subsection{Simulação \#2 - $y_0 = 10$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/sim02.png}
+    \caption{Resultados da Simulação \#2}
+    \label{fig:sim02}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#3 - $\theta(0) = 0.9\theta^{*}$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/sim03.png}
+    \caption{Resultados da Simulação \#3}
+    \label{fig:sim03}
+\end{figure}
+
+\subsection{Simulação \#4 - $\gamma = 200$}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/sim04.png}
+    \caption{Resultados da Simulação \#4}
+    \label{fig:sim04}
+\end{figure}
+
+\newpage
+
+\subsection{Simulação \#5 - $R(0)= 200I$ }
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/sim05.png}
+    \caption{Resultados da Simulação \#5}
+    \label{fig:sim05}
+\end{figure}
+
+\subsection{Simulação \#6 - Mudança no Sinal de Referência}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/sim06.png}
+    \caption{Resultados da Simulação \#6}
+    \label{fig:sim06}
+\end{figure}
+
+\newpage
 
 \section{Discussão dos Resultados}
 
+Nesta seção são analisados os comportamentos observados nas simulações do controlador LS-MRAC, com foco em robustez, velocidade de adaptação e sensibilidade a parâmetros.
+
+\textbf{Simulação \#1 – Base:} O sistema acompanha a referência $y_m(t)$ com erro $e_a \rightarrow 0$ e convergência suave dos parâmetros $\theta(t)$, validando estabilidade global uniforme.
+
+\textbf{Simulação \#2 – $y_0 = 10$:} Perturbação inicial gera transiente acentuado, mas o rastreamento é rapidamente recuperado, demonstrando robustez frente a condições iniciais desfavoráveis.
+
+\textbf{Simulação \#3 – $\theta(0) = 0{,}9\theta^*$:} Parâmetros próximos do ideal aceleram a convergência, com redução do erro e transiente mais curto. Boa estimativa inicial melhora desempenho, embora não seja essencial.
+
+\textbf{Simulação \#4 – $\gamma = 200$:} Aumento do ganho de adaptação acelera a convergência, mas eleva a sensibilidade a ruídos. Há um compromisso entre rapidez e robustez.
+
+\textbf{Simulação \#5 – $R(0) = 200I$:} Valor inicial elevado para $R$ reduz a agressividade inicial do estimador, resultando em adaptação mais conservadora, mas ainda convergente.
+
+\textbf{Simulação \#6 – Referência Senoidal:} A introdução de componentes senoidais melhora a persistência de excitação, promovendo convergência mais clara e erro pequeno, mesmo com maior complexidade no sinal.
+
+\vspace{0.5em}
+\textbf{Conclusão:} As simulações confirmam os fundamentos do LS-MRAC: estabilidade, rastreamento preciso e adaptação eficaz. O sistema é robusto a variações iniciais e seus parâmetros podem ser ajustados para melhorar desempenho sem comprometer a estabilidade.
 
 \end{document}

@@ -531,7 +531,7 @@ Nesta seção, são apresentados os resultados das simulações realizadas com o
 As simulações consideram as seguintes definições de planta e modelo de referência:
 
 \begin{itemize}
-    \item \textbf{Planta:} \( P(s) = \dfrac{k_p(s + 2)^2}{s^2} \), com \( k_p = \dfrac{1}{3} \)
+    \item \textbf{Planta:} \( P(s) = \dfrac{k_p(s + 2)^2}{s^3} \), com \( k_p = \dfrac{1}{3} \)
     \item \textbf{Modelo de referência:} \( M(s) = \dfrac{1}{s + 1} \)
     \item \textbf{Filtro auxiliar:} \( \frac{1}{\Lambda(s)} = \dfrac{1}{(s + 0.5)(s + 1)(s + 1.5)} \)
 \end{itemize}
@@ -545,7 +545,7 @@ A configuração de simulação base foi definida da seguinte forma:
     \item Condições iniciais: $y_0 = 0$, $\theta_0 = \mathbf{0}_{6\times1}$
     \item $\gamma = 5$, $R(0) = 200I$
     \item $\tau = 5$, $\beta = 1000$, $\kappa = 0.1$, $\sigma = 0.5$, $\alpha = 1$
-    \item Sinal de referência: $r(t) = 3$ (constante)
+    \item Sinal de referência: $r(t) =  3 + 10sqw(0.1 \pi t)$
 \end{itemize}
 
 A partir desta configuração base, foram realizadas as seguintes simulações adicionais:
@@ -555,12 +555,7 @@ A partir desta configuração base, foram realizadas as seguintes simulações a
     \item Condições iniciais com $\theta(0) = 0{,}95 \cdot \theta^*$
     \item Matriz $R(0) = 2I$
     \item $\gamma = 50$
-    \item $\tau = 50$
-    \item $\beta = 1$
-    \item $\kappa = 0{,}01$
-    \item $\sigma = 0{,}05$
-    \item $\alpha = 100$
-    \item Sinal de referência com componentes senoidais: $S_1 = S_2 = S_3 = 1$, $\omega = \{1,\ 3,\ 5\}$ rad/s
+    \item Sinal de referência com componentes senoidais: $r(t) =  3 + 10sqw(0.1 \pi t) + sin(t) + sin(3t) + sin(5t)$
 \end{itemize}
 
 Os resultados serão discutidos a seguir, com gráficos de comparação entre a saída do sistema e o modelo, além das estimativas dos parâmetros adaptativos e da evolução dos erros. Cada simulação destacará o impacto da variação considerada sobre o comportamento geral do sistema.
