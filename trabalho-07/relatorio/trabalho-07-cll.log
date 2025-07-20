@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  18 JUL 2025 20:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  20 JUL 2025 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,9 +529,9 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
  (C:\Users\Lucas\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (trabalho-07-cll.toc [1
+) [1
 
-{C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
+{C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (trabalho-07-cll.toc)
 \tf@toc=\write4
 \openout4 = `trabalho-07-cll.toc'.
 
@@ -539,10 +539,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <img/mmrac-ls.png, id=32, 941.5175pt x 373.395pt>
 File: img/mmrac-ls.png Graphic file (type png)
 <use img/mmrac-ls.png>
-Package pdftex.def Info: img/mmrac-ls.png  used on input line 273.
+Package pdftex.def Info: img/mmrac-ls.png  used on input line 275.
 (pdftex.def)             Requested size: 460.72456pt x 182.72015pt.
  [6 <./img/mmrac-ls.png>] [7] [8] [9] [10]
-Overfull \hbox (2.8272pt too wide) in paragraph at lines 508--512
+Overfull \hbox (2.8272pt too wide) in paragraph at lines 510--514
 []|$[][]$| 
  []
 
@@ -550,76 +550,76 @@ Overfull \hbox (2.8272pt too wide) in paragraph at lines 508--512
 <img/sim01.png, id=60, 1300.86pt x 691.08188pt>
 File: img/sim01.png Graphic file (type png)
 <use img/sim01.png>
-Package pdftex.def Info: img/sim01.png  used on input line 571.
+Package pdftex.def Info: img/sim01.png  used on input line 573.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
 <img/sim02.png, id=61, 1300.86pt x 691.08188pt>
 File: img/sim02.png Graphic file (type png)
 <use img/sim02.png>
-Package pdftex.def Info: img/sim02.png  used on input line 579.
+Package pdftex.def Info: img/sim02.png  used on input line 581.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
  [13 <./img/sim01.png (PNG copy)> <./img/sim02.png (PNG copy)>]
 <img/sim03.png, id=68, 1300.86pt x 691.08188pt>
 File: img/sim03.png Graphic file (type png)
 <use img/sim03.png>
-Package pdftex.def Info: img/sim03.png  used on input line 589.
+Package pdftex.def Info: img/sim03.png  used on input line 591.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
 <img/sim04.png, id=69, 1300.86pt x 691.08188pt>
 File: img/sim04.png Graphic file (type png)
 <use img/sim04.png>
-Package pdftex.def Info: img/sim04.png  used on input line 597.
+Package pdftex.def Info: img/sim04.png  used on input line 599.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
  [14 <./img/sim03.png (PNG copy)> <./img/sim04.png (PNG copy)>]
 <img/sim05.png, id=74, 1300.86pt x 691.08188pt>
 File: img/sim05.png Graphic file (type png)
 <use img/sim05.png>
-Package pdftex.def Info: img/sim05.png  used on input line 607.
+Package pdftex.def Info: img/sim05.png  used on input line 609.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
 <img/sim06.png, id=75, 1300.86pt x 691.08188pt>
 File: img/sim06.png Graphic file (type png)
 <use img/sim06.png>
-Package pdftex.def Info: img/sim06.png  used on input line 615.
+Package pdftex.def Info: img/sim06.png  used on input line 617.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
  [15 <./img/sim05.png (PNG copy)> <./img/sim06.png (PNG copy)>]
 <img/sim07.png, id=79, 1300.86pt x 691.08188pt>
 File: img/sim07.png Graphic file (type png)
 <use img/sim07.png>
-Package pdftex.def Info: img/sim07.png  used on input line 625.
+Package pdftex.def Info: img/sim07.png  used on input line 627.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
 <img/sim08.png, id=80, 1300.86pt x 691.08188pt>
 File: img/sim08.png Graphic file (type png)
 <use img/sim08.png>
-Package pdftex.def Info: img/sim08.png  used on input line 633.
+Package pdftex.def Info: img/sim08.png  used on input line 635.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
  [16 <./img/sim07.png (PNG copy)> <./img/sim08.png (PNG copy)>]
 <img/sim09.png, id=84, 1300.86pt x 691.08188pt>
 File: img/sim09.png Graphic file (type png)
 <use img/sim09.png>
-Package pdftex.def Info: img/sim09.png  used on input line 643.
+Package pdftex.def Info: img/sim09.png  used on input line 645.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
 <img/sim10.png, id=85, 1300.86pt x 691.08188pt>
 File: img/sim10.png Graphic file (type png)
 <use img/sim10.png>
-Package pdftex.def Info: img/sim10.png  used on input line 651.
+Package pdftex.def Info: img/sim10.png  used on input line 653.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
  [17 <./img/sim09.png (PNG copy)> <./img/sim10.png (PNG copy)>]
 <img/sim11.png, id=89, 1300.86pt x 691.08188pt>
 File: img/sim11.png Graphic file (type png)
 <use img/sim11.png>
-Package pdftex.def Info: img/sim11.png  used on input line 661.
+Package pdftex.def Info: img/sim11.png  used on input line 663.
 (pdftex.def)             Requested size: 433.62166pt x 230.35654pt.
- [18 <./img/sim11.png (PNG copy)>] (trabalho-07-cll.aux) ) 
+ [18 <./img/sim11.png (PNG copy)>] [19] (trabalho-07-cll.aux) ) 
 Here is how much of TeX's memory you used:
- 18279 strings out of 478338
- 359104 string characters out of 2836700
- 852657 words of memory out of 3000000
- 36374 multiletter control sequences out of 15000+600000
+ 18280 strings out of 478338
+ 359121 string characters out of 2836700
+ 853657 words of memory out of 3000000
+ 36375 multiletter control sequences out of 15000+600000
  479383 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,20n,80p,517b,333s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,20n,80p,682b,333s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on trabalho-07-cll.pdf (18 pages, 1387516 bytes).
+Output written on trabalho-07-cll.pdf (19 pages, 1393938 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
+ 171 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

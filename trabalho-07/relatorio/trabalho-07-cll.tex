@@ -77,6 +77,8 @@
 
 \maketitle
 
+\newpage
+
 % Geração automática do sumário
 \tableofcontents
 \newpage
@@ -517,10 +519,10 @@ $\begin{aligned}
 \hline
 \end{tabular}
 \caption{Resumo dos subsistemas, equações e ordens no controle adaptativo}
-\vspace{1em}
+\label{tab:subsistemas}
+\end{table}
 \textbf{Dimensão total do sistema:} \quad
 \fcolorbox{magenta}{white}{$\displaystyle N = 10n + \textcolor{red}{4n^2}$}
-\end{table}
 
 \section{Resultados das Simulações}
 
@@ -541,7 +543,7 @@ A configuração de simulação base foi definida da seguinte forma:
     \item Tempo final da simulação: $t_{\text{final}} = 80$ s
     \item Passo de simulação: $st = 0.01$ s
     \item Condições iniciais: $y_0 = 0$, $\theta_0 = \mathbf{0}_{6\times1}$
-    \item $\gamma = 5I$, $R(0) = 200I$
+    \item $\gamma = 5$, $R(0) = 200I$
     \item $\tau = 5$, $\beta = 1000$, $\kappa = 0.1$, $\sigma = 0.5$, $\alpha = 1$
     \item Sinal de referência: $r(t) = 3$ (constante)
 \end{itemize}
@@ -664,5 +666,31 @@ Os resultados serão discutidos a seguir, com gráficos de comparação entre a 
 \end{figure}
 
 \section{Discussão dos Resultados}
+
+As simulações realizadas permitiram avaliar o desempenho do algoritmo de controle adaptativo M-MRAC combinado com estimação por mínimos quadrados (LS) frente a diferentes condições iniciais e configurações paramétricas. A seguir, discutimos os principais comportamentos observados:
+
+A \textbf{Simulação \#1 (Base)} serviu como referência para comparação com as demais variações. Observou-se boa capacidade de rastreamento da saída do modelo de referência, rápida convergência dos parâmetros adaptativos e erro de rastreamento próximo de zero ao longo do tempo.
+
+Na \textbf{Simulação \#2 ($y_0 = 10$)}, o sistema iniciou com uma saída significativamente diferente da desejada. Ainda assim, o controlador mostrou robustez, com rápida correção do erro inicial e convergência suave, evidenciando a eficácia da estrutura adaptativa frente a perturbações iniciais.
+
+A \textbf{Simulação \#3 ($\theta(0) = 0{,}9 \theta^*$)} investigou o impacto de um valor inicial para o vetor de parâmetros mais próximo do ideal. O sistema demonstrou uma pequena diferença no tempo de convergência dos parâmetros comparado a simulação base.
+
+Ao variar o ganho inicial da matriz de covariância (\textbf{Simulação \#4 -- $R(0) = 2I$}), foi possível notar uma influência direta na taxa de convergência dos parâmetros estimados. Valores maiores de $R(0)$ conferem maior confiança inicial ao estimador, promovendo adaptações mais rápidas, porém com maior sensibilidade a ruído.
+
+Aumentando o ganho da lei de adaptação (\textbf{Simulação \#5 -- $\gamma = 50$}), o sistema apresentou maior agressividade na correção do erro, o que reduziu o tempo de convergência, mas potencializou oscilações no início da resposta, sugerindo um trade-off entre velocidade e suavidade.
+
+Nas \textbf{Simulações \#6 a \#9}, foram analisados os parâmetros específicos do estimador LS:
+\begin{itemize}
+    \item \textbf{$\tau$ (Simulação \#6)}: tempos maiores suavizam a atualização do estimador, tornando-o mais robusto, porém menos reativo;
+    \item \textbf{$\beta$ (Simulação \#7)}: atua como ganho de normalização, influenciando a estabilidade do algoritmo de estimação;
+    \item \textbf{$\kappa$ (Simulação \#8)}: controla a influência do termo quadrático na métrica de regressão e pode regularizar a convergência;
+    \item \textbf{$\sigma$ (Simulação \#9)}: introduz um termo de esquecimento exponencial que limita o crescimento do erro de estimação, útil em ambientes com variação dinâmica.
+\end{itemize}
+
+A \textbf{Simulação \#10 ($\alpha = 100$)} testou a influência do ganho $\alpha$ sobre o erro de predição. Ganhos mais altos penalizam mais fortemente erros residuais, o que resultou em uma redução mais rápida do erro de predição, mas também exigiu maior esforço de controle.
+
+Por fim, a \textbf{Simulação \#11} demonstrou a resposta do sistema a uma \textbf{mudança abrupta no sinal de referência}, avaliando a capacidade de readequação do controlador adaptativo. O algoritmo respondeu de forma estável e eficaz, confirmando a robustez da estrutura M-MRAC + LS mesmo em cenários dinâmicos.
+
+No geral, os resultados demonstram que o controle adaptativo com estimador LS é eficiente em rastrear a referência e adaptar seus parâmetros frente a diversas condições, desde que os ganhos sejam bem ajustados. A \textbf{tabela-resumo dos subsistemas e ordens}, apresentada na Tabela~\ref{tab:subsistemas}, reforça a complexidade computacional envolvida, sendo o termo dominante $4n^2$, associado ao estimador LS. Assim, há um custo computacional adicional a ser considerado, que pode impactar implementações em tempo real.
 
 \end{document}
