@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1753317511 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-03/relatorio/trabalho-03-cll.tex" "trabalho-03-cll.pdf" "trabalho-03-cll" 1753317512
+["pdflatex"] 1753318142 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-03/relatorio/trabalho-03-cll.tex" "trabalho-03-cll.pdf" "trabalho-03-cll" 1753318144
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752270907 82705 9cc9f144eacd499bc23a611703921467 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1683757891 11548 f0501c9ad67d0989464b2884f5d9d9d9 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1683389622 20624 b5ef9de7fe9a614af111cda132cc174a ""
@@ -154,14 +154,14 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1636710260 12694 6c23725d50ab9d1e2d3ce482c58ffcf3 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-03/relatorio/trabalho-03-cll.tex" 1753317509 7863 b65afbe0a865fca69b0f50db2cc5cede ""
+  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-03/relatorio/trabalho-03-cll.tex" 1753318141 7882 a078e210dbf2e88fb8d7dc602e1984cf ""
   "img/controle2dof.png" 1753317068 35233 bc92ab4f0b0a5c835772ff8422cbe05a ""
   "img/estrutura_mrac.png" 1753316253 66420 cb651c0bc5d4af28dde1f73a1d603351 ""
   "img/malha_fechada.png" 1753317341 38021 35b61c3e7b9ca8726895faba31f86f3e ""
   "img/mrac_simplified.png" 1753316291 28854 5d0e5598edc548ac53c2f1df072837cf ""
-  "trabalho-03-cll.aux" 1753317512 2081 c5a41baf2dba85dee5e54d4f960f5965 "pdflatex"
-  "trabalho-03-cll.tex" 1753317509 7863 b65afbe0a865fca69b0f50db2cc5cede ""
-  "trabalho-03-cll.toc" 1753317512 775 9c7c93662dde660fdf573943ece85878 "pdflatex"
+  "trabalho-03-cll.aux" 1753318144 2081 c5a41baf2dba85dee5e54d4f960f5965 "pdflatex"
+  "trabalho-03-cll.tex" 1753318141 7882 a078e210dbf2e88fb8d7dc602e1984cf ""
+  "trabalho-03-cll.toc" 1753318144 775 9c7c93662dde660fdf573943ece85878 "pdflatex"
   (generated)
   "trabalho-03-cll.aux"
   "trabalho-03-cll.log"
