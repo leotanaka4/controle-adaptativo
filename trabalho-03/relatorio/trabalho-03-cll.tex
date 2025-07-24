@@ -284,6 +284,97 @@ grau(D) - grau(N) = grau(D_m) - grau(N_m) = n^*
 
 \section{Implementação do Algoritmo}
 
+A função \texttt{controle2DOF}, desenvolvida em MATLAB, implementa a solução numérica para obtenção dos parâmetros \( \theta^* \) de um controlador adaptativo 2DOF. A seguir, detalha-se o funcionamento da função linha a linha, destacando os principais blocos computacionais.
+
+\subsection{Entrada e Extração de Polinômios}
+
+A função recebe como entrada a planta \( P \), o modelo de referência \( M \), e o polinômio do observador \( A_0 \). Inicialmente, utiliza-se o comando \texttt{tfdata} para extrair numeradores e denominadores das funções de transferência no formato de vetores:
+
+\begin{lstlisting}[language=Matlab]
+[N_p, D_p] = tfdata(P, 'v');
+[N_m, D_m] = tfdata(M, 'v');
+\end{lstlisting}
+
+Esses vetores são convertidos para expressões simbólicas usando \texttt{poly2sym}, facilitando a manipulação algébrica simbólica ao longo do código.
+
+\subsection{Normalização}
+
+Os ganhos estáticos \( k_p \) e \( k_m \) são extraídos como o primeiro coeficiente não nulo dos numeradores. Os polinômios \( N_p \) e \( N_m \) são então normalizados por esses ganhos:
+
+\begin{lstlisting}[language=Matlab]
+kp = N_p(find(N_p ~= 0, 1, 'first'));
+km = N_m(find(N_m ~= 0, 1, 'first'));
+\end{lstlisting}
+
+\subsection{Construção de \(\Lambda(s)\)}
+
+O filtro \(\Lambda(s)\) é inicialmente definido como o produto \( N_m \cdot A_0 \). Caso o grau resultante seja inferior a \( n - 1 \), o código insere multiplicações por termos \( (s + \lambda) \) até atingir o grau desejado. Esse procedimento é feito de forma automática dentro de um laço \texttt{while}, com o termo adicional escolhido como \( \lambda = 1 \).
+
+\begin{lstlisting}[language=Matlab]
+while grau_Lambda < n - 1
+    fator = s + 1;
+    Nm = expand(Nm * fator);
+    Dm = expand(Dm * fator);
+    Lambda = Nm * A0_sym;
+    grau_Lambda = grau_Lambda + 1;
+end
+\end{lstlisting}
+
+\subsection{Montagem e Resolução da Equação Diofantina}
+
+A equação diofantina é construída simbolicamente como:
+
+\[
+H(s) D_p(s) - k_p G(s) = D_m(s) A_0(s)
+\]
+
+Para isso, o código define os coeficientes simbólicos dos polinômios \( H(s) \) e \( G(s) \) com os graus apropriados. A equação é expandida e os coeficientes em potências de \( s \) são extraídos para formar um sistema de equações algébricas lineares.
+
+\begin{lstlisting}[language=Matlab]
+eqns = coeffs_Eq == zeros(1, length(coeffs_Eq));
+sol = solve(eqns, [H G]);
+\end{lstlisting}
+
+As soluções encontradas são reagrupadas e reconstituídas como expressões simbólicas dos polinômios \( H(s) \) e \( G(s) \).
+
+\subsection{Cálculo de \( F(s) \)}
+
+Uma vez conhecido \( H(s) \), o polinômio \( F(s) \) é computado como:
+
+\[
+F(s) = \Lambda(s) - N_p(s) H(s)
+\]
+
+O comando \texttt{expand} é utilizado para simplificar a expressão simbólica.
+
+\subsection{Cálculo de \(\theta_2^*\) e \(\theta_n^*\)}
+
+Com \( G(s) \) já conhecido, os parâmetros \( \theta_2^* \) e \( \theta_n^* \) são determinados ao igualar \( G(s) = \theta_2^*(s) + \theta_n^* \Lambda(s) \), ou seja, por identificação de coeficientes em potências de \( s \). A função resolve novamente um sistema simbólico, com as variáveis correspondentes a cada termo de \( \theta_2^* \) e ao escalar \( \theta_n^* \).
+
+\subsection{Cálculo de \(\theta_1^*\)}
+
+Os coeficientes do polinômio \( F(s) \) são extraídos e usados diretamente como valores de \( \theta_1^* \), após reorganização dos termos para garantir a ordem correta (do menor para o maior grau).
+
+\subsection{Cálculo de \(\theta_{2n}^*\) e do Filtro \(\Lambda(s)\)}
+
+O parâmetro \( \theta_{2n}^* \) é obtido diretamente da razão \( \theta_{2n}^* = \frac{k_m}{k_p} \). O filtro \( \Lambda(s) \) é também convertido para vetor de coeficientes para uso posterior.
+
+\subsection{Saída da Função}
+
+Ao final, a função retorna:
+
+\begin{itemize}
+    \item \texttt{theta1} — vetor dos coeficientes de \( F(s) \)
+    \item \texttt{theta\_n} — ganho direto da saída
+    \item \texttt{theta2} — vetor dos coeficientes da parte dinâmica em \( y \)
+    \item \texttt{theta\_2n} — ganho aplicado à referência
+    \item \texttt{L} — vetor dos coeficientes do filtro \( \Lambda(s) \)
+\end{itemize}
+
+Esses parâmetros são utilizados para definir a lei de controle adaptativa da estrutura 2DOF.
+
+
+
 \newpage
 
 \section{Teste da Implementação}

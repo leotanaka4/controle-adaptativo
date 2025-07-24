@@ -1,13 +1,22 @@
 \babel@toc {portuguese}{}\relax 
-\contentsline {section}{\numberline {1}Descrição do Algoritmo}{2}{}%
-\contentsline {subsection}{\numberline {1.1}Lei de Controle Linear}{2}{}%
-\contentsline {subsection}{\numberline {1.2}Filtros}{3}{}%
-\contentsline {subsection}{\numberline {1.3}Lei de Controle Adaptativa}{3}{}%
-\contentsline {subsection}{\numberline {1.4}Simplificação da Estrutura}{3}{}%
-\contentsline {subsection}{\numberline {1.5}Malha Fechada e Condições de Matching}{4}{}%
-\contentsline {subsection}{\numberline {1.6}Equação Diofantina}{5}{}%
-\contentsline {subsection}{\numberline {1.7}Resumo do Algoritmo}{6}{}%
-\contentsline {section}{\numberline {2}Implementação do Algoritmo}{6}{}%
-\contentsline {section}{\numberline {3}Teste da Implementação}{7}{}%
-\contentsline {subsection}{\numberline {3.1}Teste ($n^* = 1$)}{7}{}%
-\contentsline {subsection}{\numberline {3.2}Resultado da simulação ($n^* = 2$)}{8}{}%
+\contentsline {section}{\numberline {1}Descrição do Algoritmo}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Lei de Controle Linear}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Filtros}{4}{}%
+\contentsline {subsection}{\numberline {1.3}Lei de Controle Adaptativa}{4}{}%
+\contentsline {subsection}{\numberline {1.4}Simplificação da Estrutura}{4}{}%
+\contentsline {subsection}{\numberline {1.5}Malha Fechada e Condições de Matching}{5}{}%
+\contentsline {subsection}{\numberline {1.6}Equação Diofantina}{6}{}%
+\contentsline {subsection}{\numberline {1.7}Resumo do Algoritmo}{7}{}%
+\contentsline {section}{\numberline {2}Implementação do Algoritmo}{7}{}%
+\contentsline {subsection}{\numberline {2.1}Entrada e Extração de Polinômios}{7}{}%
+\contentsline {subsection}{\numberline {2.2}Normalização}{7}{}%
+\contentsline {subsection}{\numberline {2.3}Construção de \(\Lambda (s)\)}{8}{}%
+\contentsline {subsection}{\numberline {2.4}Montagem e Resolução da Equação Diofantina}{8}{}%
+\contentsline {subsection}{\numberline {2.5}Cálculo de \( F(s) \)}{8}{}%
+\contentsline {subsection}{\numberline {2.6}Cálculo de \(\theta _2^*\) e \(\theta _n^*\)}{8}{}%
+\contentsline {subsection}{\numberline {2.7}Cálculo de \(\theta _1^*\)}{9}{}%
+\contentsline {subsection}{\numberline {2.8}Cálculo de \(\theta _{2n}^*\) e do Filtro \(\Lambda (s)\)}{9}{}%
+\contentsline {subsection}{\numberline {2.9}Saída da Função}{9}{}%
+\contentsline {section}{\numberline {3}Teste da Implementação}{10}{}%
+\contentsline {subsection}{\numberline {3.1}Teste ($n^* = 1$)}{10}{}%
+\contentsline {subsection}{\numberline {3.2}Resultado da simulação ($n^* = 2$)}{11}{}%
