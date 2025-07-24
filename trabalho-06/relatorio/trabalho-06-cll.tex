@@ -83,6 +83,65 @@
 
 \section{Descrição do Algoritmo}
 
+\subsection{Revisão do M-MRAC}
+
+Antes de apresentar o algoritmo proposto, revisamos o controlador adaptativo por modelo de referência M-MRAC, no qual o LS-MRAC é baseado.
+
+A lei de controle considerada é:
+\[
+u = \theta^T \omega + \dot{\tilde{\theta}}^T \xi
+\]
+com:
+\[
+L(s) = s + \ell_0, \quad \ell_0 > 0, \quad \text{e} \quad \xi = L^{-1}(s)\, \omega
+\]
+
+O erro de rastreamento é definido por:
+\[
+e_a = |k_p|\, M(s)L(s)\left[\theta^T \xi - \theta^{*T} \omega\right] = |k_p|\, M(s)L(s)\left[\tilde{\theta}^T \xi\right]
+\]
+
+Assumindo que \( M(s)L(s) \) pode ser decomposto como:
+\[
+M(s)L(s) = \frac{s + \ell_0}{s + a_m} = \frac{\ell_0 - a_m}{s + a_m} + 1 = \alpha M(s) + 1, \quad \text{com } \ell_0 > a_m
+\]
+
+Temos:
+\[
+e_a = \alpha |k_p|\, M(s)[\tilde{\theta}^T \xi] + |k_p|[\tilde{\theta}^T \xi]
+\]
+
+Assim, o sistema pode ser representado por:
+\[
+\begin{cases}
+\dot{e} = A_m e + B_m[\tilde{\theta}^T \xi] \\
+e_a = C_m e + |k_p|[\tilde{\theta}^T \xi]
+\end{cases}, \quad \text{com } e \in \mathbb{R}^{5n - 2}
+\]
+
+Utilizamos a seguinte função de Lyapunov:
+\[
+2V = e^T Q e + \tilde{\theta}^T \Gamma^{-1} \tilde{\theta}
+\]
+
+Derivando e reorganizando:
+\[
+\dot{V} = -e^T Q e - |k_p| (\tilde{\theta}^T \xi)^2 + \tilde{\theta}^T \left[ \xi e_a + \Gamma^{-1} \dot{\theta} \right]
+\]
+
+Escolhendo a seguinte lei de adaptação:
+\[
+\dot{\theta} = -\Gamma \xi e_a
+\]
+
+Obtemos:
+\[
+\dot{V} = -e^T Q e - |k_p| (\tilde{\theta}^T \xi)^2 \leq 0
+\]
+
+Esse resultado garante que a função de Lyapunov é não crescente. Esta estrutura será estendida e refinada na próxima subseção, com a introdução do algoritmo LS-MRAC.
+
+
 \subsection{Introdução ao Algoritmo}
 
 Nesta seção, introduzimos o controlador adaptativo baseado no método dos mínimos quadrados (Least-Squares Model Reference Adaptive Control – LS-MRAC). Esse método é construído com base em uma função de Lyapunov que guia o projeto da lei de adaptação, visando garantir a estabilidade e a convergência do sistema.
@@ -127,7 +186,7 @@ E portanto:
 \dot{V} = -\gamma e^T Q e - \gamma |k_p| (\tilde{\theta}^T \xi)^2 + \frac{1}{2} (\tilde{\theta}^T \xi)^2
 \]
 
-\subsubsection{Condição para Decaimento de $V$}
+%\subsubsection{Condição para Decaimento de $V$}
 
 Para garantir que $\dot{V} \leq 0$, é necessário que:
 \[
