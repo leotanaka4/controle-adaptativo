@@ -8,4 +8,6 @@
 \contentsline {subsection}{\numberline {1.6}Equação Diofantina}{5}{}%
 \contentsline {subsection}{\numberline {1.7}Resumo do Algoritmo}{6}{}%
 \contentsline {section}{\numberline {2}Implementação do Algoritmo}{6}{}%
-\contentsline {section}{\numberline {3}Teste da Implementação}{6}{}%
+\contentsline {section}{\numberline {3}Teste da Implementação}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Teste ($n^* = 1$)}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Resultado da simulação ($n^* = 2$)}{8}{}%

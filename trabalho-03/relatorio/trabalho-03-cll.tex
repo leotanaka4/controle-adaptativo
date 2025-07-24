@@ -284,7 +284,105 @@ grau(D) - grau(N) = grau(D_m) - grau(N_m) = n^*
 
 \section{Implementação do Algoritmo}
 
+\newpage
+
 \section{Teste da Implementação}
+
+\subsection{Teste (\texorpdfstring{$n^* = 1$}{n*=1})}
+
+\textbf{Classificação do sistema:}
+
+\begin{itemize}
+    \item $n = 2$ (ordem)
+    \item $n^* = 1$ (grau relativo)
+    \item $n_p = 4$ (\# de parâmetros)
+\end{itemize}
+
+\textbf{Planta e modelo:}
+\[
+    y = \frac{k_p(s + b)}{s^2 + a_1 s + a_0} u, \quad y_m = \frac{k_m(s + b_m)}{s^2 + a_{1m} s + a_{0m}} r
+\]
+
+\textbf{Parâmetros ideais $\theta^*$:}
+\[
+    \theta_1^* = b_m - b, \quad
+    \theta_n^* = \frac{a_1 - a_{1m}}{k_p}, \quad
+    \theta_2^* = \frac{(a_0 - a_{0m}) - b_m(a_1 - a_{1m})}{k_p}, \quad
+    \theta_{2n}^* = \frac{k_m}{k_p}
+\]
+
+\textbf{Definições no MATLAB:}
+\begin{lstlisting}[language=Matlab]
+%% Definir Planta
+kp = 0.1;
+b = 3;
+P = tf(kp*[1 b], [1 5 3]);
+
+%% Definir Modelo
+km = 1;
+bm = 2;
+M = tf(km*[1 bm], [1 2 1]);
+
+%% Polinômio do Observador
+A0 = 1;
+\end{lstlisting}
+
+\textbf{=== Resultados ===}
+\begin{itemize}
+    \item $\theta_1 = -1$
+    \item $\theta_n = 30$
+    \item $\theta_2 = -40$
+    \item $\theta_{2n} = 10$
+\end{itemize}
+
+\newpage
+
+\subsection{Resultado da simulação (\texorpdfstring{$n^* = 2$}{n*=2})}
+
+\textbf{Classificação do sistema:}
+
+\begin{itemize}
+    \item $n = 2$ (ordem)
+    \item $n^* = 2$ (grau relativo)
+    \item $n_p = 4$ (\# de parâmetros)
+\end{itemize}
+
+\textbf{Planta e Modelo:}
+\[
+    y = \frac{k_p}{s^2 + a_1 s + a_0} u, \quad y_m = \frac{k_m}{s^2 + a_{1m} s + a_{0m}} r
+\]
+
+\textbf{Parâmetros ideais $\theta^*$:}
+\[
+    \theta_1^* = a_1 - a_{1m}, \quad
+    \theta_n^* = \frac{(a_0 - a_{0m}) + (\lambda_0 - a_1)(a_1 - a_{1m})}{k_p}, \quad
+    \theta_2^* = \frac{-(a_0 + \lambda_0(\lambda_0 - a_1))(a_1 - a_{1m})}{k_p}, \quad
+    \theta_{2n}^* = \frac{k_m}{k_p}
+\]
+
+\vspace{0.5cm}
+\textbf{Definições no MATLAB:}
+\begin{lstlisting}[language=Matlab]
+%% Definir Planta
+kp = 2;
+P = tf(kp, [1 4 3]);
+
+%% Definir Modelo
+km = 1;
+M = tf(km, [1 5 6]);
+
+%% Polinômio do Observador
+A0 = [1 10];
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{=== Resultados ===}
+\begin{itemize}
+    \item $\theta_1 = -1$
+    \item $\theta_n = -4{,}5$
+    \item $\theta_2 = 31{,}5$
+    \item $\theta_{2n} = 0{,}5$
+\end{itemize}
 
 
 \end{document}
