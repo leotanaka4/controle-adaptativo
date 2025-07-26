@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1752884799 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" "trabalho-04-cll.pdf" "trabalho-04-cll" 1752884801
+["pdflatex"] 1753573355 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" "trabalho-04-cll.pdf" "trabalho-04-cll" 1753573357
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752270907 82705 9cc9f144eacd499bc23a611703921467 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1683757891 11548 f0501c9ad67d0989464b2884f5d9d9d9 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1683389622 20624 b5ef9de7fe9a614af111cda132cc174a ""
@@ -16,6 +16,10 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx5.tfm" 1136765053 1332 f817c21a1ba54560425663374f1b651a ""
+  "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx6.tfm" 1136765053 1344 8a0be4fe4d376203000810ad4dc81558 ""
+  "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx7.tfm" 1136765053 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx8.tfm" 1136765053 1332 1fde11373e221473104d6cc5993f046e ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -39,6 +43,7 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1247596666 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1247596667 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
+  "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1247596666 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
@@ -157,10 +162,10 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1636710260 12694 6c23725d50ab9d1e2d3ce482c58ffcf3 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" 1752884799 15377 f28c9beb4ae6fd1de14b7c76403634ee ""
-  "trabalho-04-cll.aux" 1752884800 2593 42ee69da7f12d492fc40d189b7dbd6b8 "pdflatex"
-  "trabalho-04-cll.tex" 1752884799 15377 f28c9beb4ae6fd1de14b7c76403634ee ""
-  "trabalho-04-cll.toc" 1752884800 1289 3d38a90e0831001a9f64e515759e74b9 "pdflatex"
+  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" 1753573355 20021 6d1d3947b44758f7298dd1fbfdf4643f ""
+  "trabalho-04-cll.aux" 1753573356 4021 9a339d493665e10a5753c933710e563b "pdflatex"
+  "trabalho-04-cll.tex" 1753573355 20021 6d1d3947b44758f7298dd1fbfdf4643f ""
+  "trabalho-04-cll.toc" 1753573356 2304 c0d40852f42db7e5f2781a8aa5ec281b "pdflatex"
   (generated)
   "trabalho-04-cll.aux"
   "trabalho-04-cll.log"
