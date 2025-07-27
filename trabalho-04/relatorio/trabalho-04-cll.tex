@@ -553,7 +553,7 @@ A configuração de simulação base foi definida da seguinte forma:
     \item Ordem do sistema: $n = 3$
     \item Tempo final da simulação: $t_{\text{final}} = 300$ s
     \item Passo de simulação: $st = 0.01$ s
-    \item Condições iniciais: $y_0 = 0$, $\theta_0 = \mathbf{0}_{6\times1}$
+    \item Condições iniciais: $\theta_0 = \mathbf{0}_{6\times1}$, $y_0 = 0$
     \item $\Gamma = 10I$
     \item Sinal de referência: $r(t) =  3 + 10sqw(0.1 \pi t)$
 \end{itemize}
@@ -561,10 +561,10 @@ A configuração de simulação base foi definida da seguinte forma:
 A partir desta configuração base, foram realizadas as seguintes simulações adicionais:
 
 \begin{itemize}
-    \item Condições iniciais com $y_0 = 1$
     \item Condições iniciais com $\theta(0) = 0{,}95 \cdot \theta^*$
+    \item Condições iniciais com $y_0 = 1$
     \item $\Gamma = 100I$
-    \item Sinal de referência com componentes senoidais: $r(t) =  3 + 10sqw(0.1 \pi t) + sin(t) + sin(3t) + sin(5t)$
+    \item Sinal de referência com componentes senoidais: $r(t) =  3 + 10sqw(0.1 \pi t) + sin(t) + sin(3t)$
 \end{itemize}
 
 Os resultados serão discutidos a seguir, com gráficos de comparação entre a saída do sistema e o modelo, além das estimativas dos parâmetros adaptativos e da evolução dos erros. Cada simulação destacará o impacto da variação considerada sobre o comportamento geral do sistema.
@@ -574,9 +574,9 @@ Os resultados serão discutidos a seguir, com gráficos de comparação entre a 
 
 \newpage
 
-\subsection{Simulação \#2 - $y_0 = 1$ \( (n^* = 1) \)}
+\subsection{Simulação \#2 - $\theta(0) = 0.95\theta^{*}$ \( (n^* = 1) \)}
 
-\subsection{Simulação \#3 - $\theta(0) = 0.95\theta^{*}$ \( (n^* = 1) \)}
+\subsection{Simulação \#3 - $y_0 = 1$ \( (n^* = 1) \)}
 
 \newpage
 
@@ -586,19 +586,28 @@ Os resultados serão discutidos a seguir, com gráficos de comparação entre a 
 
 \newpage
 
-\subsection{Simulação \#6 - Base \( (n^* = 2) \)}
 
-\subsection{Simulação \#7 - $y_0 = 1$ \( (n^* = 2) \)}
+\subsection{Simulação \#6 -  $\theta(0) = 0.95\theta^{*}$ e Sinal de Referência \( (n^* = 1) \)}
+
+\subsection{Simulação \#7 - Base \( (n^* = 2) \)}
 
 \newpage
 
 \subsection{Simulação \#8 - $\theta(0) = 0.95\theta^{*}$ \( (n^* = 2) \)}
 
-\subsection{Simulação \#9 - $\Gamma = 100I$ \( (n^* = 2) \)}
+\subsection{Simulação \#9 - $y_0 = 1$ \( (n^* = 2) \)}
 
 \newpage
 
-\subsection{Simulação \#10 - Sinal de Referência}
+\subsection{Simulação \#10 - $\Gamma = 100I$ \( (n^* = 2) \)}
+
+\subsection{Simulação \#11 - Sinal de Referência \( (n^* = 2) \)}
+
+\newpage
+
+
+\subsection{Simulação \#12 -  $\theta(0) = 0.95\theta^{*}$ e Sinal de Referência \( (n^* = 2) \)}
+
 
 \section{Discussão dos Resultados}
 
@@ -606,9 +615,9 @@ Nesta seção são analisados os comportamentos observados nas simulações do c
 
 \textbf{Simulações \#1 e \#6 – Base:} O sistema acompanha a referência $y_m(t)$ com erro $e_a \rightarrow 0$ e convergência suave dos parâmetros $\theta(t)$, validando a estabilidade uniforme global do esquema direto, mesmo sem leis de atualização baseadas em regressão explícita.
 
-\textbf{Simulações \#2 e \#7 – $y_0 = 10$:} A condição inicial elevada gera um transiente mais acentuado, mas o sistema recupera rapidamente o rastreamento da referência, indicando robustez do MRAC Direto frente a perturbações iniciais significativas.
+\textbf{Simulações \#2 e \#7 – $\theta(0) = 0{,}95 \cdot \theta^*$:} Uma estimativa inicial próxima do valor ideal acelera a convergência dos parâmetros e reduz o tempo de transiente. No entanto, o controlador ainda é capaz de adaptar-se eficientemente a partir de estimativas menos precisas, mostrando resiliência da adaptação direta.
 
-\textbf{Simulações \#3 e \#8 – $\theta(0) = 0{,}95 \cdot \theta^*$:} Uma estimativa inicial próxima do valor ideal acelera a convergência dos parâmetros e reduz o tempo de transiente. No entanto, o controlador ainda é capaz de adaptar-se eficientemente a partir de estimativas menos precisas, mostrando resiliência da adaptação direta.
+\textbf{Simulações \#3 e \#8 – $y_0 = 10$:} A condição inicial elevada gera um transiente mais acentuado, mas o sistema recupera rapidamente o rastreamento da referência, indicando robustez do MRAC Direto frente a perturbações iniciais significativas.
 
 \textbf{Simulações \#4 e \#9 – $\Gamma = 100I$:} O aumento do ganho de adaptação acelera a resposta do sistema, mas também amplifica a sensibilidade a ruídos e variações rápidas, exigindo um compromisso entre velocidade de adaptação e robustez, comum em esquemas diretos.
 

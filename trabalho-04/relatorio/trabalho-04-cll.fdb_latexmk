@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1753573355 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" "trabalho-04-cll.pdf" "trabalho-04-cll" 1753573357
+["pdflatex"] 1753574406 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" "trabalho-04-cll.pdf" "trabalho-04-cll" 1753574407
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752270907 82705 9cc9f144eacd499bc23a611703921467 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1683757891 11548 f0501c9ad67d0989464b2884f5d9d9d9 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1683389622 20624 b5ef9de7fe9a614af111cda132cc174a ""
@@ -162,10 +162,10 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1636710260 12694 6c23725d50ab9d1e2d3ce482c58ffcf3 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" 1753573355 20021 6d1d3947b44758f7298dd1fbfdf4643f ""
-  "trabalho-04-cll.aux" 1753573356 4021 9a339d493665e10a5753c933710e563b "pdflatex"
-  "trabalho-04-cll.tex" 1753573355 20021 6d1d3947b44758f7298dd1fbfdf4643f ""
-  "trabalho-04-cll.toc" 1753573356 2304 c0d40852f42db7e5f2781a8aa5ec281b "pdflatex"
+  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" 1753574403 20253 76b46a0c19d518c3104ae793c7f78730 ""
+  "trabalho-04-cll.aux" 1753574407 4403 1cc5231e5471162ddfcd750b814f8b8c "pdflatex"
+  "trabalho-04-cll.tex" 1753574403 20253 76b46a0c19d518c3104ae793c7f78730 ""
+  "trabalho-04-cll.toc" 1753574407 2604 1cd58f4886f5590abd22b5920e070606 "pdflatex"
   (generated)
   "trabalho-04-cll.aux"
   "trabalho-04-cll.log"
