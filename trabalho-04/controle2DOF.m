@@ -49,17 +49,17 @@ function [theta1, theta_n, theta2, theta_2n, L] = controle2DOF(P, M, A0)
     grau_Lambda = length(Lambda_coeffs) - 1;
 
     % Se grau de Lambda for menor que n - 1, multiplicar por (s + λ_i) até atingir o grau desejado
-    k = 1;  % índice para gerar lambdas distintos
+    k = 0.5;  % índice para gerar lambdas distintos
     while grau_Lambda < n - 1
         %lambda_k = sym(['lambda', num2str(k)]);
         %lambda_k = -0.25*k^2+1.75*k-1;
-        lambda_k =1;
+        lambda_k =k;
         fator = s + lambda_k;
         Nm = expand(Nm * fator);
         Dm = expand(Dm * fator);
         Lambda = Nm * A0_sym;
         grau_Lambda = grau_Lambda + 1;
-        k = k + 1;
+        k = k + 0.5;
     end
 
     %% ==============================

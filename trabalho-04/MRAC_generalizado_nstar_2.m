@@ -4,7 +4,7 @@ clc; close all;
 %% ======= Escolher Ordem do Sistema =======
 n = 3;  % ordem da planta e do modelo
 n_star = 2; % grau relativo da planta
-reset = 1; % resetar a planta / usar a que já foi criada
+reset = 0; % resetar a planta / usar a que já foi criada
 
 %% ======= Inicialization =======
 gamma = 10*eye(2*n);
@@ -13,13 +13,13 @@ st = 0.01;      %Sample time to workspace
 theta0 = zeros(2*n, 1);
 
 %% ======= Reference signal parameters =======
-DC = 2   %Constant
-Aq = 5   %Sqr wave amplitude
+DC = 3   %Constant
+Aq = 10   %Sqr wave amplitude
 wq = 0.1*pi  %Frequency
-As = 3   %Sine wave amplitude
-ws = 0.2*pi  %Frequency
-As2 = 2   %Sine wave amplitude
-ws2 = 0.3*pi  %Frequency
+As = 1   %Sine wave amplitude
+ws = 1  %Frequency
+As2 = 1   %Sine wave amplitude
+ws2 = 3  %Frequency
 
 
 %% ======= Gerar Planta =======
@@ -36,9 +36,9 @@ if reset
 
     P = tf(plant_num, plant_den);
     P = ss(P);
+end
     y0 = 0;
     x0 = P.c \ y0;
-end
 %% ======= Gerar Modelo SPR com polos e zeros alternados =======
 
 % Passo 1: gerar polos reais negativos crescentes
