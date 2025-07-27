@@ -80,15 +80,128 @@
 \tableofcontents
 \newpage
 
+\section{Introdução}
+
+
+Este trabalho visa a implementação de dois métodos de identificação adaptativa de parâmetros, o método do gradiente normalizado e o método dos mínimos quadrados. As próximas seções irão apresentar uma breve descrição dos algoritmos de cada método, os modelos de Simulink utilizados para as simulações, o resultado destas e uma discussão dos resultados. 
+
 \section{Descrição dos Algoritmos}
+
+\subsection{Parametrização do Modelo}
+
+Aqui serão apresentadas as parametrizações utilizadas para a obtenção dos algoritmos de adaptação.
+
+\subsubsection{Definição dos sinais}
+
+Seja uma planta de referência $P$, de entrada $u$ e saída $y$. Admita-se também um módulo, $Id$, de identificação dos parâmetros $\theta$ como no diagrama de blocos abaixo:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=8cm, height=6cm]{images/blocos_id.png}
+	\caption{Diagrama da Planta + Identificação}
+    \label{fig:blocos_id}
+\end{figure}
+
+Escrevendo a planta $P$ como $P(s)y = Z(s)u$, onde: $$P(s) = s^n + ... + p_1s + p_0$$ $$Z(s) = z_ms^m + ... + z_1s + z_0$$
+
+podemos definir um filtro: $$\frac{1}{\Lambda (s)}$$, sendo $\Lambda (s) = s^n + ... + \lambda_1s + \lambda_0$
+
+para obter os sinais filtrados da entrada, $u_f, \dot{u_f}, ...$ e da saída, $y_f, \dot{y_f}, ...$
+\newpage
+A nova estutura pode ser representada no diagrama: 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=8cm, height=6cm]{images/blocos_filtrado.png}
+	\caption{Diagrama da Planta + Identificação}
+    \label{fig:blocos_filtrado}
+\end{figure}
+
+Reescrevendo a equação da planta em função destes sinais:
+$$\frac{P}{\Lambda}y = \frac{Z}{\Lambda}u$$
+$$\frac{P}{\Lambda}y = \frac{Z}{\Lambda}u + (\frac{\Lambda}{\Lambda}y - y)$$
+$$y = \frac{Z}{\Lambda}u + \frac{\Lambda - P}{\Lambda}y \to y = Z u_f + ( \Lambda - P)y_f$$
+é possível encontrar o sinal $y$ em função dos sinais filtrados da planta.
+
+\subsubsection{Parâmetros e Regressor}
+
+\paragraph{Parametrização 1} 
+
+
+Definindo o vetor de parâmetros, $\theta^*$:
+$$\theta^* = \begin{bmatrix}
+    z_0 & z_1 & \cdots & z_m & (\lambda_0 - p_0) & (\lambda_1 - p1) & \cdots & (\lambda_{n-1} - p_{n-1})
+\end{bmatrix}^T
+$$
+
+E o vetor regressor, $\phi$:
+$$\phi = \begin{bmatrix}
+    u_f & \dot{u_f} & \ddot{u_f} & \cdots & y_f & \dot{y_f} & \ddot{y_f} & \cdots & y^{(n-1)}_f
+\end{bmatrix}^T
+$$
+
+Concluímos que $ y = \theta^{*T}\phi$
+
+\paragraph{Parametrização 2} 
+
+
+A partir da equação $P y = Z u$ e utilizando o filtro $\frac{1}{\Lambda}$, chegamos a uma outra parametrização:
+$$\theta^* = \begin{bmatrix}
+    z_0 & z_1 & \cdots & z_m & p_0 & p1 & \cdots & p_{n-1}
+\end{bmatrix}^T
+$$
+
+E:
+$$\phi = \begin{bmatrix}
+    u_f & \dot{u_f} & \ddot{u_f} & \cdots & u_f^{m-1} & -y_f & -\dot{y_f} & -\ddot{y_f} & \cdots & -y^{(n-1)}_f
+\end{bmatrix}^T
+$$
+
+\paragraph{Parametrização 3}
+
+Uma terceira parametrização é possível, utilizando o vetor de parâmetros:
+
+$$\theta^* = \begin{bmatrix}
+    \frac{1}{z_0} & \frac{-z_1}{z_0} & \frac{-z_2}{z_0}& \cdots & \frac{-z_m}{z_0} & \frac{p_0}{z_0} & \frac{p_1}{z_0} & \cdots & \frac{p_{n-1}}{z_0}
+\end{bmatrix}^T
+$$
+
+E o vetor regressor:
+$$\phi = \begin{bmatrix}
+    y_f^{n} & \dot{-u_f} & \ddot{-u_f} & \cdots & -u_f^{m-1}& y_f & \dot{y_f} & \ddot{y_f} & \cdots & y^{(n-1)}_f
+\end{bmatrix}^T
+$$
+
+\subsubsection{Implementação do filtro}
+
+Os filtros utilizados para os sinais de entrada e de saída são idênticos, seguindo a representação no espaço de estados:
+$$
+\dot{\omega_1} = A\omega_1 + bu
+$$
+$$
+\dot{\omega_2} = A\omega_2 + by
+$$
+
+com as escolhas de $A$ e $b$ sendo:
+$$
+A = \begin{bmatrix}
+    0 & 1 & 0 & \cdots & 0\\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \ddots & \ddots & \ddots & \vdots \\ \lambda_0 & \lambda_1 & \lambda_2 & \cdots & \lambda_{n-1}
+\end{bmatrix},
+b = \begin{bmatrix}
+    0 \\ 0 \\ \vdots \\ 1
+\end{bmatrix}
+$$
+
 
 \subsection{Gradiente Normalizado}
 
 \subsection{Least-square Normalizado}
 
-\section{Resultados das Simulações}
+\section{Simulações}
 
 \newpage
+
+
 
 \section{Discussão dos Resultados}
 
