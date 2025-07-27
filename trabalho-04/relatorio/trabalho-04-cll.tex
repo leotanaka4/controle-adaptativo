@@ -707,15 +707,15 @@ Os resultados serão discutidos a seguir, com gráficos de comparação entre a 
 
 Nesta seção, analisam-se os comportamentos observados nas simulações do controlador MRAC Direto, com ênfase em aspectos como robustez, velocidade de adaptação e sensibilidade aos parâmetros.
 
-\textbf{Simulações \#1 e \#7 – Caso Base:} O sistema acompanha com precisão a referência $y_m(t)$, apresentando erro $e_a \rightarrow 0$ e convergência suave dos parâmetros $\theta(t)$. Esses resultados validam a estabilidade uniforme global do esquema direto, mesmo sem a necessidade de regressão explícita no processo adaptativo.
+\textbf{Simulações \#1 e \#7 – Caso Base:} O sistema acompanha com precisão a referência $y_m(t)$, apresentando erro $e_a \rightarrow 0$, mas não convergência dos parâmetros $\theta(t)$. Esses resultados validam a estabilidade uniforme global do esquema, apesar da não convergência dos parâmetros, o que é esperado em sistemas adaptativos diretos uma vez que a convergência depende de excitação persistente.
 
-\textbf{Simulações \#2 e \#8 – $\theta(0) = 0{,}95 \cdot \theta^*$:} A proximidade da estimativa inicial em relação ao valor ideal acelera a convergência dos parâmetros e reduz o transiente. Ainda assim, o controlador mantém bom desempenho mesmo com estimativas menos precisas, evidenciando a resiliência da abordagem direta.
+\textbf{Simulações \#2 e \#8 – $\theta(0) = 0{,}95 \cdot \theta^*$:} A proximidade da estimativa inicial em relação ao valor ideal acelera a convergência dos parâmetros e reduz o transiente. Dessa forma, o controlador mantém bom desempenho em termos de erro de rastreamento, mas ainda não é capaz de eliminar completamente o erro paramétrico $\tilde{\theta}$.
 
-\textbf{Simulações \#3 e \#9 – $y_0 = 10$:} A condição inicial elevada gera um transiente mais acentuado, como esperado, mas o sistema retoma rapidamente o rastreamento da referência. Isso demonstra a robustez do MRAC Direto frente a perturbações iniciais significativas.
+\textbf{Simulações \#3 e \#9 – $y_0 = 10$:} A condição inicial elevada gera um transiente mais acentuado, como esperado, mas o sistema retoma rapidamente o rastreamento da referência. Isso demonstra a robustez do MRAC Direto frente a perturbações iniciais.
 
-\textbf{Simulações \#4 e \#10 – $\Gamma = 100I$:} O aumento do ganho de adaptação promove maior velocidade de convergência, porém torna o sistema mais sensível a ruídos e variações abruptas. Observa-se, assim, um trade-off clássico entre desempenho dinâmico e robustez, característico de esquemas adaptativos diretos.
+\textbf{Simulações \#4 e \#10 – $\Gamma = 100I$:} O aumento do ganho de adaptação para $\Gamma = 100I$ introduziu mais oscilações na convergência dos parâmetros $\theta$, embora tenha diminuído os picos iniciais do erro de rastreamento. Esse ajuste, entretanto, levou a um aumento na magnitude da lei de controle, evidenciando o compromisso entre desempenho inicial e esforço de controle.
 
-\textbf{Simulações \#5 e \#11 – Sinal de Referência Senoidal:} A introdução de uma referência senoidal intensifica a persistência de excitação, favorecendo a atualização dos parâmetros e promovendo melhor convergência. Mesmo com maior complexidade do sinal, o erro de rastreamento permanece pequeno, reforçando a eficácia da adaptação.
+\textbf{Simulações \#5 e \#11 – Sinal de Referência Senoidal:} A introdução de uma referência senoidal intensifica a persistência de excitação, favorecendo a atualização dos parâmetros e promovendo melhor convergência paramétrica. Mesmo com maior complexidade do sinal, o erro de rastreamento permanece pequeno, reforçando a eficácia da adaptação.
 
 \textbf{Simulações \#6 e \#12 – $\theta(0) = 0{,}95 \cdot \theta^*$ com Referência Senoidal:} A combinação de uma boa estimativa inicial e um sinal com persistência de excitação acentuada resulta em desempenho superior. A adaptação é rápida e estável, com erro reduzido e transiente mínimo, evidenciando o impacto positivo da sinergia entre esses fatores.
 
