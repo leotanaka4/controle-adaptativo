@@ -26,4 +26,4 @@
 \contentsline {subsection}{\numberline {2.10}Simulação \#10 - $\Gamma = 100I$ \( (n^* = 2) \)}{16}{}%
 \contentsline {subsection}{\numberline {2.11}Simulação \#11 - Sinal de Referência \( (n^* = 2) \)}{16}{}%
 \contentsline {subsection}{\numberline {2.12}Simulação \#12 - $\theta (0) = 0.95\theta ^{*}$ e Sinal de Referência \( (n^* = 2) \)}{17}{}%
-\contentsline {section}{\numberline {3}Discussão dos Resultados}{17}{}%
+\contentsline {section}{\numberline {3}Discussão dos Resultados}{18}{}%

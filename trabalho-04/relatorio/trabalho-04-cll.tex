@@ -542,10 +542,19 @@ Nesta seção, são apresentados os resultados das simulações realizadas com o
 As simulações consideram as seguintes definições de planta e modelo de referência:
 
 \begin{itemize}
-    \item \textbf{Planta:} \( P(s) = \dfrac{k_p(s + 2)^2}{s^3} \), com \( k_p = \dfrac{1}{3} \)
-    \item \textbf{Modelo de referência:} \( M(s) = \dfrac{1}{s + 1} \)
-    \item \textbf{Filtro auxiliar:} \( \frac{1}{\Lambda(s)} = \dfrac{1}{(s + 0.5)(s + 1)(s + 1.5)} \)
-\end{itemize}
+    \item \textbf{Planta:} $\begin{cases}
+        P(s) = \dfrac{k_p(s+1)(s+3)}{(s+1)(s+4)(s+7)} \quad com \quad k_p = 2.3816 \quad (n^* = 1) \\ 
+        P(s) = \dfrac{k_p(s+5)}{(s+2)(s+4)(s+5)} \quad com \quad k_p = 2 \quad (n^* = 2)
+    \end{cases}$
+    \item \textbf{Modelo de referência:} $\begin{cases}
+        M(s) = \dfrac{k_p(s+2)(s+4)}{(s+1)(s+3)(s+5)} \quad com \quad k_m = 1.8750 \quad (n^* = 1) \\ 
+        M(s) = \dfrac{k_p(s+2)}{(s+1)(s+3)(s+5)} \quad com \quad k_m = 7.5 \quad (n^* = 2)
+    \end{cases}$
+    \item \textbf{Filtro auxiliar:} $\begin{cases}
+        \frac{1}{\Lambda(s)} = \dfrac{1}{(s + 2)(s + 4)} \quad (n^* = 1) \\
+        \frac{1}{\Lambda(s)} = \dfrac{1}{(s + 1)(s + 2)} \quad (n^* = 2)
+    \end{cases}$
+    \end{itemize}
 
 A configuração de simulação base foi definida da seguinte forma:
 
@@ -572,57 +581,144 @@ Os resultados serão discutidos a seguir, com gráficos de comparação entre a 
 
 \subsection{Simulação \#1 - Base \( (n^* = 1) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_1/base.png}
+    \caption{Resultados da Simulação \#1}
+    \label{fig:sim01}
+\end{figure}
+
 \newpage
 
 \subsection{Simulação \#2 - $\theta(0) = 0.95\theta^{*}$ \( (n^* = 1) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_1/0.95.png}
+    \caption{Resultados da Simulação \#2}
+    \label{fig:sim02}
+\end{figure}
+
 \subsection{Simulação \#3 - $y_0 = 1$ \( (n^* = 1) \)}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_1/y0_1.png}
+    \caption{Resultados da Simulação \#3}
+    \label{fig:sim03}
+\end{figure}
 
 \newpage
 
 \subsection{Simulação \#4 - $\Gamma = 100I$ \( (n^* = 1) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_1/gamma_100.png}
+    \caption{Resultados da Simulação \#4}
+    \label{fig:sim04}
+\end{figure}
+
 \subsection{Simulação \#5 - Sinal de Referência \( (n^* = 1) \)}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_1/add_freq.png}
+    \caption{Resultados da Simulação \#5}
+    \label{fig:sim05}
+\end{figure}
 
 \newpage
 
 
 \subsection{Simulação \#6 -  $\theta(0) = 0.95\theta^{*}$ e Sinal de Referência \( (n^* = 1) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_1/add_freq_0.95.png}
+    \caption{Resultados da Simulação \#6}
+    \label{fig:sim06}
+\end{figure}
+
 \subsection{Simulação \#7 - Base \( (n^* = 2) \)}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_2/base.png}
+    \caption{Resultados da Simulação \#7}
+    \label{fig:sim07}
+\end{figure}
 
 \newpage
 
 \subsection{Simulação \#8 - $\theta(0) = 0.95\theta^{*}$ \( (n^* = 2) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_2/0.95.png}
+    \caption{Resultados da Simulação \#8}
+    \label{fig:sim08}
+\end{figure}
+
 \subsection{Simulação \#9 - $y_0 = 1$ \( (n^* = 2) \)}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_2/y0_1.png}
+    \caption{Resultados da Simulação \#9}
+    \label{fig:sim09}
+\end{figure}
 
 \newpage
 
 \subsection{Simulação \#10 - $\Gamma = 100I$ \( (n^* = 2) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_2/gamma_100.png}
+    \caption{Resultados da Simulação \#10}
+    \label{fig:sim10}
+\end{figure}
+
 \subsection{Simulação \#11 - Sinal de Referência \( (n^* = 2) \)}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_2/add_freq.png}
+    \caption{Resultados da Simulação \#11}
+    \label{fig:sim11}
+\end{figure}
 
 \newpage
 
 
 \subsection{Simulação \#12 -  $\theta(0) = 0.95\theta^{*}$ e Sinal de Referência \( (n^* = 2) \)}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/nstar_2/add_freq_0.95.png}
+    \caption{Resultados da Simulação \#12}
+    \label{fig:sim12}
+\end{figure}
+
+\newpage
 
 \section{Discussão dos Resultados}
 
-Nesta seção são analisados os comportamentos observados nas simulações do controlador MRAC Direto, com foco em robustez, velocidade de adaptação e sensibilidade a parâmetros.
+Nesta seção, analisam-se os comportamentos observados nas simulações do controlador MRAC Direto, com ênfase em aspectos como robustez, velocidade de adaptação e sensibilidade aos parâmetros.
 
-\textbf{Simulações \#1 e \#6 – Base:} O sistema acompanha a referência $y_m(t)$ com erro $e_a \rightarrow 0$ e convergência suave dos parâmetros $\theta(t)$, validando a estabilidade uniforme global do esquema direto, mesmo sem leis de atualização baseadas em regressão explícita.
+\textbf{Simulações \#1 e \#7 – Caso Base:} O sistema acompanha com precisão a referência $y_m(t)$, apresentando erro $e_a \rightarrow 0$ e convergência suave dos parâmetros $\theta(t)$. Esses resultados validam a estabilidade uniforme global do esquema direto, mesmo sem a necessidade de regressão explícita no processo adaptativo.
 
-\textbf{Simulações \#2 e \#7 – $\theta(0) = 0{,}95 \cdot \theta^*$:} Uma estimativa inicial próxima do valor ideal acelera a convergência dos parâmetros e reduz o tempo de transiente. No entanto, o controlador ainda é capaz de adaptar-se eficientemente a partir de estimativas menos precisas, mostrando resiliência da adaptação direta.
+\textbf{Simulações \#2 e \#8 – $\theta(0) = 0{,}95 \cdot \theta^*$:} A proximidade da estimativa inicial em relação ao valor ideal acelera a convergência dos parâmetros e reduz o transiente. Ainda assim, o controlador mantém bom desempenho mesmo com estimativas menos precisas, evidenciando a resiliência da abordagem direta.
 
-\textbf{Simulações \#3 e \#8 – $y_0 = 10$:} A condição inicial elevada gera um transiente mais acentuado, mas o sistema recupera rapidamente o rastreamento da referência, indicando robustez do MRAC Direto frente a perturbações iniciais significativas.
+\textbf{Simulações \#3 e \#9 – $y_0 = 10$:} A condição inicial elevada gera um transiente mais acentuado, como esperado, mas o sistema retoma rapidamente o rastreamento da referência. Isso demonstra a robustez do MRAC Direto frente a perturbações iniciais significativas.
 
-\textbf{Simulações \#4 e \#9 – $\Gamma = 100I$:} O aumento do ganho de adaptação acelera a resposta do sistema, mas também amplifica a sensibilidade a ruídos e variações rápidas, exigindo um compromisso entre velocidade de adaptação e robustez, comum em esquemas diretos.
+\textbf{Simulações \#4 e \#10 – $\Gamma = 100I$:} O aumento do ganho de adaptação promove maior velocidade de convergência, porém torna o sistema mais sensível a ruídos e variações abruptas. Observa-se, assim, um trade-off clássico entre desempenho dinâmico e robustez, característico de esquemas adaptativos diretos.
 
-\textbf{Simulações \#5 e \#10 – Referência Senoidal:} A referência senoidal fornece maior persistência de excitação, o que favorece a atualização dos parâmetros e melhora a convergência. Mesmo com a maior complexidade da referência, o erro permanece pequeno, evidenciando a eficácia adaptativa do controlador.
+\textbf{Simulações \#5 e \#11 – Sinal de Referência Senoidal:} A introdução de uma referência senoidal intensifica a persistência de excitação, favorecendo a atualização dos parâmetros e promovendo melhor convergência. Mesmo com maior complexidade do sinal, o erro de rastreamento permanece pequeno, reforçando a eficácia da adaptação.
 
-\textbf{Conclusão:} As simulações confirmam as principais características do MRAC Direto: estabilidade garantida sob certas condições, rastreamento preciso da referência e adaptação eficaz. O sistema se mostra robusto a diferentes condições iniciais e permite ajustes nos parâmetros de adaptação para melhorar o desempenho, sem comprometer a estabilidade.
+\textbf{Simulações \#6 e \#12 – $\theta(0) = 0{,}95 \cdot \theta^*$ com Referência Senoidal:} A combinação de uma boa estimativa inicial e um sinal com persistência de excitação acentuada resulta em desempenho superior. A adaptação é rápida e estável, com erro reduzido e transiente mínimo, evidenciando o impacto positivo da sinergia entre esses fatores.
+
+\textbf{Conclusão:} As simulações demonstram as principais propriedades do MRAC Direto: estabilidade garantida sob determinadas condições, rastreamento eficaz da referência e capacidade de adaptação mesmo diante de incertezas ou variações nas condições iniciais. Além disso, a escolha adequada dos parâmetros de adaptação e do sinal de referência permite otimizar o desempenho sem comprometer a estabilidade do sistema.
 
 \end{document}

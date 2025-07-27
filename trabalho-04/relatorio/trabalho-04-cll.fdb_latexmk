@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1753574406 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" "trabalho-04-cll.pdf" "trabalho-04-cll" 1753574407
+["pdflatex"] 1753576479 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" "trabalho-04-cll.pdf" "trabalho-04-cll" 1753576481
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752270907 82705 9cc9f144eacd499bc23a611703921467 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1683757891 11548 f0501c9ad67d0989464b2884f5d9d9d9 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1683389622 20624 b5ef9de7fe9a614af111cda132cc174a ""
@@ -162,10 +162,22 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1636710260 12694 6c23725d50ab9d1e2d3ce482c58ffcf3 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" 1753574403 20253 76b46a0c19d518c3104ae793c7f78730 ""
-  "trabalho-04-cll.aux" 1753574407 4403 1cc5231e5471162ddfcd750b814f8b8c "pdflatex"
-  "trabalho-04-cll.tex" 1753574403 20253 76b46a0c19d518c3104ae793c7f78730 ""
-  "trabalho-04-cll.toc" 1753574407 2604 1cd58f4886f5590abd22b5920e070606 "pdflatex"
+  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-04/relatorio/trabalho-04-cll.tex" 1753576477 23644 28648b5d28aac6813e7a5abe30bd825d ""
+  "images/nstar_1/0.95.png" 1753575536 85931 8982dd51c78d2621a5d7606b02abb9a3 ""
+  "images/nstar_1/add_freq.png" 1753575536 118121 53aefb2cbdfc39d015172a89b4767709 ""
+  "images/nstar_1/add_freq_0.95.png" 1753575536 107043 a5186c7214dc0fc8a564f661ac95f43d ""
+  "images/nstar_1/base.png" 1753575536 95534 468c32ab5c2f0aa48de776036fc71c4b ""
+  "images/nstar_1/gamma_100.png" 1753575536 100166 3472cfbe7bdc2b8436a4622cfa070a2b ""
+  "images/nstar_1/y0_1.png" 1753575536 94648 832d31bf1151c63baf58a9050c35369e ""
+  "images/nstar_2/0.95.png" 1753575536 85471 6ad78ea3c445cbab71139093e3a70e79 ""
+  "images/nstar_2/add_freq.png" 1753575536 110979 089af45915a3772bed0a24fdb50e9ec3 ""
+  "images/nstar_2/add_freq_0.95.png" 1753575536 110299 8bbc2f6c5d2dc63d52e53de88150285e ""
+  "images/nstar_2/base.png" 1753575536 91456 5718b0333ed29b889dff8656dfa34cd1 ""
+  "images/nstar_2/gamma_100.png" 1753575536 88687 0434baff108e27b48b271f939ff0af12 ""
+  "images/nstar_2/y0_1.png" 1753575536 91498 4637b888028346d2d2b9d86052a60695 ""
+  "trabalho-04-cll.aux" 1753576481 6452 048e9e515fee561cca4b87caf65fc73b "pdflatex"
+  "trabalho-04-cll.tex" 1753576477 23644 28648b5d28aac6813e7a5abe30bd825d ""
+  "trabalho-04-cll.toc" 1753576481 2604 82de6cbe3bbf20083f5666499f098821 "pdflatex"
   (generated)
   "trabalho-04-cll.aux"
   "trabalho-04-cll.log"

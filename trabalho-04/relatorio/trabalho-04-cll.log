@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  26 JUL 2025 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  26 JUL 2025 21:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -535,19 +535,86 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `trabalho-04-cll.toc'.
 
- [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] (trabalho-04-cll.aux) ) 
+ [2] [3] [4] [5] [6] [7] [8] [9] [10]
+<images/nstar_1/base.png, id=55, 1445.4pt x 724.95844pt>
+File: images/nstar_1/base.png Graphic file (type png)
+<use images/nstar_1/base.png>
+Package pdftex.def Info: images/nstar_1/base.png  used on input line 586.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [11 <./images/nstar_1/base.png (PNG copy)>]
+<images/nstar_1/0.95.png, id=59, 1445.4pt x 724.95844pt>
+File: images/nstar_1/0.95.png Graphic file (type png)
+<use images/nstar_1/0.95.png>
+Package pdftex.def Info: images/nstar_1/0.95.png  used on input line 597.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+<images/nstar_1/y0_1.png, id=60, 1445.4pt x 724.95844pt>
+File: images/nstar_1/y0_1.png Graphic file (type png)
+<use images/nstar_1/y0_1.png>
+Package pdftex.def Info: images/nstar_1/y0_1.png  used on input line 606.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [12 <./images/nstar_1/0.95.png (PNG copy)> <./images/nstar_1/y0_1.png (PNG copy)>]
+<images/nstar_1/gamma_100.png, id=65, 1445.4pt x 724.95844pt>
+File: images/nstar_1/gamma_100.png Graphic file (type png)
+<use images/nstar_1/gamma_100.png>
+Package pdftex.def Info: images/nstar_1/gamma_100.png  used on input line 617.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+<images/nstar_1/add_freq.png, id=66, 1445.4pt x 724.95844pt>
+File: images/nstar_1/add_freq.png Graphic file (type png)
+<use images/nstar_1/add_freq.png>
+Package pdftex.def Info: images/nstar_1/add_freq.png  used on input line 626.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [13 <./images/nstar_1/gamma_100.png (PNG copy)> <./images/nstar_1/add_freq.png (PNG copy)>]
+<images/nstar_1/add_freq_0.95.png, id=71, 1445.4pt x 724.95844pt>
+File: images/nstar_1/add_freq_0.95.png Graphic file (type png)
+<use images/nstar_1/add_freq_0.95.png>
+Package pdftex.def Info: images/nstar_1/add_freq_0.95.png  used on input line 638.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+<images/nstar_2/base.png, id=72, 1445.4pt x 724.95844pt>
+File: images/nstar_2/base.png Graphic file (type png)
+<use images/nstar_2/base.png>
+Package pdftex.def Info: images/nstar_2/base.png  used on input line 647.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [14 <./images/nstar_1/add_freq_0.95.png (PNG copy)> <./images/nstar_2/base.png (PNG copy)>]
+<images/nstar_2/0.95.png, id=76, 1445.4pt x 724.95844pt>
+File: images/nstar_2/0.95.png Graphic file (type png)
+<use images/nstar_2/0.95.png>
+Package pdftex.def Info: images/nstar_2/0.95.png  used on input line 658.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+<images/nstar_2/y0_1.png, id=77, 1445.4pt x 724.95844pt>
+File: images/nstar_2/y0_1.png Graphic file (type png)
+<use images/nstar_2/y0_1.png>
+Package pdftex.def Info: images/nstar_2/y0_1.png  used on input line 667.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [15 <./images/nstar_2/0.95.png (PNG copy)> <./images/nstar_2/y0_1.png (PNG copy)>]
+<images/nstar_2/gamma_100.png, id=81, 1445.4pt x 724.95844pt>
+File: images/nstar_2/gamma_100.png Graphic file (type png)
+<use images/nstar_2/gamma_100.png>
+Package pdftex.def Info: images/nstar_2/gamma_100.png  used on input line 678.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+<images/nstar_2/add_freq.png, id=82, 1445.4pt x 724.95844pt>
+File: images/nstar_2/add_freq.png Graphic file (type png)
+<use images/nstar_2/add_freq.png>
+Package pdftex.def Info: images/nstar_2/add_freq.png  used on input line 687.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [16 <./images/nstar_2/gamma_100.png (PNG copy)> <./images/nstar_2/add_freq.png (PNG copy)>]
+<images/nstar_2/add_freq_0.95.png, id=86, 1445.4pt x 724.95844pt>
+File: images/nstar_2/add_freq_0.95.png Graphic file (type png)
+<use images/nstar_2/add_freq_0.95.png>
+Package pdftex.def Info: images/nstar_2/add_freq_0.95.png  used on input line 699.
+(pdftex.def)             Requested size: 460.72456pt x 231.08435pt.
+ [17 <./images/nstar_2/add_freq_0.95.png (PNG copy)>] [18] (trabalho-04-cll.aux) ) 
 Here is how much of TeX's memory you used:
- 18178 strings out of 478338
- 357490 string characters out of 2836700
+ 18273 strings out of 478338
+ 360027 string characters out of 2836700
  846657 words of memory out of 3000000
- 36288 multiletter control sequences out of 15000+600000
+ 36374 multiletter control sequences out of 15000+600000
  479037 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,80p,519b,316s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,13n,80p,586b,316s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on trabalho-04-cll.pdf (17 pages, 256786 bytes).
+Output written on trabalho-04-cll.pdf (18 pages, 1439324 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
