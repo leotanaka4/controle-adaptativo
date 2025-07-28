@@ -8,7 +8,8 @@
 \contentsline {paragraph}{Parametrização 2}{3}{}%
 \contentsline {paragraph}{Parametrização 3}{4}{}%
 \contentsline {subsubsection}{\numberline {2.1.3}Implementação do filtro}{4}{}%
-\contentsline {subsection}{\numberline {2.2}Gradiente Normalizado}{4}{}%
-\contentsline {subsection}{\numberline {2.3}Least-square Normalizado}{4}{}%
-\contentsline {section}{\numberline {3}Simulações}{4}{}%
-\contentsline {section}{\numberline {4}Discussão dos Resultados}{5}{}%
+\contentsline {subsubsection}{\numberline {2.1.4}Adaptação}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Gradiente Normalizado}{5}{}%
+\contentsline {subsection}{\numberline {2.3}Least-square Normalizado}{5}{}%
+\contentsline {section}{\numberline {3}Simulações}{5}{}%
+\contentsline {section}{\numberline {4}Discussão dos Resultados}{6}{}%
