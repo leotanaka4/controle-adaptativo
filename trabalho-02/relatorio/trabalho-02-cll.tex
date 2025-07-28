@@ -215,7 +215,7 @@ Portanto: $$\epsilon = \tilde{\theta}\phi$$
 
 O método do gradiente normalizado baseia-se na busca pelo mínimo de uma função custo percorrendo a direção negativa do gradiente. Definindo essa função custo como $$ J(\theta) = \frac{\epsilon^2}{2m^2} $$ e o sinal normalizante $$m = 1+\kappa\phi^T\phi, \kappa > 0$$ para que $\frac{\phi}{m}$ seja um sinal limitado.
 
-$J(\theta)$ pode ser reescrito como $\frac{\tilde{\theta}^T\phi\phi^T\tilde{\theta}}{2m^2}$\\
+$J(\theta)$ pode ser reescrito como $$\frac{\tilde{\theta}^T\phi\phi^T\tilde{\theta}}{2m^2}$$\\
 O gradiente de $J$ é dado por $$\frac{\partial J}{\partial \theta} = \frac{2\phi\phi^T}{2m^2} = \frac{\phi\epsilon}{m^2}$$
 
 O que nos leva a uma escolha para a dinâmica de $\theta$:
@@ -225,7 +225,7 @@ $$
 
 \subsection{Least-square Normalizado}
 
-
+Para a abordagem do Least-square normalizado, adicionamos um ganho de adaptação variante no tempo $P$, que é atualizando seguindo a equação: $$ \dot{P} = -\frac{P\phi\phi^TP^T}{m^2} $$ sendo $P$ uma matriz simétrica e positiva definida, a expressão pode ser escrita como$$ \dot{P} = -\frac{P\phi\phi^TP}{m^2}, P(t_0)>0 $$ e o sinal normalizante passa a ser $$m = 1+\kappa\phi^TP\phi, \kappa > 0$$
 
 \section{Simulações}
 

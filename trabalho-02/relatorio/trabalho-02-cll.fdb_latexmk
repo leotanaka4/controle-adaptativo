@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1753662304.17852 "c:/Users/caioc/OneDrive/Área de Trabalho/Controle Adaptativo/Github/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" "trabalho-02-cll.pdf" "trabalho-02-cll" 1753662305.16484 0
+["pdflatex"] 1753711959.65837 "c:/Users/caioc/OneDrive/Área de Trabalho/Controle Adaptativo/Github/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" "trabalho-02-cll.pdf" "trabalho-02-cll" 1753711960.69452 0
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/tcrm1728.tfm" 993062510 1456 7c9e7368433946dcb45ba0677a622211 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -150,12 +150,12 @@
   "C:/Users/caioc/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1748213806 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/caioc/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1748214209 20624 09a41c85b672f6a0df334353d8be3152 ""
   "C:/Users/caioc/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1748214090 13149258 57d87e9149efbe05611c63d53118ee6a ""
-  "c:/Users/caioc/OneDrive/Área de Trabalho/Controle Adaptativo/Github/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" 1753662303 10012 31ec3e4c33d3f1d8173aaabb15611d6f ""
+  "c:/Users/caioc/OneDrive/Área de Trabalho/Controle Adaptativo/Github/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" 1753711959 10417 65b029f26adbd73f26b100208af43919 ""
   "images/blocos_filtrado.png" 1753474604 8348 17293aa4a0467a4e1b68151adc85dbf5 ""
   "images/blocos_id.png" 1753470300 3250 502066654527133f4dcbc6aa5f1a21db ""
-  "trabalho-02-cll.aux" 1753662304 2144 78bdc494e76fd45e2de98ee260c2a3b1 "pdflatex"
-  "trabalho-02-cll.tex" 1753662303 10012 31ec3e4c33d3f1d8173aaabb15611d6f ""
-  "trabalho-02-cll.toc" 1753662304 988 218056125f06781bafefe6e4a2ad3394 "pdflatex"
+  "trabalho-02-cll.aux" 1753711960 2144 78bdc494e76fd45e2de98ee260c2a3b1 "pdflatex"
+  "trabalho-02-cll.tex" 1753711959 10417 65b029f26adbd73f26b100208af43919 ""
+  "trabalho-02-cll.toc" 1753711960 988 218056125f06781bafefe6e4a2ad3394 "pdflatex"
   (generated)
   "trabalho-02-cll.aux"
   "trabalho-02-cll.log"
