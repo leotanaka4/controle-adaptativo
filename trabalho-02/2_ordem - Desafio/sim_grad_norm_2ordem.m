@@ -69,7 +69,7 @@ thetap2 = theta2;
 u1 = u;
 phi11 = phi1;
 phi21 = phi2;
-A1 = A;
+A1 = A.signals.values;
 %-------------------------------------------------- Simulation 2 -----
 gamma2 = 0;
 sim('least_square_2ordem_des',tfinal);
@@ -138,15 +138,18 @@ title('$\phi_{2}$', 'Interpreter','latex')
 
 % 6º gráfico: SVD(A1)
 subplot(3,2,6)
-svd_vals = zeros(length(t),1);
+hold on;
+svd_vals =pagesvd(A.signals.values);
 for i = 1:length(t)
-    svd_vals(i,1) = svd(A1(i));
+    svd_valsp(:,i) = svd_vals(:,:,i);
 end
-plot(t, svd_vals, 'LineWidth', 1.2)
+for i = 1:4
+    plot(t, svd_valsp(i,:), 'LineWidth', 1.2)
+end
 grid on
 title('SVD($A_1$)', 'Interpreter','latex')
 
 % Salvar figura
-saveas(gcf, '../images/figura1_customizada.png')
+%saveas(gcf, '../images/figura1_customizada.png')
 
 

@@ -45,8 +45,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2009-10-05T13:07:27Z</dcterms:created>
   <dc:creator>Ramon</dc:creator>
   <cp:lastModifiedBy>sarin</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2025-08-15T00:45:01Z</dcterms:modified>
-  <cp:revision>14.0</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2025-08-15T18:11:43Z</dcterms:modified>
+  <cp:revision>14.1</cp:revision>
   <cp:version>R2024b</cp:version>
 </cp:coreProperties>
 
@@ -120,7 +120,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:14.0&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:14.1&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="LibraryLinkDisplay">none</P>
@@ -1627,7 +1627,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_104.xml
     <P Name="ZOrder">352</P>
     <P Name="VariableName">P3</P>
     <P Name="MaxDataPoints">inf</P>
-    <P Name="SaveFormat">Timeseries</P>
+    <P Name="SaveFormat">Structure With Time</P>
     <P Name="FixptAsFi">on</P>
     <P Name="SampleTime">-1</P>
   </Block>
@@ -1657,7 +1657,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_104.xml
     <P Name="ZOrder">353</P>
     <P Name="VariableName">theta_dot3</P>
     <P Name="MaxDataPoints">inf</P>
-    <P Name="SaveFormat">Timeseries</P>
+    <P Name="SaveFormat">Structure With Time</P>
     <P Name="FixptAsFi">on</P>
     <P Name="SampleTime">-1</P>
   </Block>
@@ -2132,7 +2132,6 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
   <P Name="Location">[-1, -7, 1537, 865]</P>
-  <P Name="ZoomFactor">60</P>
   <P Name="ReportName">simulink-default.rpt</P>
   <P Name="SIDHighWatermark">156</P>
   <Block BlockType="SubSystem" Name="Adaptation" SID="104">
@@ -2499,9 +2498,9 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="ViewObjType" Class="char">SimulinkTopLevel</P>
           <P Name="LoadSaveID" Class="char">0</P>
           <P Name="Extents" Class="double">[1840.0, 801.0]</P>
-          <P Name="ZoomFactor" Class="double">0.6</P>
-          <P Name="Offset" Class="double">[-60.072743977685604, -252.18346794231411]</P>
-          <P Name="SceneRectInView" Class="double">[-60.072743977685604, -252.18346794231411, 2453.3333333333335, 1068.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-96.069453725434244, -109.1734991717581]</P>
+          <P Name="SceneRectInView" Class="double">[-96.069453725434244, -109.1734991717581, 1472.0, 640.8]</P>
         </Object>
         <Object ObjectID="7">
           <P Name="IsActive" Class="logical">0</P>

@@ -14,7 +14,7 @@ disp('Script para simular o exemplo 1')
 disp(' ')
 disp('Caso: Planta ............. n = 2')
 disp('      Grau relativo ..... n* = 1')
-disp('      Parâmetros ........ np = 4')
+disp('      ParÃ¢metros ........ np = 4')
 disp(' ')
 disp('Algoritmo: Gradiente Normalizado')
 disp(' ')
@@ -50,11 +50,11 @@ As = 2   %Sine wave amplitude
 ws = 0.1*pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
-theta_star1 = [b0; b1; a0; a1]                       %theta* parametrização 1
-theta_star2 = theta_star1                            %theta* parametrização 2
+theta_star1 = [b0; b1; a0; a1]                       %theta* parametrizaÃ§Ã£o 1
+theta_star2 = theta_star1                            %theta* parametrizaÃ§Ã£o 2
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 1;        %Adaptation gains
-gamma2 = 1;        %Adaptation gains
+gamma1 = 1*eye(4);        %Adaptation gains
+gamma2 = 1*eye(4);        %Adaptation gains
 theta0 = [0;0;0;0];       %Adaptation inicial condition
 kappa = 0;
 P01 = 1*eye(4);
@@ -71,7 +71,7 @@ phi11 = phi1;
 phi21 = phi2;
 A1 = A;
 %-------------------------------------------------- Simulation 2 -----
-gamma1 = 0;
+gamma2 = 0;
 sim('least_square_2ordem_des',tfinal);
 
 yp2 = yp;   %Save results
@@ -79,22 +79,12 @@ e02 = e0;
 thetap1_2 = theta1;
 thetap2_2 = theta2;
 u2 = u;
-%-------------------------------------------------- Simulation 3 -----
-gamma1 = 1;
-gamma2 = 0;
-sim('least_square_2ordem_des',tfinal);
-
-yp3 = yp;   %Save results
-e03 = e0;
-thetap1_3 = theta1;
-thetap2_3 = theta2;
-u2 = u;
 
 %----------------------------------------------- Print eps plots -----
 figure(1)
 clf
 
-% 1º gráfico: saída y e referência r da primeira simulação
+% 1Âº grÃ¡fico: saÃ­da y e referÃªncia r da primeira simulaÃ§Ã£o
 subplot(3,2,1)
 hold on
 plot(t, yp1, 'LineWidth', 1.2, 'DisplayName', '$y$')
@@ -103,7 +93,7 @@ grid on
 title('$y$ e $r$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 2º gráfico: theta_star, thetap1 e thetap2 (simulação 1)
+% 2Âº grÃ¡fico: theta_star, thetap1 e thetap2 (simulaÃ§Ã£o 1)
 subplot(3,2,3)
 hold on
 colors = lines(4);
@@ -117,42 +107,46 @@ for i = 1:4
     h.Annotation.LegendInformation.IconDisplayStyle = 'off';
 end
 grid on
-title('$\theta^*$, $\theta_{p1\_3}$ e $\theta_{p2\_2}$', 'Interpreter','latex')
+title('$\theta$ (com filtro)', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 3º gráfico: theta_star, thetap1_3 e thetap2_2
+% 3Âº grÃ¡fico: theta_star, thetap1_3 e thetap2_2
 subplot(3,2,5)
 hold on
 for i = 1:4
-    plot(t, thetap1_3(:,i), '-', 'Color', colors(i,:), 'LineWidth', 1.2, ...
+    plot(t, thetap1_2(:,i), '-', 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', ['$\theta_{p1\_3,' num2str(i) '}$'])
-    plot(t, thetap2_2(:,i), '-.', 'Color', colors(i,:), 'LineWidth', 1.2, ...
-        'DisplayName', ['$\theta_{p2\_2,' num2str(i) '}$'])
     h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), ...
         'LineWidth', 1.2);
     h.Annotation.LegendInformation.IconDisplayStyle = 'off';
 end
 grid on
-title('$\theta^*$, $\theta_{p1\_3}$ e $\theta_{p2\_2}$', 'Interpreter','latex')
+title('$\theta$ (convencional)', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 4º gráfico: phi11
+% 4Âº grÃ¡fico: phi11
 subplot(3,2,2)
 plot(t, phi11)
 grid on
-title('$\phi_{11}$', 'Interpreter','latex')
+title('$\phi_{1}$', 'Interpreter','latex')
 
-% 5º gráfico: phi22
+% 5Âº grÃ¡fico: phi22
 subplot(3,2,4)
 plot(t, phi21)
 grid on
-title('$\phi_{22}$', 'Interpreter','latex')
+title('$\phi_{2}$', 'Interpreter','latex')
 
-% 6º gráfico: SVD(A1)
+% 6Âº grÃ¡fico: SVD(A1)
 subplot(3,2,6)
-svd_vals = zeros(length(t), 4); % Assumindo 4x4
+svd_vals = zeros(length(t),1);
 for i = 1:length(t)
-    svd_vals(i,:) = svd(A1(:,:,i));
+    svd_vals(i,1) = svd(A1(i));
+end
+svd_vals_extract = pagesvd(Ps6.signals.values);
+theta_dot6 = theta_dot3.signals.values;
+for i = 1:length(t2)
+    S6p(:,i) = S6(:,:,i);
+    theta_dot6p(i,:) = theta_dot6(i,:,:);
 end
 plot(t, svd_vals, 'LineWidth', 1.2)
 grid on
