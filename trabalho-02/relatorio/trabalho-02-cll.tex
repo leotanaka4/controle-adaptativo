@@ -82,7 +82,6 @@
 
 \section{Introdução}
 
-
 Este trabalho visa a implementação de dois métodos de identificação adaptativa de parâmetros, o método do gradiente normalizado e o método dos mínimos quadrados. As próximas seções irão apresentar uma breve descrição dos algoritmos de cada método, os modelos de Simulink utilizados para as simulações, o resultado destas e uma discussão dos resultados. 
 
 \section{Descrição dos Algoritmos}
@@ -97,14 +96,14 @@ Seja uma planta de referência $P$, de entrada $u$ e saída $y$. Admita-se tamb�
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=8cm, height=6cm]{images/blocos_id.png}
+	\includegraphics[width=8cm, height=6cm]{images/blocos_id-removebg-preview.png}
 	\caption{Diagrama da Planta + Identificação}
     \label{fig:blocos_id}
 \end{figure}
 
 Escrevendo a planta $P$ como $P(s)y = Z(s)u$, onde: $$P(s) = s^n + ... + p_1s + p_0$$ $$Z(s) = z_ms^m + ... + z_1s + z_0$$
 
-podemos definir um filtro: $$\frac{1}{\Lambda (s)}$$, sendo $\Lambda (s) = s^n + ... + \lambda_1s + \lambda_0$
+podemos definir um filtro: $$\frac{1}{\Lambda (s)}$$ sendo $\Lambda (s) = s^n + ... + \lambda_1s + \lambda_0$
 
 para obter os sinais filtrados da entrada, $u_f, \dot{u_f}, ...$ e da saída, $y_f, \dot{y_f}, ...$
 \newpage
@@ -112,8 +111,8 @@ A nova estutura pode ser representada no diagrama:
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=8cm, height=6cm]{images/blocos_filtrado.png}
-	\caption{Diagrama da Planta + Identificação}
+	\includegraphics[width=8cm, height=6cm]{images/blocos_filtrado-removebg-preview.png}
+	\caption{Diagrama da Planta + Filtros}
     \label{fig:blocos_filtrado}
 \end{figure}
 
@@ -205,27 +204,242 @@ para serem utilizadas nos modelos propostos.
 \subsubsection{Adaptação}
 
 Agora definimos $\theta(t)$ como uma estimativa de $\theta^*$ obtida por meio de um algoritmo Adaptativo.
-Temos:\\
-Estimativa de $y$: $\hat{y} = \theta^T\phi$\\
-Erro de estimativa:$\epsilon = \hat{y}-y$\\
-Erro paramétrico: $\tilde{\theta} = \theta - \theta^*$\\
-Portanto: $$\epsilon = \tilde{\theta}\phi$$
+Temos:
+\begin{itemize}
+    \item Estimativa de $y$: $\hat{y} = \theta^T\phi$ 
+    \item Erro de estimativa:$\epsilon = \hat{y}-y$ 
+    \item Erro paramétrico: $\tilde{\theta} = \theta - \theta^*$ 
+    \item Portanto: $\epsilon = \tilde{\theta}^T\phi$
+\end{itemize}
 
 \subsection{Gradiente Normalizado}
 
-O método do gradiente normalizado baseia-se na busca pelo mínimo de uma função custo percorrendo a direção negativa do gradiente. Definindo essa função custo como $$ J(\theta) = \frac{\epsilon^2}{2m^2} $$ e o sinal normalizante $$m = 1+\kappa\phi^T\phi, \kappa > 0$$ para que $\frac{\phi}{m}$ seja um sinal limitado.
+\subsubsection{Algoritmo:}
 
-$J(\theta)$ pode ser reescrito como $$\frac{\tilde{\theta}^T\phi\phi^T\tilde{\theta}}{2m^2}$$\\
-O gradiente de $J$ é dado por $$\frac{\partial J}{\partial \theta} = \frac{2\phi\phi^T}{2m^2} = \frac{\phi\epsilon}{m^2}$$
+O método do gradiente normalizado baseia-se na busca pelo mínimo de uma função custo percorrendo a direção negativa do gradiente. Definindo essa função custo como: $$ J(\theta) = \frac{\epsilon^2}{2m^2} $$ e o sinal normalizante: $$m = 1+\kappa\phi^T\phi, \kappa > 0$$ para que $\frac{\phi}{m}$ seja um sinal limitado.
+
+Note que: $$J(\theta) = \frac{\tilde{\theta}^T\phi\phi^T\tilde{\theta}}{2m^2}$$
+
+O gradiente de $J$ é dado por: $$\frac{\partial J}{\partial \theta} = \frac{2\phi\phi^T \tilde{\theta}}{2m^2} = \frac{\phi\epsilon}{m^2}$$
 
 O que nos leva a uma escolha para a dinâmica de $\theta$:
 $$
 \dot{\theta} = -\Gamma\frac{\phi\epsilon}{m^2} , \Gamma > 0
 $$
 
-\subsection{Least-square Normalizado}
+\subsubsection{Lema - Estabilidade do algoritmo do Gradiente:}
+\begin{itemize}
+    \item $\theta \in \mathcal{L}_\infty$
+    \item $\dot{\theta}, \, \epsilon_m \in \mathcal{L}_\infty \cap \mathcal{L}_2$
+\end{itemize}
 
-Para a abordagem do Least-square normalizado, adicionamos um ganho de adaptação variante no tempo $P$, que é atualizando seguindo a equação: $$ \dot{P} = -\frac{P\phi\phi^TP^T}{m^2} $$ sendo $P$ uma matriz simétrica e positiva definida, a expressão pode ser escrita como$$ \dot{P} = -\frac{P\phi\phi^TP}{m^2}, P(t_0)>0 $$ e o sinal normalizante passa a ser $$m = 1+\kappa\phi^TP\phi, \kappa > 0$$
+\subsubsection*{Prova}
+Função de Lyapunov candidata:
+\[
+    2 V(\tilde{\theta}) = \tilde{\theta}^T \Gamma^{-1} \tilde{\theta}
+\]
+
+Derivando:
+\[
+    \dot{V}(\tilde{\theta}) = \tilde{\theta}^T \Gamma^{-1} \dot{\theta}
+    = \tilde{\theta}^T \Gamma^{-1} \left(- \frac{\Gamma \phi \epsilon}{m^2}\right)
+    = -\frac{\epsilon^2}{m^2} = -\frac{(\tilde{\theta}^T \phi)^2}{m^2} \leq 0
+\]
+
+\subsection*{Conclusões}
+\begin{itemize}
+    \item $\tilde{\theta} \in \mathcal{L}_\infty$
+    \item $\frac{\epsilon}{m} \in \mathcal{L}_2$
+    \item $\frac{|\epsilon|}{m} \leq \|\tilde{\theta}\| \frac{\|\phi\|}{m} \quad \Rightarrow \quad \frac{\|\epsilon\|}{m} \in \mathcal{L}_\infty$
+    \item $\dot{\theta} = -\Gamma \frac{\phi}{m} \frac{\epsilon}{m} \quad \Rightarrow \quad \dot{\theta} \in \mathcal{L}_2 \cap \mathcal{L}_\infty$
+\end{itemize}
+
+\subsubsection*{Análise matricial}
+Note que:
+\[
+    \dot{\theta} = -\Gamma \frac{\phi \, \epsilon}{m^2}
+\]
+\[
+    A(t) = \frac{\Gamma \phi \phi^T}{m^2} = A^T(t) \geq 0, 
+    \quad \text{rank}(A(t)) = 1
+\]
+
+onde:
+\[
+    \dot{\tilde{\theta}} = -A(t)\tilde{\theta}
+\]
+
+$\star$ \quad Quer dizer, $\tilde{\theta} = 0$ é um ponto de equilíbrio uniformemente estável!!
+
+\subsubsection*{Importante}
+\begin{itemize}
+    \item $\tilde{\theta} \equiv 0 \;\;\Rightarrow\;\; \epsilon = 0$
+    \item $\epsilon = \tilde{\theta}^T \phi \equiv 0 \;\;\not\Rightarrow\;\; \tilde{\theta}=0 \quad \Rightarrow \quad \tilde{\theta} \perp \phi$
+    \item Se $\dot{\theta} \in \mathcal{L}_2 \cap \mathcal{L}_\infty$ e $\ddot{\theta} \in \mathcal{L}_\infty$, então:
+    \[
+        \lim_{t \to \infty} \dot{\theta} = 0 
+        \quad \not\Rightarrow \quad 
+        \theta \to \text{constante}
+    \]
+\end{itemize}
+
+\newpage
+
+\subsection{Least-Squares Normalizado}\label{sec:ls-normalizado}
+
+\subsubsection{Algoritmo:}
+O LS normalizado é dado por
+\begin{align}
+    \dot{\theta}(t) &= -\frac{P\phi\epsilon}{m^2}, \quad \theta(t_0) = \theta_0
+    \label{eq:lsn-theta}\\
+    \dot{P} &= -\frac{P\phi\,\phi^T P}{m^2}, P(t_0) = P_0 > 0
+    \label{eq:lsn-P}\\
+    m^2 &=1+\kappa\,\phi^T\,P\,\phi, \quad \kappa>0.
+\end{align}
+
+\noindent\textbf{Observação.} \(P(t)\) atua como um \emph{ganho de adaptação} variante no tempo.
+
+\subsubsection{Lema (Estabilidade do LS normalizado)}
+Sob \eqref{eq:lsn-theta}–\eqref{eq:lsn-P} valem:
+\begin{enumerate}
+  \item \(P(t)=P^T(t)>0,\ \forall t\).
+  \item \(P,\ \dot P\in \mathcal{L}_\infty\).
+  \item \(\theta,\ \frac{\epsilon}{m},\ \frac{\epsilon}{\bar{m}}\in \mathcal{L}_\infty\), onde
+        \(\bar m^2=1+\phi^T\phi\).
+  \item \(\dot\theta,\ \frac{\epsilon}{m},\ \frac{\epsilon}{\bar{m}}\in \mathcal{L}_2\).
+  \item \(\displaystyle \lim_{t\to\infty}P(t)=P_\infty\).
+  \item \(\displaystyle \lim_{t\to\infty}\theta(t)=\theta_\infty\).
+\end{enumerate}
+
+\subsubsection*{Passo 1: \(P(t)\) permanece s.d.p. e \(P^{-1}(t)\) é monoticamente crescente.}
+
+Como \(P(t_0)>0\), temos \(P(t)P^{-1}(t)=I\). Derivando,
+\[
+\dot P\,P^{-1} + P\,\frac{d}{dt}P^{-1}=0
+\;\;\Rightarrow\;\;
+\frac{d}{dt}P^{-1} = -\,P^{-1}\dot P\,P^{-1}.
+\]
+Substituindo \(\dot P\) de \eqref{eq:lsn-P},
+\[
+\frac{d}{dt}P^{-1}
+= -\,P^{-1}\!\left(-P\frac{\phi\phi^T}{m^2}P\right)\!P^{-1}
+= \frac{\phi\phi^T}{m^2}\;\geq\;0.
+\]
+Logo \(P^{-1}(t)\) é monoticamente crescente e, portanto,
+\(P(t)\) é monoticamente decrescente, permanecendo s.d.p. \(\forall t\).
+
+\subsubsection*{Passo 2: \(P,\dot P\in \mathcal{L}_\infty\).}
+
+De \(P(t)\downarrow\) e \(P(t) > 0\), segue que \(P(t)\) é limitado superiormente por \(P(t_0)\),
+portanto \(P\in \mathcal{L}_\infty\).
+Para \(\dot P\), escreva \(P=QQ\).
+Então:
+\[
+\dot P
+= -\,Q\;\frac{(Q\phi)(Q\phi)^T}{1+\kappa\,\phi^T QQ\phi}\;Q \quad \Rightarrow \quad \dot P\in \mathcal{L}_\infty.
+\]
+
+\subsubsection*{Passo 3: Função de Lyapunov e \(\tilde\theta\in \mathcal{L}_\infty\), \(\epsilon_m\in \mathcal{L}_2\).}
+
+Considerando a seguinte função de Lyapunov: 
+\[
+V(\tilde\theta)=\tilde\theta^T P^{-1}\tilde\theta.
+\]
+Derivando,
+\begin{align*}
+\dot V
+&= \dot\theta^T P^{-1}\tilde\theta + \tilde\theta^T \dot P^{-1} \tilde\theta + \tilde\theta^T P^{-1} \dot\theta \\
+&= 2\,\tilde\theta^T P^{-1}\dot{\theta}
+   + \tilde\theta^T\Big(-P^{-1}\dot P\,P^{-1}\Big)\tilde\theta\\
+&= 2\,\tilde\theta^T P^{-1}\!\left(-\frac{P\phi\epsilon}{m^2}\right)
+   - \tilde\theta^T P^{-1} \!\left(-\frac{P \phi\phi^T P}{m^2}\right)\! P^{-1} \tilde\theta\\
+&= -\,\frac{2\,\epsilon^2}{m^2} + \frac{\epsilon^2}{m^2}
+= -\,\frac{\epsilon^2}{m^2} \;\le 0.
+\end{align*}
+Isso implica que \(\tilde\theta\in \mathcal{L}_\infty\).
+Além disso, \(\dot V \le 0\) implica \(\frac{\epsilon}{m}\in \mathcal{L}_2\).
+
+\subsubsection*{Passo 4: \(\dot\theta\in L_2\cap L_\infty\).}
+
+\begin{itemize}
+    \item $P \in \mathcal{L}_{\infty} \;\;\Rightarrow\;\; \frac{m}{\bar{m}} \in \mathcal{L}_{\infty}$ ($P \to 0 \;\Rightarrow\; m \to 1$)
+    
+    \item $\frac{\epsilon}{\bar{m}} = \tilde{\theta}^T \frac{\phi}{\bar{m}} \;\;\Rightarrow\;\; \frac{\epsilon}{\bar{m}} \in \mathcal{L}_{\infty}$ 
+    
+    \item $\frac{\epsilon}{\bar{m}} = \frac{\epsilon}{m} \frac{m}{\bar{m}} \;\;\Rightarrow\;\; 
+    \frac{\epsilon}{\bar m} \in \mathcal{L}_{2}$
+    
+    \item $\frac{\epsilon}{\bar{m}} = \frac{\epsilon}{m} \frac{m}{\bar{m}} \;\;\Rightarrow\;\;
+    \frac{\epsilon}{m} \in \mathcal{L}_{\infty}$
+
+    \item $\dot{\theta} = - \dfrac{P \, \phi \, \epsilon}{m^{2}}
+    = -Q \, \frac{Q\phi}{m} \, \frac{\epsilon}{m} \Rightarrow \;\; \dot{\theta} \in \mathcal{L}_{2} \cap \mathcal{L}_{\infty}$
+\end{itemize}
+
+$\star$ \quad Note que pode ocorrer \(P\to0\) e \(\phi\to\infty\); então \(m\to1\) e \(\bar m\to\infty\).
+Nesse caso, sempre vale \(\phi/\bar m\in \mathcal{L}_\infty\), mas \(\phi/m\notin \mathcal{L}_\infty\).
+
+\subsubsection*{Passo 5: Convergência de \(P(t)\).}
+Integrando \eqref{eq:lsn-P},
+\[
+P(t) \;=\; P_0 \;-\; \int_{t_0}^{t}
+\,\frac{P\phi\phi^TP}{m^2}\,\,d\tau
+\; >  0,
+\]
+Para todo \( z \),
+\[
+z^T P z \;=\; z^T P_0 z \;-\; z^T I z > 0,
+\]
+com \(z^T I z\) monoticamente crescente e limitado por \(z^T P_0 z\).
+Logo \(z^T P z\) converge para algum \(z^T P_\infty z\ge0\), e portanto
+\(\displaystyle \lim_{t\to\infty}P(t)=P_\infty\).
+
+\subsubsection*{Passo 6: Expressão fechada de \(\theta(t)\) e existência de \(\theta_\infty\).}
+Considere o funcional de custo LS normalizado
+\[
+J(\theta) \;=\; \frac12\int_{t_0}^{t}\!\frac{\varepsilon^2(\tau)}{m^2(\tau)}\,d\tau
+\;+\; \frac12\,(\theta-\theta_0)^T P_0^{-1}(\theta-\theta_0).
+\]
+onde $\varepsilon(\tau) = \theta^T(t)\phi(\tau) - y(\tau)$.
+
+Anulando o gradiente, \(\partial J/\partial\theta=0\),
+\[
+P_0^{-1}\theta(t)
+= P_0^{-1}\theta_0
+- \int_{t_0}^{t}\!\frac{\phi\phi^T}{m^2}\,\theta(t)\,d\tau
++ \int_{t_0}^{t}\!\frac{y\,\phi}{m^2}\,d\tau.
+\]
+Usando
+\(
+P^{-1}(t)=P_0^{-1}+\int_{t_0}^t \frac{\phi\phi^T}{m^2}\,d\tau
+\),
+obtemos a forma explícita
+\[
+\theta(t) \;=\; P\Big(P_0^{-1}\theta_0
++ \int_{t_0}^{t}\!\frac{y\,\phi}{m^2}\,d\tau\Big).
+\]
+Com \(y=\phi^T\theta^\ast\),
+\begin{align*}
+\tilde\theta
+&= \theta(t)-\theta^\ast
+= P\Big(P_0^{-1}\theta_0 + (P^{-1}-P_0^{-1})\,\theta^\ast\Big) - \theta^\ast\\
+&= P\,P_0^{-1}(\theta_0-\theta^\ast)
+= P\,P_0^{-1}\tilde\theta(0).
+\end{align*}
+Equivalente e útil:
+\[
+P^{-1}(t)\,\tilde\theta(t) \;=\; P_0^{-1}\,\tilde\theta(0)\quad\text{(constante!)}.
+\]
+Portanto,  
+\[
+\lim_{t \to \infty} \theta(t) = \theta^{*} + \lim_{t \to \infty} P(t) P_{0}^{-1} \tilde{\theta}(0) =\theta^{*} + P_{\infty} P_{0}^{-1} \tilde{\theta}(0)
+\]
+Assim, obtendo:
+\[
+\lim_{t \to \infty} \theta(t) = \theta_{\infty}
+\]
+
+\newpage
 
 \section{Simulações}
 
