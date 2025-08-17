@@ -69,7 +69,7 @@ thetap2 = theta2;
 u1 = u;
 phi11 = phi1;
 phi21 = phi2;
-A1 = A.signals.values;
+A1 = A;
 %-------------------------------------------------- Simulation 2 -----
 gamma2 = 0;
 sim('least_square_2ordem_des',tfinal);
@@ -138,18 +138,22 @@ title('$\phi_{2}$', 'Interpreter','latex')
 
 % 6º gráfico: SVD(A1)
 subplot(3,2,6)
-hold on;
-svd_vals =pagesvd(A.signals.values);
-for i = 1:length(t)
-    svd_valsp(:,i) = svd_vals(:,:,i);
-end
-for i = 1:4
-    plot(t, svd_valsp(i,:), 'LineWidth', 1.2)
-end
-grid on
-title('SVD($A_1$)', 'Interpreter','latex')
+hold on
+S4 = zeros(length(t), 4);  % para guardar os valores singulares ao longo do tempo
 
-% Salvar figura
-%saveas(gcf, '../images/figura1_customizada.png')
+for k = 1:length(t)
+    S4(k,:) = svd(A1(:,:,k));  % A1 deve ser 3D: [4x4xN]
+end
+
+for i = 1:4
+    plot(t, S4(:,i), 'LineWidth', 1.2, 'DisplayName', strcat('$\sigma_', num2str(i), '$'))
+end
+
+% Soma dos valores singulares
+plot(t, sum(S4,2), '--k', 'LineWidth', 1.2, 'DisplayName', '$\sum \sigma_i$')
+
+grid on
+title('SVD de $A(t)$ e $\sum \sigma_i$', 'Interpreter','latex')
+legend('Interpreter','latex','Location','Best')
 
 

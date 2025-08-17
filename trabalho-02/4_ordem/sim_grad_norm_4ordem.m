@@ -102,25 +102,8 @@ yp4 = yp;   %Save results
 e04 = e0;
 theta4 = theta;
 u4 = u;
-
-%---------------------------------------------------- Simulation 5---
-theta_star = theta_star2;
-sim('least_square_4ordem',tfinal);
-
-yp5 = yp;   %Save results
-e05 = e0;
-theta5 = theta;
-u5 = u;
-
-%---------------------------------------------------- Simulation 6---
-theta_star = theta_star3;
-sim('least_square_4ordem',tfinal);
-
-yp6 = yp;   %Save results
-e06 = e0;
-theta6 = theta;
-u6 = u;
-
+P4 = P1;
+dtheta4=dtheta;
 
 %----------------------------------------------- Print eps plots -----
 figure(1)
@@ -230,11 +213,9 @@ saveas(gcf, '../images/figura4_gn_1.png')
 %saveas(gcf, '../images/figura4_gn_4.png')
 
 %-------------------------------------------------------------
-%grafico LS
-%grafico do LS 
-
 figure(2)
 clf
+
 % 1º gráfico: saída yp e referência r
 subplot(3,2,1)
 hold on
@@ -244,17 +225,15 @@ grid on
 title('$y$ e $r$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 2º gráfico: erros das 3 simulações
+% 2º gráfico: erro da simulação
 subplot(3,2,3)
 hold on
 plot(t, e04, 'LineWidth', 1.2, 'DisplayName', '$\varepsilon_1$')
-plot(t, e05, 'LineWidth', 1.2, 'DisplayName', '$\varepsilon_2$')
-plot(t, e06, 'LineWidth', 1.2, 'DisplayName', '$\varepsilon_3$')
 grid on
-title('Erros $\varepsilon_i$', 'Interpreter','latex')
+title('Erro $\varepsilon_1$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 3º gráfico: theta4 (4 curvas), com theta_star1 como linha pontilhada
+% 3º gráfico: theta4 (parâmetros estimados) com referência
 subplot(3,2,5)
 hold on
 colors = lines(4);
@@ -262,71 +241,52 @@ for i = 1:4
     plot(t, theta4(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
-    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+    h.Annotation.LegendInformation.IconDisplayStyle = 'off'; % Não mostrar na legenda
 end
 grid on
-title('Parametrização 1 (LS)', 'Interpreter','latex')
+title('Parametros $\theta$ vs $\theta^*$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 4º gráfico: theta5 (4 curvas), com theta_star2 como linha pontilhada
+% 4º gráfico: norma de theta
 subplot(3,2,2)
 hold on
-for i = 1:4
-    plot(t, theta5(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
-        'DisplayName', strcat('$\theta_', num2str(i), '$'))
-    h = plot(t, theta_star2(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
-    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
-end
+norm_theta4 = vecnorm(theta4')';  % norma da linha de theta
+norm_theta_star1 = norm(theta_star1);
+h1 = plot(t, norm_theta4, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_1\|$');
+c1 = h1.Color;
+plot(t, norm_theta_star1 * ones(size(t)), '--', 'Color', c1, 'LineWidth', 1.2, 'HandleVisibility','off');
 grid on
-title('Parametrização 2 (LS)', 'Interpreter','latex')
+title('$\|\theta\|$ vs $\|\theta^*\|$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 5º gráfico: theta6 (4 curvas), com theta_star3 como linha pontilhada
+% === 5º gráfico: theta_dot ===
 subplot(3,2,4)
 hold on
 for i = 1:4
-    plot(t, theta6(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
-        'DisplayName', strcat('$\theta_', num2str(i), '$'))
-    h = plot(t, theta_star3(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
-    h.Annotation.LegendInformation.IconDisplayStyle = 'off';
+    plot(t, dtheta4(:,i), 'LineWidth', 1.2, 'DisplayName', strcat('$\dot{\theta}_', num2str(i), '$'))
 end
 grid on
-title('Parametrização 3 (LS)', 'Interpreter','latex')
+title('$\dot{\theta}_i$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
-% 6º gráfico: normas dos thetas
+
+% === 6º gráfico: valores singulares da matriz P ===
 subplot(3,2,6)
 hold on
 
-norm_theta4 = vecnorm(theta4')';
-norm_theta5 = vecnorm(theta5')';
-norm_theta6 = vecnorm(theta6')';
+S4 = zeros(length(t), 8);  % para guardar os valores singulares ao longo do tempo
 
-norm_theta_star1 = norm(theta_star1);
-norm_theta_star2 = norm(theta_star2);
-norm_theta_star3 = norm(theta_star3);
+for k = 1:length(t)
+    S4(k,:) = svd(P4(:,:,k));  % P4 deve ser 3D: [4x4xN]
+end
 
-h1 = plot(t, norm_theta4, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_1\|$');
-h2 = plot(t, norm_theta5, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_2\|$');
-h3 = plot(t, norm_theta6, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_3\|$');
+for i = 1:8
+    plot(t, S4(:,i), 'LineWidth', 1.2, 'DisplayName', strcat('$\sigma_', num2str(i), '$'))
+end
 
-c1 = h1.Color;
-c2 = h2.Color;
-c3 = h3.Color;
-
-plot(t, norm_theta_star1 * ones(size(t)), '--', 'Color', c1, 'LineWidth', 1.2, ...
-    'HandleVisibility','off');
-plot(t, norm_theta_star2 * ones(size(t)), '--', 'Color', c2, 'LineWidth', 1.2, ...
-    'HandleVisibility','off');
-plot(t, norm_theta_star3 * ones(size(t)), '--', 'Color', c3, 'LineWidth', 1.2, ...
-    'HandleVisibility','off');
+% Soma dos valores singulares
+plot(t, sum(S4,2), '--k', 'LineWidth', 1.2, 'DisplayName', '$\sum \sigma_i$')
 
 grid on
-title('Parametrizações 1, 2 e 3 (LS)', 'Interpreter','latex')
+title('SVD de $P(t)$ e $\sum \sigma_i$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
-
-% Salvar Figura 4 (após a subplot com o método LS)
-saveas(gcf, '../images/figura4_ls_1.png')
-%saveas(gcf, '../images/figura4_ls_2.png')
-%saveas(gcf, '../images/figura4_ls_3.png')
-%saveas(gcf, '../images/figura4_ls_4.png')
