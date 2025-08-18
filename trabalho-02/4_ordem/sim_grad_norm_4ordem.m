@@ -21,7 +21,7 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 100;    %Simulation interval
+tfinal = 500;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
@@ -62,12 +62,12 @@ theta_star1 = [b0; b1; b2; b3; a0 - lambda0; a1 - lambda1; a2 - lambda2; a3 - la
 theta_star2 = [b0; b1; b2; b3; a0; a1; a2; a3]                                           %theta* parametrização 2
 theta_star3 = [1/b0; b1/b0; b2/b0; b3/b0; a0/b0; a1/b0; a2/b0; a3/b0]                    %theta* parametrização 3
 %----------------------------------------- Adaptation parameters -----
-gamma = 1*eye(8);         %Adaptation gains
+gamma = 100*eye(8);         %Adaptation gains
 % gamma = 100*eye(8); 
 theta0 = [0;0;0;0;0;0;0;0];       %Adaptation inicial condition
 kappa = 1;
 % kappa = 0;
-P0 = eye(8);
+P0 = 100*eye(8);
 
 %---------------------------------------------------- Simulation -----
 theta_star = theta_star1;

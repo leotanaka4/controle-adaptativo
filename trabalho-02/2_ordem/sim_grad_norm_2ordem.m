@@ -21,7 +21,7 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 100;    %Simulation interval
+tfinal = 500;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
@@ -49,7 +49,6 @@ DC = 1   %Constant
 Aq = 2   %Sine wave amplitude
 wq = 0.1*pi  %Frequency
 As = 0   %Square wave amplitude
-% As = 0.5
 ws = pi  %Frequency
 
 %------------------------------------------------- Matching gain -----

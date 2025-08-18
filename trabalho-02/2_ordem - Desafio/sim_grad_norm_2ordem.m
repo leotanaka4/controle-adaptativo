@@ -21,7 +21,7 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 100;    %Simulation interval
+tfinal = 500;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
@@ -46,8 +46,11 @@ x0   = yp0;
 
 %----------------------------------- Reference signal parameters -----
 DC = 1   %Constant
-As = 2   %Sine wave amplitude
-ws = 0.1*pi  %Frequency
+Aq = 2   %Sine wave amplitude
+wq = 0.1*pi  %Frequency
+As = 0   %Square wave amplitude
+% As = 0.5
+ws = pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
 theta_star1 = [b0; b1; a0; a1]                       %theta* parametrização 1

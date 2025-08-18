@@ -7,9 +7,9 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.30"
+    ComputedModelVersion    "7.31"
     NumModelReferences	    0
-    NumTestPointedSignals   9
+    NumTestPointedSignals   8
     TestPointedSignal {
       SignalName	      ""
       FullBlockPath	      "least_square_2ordem_des/Adaptation"
@@ -48,13 +48,6 @@ Model {
     TestPointedSignal {
       SignalName	      "yp"
       FullBlockPath	      "least_square_2ordem_des/Plant"
-      LogSignal		      1
-      MaxPoints		      5000
-      Decimation	      2
-    }
-    TestPointedSignal {
-      SignalName	      "r"
-      FullBlockPath	      "least_square_2ordem_des/Reference signal"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -147,18 +140,18 @@ Model {
 	Dimension		4
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1850.0, 814.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-390.2855002232418, -92.098059198784767]
-	  SceneRectInView	  [-390.2855002232418, -92.098059198784767, 1850.0, 814.0]
+	  ZoomFactor		  [0.5]
+	  Offset		  [-915.38073831848033, -414.23139253211809]
+	  SceneRectInView	  [-915.38073831848033, -414.23139253211809, 3700.0, 1628.0]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
@@ -174,9 +167,9 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "29"
 	  Extents		  [1850.0, 814.0]
-	  ZoomFactor		  [1.8851902173913042]
-	  Offset		  [-262.14505208333338, -96.060000000000016]
-	  SceneRectInView	  [-262.14505208333338, -96.060000000000016, 981.33333333333337, 431.78666666666669]
+	  ZoomFactor		  [1.5]
+	  Offset		  [-196.05000000000007, -81.066666666666663]
+	  SceneRectInView	  [-196.05000000000007, -81.066666666666663, 1233.3333333333333, 542.66666666666663]
 	}
 	Object {
 	  $ObjectID		  8
@@ -249,9 +242,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Aug 17 16:11:53 2025"
-  RTWModifiedTimeStamp	  677347912
-  ModelVersionFormat	  "%<AutoIncrement:7.30>"
+  LastModifiedDate	  "Mon Aug 18 19:17:29 2025"
+  RTWModifiedTimeStamp	  677445445
+  ModelVersionFormat	  "%<AutoIncrement:7.31>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -331,7 +324,7 @@ Model {
     $ClassName		    "Simulink.HMI.InstrumentedSignals"
     Array {
       Type		      "Struct"
-      Dimension		      9
+      Dimension		      8
       MATStruct {
 	UUID			"2ef5c575-fcfa-49cc-b545-e8a8b41c0ea7"
 	BlockPath_		"Plant"
@@ -340,30 +333,6 @@ Model {
 	OutputPortIndex_	[1.0]
 	LogicalPortIndex_	[0.0]
 	SignalName_		"yp"
-	SubSysPath_		""
-	Decimation_		[1.0]
-	MaxPoints_		[1024.0]
-	TargetBufferedStreaming_ [0.0]
-	IsFrameBased_		[0.0]
-	HideInSDI_		[0.0]
-	DomainType_		""
-	Array {
-	  Type			  "Struct"
-	  Dimension		  1
-	  MATStruct {
-	  }
-	  PropName		  "DomainParams_"
-	}
-	VisualType_		""
-      }
-      MATStruct {
-	UUID			"70793da9-eb15-4f57-99ee-5707dcc79d9b"
-	BlockPath_		"Reference signal"
-	SID_			"29"
-	SubPath_		""
-	OutputPortIndex_	[1.0]
-	LogicalPortIndex_	[0.0]
-	SignalName_		"r"
 	SubSysPath_		""
 	Decimation_		[1.0]
 	MaxPoints_		[1024.0]
@@ -1823,9 +1792,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "50"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "159"
+    SIDHighWatermark	    "168"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -3311,51 +3280,62 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"189"
+	ZoomFactor		"150"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock
 	  Name			  "Clock"
-	  SID			  "30"
-	  Position		  [180, 172, 205, 198]
-	  ZOrder		  -1
+	  SID			  "160"
+	  Position		  [280, 197, 305, 223]
+	  ZOrder		  9
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "DC"
-	  SID			  "31"
-	  Position		  [55, 41, 85, 69]
-	  ZOrder		  -2
+	  SID			  "161"
+	  Position		  [155, 66, 185, 94]
+	  ZOrder		  8
 	  Value			  "DC"
 	}
 	Block {
 	  BlockType		  Relay
 	  Name			  "Relay"
-	  SID			  "52"
-	  Position		  [65, 110, 95, 140]
-	  ZOrder		  1
-	  OnOutputValue		  "As"
-	  OffOutputValue	  "-As"
+	  SID			  "162"
+	  Position		  [165, 135, 195, 165]
+	  ZOrder		  10
+	  OnOutputValue		  "Aq"
+	  OffOutputValue	  "-Aq"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "Sine wave"
-	  SID			  "32"
+	  SID			  "163"
 	  Ports			  [0, 1]
-	  Position		  [5, 110, 35, 140]
-	  ZOrder		  -3
+	  Position		  [105, 135, 135, 165]
+	  ZOrder		  7
+	  Frequency		  "wq"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine wave1"
+	  SID			  "164"
+	  Ports			  [0, 1]
+	  Position		  [165, 195, 195, 225]
+	  ZOrder		  11
+	  Amplitude		  "As"
 	  Frequency		  "ws"
 	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "33"
-	  Ports			  [2, 1]
-	  Position		  [125, 110, 155, 140]
-	  ZOrder		  -4
+	  SID			  "165"
+	  Ports			  [3, 1]
+	  Position		  [225, 135, 255, 165]
+	  ZOrder		  6
 	  ShowName		  off
-	  Inputs		  "++|"
+	  Inputs		  "+++"
 	  InputSameDT		  on
 	  OutDataTypeStr	  "Inherit: Same as first input"
 	  SaturateOnIntegerOverflow on
@@ -3363,10 +3343,10 @@ Model {
 	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace 1"
-	  SID			  "34"
+	  SID			  "166"
 	  Ports			  [1]
-	  Position		  [235, 172, 260, 198]
-	  ZOrder		  -5
+	  Position		  [335, 197, 360, 223]
+	  ZOrder		  5
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  VariableName		  "t"
@@ -3376,10 +3356,10 @@ Model {
 	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace 2"
-	  SID			  "35"
+	  SID			  "167"
 	  Ports			  [1]
-	  Position		  [235, 67, 260, 93]
-	  ZOrder		  -6
+	  Position		  [335, 92, 360, 118]
+	  ZOrder		  4
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  VariableName		  "r"
@@ -3389,15 +3369,54 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "r"
-	  SID			  "36"
-	  Position		  [240, 115, 260, 135]
-	  ZOrder		  -7
+	  SID			  "168"
+	  Position		  [340, 140, 360, 160]
+	  ZOrder		  3
 	  BackgroundColor	  "green"
 	  InitialOutput		  "0"
 	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  1
+	  ZOrder		  9
+	  SrcBlock		  "Sine wave1"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Relay"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    ZOrder		    12
+	    DstBlock		    "r"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    11
+	    Points		    [0, -45]
+	    DstBlock		    "To Workspace 2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Clock"
+	  SrcPort		  1
+	  DstBlock		  "To Workspace 1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
 	  SrcBlock		  "DC"
 	  SrcPort		  1
 	  Points		  [50, 0]
@@ -3405,42 +3424,11 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [50, 0]
-	  Branch {
-	    ZOrder		    3
-	    DstBlock		    "r"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    4
-	    Points		    [0, -45]
-	    DstBlock		    "To Workspace 2"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Clock"
-	  SrcPort		  1
-	  DstBlock		  "To Workspace 1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  7
+	  ZOrder		  16
 	  SrcBlock		  "Sine wave"
 	  SrcPort		  1
 	  DstBlock		  "Relay"
 	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  8
-	  SrcBlock		  "Relay"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  2
 	}
       }
     }
@@ -3576,7 +3564,7 @@ Model {
     }
     Line {
       Name		      "r"
-      ZOrder		      64
+      ZOrder		      234
       Labels		      [1, 1]
       SrcBlock		      "Reference signal"
       SrcPort		      1

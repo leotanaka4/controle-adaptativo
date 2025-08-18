@@ -21,7 +21,7 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 100;    %Simulation interval
+tfinal = 500;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
@@ -63,7 +63,7 @@ gamma = 1*eye(6);         %Adaptation gains
 theta0 = [0;0;0;0;0;0];       %Adaptation inicial condition
 kappa = 1;
 % kappa = 0;
-P0 = eye(6);
+P0 = 1*eye(6);
 %---------------------------------------------------- Simulation -----
 theta_star = theta_star1;
 sim('gradiente_normalizado_3ordem',tfinal);
