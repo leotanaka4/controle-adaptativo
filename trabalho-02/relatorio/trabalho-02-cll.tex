@@ -441,11 +441,346 @@ Assim, obtendo:
 
 \newpage
 
-\section{Simulações}
+\section{Resultado das Simulações}
+
+Nesta seção, são apresentados os resultados das simulações realizadas para a identificação das plantas propostas.
+A estrutura da simulação foi mantida, variando-se apenas um parâmetro por vez em relação à simulação inicial.
+Dessa forma, torna-se possível analisar a sensibilidade e influência de cada parâmetro no desempenho da identificação.
+
+\subsection{Gradiente Normalizado}
+
+A configuração de simulação inicial foi definida da seguinte forma:
+
+\begin{itemize}
+    \item Tempo final da simulação: $t_{\text{final}} = 500$ s
+    \item Passo de simulação: $st = 0.01$ s
+    \item Condições iniciais: $\theta_0 = \mathbf{0}$, $y_0 = \mathbf{0}$
+    \item $\Gamma = 1I$
+    \item Sinal de referência: $r(t) =  1 + 2sign(sin(0.1 \pi t))$
+\end{itemize}
+
+A partir desta configuração inicial, foram realizadas as seguintes simulações adicionais:
+
+\begin{itemize}
+    \item $y_0 = 3$
+    \item $\Gamma = 100I$
+    \item $r(t) =  1 + 2sign(sin(0.1 \pi t)) + 0.5sin(\pi t)$
+\end{itemize}
+
+\subsubsection{Planta de $2^a$ Ordem}
+
+As simulações consideram a seguinte definição de planta:
+
+\[
+\begin{aligned}
+a_{1} &= 2.5, & \quad b_{1} &= 2 \\[6pt]
+a_{0} &= 1.5, & \quad b_{0} &= 0.8
+\end{aligned}
+\]
+
+\[
+P(s) = \frac{b_{1}s + b_{0}}{s^{2} + a_{1}s + a_{0}}
+\]
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/gn0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/gn1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
 
 \newpage
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/gn2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/gn3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\newpage
+
+\subsubsection{Planta de $3^a$ Ordem}
+
+\[
+\begin{aligned}
+a_{2} &= 2,   & \quad b_{2} &= 3 \\[6pt]
+a_{1} &= 2.5, & \quad b_{1} &= 2 \\[6pt]
+a_{0} &= 1.5, & \quad b_{0} &= 0.8
+\end{aligned}
+\]
+
+\[
+P(s) = \frac{b_{2}s^{2} + b_{1}s + b_{0}}{s^{3} + a_{2}s^{2} + a_{1}s + a_{0}}
+\]
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/gn0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/gn1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/gn2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/gn3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\subsubsection{Planta de $4^a$ Ordem}
+
+\[
+\begin{aligned}
+a_{3} &= 5,   & \quad b_{3} &= 3.5 \\[6pt]
+a_{2} &= 3,   & \quad b_{2} &= 3   \\[6pt]
+a_{1} &= 4,   & \quad b_{1} &= 2   \\[6pt]
+a_{0} &= 1.5, & \quad b_{0} &= 0.8
+\end{aligned}
+\]
+
+\[
+P(s) = \frac{b_{3}s^{3} + b_{2}s^{2} + b_{1}s + b_{0}}
+            {s^{4} + a_{3}s^{3} + a_{2}s^{2} + a_{1}s + a_{0}}
+\]
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/gn0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/gn1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/gn2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/gn3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\newpage
+
+\subsection{Least-Squares Normalizado}
+
+A configuração de simulação inicial foi definida da seguinte forma:
+
+\begin{itemize}
+    \item Tempo final da simulação: $t_{\text{final}} = 500$ s
+    \item Passo de simulação: $st = 0.01$ s
+    \item Condições iniciais: $\theta_0 = \mathbf{0}$, $y_0 = \mathbf{0}$
+    \item $P_0 = 1I$
+    \item Sinal de referência: $r(t) =  1 + 2sign(sin(0.1 \pi t))$
+\end{itemize}
+
+A partir desta configuração inicial, foram realizadas as seguintes simulações adicionais:
+
+\begin{itemize}
+    \item $y_0 = 3$
+    \item $P_0 = 100I$
+    \item $r(t) =  1 + 2sign(sin(0.1 \pi t)) + 0.5sin(\pi t)$
+\end{itemize}
+
+\subsubsection{Planta de $2^a$ Ordem}
+
+\[
+\begin{aligned}
+a_{1} &= 2.5, & \quad b_{1} &= 2 \\[6pt]
+a_{0} &= 1.5, & \quad b_{0} &= 0.8
+\end{aligned}
+\]
+
+\[
+P(s) = \frac{b_{1}s + b_{0}}{s^{2} + a_{1}s + a_{0}}
+\]
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/ls0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/ls1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/ls2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem/ls3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\newpage
+
+\subsubsection{Planta de $3^a$ Ordem}
+
+\[
+\begin{aligned}
+a_{2} &= 2,   & \quad b_{2} &= 3 \\[6pt]
+a_{1} &= 2.5, & \quad b_{1} &= 2 \\[6pt]
+a_{0} &= 1.5, & \quad b_{0} &= 0.8
+\end{aligned}
+\]
+
+\[
+P(s) = \frac{b_{2}s^{2} + b_{1}s + b_{0}}{s^{3} + a_{2}s^{2} + a_{1}s + a_{0}}
+\]
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/ls0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/ls1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/ls2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/3_ordem/ls3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\subsubsection{Planta de $4^a$ Ordem}
+
+\[
+\begin{aligned}
+a_{3} &= 5,   & \quad b_{3} &= 3.5 \\[6pt]
+a_{2} &= 3,   & \quad b_{2} &= 3   \\[6pt]
+a_{1} &= 4,   & \quad b_{1} &= 2   \\[6pt]
+a_{0} &= 1.5, & \quad b_{0} &= 0.8
+\end{aligned}
+\]
+
+\[
+P(s) = \frac{b_{3}s^{3} + b_{2}s^{2} + b_{1}s + b_{0}}
+            {s^{4} + a_{3}s^{3} + a_{2}s^{2} + a_{1}s + a_{0}}
+\]
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/ls0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/ls1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/ls2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/4_ordem/ls3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\newpage
+
+\subsection{Least-Squares Normalizado com Múltiplas Parametrizações}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem_desafio/des0.png}
+    \caption{Resultados da Simulação \#0}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem_desafio/des1_senoide.png}
+    \caption{Resultados da Simulação \#1}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem_desafio/des2_ganho.png}
+    \caption{Resultados da Simulação \#2}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/2_ordem_desafio/des3_CI.png}
+    \caption{Resultados da Simulação \#3}
+\end{figure}
+
+\newpage
 
 \section{Discussão dos Resultados}
 

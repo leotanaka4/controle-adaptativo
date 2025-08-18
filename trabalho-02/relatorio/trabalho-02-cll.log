@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  17 AUG 2025 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.18)  18 AUG 2025 20:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -514,37 +514,193 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
  (C:\Users\Lucas\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (trabalho-02-cll.toc)
+) (trabalho-02-cll.toc [1
+
+{C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
 \tf@toc=\write4
 \openout4 = `trabalho-02-cll.toc'.
 
- [1
-
-{C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<images/blocos_id-removebg-preview.png, id=14, 234.8775pt x 217.81375pt>
+ [2]
+<images/blocos_id-removebg-preview.png, id=18, 234.8775pt x 217.81375pt>
 File: images/blocos_id-removebg-preview.png Graphic file (type png)
 <use images/blocos_id-removebg-preview.png>
 Package pdftex.def Info: images/blocos_id-removebg-preview.png  used on input line 99.
 (pdftex.def)             Requested size: 227.62303pt x 170.71495pt.
- [2 <./images/blocos_id-removebg-preview.png>]
-<images/blocos_filtrado-removebg-preview.png, id=23, 281.05pt x 306.14375pt>
+ [3 <./images/blocos_id-removebg-preview.png>]
+<images/blocos_filtrado-removebg-preview.png, id=26, 281.05pt x 306.14375pt>
 File: images/blocos_filtrado-removebg-preview.png Graphic file (type png)
 <use images/blocos_filtrado-removebg-preview.png>
 Package pdftex.def Info: images/blocos_filtrado-removebg-preview.png  used on input line 114.
 (pdftex.def)             Requested size: 227.6235pt x 170.71526pt.
- [3 <./images/blocos_filtrado-removebg-preview.png>] [4] [5] [6] [7] [8] [9] [10] [11] (trabalho-02-cll.aux) ) 
+ [4 <./images/blocos_filtrado-removebg-preview.png>] [5] [6] [7] [8] [9] [10] [11]
+<images/2_ordem/gn0.png, id=61, 1445.4pt x 724.95844pt>
+File: images/2_ordem/gn0.png Graphic file (type png)
+<use images/2_ordem/gn0.png>
+Package pdftex.def Info: images/2_ordem/gn0.png  used on input line 488.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/2_ordem/gn1_senoide.png, id=62, 1445.4pt x 724.95844pt>
+File: images/2_ordem/gn1_senoide.png Graphic file (type png)
+<use images/2_ordem/gn1_senoide.png>
+Package pdftex.def Info: images/2_ordem/gn1_senoide.png  used on input line 494.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [12 <./images/2_ordem/gn0.png (PNG copy)> <./images/2_ordem/gn1_senoide.png (PNG copy)>]
+<images/2_ordem/gn2_ganho.png, id=66, 1445.4pt x 724.95844pt>
+File: images/2_ordem/gn2_ganho.png Graphic file (type png)
+<use images/2_ordem/gn2_ganho.png>
+Package pdftex.def Info: images/2_ordem/gn2_ganho.png  used on input line 502.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/2_ordem/gn3_CI.png, id=67, 1445.4pt x 724.95844pt>
+File: images/2_ordem/gn3_CI.png Graphic file (type png)
+<use images/2_ordem/gn3_CI.png>
+Package pdftex.def Info: images/2_ordem/gn3_CI.png  used on input line 508.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [13 <./images/2_ordem/gn2_ganho.png (PNG copy)> <./images/2_ordem/gn3_CI.png (PNG copy)>]
+<images/3_ordem/gn0.png, id=72, 1445.4pt x 724.95844pt>
+File: images/3_ordem/gn0.png Graphic file (type png)
+<use images/3_ordem/gn0.png>
+Package pdftex.def Info: images/3_ordem/gn0.png  used on input line 530.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [14 <./images/3_ordem/gn0.png (PNG copy)>]
+<images/3_ordem/gn1_senoide.png, id=76, 1445.4pt x 724.95844pt>
+File: images/3_ordem/gn1_senoide.png Graphic file (type png)
+<use images/3_ordem/gn1_senoide.png>
+Package pdftex.def Info: images/3_ordem/gn1_senoide.png  used on input line 538.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/3_ordem/gn2_ganho.png, id=77, 1445.4pt x 724.95844pt>
+File: images/3_ordem/gn2_ganho.png Graphic file (type png)
+<use images/3_ordem/gn2_ganho.png>
+Package pdftex.def Info: images/3_ordem/gn2_ganho.png  used on input line 544.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [15 <./images/3_ordem/gn1_senoide.png (PNG copy)> <./images/3_ordem/gn2_ganho.png (PNG copy)>]
+<images/3_ordem/gn3_CI.png, id=81, 1445.4pt x 724.95844pt>
+File: images/3_ordem/gn3_CI.png Graphic file (type png)
+<use images/3_ordem/gn3_CI.png>
+Package pdftex.def Info: images/3_ordem/gn3_CI.png  used on input line 552.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [16 <./images/3_ordem/gn3_CI.png (PNG copy)>]
+<images/4_ordem/gn0.png, id=85, 1445.4pt x 724.95844pt>
+File: images/4_ordem/gn0.png Graphic file (type png)
+<use images/4_ordem/gn0.png>
+Package pdftex.def Info: images/4_ordem/gn0.png  used on input line 576.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/4_ordem/gn1_senoide.png, id=86, 1445.4pt x 724.95844pt>
+File: images/4_ordem/gn1_senoide.png Graphic file (type png)
+<use images/4_ordem/gn1_senoide.png>
+Package pdftex.def Info: images/4_ordem/gn1_senoide.png  used on input line 582.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [17 <./images/4_ordem/gn0.png (PNG copy)> <./images/4_ordem/gn1_senoide.png (PNG copy)>]
+<images/4_ordem/gn2_ganho.png, id=90, 1445.4pt x 724.95844pt>
+File: images/4_ordem/gn2_ganho.png Graphic file (type png)
+<use images/4_ordem/gn2_ganho.png>
+Package pdftex.def Info: images/4_ordem/gn2_ganho.png  used on input line 590.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/4_ordem/gn3_CI.png, id=91, 1445.4pt x 724.95844pt>
+File: images/4_ordem/gn3_CI.png Graphic file (type png)
+<use images/4_ordem/gn3_CI.png>
+Package pdftex.def Info: images/4_ordem/gn3_CI.png  used on input line 596.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [18 <./images/4_ordem/gn2_ganho.png (PNG copy)> <./images/4_ordem/gn3_CI.png (PNG copy)>] [19]
+<images/2_ordem/ls0.png, id=99, 1445.4pt x 724.95844pt>
+File: images/2_ordem/ls0.png Graphic file (type png)
+<use images/2_ordem/ls0.png>
+Package pdftex.def Info: images/2_ordem/ls0.png  used on input line 639.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/2_ordem/ls1_senoide.png, id=100, 1445.4pt x 724.95844pt>
+File: images/2_ordem/ls1_senoide.png Graphic file (type png)
+<use images/2_ordem/ls1_senoide.png>
+Package pdftex.def Info: images/2_ordem/ls1_senoide.png  used on input line 645.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [20 <./images/2_ordem/ls0.png (PNG copy)> <./images/2_ordem/ls1_senoide.png (PNG copy)>]
+<images/2_ordem/ls2_ganho.png, id=104, 1445.4pt x 724.95844pt>
+File: images/2_ordem/ls2_ganho.png Graphic file (type png)
+<use images/2_ordem/ls2_ganho.png>
+Package pdftex.def Info: images/2_ordem/ls2_ganho.png  used on input line 653.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/2_ordem/ls3_CI.png, id=105, 1445.4pt x 724.95844pt>
+File: images/2_ordem/ls3_CI.png Graphic file (type png)
+<use images/2_ordem/ls3_CI.png>
+Package pdftex.def Info: images/2_ordem/ls3_CI.png  used on input line 659.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [21 <./images/2_ordem/ls2_ganho.png (PNG copy)> <./images/2_ordem/ls3_CI.png (PNG copy)>]
+<images/3_ordem/ls0.png, id=109, 1445.4pt x 724.95844pt>
+File: images/3_ordem/ls0.png Graphic file (type png)
+<use images/3_ordem/ls0.png>
+Package pdftex.def Info: images/3_ordem/ls0.png  used on input line 681.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [22 <./images/3_ordem/ls0.png (PNG copy)>]
+<images/3_ordem/ls1_senoide.png, id=113, 1445.4pt x 724.95844pt>
+File: images/3_ordem/ls1_senoide.png Graphic file (type png)
+<use images/3_ordem/ls1_senoide.png>
+Package pdftex.def Info: images/3_ordem/ls1_senoide.png  used on input line 689.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/3_ordem/ls2_ganho.png, id=114, 1445.4pt x 724.95844pt>
+File: images/3_ordem/ls2_ganho.png Graphic file (type png)
+<use images/3_ordem/ls2_ganho.png>
+Package pdftex.def Info: images/3_ordem/ls2_ganho.png  used on input line 695.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [23 <./images/3_ordem/ls1_senoide.png (PNG copy)> <./images/3_ordem/ls2_ganho.png (PNG copy)>]
+<images/3_ordem/ls3_CI.png, id=118, 1445.4pt x 724.95844pt>
+File: images/3_ordem/ls3_CI.png Graphic file (type png)
+<use images/3_ordem/ls3_CI.png>
+Package pdftex.def Info: images/3_ordem/ls3_CI.png  used on input line 703.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [24 <./images/3_ordem/ls3_CI.png (PNG copy)>]
+<images/4_ordem/ls0.png, id=122, 1445.4pt x 724.95844pt>
+File: images/4_ordem/ls0.png Graphic file (type png)
+<use images/4_ordem/ls0.png>
+Package pdftex.def Info: images/4_ordem/ls0.png  used on input line 727.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/4_ordem/ls1_senoide.png, id=123, 1445.4pt x 724.95844pt>
+File: images/4_ordem/ls1_senoide.png Graphic file (type png)
+<use images/4_ordem/ls1_senoide.png>
+Package pdftex.def Info: images/4_ordem/ls1_senoide.png  used on input line 733.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [25 <./images/4_ordem/ls0.png (PNG copy)> <./images/4_ordem/ls1_senoide.png (PNG copy)>]
+<images/4_ordem/ls2_ganho.png, id=128, 1445.4pt x 724.95844pt>
+File: images/4_ordem/ls2_ganho.png Graphic file (type png)
+<use images/4_ordem/ls2_ganho.png>
+Package pdftex.def Info: images/4_ordem/ls2_ganho.png  used on input line 741.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/4_ordem/ls3_CI.png, id=129, 1445.4pt x 724.95844pt>
+File: images/4_ordem/ls3_CI.png Graphic file (type png)
+<use images/4_ordem/ls3_CI.png>
+Package pdftex.def Info: images/4_ordem/ls3_CI.png  used on input line 747.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [26 <./images/4_ordem/ls2_ganho.png (PNG copy)> <./images/4_ordem/ls3_CI.png (PNG copy)>] [27]
+<images/2_ordem_desafio/des0.png, id=136, 1445.4pt x 724.95844pt>
+File: images/2_ordem_desafio/des0.png Graphic file (type png)
+<use images/2_ordem_desafio/des0.png>
+Package pdftex.def Info: images/2_ordem_desafio/des0.png  used on input line 759.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/2_ordem_desafio/des1_senoide.png, id=137, 1445.4pt x 724.95844pt>
+File: images/2_ordem_desafio/des1_senoide.png Graphic file (type png)
+<use images/2_ordem_desafio/des1_senoide.png>
+Package pdftex.def Info: images/2_ordem_desafio/des1_senoide.png  used on input line 765.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [28 <./images/2_ordem_desafio/des0.png (PNG copy)> <./images/2_ordem_desafio/des1_senoide.png (PNG copy)>]
+<images/2_ordem_desafio/des2_ganho.png, id=141, 1445.4pt x 724.95844pt>
+File: images/2_ordem_desafio/des2_ganho.png Graphic file (type png)
+<use images/2_ordem_desafio/des2_ganho.png>
+Package pdftex.def Info: images/2_ordem_desafio/des2_ganho.png  used on input line 773.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+<images/2_ordem_desafio/des3_CI.png, id=142, 1445.4pt x 724.95844pt>
+File: images/2_ordem_desafio/des3_CI.png Graphic file (type png)
+<use images/2_ordem_desafio/des3_CI.png>
+Package pdftex.def Info: images/2_ordem_desafio/des3_CI.png  used on input line 779.
+(pdftex.def)             Requested size: 487.8192pt x 244.66844pt.
+ [29 <./images/2_ordem_desafio/des2_ganho.png (PNG copy)> <./images/2_ordem_desafio/des3_CI.png (PNG copy)>] [30] (trabalho-02-cll.aux) ) 
 Here is how much of TeX's memory you used:
- 17960 strings out of 478338
- 354906 string characters out of 2836700
+ 18148 strings out of 478338
+ 360709 string characters out of 2836700
  843963 words of memory out of 3000000
- 36076 multiletter control sequences out of 15000+600000
- 478143 words of font info for 62 fonts, out of 8000000 for 9000
+ 36246 multiletter control sequences out of 15000+600000
+ 478762 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,80p,646b,314s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on trabalho-02-cll.pdf (11 pages, 255249 bytes).
+Output written on trabalho-02-cll.pdf (30 pages, 4190725 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
+ 219 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 
