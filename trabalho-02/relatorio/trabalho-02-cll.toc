@@ -25,4 +25,4 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Planta de $3^a$ Ordem}{22}{}%
 \contentsline {subsubsection}{\numberline {3.2.3}Planta de $4^a$ Ordem}{24}{}%
 \contentsline {subsection}{\numberline {3.3}Least-Squares Normalizado com Múltiplas Parametrizações}{27}{}%
-\contentsline {section}{\numberline {4}Discussão dos Resultados}{30}{}%
+\contentsline {section}{\numberline {4}Discussão dos Resultados}{29}{}%

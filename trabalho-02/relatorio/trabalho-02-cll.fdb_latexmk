@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1755559902 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" "trabalho-02-cll.pdf" "trabalho-02-cll" 1755559903
+["pdflatex"] 1755731173 "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" "trabalho-02-cll.pdf" "trabalho-02-cll" 1755731175
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752270907 82705 9cc9f144eacd499bc23a611703921467 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1683757891 11548 f0501c9ad67d0989464b2884f5d9d9d9 ""
   "C:/Users/Lucas/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1683389622 20624 b5ef9de7fe9a614af111cda132cc174a ""
@@ -156,7 +156,7 @@
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1324294077 22913 a27d7908fc6f0385466454a966a316eb ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Lucas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" 1755559899 26653 3074558aa1e379b048fc76e43707636a ""
+  "c:/Users/Lucas/OneDrive/Área de Trabalho/Período 25.1/controle-adaptativo/trabalho-02/relatorio/trabalho-02-cll.tex" 1755731171 28073 721ee59dafb7ab13f3ad48db51acac46 ""
   "images/2_ordem/gn0.png" 1755556145 125668 b6624f398dfa5fc93fab0b0aae57cf8d ""
   "images/2_ordem/gn1_senoide.png" 1755556145 139088 88e15e12b31e817ddfe9f76462e1ae52 ""
   "images/2_ordem/gn2_ganho.png" 1755556145 161701 aab5f58ae2fb2e600468da5f6cbcc533 ""
@@ -187,9 +187,9 @@
   "images/4_ordem/ls3_CI.png" 1755557553 97200 860080baadefaca957da36fa8d61833b ""
   "images/blocos_filtrado-removebg-preview.png" 1755461524 32187 bb22ae7fb362eef59aee8f426e22df68 ""
   "images/blocos_id-removebg-preview.png" 1755461550 11986 4f65ad3147c5342b5014e63c7b483bfc ""
-  "trabalho-02-cll.aux" 1755559903 7744 1dc28404f19aa90c863385655c20335d "pdflatex"
-  "trabalho-02-cll.tex" 1755559899 26653 3074558aa1e379b048fc76e43707636a ""
-  "trabalho-02-cll.toc" 1755559903 2073 304d3046b8fa2cff3ddc841aa998c1dc "pdflatex"
+  "trabalho-02-cll.aux" 1755731174 7744 f8127189e91107adf55b76f6b4ded76c "pdflatex"
+  "trabalho-02-cll.tex" 1755731171 28073 721ee59dafb7ab13f3ad48db51acac46 ""
+  "trabalho-02-cll.toc" 1755731174 2073 33805d43ec15bad852d5aa045b83741c "pdflatex"
   (generated)
   "trabalho-02-cll.aux"
   "trabalho-02-cll.log"
