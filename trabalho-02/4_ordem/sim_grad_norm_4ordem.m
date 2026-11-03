@@ -45,7 +45,7 @@ P = (b3*s^3+b2*s^2+b1*s+b0)/(s^4+a3*s^3+a2*s^2+a1*s+a0)
 P = ss(P);
 
 %--------------------------------------------- Initial condition -----
-yp0  = [0; 0; 0; 0]
+ yp0  = [0; 0; 0; 0]
 %yp0  = [3; 0; 0; 0]
 x0   = yp0;
 
@@ -53,9 +53,11 @@ x0   = yp0;
 DC = 1   %Constant
 Aq = 2   %Sine wave amplitude
 wq = 0.1*pi  %Frequency
-As = 0   %Square wave amplitude
+As = 0.5   %Square wave amplitude
 % As = 0.5
 ws = pi  %Frequency
+As2 = 0.25
+ws2 = 2*pi
 
 %------------------------------------------------- Matching gain -----
 theta_star1 = [b0; b1; b2; b3; a0 - lambda0; a1 - lambda1; a2 - lambda2; a3 - lambda3]   %theta* parametrização 1
@@ -71,6 +73,7 @@ P0 = 100*eye(8);
 
 %---------------------------------------------------- Simulation -----
 theta_star = theta_star1;
+%theta0 = 0.3*theta_star1;
 sim('gradiente_normalizado_4ordem',tfinal);
 
 yp1 = yp;   %Save results
@@ -79,6 +82,7 @@ theta1 = theta;
 u1 = u;
 %---------------------------------------------------- Simulation 2 ---
 theta_star = theta_star2;
+%theta0 = 0.99*theta_star2;
 sim('gradiente_normalizado_4ordem',tfinal);
 
 yp2 = yp;   %Save results
@@ -87,6 +91,7 @@ theta2 = theta;
 u2 = u;
 %---------------------------------------------------- Simulation 3 ---
 theta_star = theta_star3;
+%theta0 = 0.99*theta_star3;
 sim('gradiente_normalizado_4ordem_p3',tfinal);
 
 yp3 = yp;   %Save results
@@ -96,6 +101,7 @@ u3 = u;
 
 %---------------------------------------------------- Simulation 4---
 theta_star = theta_star1;
+%theta0 = 0.99*theta_star1;
 sim('least_square_4ordem',tfinal);
 
 yp4 = yp;   %Save results
@@ -131,8 +137,8 @@ legend('Interpreter','latex','Location','Best')
 % 3º gráfico: theta1 (4 curvas), com theta_star1 como linha pontilhada
 subplot(3,2,5)
 hold on
-colors = lines(4);
-for i = 1:4
+colors = lines(8);
+for i = 1:8
     plot(t, theta1(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -145,7 +151,7 @@ legend('Interpreter','latex','Location','Best')
 % 4º gráfico: theta2 (4 curvas), com theta_star2 como linha pontilhada
 subplot(3,2,2)
 hold on
-for i = 1:4
+for i = 1:8
     plot(t, theta2(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star2(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -158,7 +164,7 @@ legend('Interpreter','latex','Location','Best')
 % 5º gráfico: theta3 (4 curvas), com theta_star3 como linha pontilhada
 subplot(3,2,4)
 hold on
-for i = 1:4
+for i = 1:8
     plot(t, theta3(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star3(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -236,8 +242,8 @@ legend('Interpreter','latex','Location','Best')
 % 3º gráfico: theta4 (parâmetros estimados) com referência
 subplot(3,2,5)
 hold on
-colors = lines(4);
-for i = 1:4
+colors = lines(8);
+for i = 1:8
     plot(t, theta4(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -262,7 +268,7 @@ legend('Interpreter','latex','Location','Best')
 % === 5º gráfico: theta_dot ===
 subplot(3,2,4)
 hold on
-for i = 1:4
+for i = 1:8
     plot(t, dtheta4(:,i), 'LineWidth', 1.2, 'DisplayName', strcat('$\dot{\theta}_', num2str(i), '$'))
 end
 grid on

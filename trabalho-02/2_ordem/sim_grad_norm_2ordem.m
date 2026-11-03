@@ -64,6 +64,7 @@ kappa = 1;
 P0 = 1*eye(4);
 %-------------------------------------------------- GNSimulation -----
 theta_star = theta_star1;
+theta0 = 0.95*theta_star1;
 sim('gradiente_normalizado_2ordem',tfinal);
 
 yp1 = yp;   %Save results
@@ -72,6 +73,7 @@ theta1 = theta;
 u1 = u;
 %-------------------------------------------------- GNSimulation 2 ---
 theta_star = theta_star2;
+theta0 = 0.95*theta_star2;
 sim('gradiente_normalizado_2ordem',tfinal);
 
 yp2 = yp;   %Save results
@@ -80,6 +82,7 @@ theta2 = theta;
 u2 = u;
 %-------------------------------------------------- GNSimulation 3 ---
 theta_star = theta_star3;
+theta0 = 0.95*theta_star3;
 sim('gradiente_normalizado_2ordem_p3',tfinal);
 
 yp3 = yp;   %Save results
@@ -88,6 +91,7 @@ theta3 = theta;
 u3 = u;
 %-------------------------------------------------- LSSimulation -----
 theta_star = theta_star1;
+theta0 = 0.95*theta_star1;
 sim('least_square_2ordem',tfinal);
 
 yp4 = yp;   %Save results
