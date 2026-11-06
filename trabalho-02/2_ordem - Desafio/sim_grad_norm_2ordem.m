@@ -48,7 +48,7 @@ x0   = yp0;
 DC = 1   %Constant
 Aq = 2   %Sine wave amplitude
 wq = 0.1*pi  %Frequency
-As = 0   %Square wave amplitude
+As = 1   %Square wave amplitude
 % As = 0.5
 ws = pi  %Frequency
 
@@ -56,10 +56,10 @@ ws = pi  %Frequency
 theta_star1 = [b0; b1; a0; a1]                       %theta* parametrização 1
 theta_star2 = theta_star1                            %theta* parametrização 2
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 1*eye(4);        %Adaptation gains
-gamma2 = 1*eye(4);        %Adaptation gains
+gamma1 = 10*eye(4);        %Adaptation gains
+gamma2 = 10*eye(4);        %Adaptation gains
 theta0 = [0;0;0;0];       %Adaptation inicial condition
-kappa = 0;
+kappa = 1;
 P01 = 1*eye(4);
 P02 = 1*eye(4);
 %-------------------------------------------------- Simulation 1 -----
@@ -160,3 +160,4 @@ title('SVD de $A(t)$ e $\sum \sigma_i$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
 
+resultados_desafio_ls = comparar_erros_desafio_ls;

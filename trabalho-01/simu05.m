@@ -34,7 +34,7 @@ P = kp/(s-ap)
 P = ss(P);
 
 %----------------------------------------------- Reference model -----
-am = 10;
+am = 1;
 km = 1;
 
 M = km/(s+am)
@@ -48,7 +48,7 @@ ym0  = 0;
 xm0  = ym0;
 
 %----------------------------------- Reference signal parameters -----
-DC = 1   %Constant
+DC = 2   %Constant
 
 As = 0   %Sine wave amplitude
 ws = 5  %Frequency

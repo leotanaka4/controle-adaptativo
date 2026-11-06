@@ -57,8 +57,8 @@ ws = 5  %Frequency
 thetas = [-(ap+am)/kp; km/kp];   %theta*
 
 %----------------------------------------- Adaptation parameters -----
-gamma1 = 2*[1 0.35;-0.35 1];       %Adaptation gains
-gamma2 = 100*[1 0.35;-0.35 1];
+gamma1 = 2*[1 0.35;0.35 1];       %Adaptation gains
+gamma2 = 100*[1 0.35;0.35 1];
 theta0 = [0;0];       %Adaptation inicial condition
 
 %---------------------------------------------------- Simulation -----

@@ -32,10 +32,10 @@ lambda2 = 3;
 lambda1 = 2;
 lambda0 = 1;
 %--------------------------------------------------------- Plant -----
-a3 = 5;
-a2 = 3;
-a1 = 4;
-a0 = 1.5;
+a3 = 0.16;
+a2 = 6.10;
+a1 = 0.49;
+a0 = 7,88;
 b3 = 3.5;
 b2 = 3;
 b1 = 2;
@@ -213,7 +213,7 @@ title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
 % Salvar Figura 4 (após a subplot com o método GN)
-saveas(gcf, '../images/figura4_gn_1.png')
+%saveas(gcf, '../images/figura4_gn_1.png')
 %saveas(gcf, '../images/figura4_gn_2.png')
 %saveas(gcf, '../images/figura4_gn_3.png')
 %saveas(gcf, '../images/figura4_gn_4.png')

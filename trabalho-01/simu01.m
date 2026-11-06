@@ -48,7 +48,7 @@ ym0  = 0;
 xm0  = ym0;
 
 %----------------------------------- Reference signal parameters -----
-DC = 1   %Constant
+DC = 2   %Constant
 
 As = 0   %Sine wave amplitude
 ws = 5  %Frequency
@@ -136,7 +136,7 @@ par2 = ['$\theta_{2}\;(\gamma=', strrep(mat2str(gamma1), ' ', '\ '), ')$'];
 par3 = ['$\theta_{1}\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
 par4 = ['$\theta_{2}\;(\gamma=', strrep(mat2str(gamma2), ' ', '\ '), ')$'];
 
-legend({par1, par2, par3, par4, '$\theta_1^*$', '$\theta_2^*$'}, ...
+legend({par1, par2, '$\theta_1^*$', par3, par4, '$\theta_2^*$'}, ...
     'FontSize', 9, 'Interpreter', 'latex', 'Location', 'NorthEast')
 
 % Ajuste automático dos limites do eixo y

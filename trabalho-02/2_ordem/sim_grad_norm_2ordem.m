@@ -48,7 +48,7 @@ x0   = yp0;
 DC = 1   %Constant
 Aq = 2   %Sine wave amplitude
 wq = 0.1*pi  %Frequency
-As = 0   %Square wave amplitude
+As = 1   %Square wave amplitude
 ws = pi  %Frequency
 
 %------------------------------------------------- Matching gain -----
@@ -61,42 +61,46 @@ gamma = 1*eye(4);         %Adaptation gains
 theta0 = [0;0;0;0];       %Adaptation inicial condition
 kappa = 1;
 % kappa = 0;
-P0 = 1*eye(4);
+P0 = 10*eye(4);
 %-------------------------------------------------- GNSimulation -----
 theta_star = theta_star1;
-theta0 = 0.95*theta_star1;
+theta0 = 0*theta_star1;
 sim('gradiente_normalizado_2ordem',tfinal);
 
 yp1 = yp;   %Save results
 e01 = e0;
 theta1 = theta;
+theta_til1 = theta_til;
 u1 = u;
 %-------------------------------------------------- GNSimulation 2 ---
 theta_star = theta_star2;
-theta0 = 0.95*theta_star2;
+theta0 = 0*theta_star2;
 sim('gradiente_normalizado_2ordem',tfinal);
 
 yp2 = yp;   %Save results
 e02 = e0;
 theta2 = theta;
+theta_til2 = theta_til;
 u2 = u;
 %-------------------------------------------------- GNSimulation 3 ---
 theta_star = theta_star3;
-theta0 = 0.95*theta_star3;
+theta0 = 0*theta_star3;
 sim('gradiente_normalizado_2ordem_p3',tfinal);
 
 yp3 = yp;   %Save results
 e03 = e0;
 theta3 = theta;
+theta_til3 = theta_til;
 u3 = u;
 %-------------------------------------------------- LSSimulation -----
-theta_star = theta_star1;
-theta0 = 0.95*theta_star1;
-sim('least_square_2ordem',tfinal);
+theta_star = theta_star3;
+theta0 = 0.9*theta_star3;
+sim('least_square_2ordem_p3',tfinal);
 
 yp4 = yp;   %Save results
 e04 = e0;
 theta4 = theta;
+theta_til4 = theta_til;
 u4 = u;
 P4 = P1;
 dtheta4=dtheta;
@@ -201,7 +205,7 @@ title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
 % Salvar Figura 1 (após a subplot com o método GN)
-saveas(gcf, '../images/figura2_gn_1.png')
+%saveas(gcf, '../images/figura2_gn_1.png')
 %saveas(gcf, '../images/figura2_gn_2.png')
 %saveas(gcf, '../images/figura2_gn_3.png')
 %saveas(gcf, '../images/figura2_gn_4.png')
@@ -234,7 +238,7 @@ colors = lines(4);
 for i = 1:4
     plot(t, theta4(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
-    h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
+    h = plot(t, theta_star3(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
     h.Annotation.LegendInformation.IconDisplayStyle = 'off'; % Não mostrar na legenda
 end
 grid on
@@ -245,10 +249,10 @@ legend('Interpreter','latex','Location','Best')
 subplot(3,2,2)
 hold on
 norm_theta4 = vecnorm(theta4')';  % norma da linha de theta
-norm_theta_star1 = norm(theta_star1);
+norm_theta_star3 = norm(theta_star3);
 h1 = plot(t, norm_theta4, 'LineWidth', 1.2, 'DisplayName', '$\|\theta_1\|$');
 c1 = h1.Color;
-plot(t, norm_theta_star1 * ones(size(t)), '--', 'Color', c1, 'LineWidth', 1.2, 'HandleVisibility','off');
+plot(t, norm_theta_star3 * ones(size(t)), '--', 'Color', c1, 'LineWidth', 1.2, 'HandleVisibility','off');
 grid on
 title('$\|\theta\|$ vs $\|\theta^*\|$', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')

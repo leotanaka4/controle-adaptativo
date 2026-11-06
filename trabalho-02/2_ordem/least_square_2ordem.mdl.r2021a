@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "7.23"
+    ComputedModelVersion    "7.25"
     NumModelReferences	    0
     NumTestPointedSignals   6
     TestPointedSignal {
@@ -102,7 +102,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [8.0, 8.0, 1554.0, 882.0]
+      Location		      [484.0, 68.0, 1554.0, 921.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -129,10 +129,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "29"
-	  Extents		  [1844.0, 808.0]
-	  ZoomFactor		  [1.75]
-	  Offset		  [-193.23687669436589, 14.270814173036264]
-	  SceneRectInView	  [-193.23687669436589, 14.270814173036264, 842.97142857142853, 369.37142857142857]
+	  Extents		  [1468.0, 679.0]
+	  ZoomFactor		  [1.7326732673267327]
+	  Offset		  [-195.37401955150875, 14.270814173036257]
+	  SceneRectInView	  [-195.37401955150875, 14.270814173036257, 847.24571428571426, 391.88]
 	}
 	Object {
 	  $ObjectID		  6
@@ -140,10 +140,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1"
-	  Extents		  [1844.0, 808.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [-207.34800202346969, -63.816454100269425]
-	  SceneRectInView	  [-207.34800202346969, -63.816454100269425, 1180.16, 517.12]
+	  Extents		  [1468.0, 640.0]
+	  ZoomFactor		  [0.79999999999999993]
+	  Offset		  [-231.40133535680309, -85.966244496313209]
+	  SceneRectInView	  [-231.40133535680309, -85.966244496313209, 1835.0000000000002, 800.00000000000011]
 	}
 	Object {
 	  $ObjectID		  7
@@ -151,10 +151,10 @@ Model {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1844.0, 808.0]
+	  Extents		  [1468.0, 640.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-378.72265625, -238.5]
-	  SceneRectInView	  [-378.72265625, -238.5, 1475.2, 646.4]
+	  Offset		  [-344.72265625, -154.5]
+	  SceneRectInView	  [-344.72265625, -154.5, 1468.0, 640.0]
 	}
 	Object {
 	  $ObjectID		  8
@@ -181,8 +181,8 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
-	  Width			  [512]
-	  Height		  [384]
+	  Width			  [640]
+	  Height		  [480]
 	  Minimized		  "On"
 	}
 	Object {
@@ -194,18 +194,18 @@ Model {
 	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
 	  Floating		  [0]
 	  DockPosition		  "Left"
-	  Width			  [512]
-	  Height		  [384]
+	  Width			  [640]
+	  Height		  [480]
 	  Minimized		  "Unset"
 	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAADD/wCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAAB5AP////sAAABgAFMAaQBtAHUAb"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAlwAAAw8AAABjAP////sAAABgAFMAaQBtAHUAb"
       "ABpAG4AawA6AEUAZABpAHQAbwByADoAUgBlAGYAZQByAGUAbgBjAGUAZABGAGkAbABlAHMALwBSAGUAZgBlAHIAZQBuAGMAZQBkACAARgBpAGwAZ"
-      "QBzAAAAAAD/////AAAApwD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
-      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAhYA////AAAHYQAAA28AAAABAAAAAgAAAAEAAAAC/"
+      "QBzAAAAAAD/////AAAAjAD///8AAAABAAAAAAAAAw/8AgAAAAH7AAAAVABHAEwAVQBFADIAOgBQAHIAbwBwAGUAcgB0AHkASQBuAHMAcABlAGMAd"
+      "ABvAHIALwBQAHIAbwBwAGUAcgB0AHkAIABJAG4AcwBwAGUAYwB0AG8AcgAAAAAA/////wAAAawA////AAAF4gAAAuQAAAABAAAAAgAAAAEAAAAC/"
       "AAAAAQAAAAAAAAAAQAAADYAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAEwAZQBmAHQCAAAAAP////8AAAAAA"
       "AAAAAAAAAEAAAABAAAAOABjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAUgBpAGcAaAB0AwAAAAD/////AAAAA"
       "AAAAAAAAAACAAAAAAAAAAMAAAABAAAAOgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAQgBvAHQAdABvAG0AA"
@@ -225,11 +225,11 @@ Model {
   Created		  "Mon Oct 05 10:07:27 2009"
   Creator		  "Ramon"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Lucas"
+  LastModifiedBy	  "linco"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 28 21:25:15 2025"
-  RTWModifiedTimeStamp	  670368312
-  ModelVersionFormat	  "%<AutoIncrement:7.23>"
+  LastModifiedDate	  "Sun Aug 17 15:20:37 2025"
+  RTWModifiedTimeStamp	  677343873
+  ModelVersionFormat	  "%<AutoIncrement:7.25>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1711,7 +1711,7 @@ Model {
   }
   System {
     Name		    "least_square_2ordem"
-    Location		    [8, 8, 1562, 890]
+    Location		    [57, 78, 1611, 960]
     SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
     Open		    off
     PortBlocksUseCompactNotation off
@@ -1729,7 +1729,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "116"
+    SIDHighWatermark	    "118"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1745,7 +1745,7 @@ Model {
       }
       System {
 	Name			"Adaptation"
-	Location		[8, 8, 1562, 890]
+	Location		[57, 78, 1611, 960]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			on
 	PortBlocksUseCompactNotation off
@@ -1761,7 +1761,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"125"
+	ZoomFactor		"80"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -1925,6 +1925,19 @@ Model {
 	}
 	Block {
 	  BlockType		  ToWorkspace
+	  Name			  "To Workspace 1"
+	  SID			  "117"
+	  Ports			  [1]
+	  Position		  [770, 297, 810, 323]
+	  ZOrder		  329
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  VariableName		  "P1"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "st"
+	}
+	Block {
+	  BlockType		  ToWorkspace
 	  Name			  "To Workspace 2"
 	  SID			  "7"
 	  Ports			  [1]
@@ -1946,6 +1959,19 @@ Model {
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  VariableName		  "e0"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "st"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace 4"
+	  SID			  "118"
+	  Ports			  [1]
+	  Position		  [680, 67, 720, 93]
+	  ZOrder		  330
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  VariableName		  "dtheta"
 	  MaxDataPoints		  "inf"
 	  SampleTime		  "st"
 	}
@@ -2012,8 +2038,18 @@ Model {
 	  ZOrder		  59
 	  SrcBlock		  "Divide"
 	  SrcPort		  1
-	  DstBlock		  "Integrator"
-	  DstPort		  1
+	  Points		  [11, 0]
+	  Branch {
+	    ZOrder		    181
+	    Points		    [0, -60]
+	    DstBlock		    "To Workspace 4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    180
+	    DstBlock		    "Integrator"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  ZOrder		  39
@@ -2124,8 +2160,17 @@ Model {
 	  ZOrder		  75
 	  SrcBlock		  "Integrator1"
 	  SrcPort		  1
-	  DstBlock		  "Pout"
-	  DstPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    ZOrder		    162
+	    DstBlock		    "To Workspace 1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    161
+	    DstBlock		    "Pout"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  ZOrder		  80
@@ -2451,7 +2496,7 @@ Model {
       }
       System {
 	Name			"Reference signal"
-	Location		[8, 8, 1562, 890]
+	Location		[484, 68, 2038, 989]
 	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			on
 	PortBlocksUseCompactNotation off
@@ -2467,7 +2512,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"175"
+	ZoomFactor		"173"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Clock

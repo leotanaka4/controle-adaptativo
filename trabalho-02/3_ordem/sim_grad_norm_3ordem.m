@@ -21,7 +21,7 @@ disp(' ')
 disp('-------------------------------')
 
 %------------------------------------------------ Initialization -----
-tfinal = 500;    %Simulation interval
+tfinal = 5000;    %Simulation interval
 st = 0.01;      %Sample time to workspace
 
 s = tf('s');    %trick!
@@ -30,9 +30,9 @@ lambda2 = 3;
 lambda1 = 2;
 lambda0 = 1;
 %--------------------------------------------------------- Plant -----
-a2 = 2;
-a1 = 2.5;
-a0 = 1.5;
+a2 = 0.89;
+a1 = 2.90;
+a0 = 0.37;
 b2 = 3;
 b1 = 2;
 b0 = 0.8;
@@ -49,7 +49,7 @@ x0   = yp0;
 DC = 1   %Constant
 Aq = 2   %Sine wave amplitude
 wq = 0.1*pi  %Frequency
-As = 0   %Square wave amplitude
+As = 1   %Square wave amplitude
 % As = 0.5
 ws = pi  %Frequency
 
@@ -58,12 +58,12 @@ theta_star1 = [b0; b1; b2; a0 - lambda0; a1 - lambda1; a2 - lambda2]   %theta* p
 theta_star2 = [b0; b1; b2; a0; a1;a2]                                  %theta* parametrização 2
 theta_star3 = [1/b0; b1/b0; b2/b0; a0/b0; a1/b0; a2/b0]                %theta* parametrização 3
 %----------------------------------------- Adaptation parameters -----
-gamma = 1*eye(6);         %Adaptation gains
+gamma = 100*eye(6);         %Adaptation gains
 % gamma = 100*eye(6); 
 theta0 = [0;0;0;0;0;0];       %Adaptation inicial condition
 kappa = 1;
 % kappa = 0;
-P0 = 1*eye(6);
+P0 = 100*eye(6);
 %---------------------------------------------------- Simulation -----
 theta_star = theta_star1;
 sim('gradiente_normalizado_3ordem',tfinal);
@@ -125,8 +125,8 @@ legend('Interpreter','latex','Location','Best')
 % 3º gráfico: theta1 (4 curvas), com theta_star1 como linha pontilhada
 subplot(3,2,5)
 hold on
-colors = lines(4);
-for i = 1:4
+colors = lines(6);
+for i = 1:6
     plot(t, theta1(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -139,7 +139,7 @@ legend('Interpreter','latex','Location','Best')
 % 4º gráfico: theta2 (4 curvas), com theta_star2 como linha pontilhada
 subplot(3,2,2)
 hold on
-for i = 1:4
+for i = 1:6
     plot(t, theta2(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star2(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -152,7 +152,7 @@ legend('Interpreter','latex','Location','Best')
 % 5º gráfico: theta3 (4 curvas), com theta_star3 como linha pontilhada
 subplot(3,2,4)
 hold on
-for i = 1:4
+for i = 1:6
     plot(t, theta3(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star3(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -201,7 +201,7 @@ title('Parametrizações 1, 2 e 3', 'Interpreter','latex')
 legend('Interpreter','latex','Location','Best')
 
 % Salvar Figura 3 (após a subplot com o método GN)
-saveas(gcf, '../images/figura3_gn_1.png')
+%saveas(gcf, '../images/figura3_gn_1.png')
 %saveas(gcf, '../images/figura3_gn_2.png')
 %saveas(gcf, '../images/figura3_gn_3.png')
 %saveas(gcf, '../images/figura3_gn_4.png')
@@ -230,8 +230,8 @@ legend('Interpreter','latex','Location','Best')
 % 3º gráfico: theta4 (parâmetros estimados) com referência
 subplot(3,2,5)
 hold on
-colors = lines(4);
-for i = 1:4
+colors = lines(6);
+for i = 1:6
     plot(t, theta4(:,i), 'Color', colors(i,:), 'LineWidth', 1.2, ...
         'DisplayName', strcat('$\theta_', num2str(i), '$'))
     h = plot(t, theta_star1(i)*ones(size(t)), '--', 'Color', colors(i,:), 'LineWidth', 1.2);
@@ -256,7 +256,7 @@ legend('Interpreter','latex','Location','Best')
 % === 5º gráfico: theta_dot ===
 subplot(3,2,4)
 hold on
-for i = 1:4
+for i = 1:6
     plot(t, dtheta4(:,i), 'LineWidth', 1.2, 'DisplayName', strcat('$\dot{\theta}_', num2str(i), '$'))
 end
 grid on

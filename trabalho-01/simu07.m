@@ -27,15 +27,15 @@ st = 0.01;      %Sample time to workspace
 s = tf('s');    %trick!
 
 %--------------------------------------------------------- Plant -----
-ap = 10;
-kp = 1;
+ap = 2;
+kp = 0.5;
 
 P = kp/(s-ap)
 P = ss(P);
 
 %----------------------------------------------- Reference model -----
 am = 1;
-km = 10;
+km = 1;
 
 M = km/(s+am)
 M = ss(M);
@@ -48,7 +48,7 @@ ym0  = 0;
 xm0  = ym0;
 
 %----------------------------------- Reference signal parameters -----
-DC = 1   %Constant
+DC = 2   %Constant
 
 As = 0   %Sine wave amplitude
 ws = 5  %Frequency
